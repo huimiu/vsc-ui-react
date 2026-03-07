@@ -32,6 +32,7 @@ export const VscButton = forwardRef<HTMLButtonElement, VscButtonProps>(
     const fluentSize = isCompact ? undefined : size;
 
     const mergedClassName = clsx(
+      buttonStyles.vscButtonBase,
       appearanceClassMap[appearance ?? 'secondary'],
       size && sizeClassMap[size],
       icon && !children && buttonStyles.vscodeIconOnly,
