@@ -1,2 +1,2 @@
-export { VscButton } from './component/VscButton';
-export type { VscButtonProps } from './component/VscButton';
+export { VscButton } from './components/Button';
+export type { VscButtonProps } from './components/Button';

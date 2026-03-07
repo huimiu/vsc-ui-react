@@ -1,19 +1,19 @@
 {
   "name": "vsc-ui-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "VS Code styled Fluent UI components for React.",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "style": "./dist/vsc-ui-react.css",
+  "style": "./dist/index.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./style.css": "./dist/vsc-ui-react.css"
+    "./style.css": "./dist/index.css"
   },
   "files": [
     "dist",
@@ -52,6 +52,7 @@
     "sass": "^1.85.1",
     "typescript": "^5.7.3",
     "vite": "^6.2.0",
+    "vite-plugin-lib-inject-css": "^2.2.2",
     "vitest": "^3.0.5"
   },
   "keywords": [
@@ -61,5 +62,8 @@
     "component-library",
     "button"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "clsx": "^2.1.1"
+  }
 }
