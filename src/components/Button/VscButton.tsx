@@ -1,6 +1,7 @@
-import React, { forwardRef } from 'react';
+import { forwardRef } from 'react';
 import { Button, type ButtonProps } from '@fluentui/react-components';
 import clsx from 'clsx';
+
 import buttonStyles from './button.module.scss';
 
 const appearanceClassMap: Partial<
@@ -32,7 +33,7 @@ export const VscButton = forwardRef<HTMLButtonElement, VscButtonProps>(
     const fluentSize = isCompact ? undefined : size;
 
     const mergedClassName = clsx(
-      buttonStyles.vscButtonBase,
+      buttonStyles.vscBase,
       appearanceClassMap[appearance ?? 'secondary'],
       size && sizeClassMap[size],
       icon && !children && buttonStyles.vscodeIconOnly,

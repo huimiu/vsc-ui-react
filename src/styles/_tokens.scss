@@ -1,0 +1,18 @@
+@mixin vsc-tokens {
+  --fluent-fontFamilyBase:
+    "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
+  --fluent-fontWeightRegular: 400;
+
+  /* Body 1 – Default button size */
+  --fluent-fontSizeBase300: 14px;
+  --fluent-lineHeightBase300: 20px;
+
+  /* Caption 1 – Small button size */
+  --fluent-fontSizeBase200: 12px;
+  --fluent-lineHeightBase200: 16px;
+
+  /* Caption 2 – Compact button size */
+  --fluent-fontSizeBase100: 10px;
+  --fluent-lineHeightBase100: 14px;
+}

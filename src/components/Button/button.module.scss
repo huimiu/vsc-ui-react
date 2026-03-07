@@ -1,45 +1,32 @@
-.vscButtonBase {
-  --fluent-fontFamilyBase:
-    "SF Pro Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    sans-serif;
-  --fluent-fontWeightRegular: 400;
+@use '../../styles/tokens';
 
-  /* Body 1 – Default button size */
-  --fluent-fontSizeBase300: 14px;
-  --fluent-lineHeightBase300: 20px;
-
-  /* Caption 1 – Small button size */
-  --fluent-fontSizeBase200: 12px;
-  --fluent-lineHeightBase200: 16px;
-
-  /* Caption 2 – Compact button size */
-  --fluent-fontSizeBase100: 10px;
-  --fluent-lineHeightBase100: 14px;
+.vscBase {
+  @include tokens.vsc-tokens;
 }
 
 /* =============================================================================
    BUTTON – PRIMARY
    ============================================================================= */
 
-.vscodePrimary {
+.vscBase.vscodePrimary {
   height: 28px;
   min-height: 28px;
-  min-width: auto !important;
+  min-width: auto;
   padding: 4px 8px;
   border-radius: 4px;
-  gap: 4px !important;
+  gap: 4px;
   font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular) !important;
+  font-weight: var(--fluent-fontWeightRegular);
   line-height: var(--fluent-lineHeightBase300);
-  border: 1px solid var(--vscode-button-border) !important;
-  background-color: var(--vscode-button-background) !important;
-  color: var(--vscode-button-foreground) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--vscode-button-border);
+  background-color: var(--vscode-button-background);
+  color: var(--vscode-button-foreground);
+  box-shadow: none;
 
   &:hover {
-    background-color: var(--vscode-button-hoverBackground) !important;
-    color: var(--vscode-button-foreground) !important;
-    border-color: var(--vscode-button-border) !important;
+    background-color: var(--vscode-button-hoverBackground);
+    color: var(--vscode-button-foreground);
+    border-color: var(--vscode-button-border);
   }
 
   &[aria-pressed="true"],
@@ -60,7 +47,7 @@
     height: 22px;
     min-height: 22px;
     padding: 3px 6px;
-    gap: 3px !important;
+    gap: 3px;
     font-size: var(--fluent-fontSizeBase200);
     line-height: var(--fluent-lineHeightBase200);
   }
@@ -70,7 +57,7 @@
     height: 15px;
     min-height: 15px;
     padding: 0 4px;
-    gap: 2px !important;
+    gap: 2px;
     font-size: var(--fluent-fontSizeBase100);
     line-height: var(--fluent-lineHeightBase100);
   }
@@ -80,25 +67,25 @@
    BUTTON – SECONDARY
    ============================================================================= */
 
-.vscodeSecondary {
+.vscBase.vscodeSecondary {
   height: 28px;
   min-height: 28px;
-  min-width: auto !important;
+  min-width: auto;
   padding: 4px 8px;
   border-radius: 4px;
-  gap: 4px !important;
+  gap: 4px;
   font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular) !important;
+  font-weight: var(--fluent-fontWeightRegular);
   line-height: var(--fluent-lineHeightBase300);
-  border: 1px solid var(--vscode-button-border) !important;
-  background-color: var(--vscode-button-secondaryBackground) !important;
-  color: var(--vscode-button-secondaryForeground) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--vscode-button-border);
+  background-color: var(--vscode-button-secondaryBackground);
+  color: var(--vscode-button-secondaryForeground);
+  box-shadow: none;
 
   &:hover {
-    background-color: var(--vscode-button-secondaryHoverBackground) !important;
-    color: var(--vscode-button-secondaryForeground) !important;
-    border-color: var(--vscode-button-border) !important;
+    background-color: var(--vscode-button-secondaryHoverBackground);
+    color: var(--vscode-button-secondaryForeground);
+    border-color: var(--vscode-button-border);
   }
 
   &[aria-pressed="true"],
@@ -118,7 +105,7 @@
     height: 22px;
     min-height: 22px;
     padding: 3px 6px;
-    gap: 3px !important;
+    gap: 3px;
     font-size: var(--fluent-fontSizeBase200);
     line-height: var(--fluent-lineHeightBase200);
   }
@@ -127,7 +114,7 @@
     height: 15px;
     min-height: 15px;
     padding: 0 4px;
-    gap: 2px !important;
+    gap: 2px;
     font-size: var(--fluent-fontSizeBase100);
     line-height: var(--fluent-lineHeightBase100);
   }
@@ -137,25 +124,25 @@
    BUTTON – OUTLINE
    ============================================================================= */
 
-.vscodeOutline {
+.vscBase.vscodeOutline {
   height: 28px;
   min-height: 28px;
-  min-width: auto !important;
+  min-width: auto;
   padding: 4px 8px;
   border-radius: 4px;
-  gap: 4px !important;
+  gap: 4px;
   font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular) !important;
+  font-weight: var(--fluent-fontWeightRegular);
   line-height: var(--fluent-lineHeightBase300);
-  border: 1px solid var(--vscode-button-border) !important;
-  background-color: transparent !important;
-  color: var(--vscode-button-secondaryForeground) !important;
-  box-shadow: none !important;
+  border: 1px solid var(--vscode-button-border);
+  background-color: transparent;
+  color: var(--vscode-button-secondaryForeground);
+  box-shadow: none;
 
   &:hover {
-    background-color: var(--vscode-button-secondaryHoverBackground) !important;
-    color: var(--vscode-button-secondaryForeground) !important;
-    border-color: var(--vscode-button-border) !important;
+    background-color: var(--vscode-button-secondaryHoverBackground);
+    color: var(--vscode-button-secondaryForeground);
+    border-color: var(--vscode-button-border);
   }
 
   &[aria-pressed="true"],
@@ -175,7 +162,7 @@
     height: 22px;
     min-height: 22px;
     padding: 3px 6px;
-    gap: 3px !important;
+    gap: 3px;
     font-size: var(--fluent-fontSizeBase200);
     line-height: var(--fluent-lineHeightBase200);
   }
@@ -184,7 +171,7 @@
     height: 15px;
     min-height: 15px;
     padding: 0 4px;
-    gap: 2px !important;
+    gap: 2px;
     font-size: var(--fluent-fontSizeBase100);
     line-height: var(--fluent-lineHeightBase100);
   }
@@ -195,31 +182,31 @@
    Absorbs the legacy .subtleButton hover-color fix.
    ============================================================================= */
 
-.vscodeSubtle {
+.vscBase.vscodeSubtle {
   height: 28px;
   min-height: 28px;
-  min-width: auto !important;
+  min-width: auto;
   padding: 4px 8px;
   border-radius: 4px;
-  gap: 4px !important;
+  gap: 4px;
   font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular) !important;
+  font-weight: var(--fluent-fontWeightRegular);
   line-height: var(--fluent-lineHeightBase300);
-  border: 1px solid transparent !important;
-  background-color: transparent !important;
-  color: var(--vscode-foreground) !important;
-  box-shadow: none !important;
+  border: 1px solid transparent;
+  background-color: transparent;
+  color: var(--vscode-foreground);
+  box-shadow: none;
 
   /* Lock text/icon color on hover to prevent Fluent's default brightening */
   &:hover {
-    background-color: var(--vscode-button-secondaryHoverBackground) !important;
-    color: var(--vscode-foreground) !important;
-    border-color: var(--vscode-button-border) !important;
+    background-color: var(--vscode-button-secondaryHoverBackground);
+    color: var(--vscode-foreground);
+    border-color: var(--vscode-button-border);
   }
 
   &:hover span,
   &:hover svg {
-    color: var(--vscode-foreground) !important;
+    color: var(--vscode-foreground);
   }
 
   &[aria-pressed="true"],
@@ -239,7 +226,7 @@
     height: 22px;
     min-height: 22px;
     padding: 3px 6px;
-    gap: 3px !important;
+    gap: 3px;
     font-size: var(--fluent-fontSizeBase200);
     line-height: var(--fluent-lineHeightBase200);
   }
@@ -248,7 +235,7 @@
     height: 15px;
     min-height: 15px;
     padding: 0 4px;
-    gap: 2px !important;
+    gap: 2px;
     font-size: var(--fluent-fontSizeBase100);
     line-height: var(--fluent-lineHeightBase100);
   }
@@ -258,24 +245,24 @@
    BUTTON – TRANSPARENT
    ============================================================================= */
 
-.vscodeTransparent {
+.vscBase.vscodeTransparent {
   height: 28px;
   min-height: 28px;
-  min-width: auto !important;
+  min-width: auto;
   padding: 4px 8px;
   border-radius: 4px;
-  gap: 4px !important;
+  gap: 4px;
   font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular) !important;
+  font-weight: var(--fluent-fontWeightRegular);
   line-height: var(--fluent-lineHeightBase300);
-  border: none !important;
-  background-color: transparent !important;
-  color: var(--vscode-foreground) !important;
-  box-shadow: none !important;
+  border: none;
+  background-color: transparent;
+  color: var(--vscode-foreground);
+  box-shadow: none;
 
   &:hover {
-    background-color: transparent !important;
-    color: var(--vscode-textLink-foreground) !important;
+    background-color: transparent;
+    color: var(--vscode-textLink-foreground);
   }
 
   &[aria-pressed="true"],
@@ -295,7 +282,7 @@
     height: 22px;
     min-height: 22px;
     padding: 3px 6px;
-    gap: 3px !important;
+    gap: 3px;
     font-size: var(--fluent-fontSizeBase200);
     line-height: var(--fluent-lineHeightBase200);
   }
@@ -304,7 +291,7 @@
     height: 15px;
     min-height: 15px;
     padding: 0 4px;
-    gap: 2px !important;
+    gap: 2px;
     font-size: var(--fluent-fontSizeBase100);
     line-height: var(--fluent-lineHeightBase100);
   }
@@ -315,49 +302,49 @@
    ============================================================================= */
 
 /* Default size icons (16px) */
-.vscodePrimary,
-.vscodeSecondary,
-.vscodeOutline,
-.vscodeSubtle,
-.vscodeTransparent {
+.vscBase.vscodePrimary,
+.vscBase.vscodeSecondary,
+.vscBase.vscodeOutline,
+.vscBase.vscodeSubtle,
+.vscBase.vscodeTransparent {
   :global(.fui-Button__icon) {
     font-size: 16px;
     width: 16px;
     height: 16px;
-    margin: 0 !important;
+    margin: 0;
   }
 }
 
 /* Small size icons (14px) */
-.vscodeSmall :global(.fui-Button__icon) {
+.vscBase.vscodeSmall :global(.fui-Button__icon) {
   font-size: 14px;
   width: 14px;
   height: 14px;
-  margin: 0 !important;
+  margin: 0;
 }
 
 /* Compact size icons (12px) */
-.vscodeCompact :global(.fui-Button__icon) {
+.vscBase.vscodeCompact :global(.fui-Button__icon) {
   font-size: 12px;
   width: 12px;
   height: 12px;
-  margin: 0 !important;
+  margin: 0;
 }
 
 /* Codicon icon sizing – codicons bake in 16px via their own font CSS */
-.vscodeSmall :global(.fui-Button__icon .codicon) {
-  font-size: 14px !important;
+.vscBase.vscodeSmall :global(.fui-Button__icon .codicon) {
+  font-size: 14px;
 }
 
-.vscodeCompact :global(.fui-Button__icon .codicon) {
-  font-size: 12px !important;
+.vscBase.vscodeCompact :global(.fui-Button__icon .codicon) {
+  font-size: 12px;
 }
 
 /* =============================================================================
    ICON-ONLY BUTTONS
    ============================================================================= */
 
-.vscodeIconOnly {
+.vscBase.vscodeIconOnly {
   /* Default (28×28px) */
   width: 28px;
   height: 28px;
@@ -852,5 +839,5 @@
    ============================================================================= */
 
 .subtleButton {
-  composes: vscodeSubtle;
+  composes: vscBase vscodeSubtle;
 }
