@@ -29,14 +29,14 @@
     border-color: var(--vscode-button-border);
   }
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -88,14 +88,14 @@
     border-color: var(--vscode-button-border);
   }
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -145,14 +145,14 @@
     border-color: var(--vscode-button-border);
   }
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -209,14 +209,14 @@
     color: var(--vscode-foreground);
   }
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -265,14 +265,14 @@
     color: var(--vscode-textLink-foreground);
   }
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;
@@ -380,9 +380,8 @@
 
 /* Focus z-index fix for adjacent buttons */
 :global(.fui-SplitButton) {
-
   :global(.fui-SplitButton__primaryActionButton):focus-visible,
-  :global(.fui-SplitButton__primaryActionButton)[aria-pressed="true"] {
+  :global(.fui-SplitButton__primaryActionButton)[aria-pressed='true'] {
     z-index: 1;
   }
 }
@@ -390,7 +389,6 @@
 /* ---------- Split – shared state helpers (used via @extend-like nesting) ---------- */
 
 @mixin splitBase {
-
   :global(.fui-SplitButton__primaryActionButton),
   :global(.fui-SplitButton__menuButton) {
     height: 28px;
@@ -413,8 +411,8 @@
 
   :global(.fui-SplitButton__primaryActionButton):focus-visible,
   :global(.fui-SplitButton__menuButton):focus-visible,
-  :global(.fui-SplitButton__primaryActionButton)[aria-pressed="true"],
-  :global(.fui-SplitButton__menuButton)[aria-pressed="true"] {
+  :global(.fui-SplitButton__primaryActionButton)[aria-pressed='true'],
+  :global(.fui-SplitButton__menuButton)[aria-pressed='true'] {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
@@ -574,8 +572,8 @@
 
   :global(.fui-SplitButton__primaryActionButton):focus-visible,
   :global(.fui-SplitButton__menuButton):focus-visible,
-  :global(.fui-SplitButton__primaryActionButton)[aria-pressed="true"],
-  :global(.fui-SplitButton__menuButton)[aria-pressed="true"] {
+  :global(.fui-SplitButton__primaryActionButton)[aria-pressed='true'],
+  :global(.fui-SplitButton__menuButton)[aria-pressed='true'] {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
@@ -591,7 +589,6 @@
 /* ---------- Split – Size variants ---------- */
 
 .vscodeSmallSplit {
-
   :global(.fui-SplitButton__primaryActionButton),
   :global(.fui-SplitButton__menuButton) {
     height: 22px;
@@ -611,7 +608,6 @@
 }
 
 .vscodeCompactSplit {
-
   :global(.fui-SplitButton__primaryActionButton),
   :global(.fui-SplitButton__menuButton) {
     height: 15px;
@@ -633,19 +629,25 @@
 /* ---------- Split – Icon sizing ---------- */
 
 /* Leading icon in primary action: 16 / 14 / 12 */
-:global(.fui-SplitButton) :global(.fui-SplitButton__primaryActionButton) :global(.fui-Button__icon) {
+:global(.fui-SplitButton)
+  :global(.fui-SplitButton__primaryActionButton)
+  :global(.fui-Button__icon) {
   font-size: 16px;
   width: 16px;
   height: 16px;
 }
 
-.vscodeSmallSplit :global(.fui-SplitButton__primaryActionButton) :global(.fui-Button__icon) {
+.vscodeSmallSplit
+  :global(.fui-SplitButton__primaryActionButton)
+  :global(.fui-Button__icon) {
   font-size: 14px;
   width: 14px;
   height: 14px;
 }
 
-.vscodeCompactSplit :global(.fui-SplitButton__primaryActionButton) :global(.fui-Button__icon) {
+.vscodeCompactSplit
+  :global(.fui-SplitButton__primaryActionButton)
+  :global(.fui-Button__icon) {
   font-size: 12px;
   width: 12px;
   height: 12px;
@@ -684,14 +686,14 @@
   gap: 4px !important;
   box-shadow: none;
 
-  &[aria-pressed="true"],
+  &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
     outline-offset: 2px;
   }
 
   &:disabled,
-  &[aria-disabled="true"] {
+  &[aria-disabled='true'] {
     opacity: 0.4;
     cursor: not-allowed;
     pointer-events: none;

@@ -17,9 +17,9 @@ describe('VscButton', () => {
   it('applies mapped override classes for appearance and compact icon-only states', () => {
     const { container } = render(
       <VscButton
-        appearance='outline'
-        size='compact'
-        icon={<span aria-hidden='true'>*</span>}
+        appearance="outline"
+        size="compact"
+        icon={<span aria-hidden="true">*</span>}
       />,
     );
 
@@ -45,7 +45,7 @@ describe('VscButton', () => {
 
   it('applies primary appearance class', () => {
     const { container } = render(
-      <VscButton appearance='primary'>Primary</VscButton>,
+      <VscButton appearance="primary">Primary</VscButton>,
     );
 
     const button = container.querySelector('button')!;
@@ -61,7 +61,7 @@ describe('VscButton', () => {
 
   it('merges custom className with override classes', () => {
     const { container } = render(
-      <VscButton appearance='primary' className='custom-class'>
+      <VscButton appearance="primary" className="custom-class">
         Merge
       </VscButton>,
     );
@@ -72,14 +72,14 @@ describe('VscButton', () => {
   });
 
   it('applies small size class', () => {
-    const { container } = render(<VscButton size='small'>Small</VscButton>);
+    const { container } = render(<VscButton size="small">Small</VscButton>);
 
     const button = container.querySelector('button')!;
     expect(button.className).toContain(buttonStyles.vscodeSmall);
   });
 
   it('applies large size class', () => {
-    const { container } = render(<VscButton size='large'>Large</VscButton>);
+    const { container } = render(<VscButton size="large">Large</VscButton>);
 
     const button = container.querySelector('button')!;
     expect(button.className).toContain(buttonStyles.vscodeLarge);

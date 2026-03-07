@@ -1,6 +1,6 @@
-import { forwardRef } from 'react';
 import { Button, type ButtonProps } from '@fluentui/react-components';
 import clsx from 'clsx';
+import { forwardRef } from 'react';
 
 import buttonStyles from './button.module.scss';
 

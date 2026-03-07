@@ -17,7 +17,7 @@ import { VscButton } from 'vsc-ui-react';
 
 export function Example() {
   return (
-    <VscButton appearance='primary' compact>
+    <VscButton appearance="primary" compact>
       Save
     </VscButton>
   );
