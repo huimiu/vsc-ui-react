@@ -1,5 +1,5 @@
 {
-  "name": "@huimiu/vsc-ui-react",
+  "name": "vsc-ui-react",
   "version": "0.0.1",
   "description": "VS Code styled Fluent UI components for React.",
   "type": "module",
@@ -24,8 +24,7 @@
     "**/*.css"
   ],
   "publishConfig": {
-    "access": "public",
-    "registry": "https://npm.pkg.github.com"
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf dist",
