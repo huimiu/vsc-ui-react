@@ -2,7 +2,7 @@ import React, { createRef } from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { VscButton } from '../src';
-import buttonStyles from '../src/styles/button.module.scss';
+import buttonStyles from '../src/components/Button/button.module.scss';
 
 describe('VscButton', () => {
   it('renders and forwards click events', () => {
@@ -18,7 +18,7 @@ describe('VscButton', () => {
     const { container } = render(
       <VscButton
         appearance='outline'
-        compact
+        size='compact'
         icon={<span aria-hidden='true'>*</span>}
       />,
     );
