@@ -88,6 +88,10 @@
     border-color: var(--vscode-button-border);
   }
 
+  &:hover :global(.fui-Button__icon) {
+    color: var(--vscode-button-secondaryForeground);
+  }
+
   &[aria-pressed='true'],
   &:focus-visible {
     outline: 1px solid var(--vscode-focusBorder);
@@ -205,7 +209,8 @@
   }
 
   &:hover span,
-  &:hover svg {
+  &:hover svg,
+  &:hover :global(.fui-Button__icon) {
     color: var(--vscode-foreground);
   }
 
