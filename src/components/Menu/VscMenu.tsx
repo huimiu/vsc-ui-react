@@ -73,9 +73,9 @@ export const VscMenuItem = forwardRef<HTMLDivElement, VscMenuItemProps>(
       disabled={disabled}
       className={clsx(
         styles.vscMenuItem,
-        accent && styles.vscMenuItemAccent,
-        indented && styles.vscMenuItemIndented,
-        disabled && styles.vscMenuItemDisabled,
+        accent && styles.vscAccent,
+        indented && styles.vscIndented,
+        disabled && styles.vscDisabled,
         className,
       )}
       {...rest}
@@ -99,7 +99,7 @@ export const VscMenuItemCheckbox = forwardRef<
     disabled={disabled}
     className={clsx(
       styles.vscMenuItemCheckbox,
-      disabled && styles.vscMenuItemDisabled,
+      disabled && styles.vscDisabled,
       className,
     )}
     {...rest}
@@ -122,7 +122,7 @@ export const VscMenuItemRadio = forwardRef<
     disabled={disabled}
     className={clsx(
       styles.vscMenuItemRadio,
-      disabled && styles.vscMenuItemDisabled,
+      disabled && styles.vscDisabled,
       className,
     )}
     {...rest}

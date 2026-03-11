@@ -69,7 +69,7 @@ export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
 
     if (validationState && validationMessage) {
       return (
-        <div>
+        <div className={styles.vscInputWrapper}>
           {input}
           <div className={validationMsgClassMap[validationState]}>
             {validationMessage}

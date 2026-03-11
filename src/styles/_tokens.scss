@@ -16,4 +16,17 @@
     'Helvetica Neue',
     sans-serif
   );
+
+  // Fluent token fallbacks — active when a component renders outside a
+  // FluentProvider (e.g. lazy-loaded boundaries, Storybook, unit tests).
+  // Uses inherited value when FluentProvider is present, falls back to the
+  // Fluent v9 defaults otherwise.
+  --fontSizeBase100: var(--fontSizeBase100, 10px);
+  --fontSizeBase200: var(--fontSizeBase200, 12px);
+  --fontSizeBase300: var(--fontSizeBase300, 14px);
+  --lineHeightBase100: var(--lineHeightBase100, 14px);
+  --lineHeightBase200: var(--lineHeightBase200, 16px);
+  --lineHeightBase300: var(--lineHeightBase300, 20px);
+  --fontWeightRegular: var(--fontWeightRegular, 400);
+  --fontWeightSemibold: var(--fontWeightSemibold, 600);
 }

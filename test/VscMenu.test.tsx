@@ -94,9 +94,7 @@ describe('VscMenuItem', () => {
       </Menu>,
       { wrapper },
     );
-    expect(
-      baseElement.querySelector(`.${styles.vscMenuItemAccent}`),
-    ).toBeTruthy();
+    expect(baseElement.querySelector(`.${styles.vscAccent}`)).toBeTruthy();
   });
 
   it('applies indented class', () => {
@@ -113,9 +111,7 @@ describe('VscMenuItem', () => {
       </Menu>,
       { wrapper },
     );
-    expect(
-      baseElement.querySelector(`.${styles.vscMenuItemIndented}`),
-    ).toBeTruthy();
+    expect(baseElement.querySelector(`.${styles.vscIndented}`)).toBeTruthy();
   });
 });
 

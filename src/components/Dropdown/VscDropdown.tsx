@@ -20,9 +20,9 @@ import styles from './dropdown.module.scss';
 /*  Shared maps                                                               */
 /* -------------------------------------------------------------------------- */
 
-const sizeClassMap: Record<string, string> = {
+const sizeClassMap: Record<string, string | undefined> = {
   small: styles.vscSmall,
-  medium: '',
+  medium: undefined,
   large: styles.vscLarge,
 };
 
@@ -107,7 +107,10 @@ export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
         )}
         listbox={{
           ...listboxObj,
-          className: clsx(styles.vscListbox, listboxObj.className as string),
+          className: clsx(
+            styles.vscListbox,
+            listboxObj.className as string | undefined,
+          ),
         }}
         {...rest}
       />
@@ -146,7 +149,10 @@ export const VscCombobox = forwardRef<HTMLInputElement, VscComboboxProps>(
         )}
         listbox={{
           ...listboxObj,
-          className: clsx(styles.vscListbox, listboxObj.className as string),
+          className: clsx(
+            styles.vscListbox,
+            listboxObj.className as string | undefined,
+          ),
         }}
         {...rest}
       />
@@ -187,31 +193,26 @@ export const VscOption = forwardRef<HTMLDivElement, VscOptionProps>(
   (
     { detail, description, children, className, disabled, text, ...rest },
     ref,
-  ) => {
-    const fluentProps: Record<string, unknown> = {
-      ...rest,
-      ref,
-      text,
-      disabled,
-      className: clsx(
+  ) => (
+    <Option
+      ref={ref}
+      text={text!}
+      disabled={disabled}
+      className={clsx(
         styles.vscOption,
         description && styles.vscWithDescription,
         disabled && styles.vscDisabled,
         className,
-      ),
-    };
-
-    return (
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      <Option {...(fluentProps as any)}>
-        {children}
-        {detail && <span className={styles.vscOptionDetail}>{detail}</span>}
-        {description && (
-          <span className={styles.vscOptionDescription}>{description}</span>
-        )}
-      </Option>
-    );
-  },
+      )}
+      {...rest}
+    >
+      {children}
+      {detail && <span className={styles.vscOptionDetail}>{detail}</span>}
+      {description && (
+        <span className={styles.vscOptionDescription}>{description}</span>
+      )}
+    </Option>
+  ),
 );
 VscOption.displayName = 'VscOption';
 

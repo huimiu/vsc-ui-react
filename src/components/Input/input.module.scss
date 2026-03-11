@@ -200,3 +200,11 @@
     }
   }
 }
+
+/* ── Input + validation message wrapper ──────────────────────── */
+
+.vscInputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
