@@ -1,0 +1,33 @@
+@use '../../styles/tokens';
+
+/* VS Code Field (label + input wrapper) overrides */
+
+.vscBase {
+  @include tokens.vsc-tokens;
+
+  :global(.fui-Label) {
+    color: var(--vscode-foreground);
+    font-size: var(--fontSizeBase200);
+    font-weight: var(--fontWeightRegular);
+    line-height: var(--lineHeightBase200);
+    padding-bottom: 4px;
+  }
+
+  :global(.fui-Label__required) {
+    color: var(--vscode-errorForeground);
+    margin-left: 2px;
+  }
+
+  :global(.fui-Field__validationMessage) {
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+    padding-top: 4px;
+  }
+
+  :global(.fui-Field__hint) {
+    color: var(--vscode-descriptionForeground);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+    padding-top: 4px;
+  }
+}

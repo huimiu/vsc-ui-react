@@ -1,0 +1,210 @@
+@use '../../styles/tokens';
+
+/* VS Code Input overrides — 26px default, 2px radius, VS Code color tokens */
+
+.vscBase {
+  @include tokens.vsc-tokens;
+
+  height: 26px;
+  min-height: 26px;
+  padding: 0;
+  border-radius: 2px;
+  border: 1px solid var(--vscode-input-border);
+  box-shadow: none;
+  box-sizing: border-box;
+  background-color: var(--vscode-input-background);
+  transition: none !important;
+
+  /* Remove Fluent focus bottom-bar */
+  &::after {
+    display: none !important;
+  }
+
+  :global(.fui-Input__input) {
+    padding: 4px 6px;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: var(--fontSizeBase200);
+    font-weight: var(--fontWeightRegular);
+    line-height: var(--lineHeightBase200);
+    color: var(--vscode-input-foreground);
+    background-color: transparent;
+
+    &::placeholder {
+      color: var(--vscode-input-placeholderForeground);
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  :global(.fui-Input__contentBefore),
+  :global(.fui-Input__contentAfter) {
+    padding: 0 4px;
+    color: var(--vscode-input-foreground);
+    font-size: 16px;
+  }
+
+  &:hover {
+    border-color: var(--vscode-input-border);
+  }
+
+  &:focus-within {
+    border-color: var(--vscode-focusBorder);
+    outline: none;
+  }
+}
+
+/* ── Disabled ────────────────────────────────────────────────── */
+
+.vscBase.vscDisabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Readonly ────────────────────────────────────────────────── */
+
+.vscBase.vscReadonly {
+  border-color: var(--vscode-input-border);
+  background-color: transparent;
+
+  :global(.fui-Input__input) {
+    cursor: default;
+  }
+}
+
+/* ── Small (24px) ────────────────────────────────────────────── */
+
+.vscBase.vscSmall {
+  height: 24px;
+  min-height: 24px;
+
+  :global(.fui-Input__input) {
+    padding: 2px 4px;
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+  }
+
+  :global(.fui-Input__contentBefore),
+  :global(.fui-Input__contentAfter) {
+    font-size: 14px;
+    padding: 0 3px;
+  }
+}
+
+/* ── Large (28px) ────────────────────────────────────────────── */
+
+.vscBase.vscLarge {
+  height: 28px;
+  min-height: 28px;
+
+  :global(.fui-Input__input) {
+    padding: 5px 8px;
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+  }
+}
+
+/* ── Validation ──────────────────────────────────────────────── */
+
+.vscBase.vscError {
+  border-color: var(--vscode-inputValidation-errorBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-errorBorder);
+  }
+}
+
+.vscBase.vscWarning {
+  border-color: var(--vscode-inputValidation-warningBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-warningBorder);
+  }
+}
+
+.vscBase.vscInfo {
+  border-color: var(--vscode-inputValidation-infoBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-infoBorder);
+  }
+}
+
+/* ── Validation Message Boxes ────────────────────────────────── */
+
+.vscValidationError {
+  background-color: var(--vscode-inputValidation-errorBackground);
+  border: 1px solid var(--vscode-inputValidation-errorBorder);
+  border-top: none;
+  color: var(--vscode-inputValidation-errorForeground);
+  padding: 4px 6px;
+  font-size: var(--fontSizeBase200);
+  line-height: var(--lineHeightBase200);
+  border-radius: 0 0 2px 2px;
+  margin-top: -1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vscValidationWarning {
+  background-color: var(--vscode-inputValidation-warningBackground);
+  border: 1px solid var(--vscode-inputValidation-warningBorder);
+  border-top: none;
+  color: var(--vscode-inputValidation-warningForeground);
+  padding: 4px 6px;
+  font-size: var(--fontSizeBase200);
+  line-height: var(--lineHeightBase200);
+  border-radius: 0 0 2px 2px;
+  margin-top: -1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.vscValidationInfo {
+  background-color: var(--vscode-inputValidation-infoBackground);
+  border: 1px solid var(--vscode-inputValidation-infoBorder);
+  border-top: none;
+  color: var(--vscode-inputValidation-infoForeground);
+  padding: 4px 6px;
+  font-size: var(--fontSizeBase200);
+  line-height: var(--lineHeightBase200);
+  border-radius: 0 0 2px 2px;
+  margin-top: -1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* ── With Icon (search-style) ────────────────────────────────── */
+
+.vscBase.vscWithIcon {
+  :global(.fui-Input__contentBefore) {
+    color: var(--vscode-input-placeholderForeground);
+    font-size: 16px;
+    padding-left: 6px;
+    padding-right: 2px;
+  }
+
+  :global(.fui-Input__contentAfter) {
+    color: var(--vscode-input-foreground);
+    font-size: 16px;
+    padding-left: 2px;
+    padding-right: 6px;
+    cursor: pointer;
+
+    &:hover {
+      color: var(--vscode-foreground);
+    }
+  }
+}
+
+/* ── Input + validation message wrapper ──────────────────────── */
+
+.vscInputWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

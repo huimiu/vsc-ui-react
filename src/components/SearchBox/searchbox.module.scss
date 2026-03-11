@@ -1,0 +1,108 @@
+@use '../../styles/tokens' as tokens;
+
+.vscBase {
+  @include tokens.vsc-tokens;
+
+  height: 24px;
+  min-height: 24px;
+  border-radius: 2px;
+  border: 1px solid var(--vscode-input-border);
+  background-color: var(--vscode-input-background);
+  box-shadow: none;
+  box-sizing: border-box;
+  transition: none !important;
+
+  /* Hide Fluent's ::after underline */
+  &::after {
+    display: none !important;
+  }
+
+  /* ---- Inner input ---- */
+  :global(.fui-Input__input) {
+    padding: 2px 4px;
+    height: 100%;
+    box-sizing: border-box;
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+    color: var(--vscode-input-foreground);
+    background-color: transparent;
+
+    &::placeholder {
+      color: var(--vscode-input-placeholderForeground);
+      opacity: 1;
+    }
+  }
+
+  /* ---- Slot icons ---- */
+  :global(.fui-Input__contentBefore) {
+    color: var(--vscode-input-placeholderForeground);
+    font-size: 14px;
+    padding: 0 4px;
+  }
+
+  :global(.fui-Input__contentAfter) {
+    font-size: 14px;
+    padding: 0 4px;
+    color: var(--vscode-input-foreground);
+    cursor: pointer;
+  }
+
+  /* ---- Hover / Focus ---- */
+  &:hover {
+    border-color: var(--vscode-input-border);
+  }
+
+  &:focus-within {
+    border-color: var(--vscode-focusBorder);
+    outline: none;
+  }
+}
+
+/* ---- Disabled ---- */
+.vscDisabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ---- Readonly ---- */
+.vscReadonly {
+  border-color: transparent;
+  background-color: transparent;
+
+  :global(.fui-Input__input) {
+    cursor: default;
+  }
+}
+
+/* ---- Size: medium (26 px) ---- */
+.vscMedium {
+  height: 26px;
+  min-height: 26px;
+
+  :global(.fui-Input__input) {
+    padding: 4px 6px;
+  }
+
+  :global(.fui-Input__contentBefore),
+  :global(.fui-Input__contentAfter) {
+    font-size: 16px;
+    padding: 0 4px;
+  }
+}
+
+/* ---- Size: large (28 px) ---- */
+.vscLarge {
+  height: 28px;
+  min-height: 28px;
+
+  :global(.fui-Input__input) {
+    padding: 5px 8px;
+  }
+
+  :global(.fui-Input__contentBefore),
+  :global(.fui-Input__contentAfter) {
+    font-size: 16px;
+    padding: 0 4px;
+  }
+}
