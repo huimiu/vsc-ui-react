@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
