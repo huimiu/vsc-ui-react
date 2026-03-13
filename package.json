@@ -1,6 +1,6 @@
 {
   "name": "vsc-ui-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "VS Code styled Fluent UI components for React.",
   "type": "module",
   "main": "./dist/index.cjs",
@@ -72,7 +72,14 @@
     "fluent-ui",
     "vscode",
     "component-library",
-    "button"
+    "button",
+    "input",
+    "textarea",
+    "dropdown",
+    "combobox",
+    "menu",
+    "searchbox",
+    "field"
   ],
   "license": "MIT",
   "dependencies": {
