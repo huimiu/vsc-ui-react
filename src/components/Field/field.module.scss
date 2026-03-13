@@ -14,8 +14,9 @@
   }
 
   :global(.fui-Label__required) {
-    color: var(--vscode-errorForeground);
-    margin-left: 2px;
+    /* Hide Fluent's native required indicator — VscField renders its own
+       inside the custom label row for precise positioning control. */
+    display: none;
   }
 
   :global(.fui-Field__validationMessage) {
@@ -29,5 +30,40 @@
     font-size: var(--fontSizeBase200);
     line-height: var(--lineHeightBase200);
     padding-top: 4px;
+  }
+}
+
+/* =============================================================================
+   LABEL ROW — label text + required indicator + info tooltip
+   ============================================================================= */
+
+.labelRow {
+  display: flex;
+  align-items: center;
+}
+
+.labelText {
+  color: var(--vscode-foreground);
+  font-size: var(--fontSizeBase200);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase200);
+}
+
+.requiredIndicator {
+  color: var(--vscode-errorForeground);
+  margin-left: 2px;
+}
+
+.infoIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 4px;
+  color: var(--vscode-descriptionForeground);
+  cursor: help;
+
+  > svg {
+    width: 14px;
+    height: 14px;
   }
 }
