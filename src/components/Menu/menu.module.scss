@@ -249,7 +249,7 @@ $chevron-right-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000
   display: flex;
   align-items: center;
   font-size: var(--fontSizeBase200);
-  font-weight: 600;
+  font-weight: var(--fontWeightSemibold);
   line-height: var(--lineHeightBase200);
   color: var(--vscode-menu-foreground);
 }

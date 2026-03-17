@@ -1,11 +1,10 @@
 name: Publish to npm
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
-    paths:
-      - 'package.json'
 
 jobs:
   check-version:
@@ -15,21 +14,113 @@ jobs:
       new_version: ${{ steps.check.outputs.version }}
     steps:
       - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
         with:
-          fetch-depth: 2
+          node-version: 24
 
       - name: Check if version changed
         id: check
         run: |
+          PACKAGE_NAME=$(node -p "require('./package.json').name")
           CURRENT_VERSION=$(node -p "require('./package.json').version")
-          git checkout HEAD~1 -- package.json 2>/dev/null || true
-          PREV_VERSION=$(node -p "require('./package.json').version")
-          git checkout HEAD -- package.json
+          if PUBLISHED_VERSION=$(npm view "$PACKAGE_NAME" version 2>npm-view-error.log); then
+            :
+          elif grep -qi "E404\|not found" npm-view-error.log; then
+            PUBLISHED_VERSION="0.0.0"
+          else
+            cat npm-view-error.log
+            exit 1
+          fi
+          rm -f npm-view-error.log
 
-          echo "Previous version: $PREV_VERSION"
+          echo "Published version: $PUBLISHED_VERSION"
           echo "Current version: $CURRENT_VERSION"
 
-          if [ "$CURRENT_VERSION" != "$PREV_VERSION" ]; then
+          SHOULD_PUBLISH=$(CURRENT="$CURRENT_VERSION" PUBLISHED="$PUBLISHED_VERSION" node -e "
+            const parse = (value) => {
+              const cleaned = value.split('+', 1)[0];
+              const match = cleaned.match(/^(\d+)\.(\d+)\.(\d+)(?:-([0-9A-Za-z.-]+))?$/);
+
+              if (!match) {
+                throw new Error('Invalid semver: ' + value);
+              }
+
+              return {
+                major: Number(match[1]),
+                minor: Number(match[2]),
+                patch: Number(match[3]),
+                prerelease: match[4] ? match[4].split('.') : [],
+              };
+            };
+
+            const compareIdentifiers = (left, right) => {
+              const leftNumeric = /^\d+$/.test(left);
+              const rightNumeric = /^\d+$/.test(right);
+
+              if (leftNumeric && rightNumeric) {
+                return Number(left) - Number(right);
+              }
+
+              if (leftNumeric) {
+                return -1;
+              }
+
+              if (rightNumeric) {
+                return 1;
+              }
+
+              return left.localeCompare(right);
+            };
+
+            const compareSemver = (leftValue, rightValue) => {
+              const left = parse(leftValue);
+              const right = parse(rightValue);
+
+              for (const key of ['major', 'minor', 'patch']) {
+                if (left[key] !== right[key]) {
+                  return left[key] - right[key];
+                }
+              }
+
+              if (left.prerelease.length === 0 && right.prerelease.length === 0) {
+                return 0;
+              }
+
+              if (left.prerelease.length === 0) {
+                return 1;
+              }
+
+              if (right.prerelease.length === 0) {
+                return -1;
+              }
+
+              const length = Math.max(left.prerelease.length, right.prerelease.length);
+              for (let index = 0; index < length; index += 1) {
+                const leftId = left.prerelease[index];
+                const rightId = right.prerelease[index];
+
+                if (leftId === undefined) {
+                  return -1;
+                }
+
+                if (rightId === undefined) {
+                  return 1;
+                }
+
+                const result = compareIdentifiers(leftId, rightId);
+                if (result !== 0) {
+                  return result;
+                }
+              }
+
+              return 0;
+            };
+
+            console.log(compareSemver(process.env.CURRENT, process.env.PUBLISHED) > 0 ? 'true' : 'false');
+          ")
+
+          if [ "$SHOULD_PUBLISH" = "true" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
             echo "version=$CURRENT_VERSION" >> "$GITHUB_OUTPUT"
           else
@@ -47,7 +138,7 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies

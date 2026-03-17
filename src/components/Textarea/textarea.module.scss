@@ -1,0 +1,101 @@
+@use '../../styles/tokens';
+
+/* VS Code Textarea overrides — 2px radius, VS Code color tokens */
+
+.vscBase {
+  @include tokens.vsc-tokens;
+
+  border-radius: 2px;
+  border: 1px solid var(--vscode-input-border);
+  box-shadow: none;
+  box-sizing: border-box;
+  background-color: var(--vscode-input-background);
+  transition: none !important;
+
+  &::after {
+    display: none !important;
+  }
+
+  :global(.fui-Textarea__textarea) {
+    padding: 4px 6px;
+    min-height: 52px;
+    font-size: var(--fontSizeBase200);
+    font-weight: var(--fontWeightRegular);
+    line-height: var(--lineHeightBase200);
+    color: var(--vscode-input-foreground);
+    background-color: transparent;
+
+    &::placeholder {
+      color: var(--vscode-input-placeholderForeground);
+      opacity: 1;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &:hover {
+    border-color: var(--vscode-input-border);
+  }
+
+  &:focus-within {
+    border-color: var(--vscode-focusBorder);
+    outline: none;
+  }
+}
+
+/* ── Disabled ────────────────────────────────────────────────── */
+
+.vscBase.vscDisabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Readonly ────────────────────────────────────────────────── */
+
+.vscBase.vscReadonly {
+  border-color: var(--vscode-input-border);
+  background-color: transparent;
+
+  :global(.fui-Textarea__textarea) {
+    cursor: default;
+  }
+}
+
+/* ── Small ───────────────────────────────────────────────────── */
+
+.vscBase.vscSmall {
+  :global(.fui-Textarea__textarea) {
+    padding: 2px 4px;
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
+  }
+}
+
+/* ── Validation ──────────────────────────────────────────────── */
+
+.vscBase.vscError {
+  border-color: var(--vscode-inputValidation-errorBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-errorBorder);
+  }
+}
+
+.vscBase.vscWarning {
+  border-color: var(--vscode-inputValidation-warningBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-warningBorder);
+  }
+}
+
+.vscBase.vscInfo {
+  border-color: var(--vscode-inputValidation-infoBorder);
+
+  &:focus-within {
+    border-color: var(--vscode-inputValidation-infoBorder);
+  }
+}

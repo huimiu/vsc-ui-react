@@ -15,9 +15,9 @@
   padding: 4px 8px;
   border-radius: 4px;
   gap: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   border: 1px solid var(--vscode-button-border);
   background-color: var(--vscode-button-background);
   color: var(--vscode-button-foreground);
@@ -48,8 +48,8 @@
     min-height: 22px;
     padding: 3px 6px;
     gap: 3px;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   /* Primary – Compact (15px) */
@@ -58,8 +58,8 @@
     min-height: 15px;
     padding: 0 4px;
     gap: 2px;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 }
 
@@ -74,9 +74,9 @@
   padding: 4px 8px;
   border-radius: 4px;
   gap: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   border: 1px solid var(--vscode-button-border);
   background-color: var(--vscode-button-secondaryBackground);
   color: var(--vscode-button-secondaryForeground);
@@ -86,6 +86,13 @@
     background-color: var(--vscode-button-secondaryHoverBackground);
     color: var(--vscode-button-secondaryForeground);
     border-color: var(--vscode-button-border);
+  }
+
+  &:hover :global(.fui-Button__icon),
+  &:hover :global(.fui-Button__icon) svg,
+  &:hover :global(.fui-Button__icon) span,
+  &:hover :global(.fui-Button__icon) div {
+    color: var(--vscode-button-secondaryForeground);
   }
 
   &[aria-pressed='true'],
@@ -106,8 +113,8 @@
     min-height: 22px;
     padding: 3px 6px;
     gap: 3px;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   &.vscodeCompact {
@@ -115,8 +122,8 @@
     min-height: 15px;
     padding: 0 4px;
     gap: 2px;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 }
 
@@ -131,9 +138,9 @@
   padding: 4px 8px;
   border-radius: 4px;
   gap: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   border: 1px solid var(--vscode-button-border);
   background-color: transparent;
   color: var(--vscode-button-secondaryForeground);
@@ -163,8 +170,8 @@
     min-height: 22px;
     padding: 3px 6px;
     gap: 3px;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   &.vscodeCompact {
@@ -172,8 +179,8 @@
     min-height: 15px;
     padding: 0 4px;
     gap: 2px;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 }
 
@@ -189,9 +196,9 @@
   padding: 4px 8px;
   border-radius: 4px;
   gap: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   border: 1px solid transparent;
   background-color: transparent;
   color: var(--vscode-foreground);
@@ -205,7 +212,11 @@
   }
 
   &:hover span,
-  &:hover svg {
+  &:hover svg,
+  &:hover :global(.fui-Button__icon),
+  &:hover :global(.fui-Button__icon) svg,
+  &:hover :global(.fui-Button__icon) span,
+  &:hover :global(.fui-Button__icon) div {
     color: var(--vscode-foreground);
   }
 
@@ -227,8 +238,8 @@
     min-height: 22px;
     padding: 3px 6px;
     gap: 3px;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   &.vscodeCompact {
@@ -236,8 +247,8 @@
     min-height: 15px;
     padding: 0 4px;
     gap: 2px;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 }
 
@@ -252,9 +263,9 @@
   padding: 4px 8px;
   border-radius: 4px;
   gap: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   border: none;
   background-color: transparent;
   color: var(--vscode-foreground);
@@ -283,8 +294,8 @@
     min-height: 22px;
     padding: 3px 6px;
     gap: 3px;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   &.vscodeCompact {
@@ -292,8 +303,8 @@
     min-height: 15px;
     padding: 0 4px;
     gap: 2px;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 }
 
@@ -394,7 +405,7 @@
     height: 28px;
     min-height: 28px;
     border-radius: 4px;
-    font-size: var(--fluent-fontSizeBase300);
+    font-size: var(--fontSizeBase300);
   }
 
   :global(.fui-SplitButton__primaryActionButton) {
@@ -594,8 +605,8 @@
     height: 22px;
     min-height: 22px;
     gap: 3px !important;
-    font-size: var(--fluent-fontSizeBase200);
-    line-height: var(--fluent-lineHeightBase200);
+    font-size: var(--fontSizeBase200);
+    line-height: var(--lineHeightBase200);
   }
 
   :global(.fui-SplitButton__primaryActionButton) {
@@ -613,8 +624,8 @@
     height: 15px;
     min-height: 15px;
     gap: 2px !important;
-    font-size: var(--fluent-fontSizeBase100);
-    line-height: var(--fluent-lineHeightBase100);
+    font-size: var(--fontSizeBase100);
+    line-height: var(--lineHeightBase100);
   }
 
   :global(.fui-SplitButton__primaryActionButton) {
@@ -680,9 +691,9 @@
   min-height: 28px;
   padding: 4px 8px;
   border-radius: 4px;
-  font-size: var(--fluent-fontSizeBase300);
-  font-weight: var(--fluent-fontWeightRegular);
-  line-height: var(--fluent-lineHeightBase300);
+  font-size: var(--fontSizeBase300);
+  font-weight: var(--fontWeightRegular);
+  line-height: var(--lineHeightBase300);
   gap: 4px !important;
   box-shadow: none;
 
@@ -772,8 +783,8 @@
   min-height: 22px;
   padding: 3px 6px;
   gap: 3px !important;
-  font-size: var(--fluent-fontSizeBase200);
-  line-height: var(--fluent-lineHeightBase200);
+  font-size: var(--fontSizeBase200);
+  line-height: var(--lineHeightBase200);
 
   :global(.fui-MenuButton__menuIcon) {
     font-size: 12px;
@@ -789,8 +800,8 @@
   min-height: 15px;
   padding: 0 4px;
   gap: 2px !important;
-  font-size: var(--fluent-fontSizeBase100);
-  line-height: var(--fluent-lineHeightBase100);
+  font-size: var(--fontSizeBase100);
+  line-height: var(--lineHeightBase100);
 
   :global(.fui-MenuButton__menuIcon) {
     font-size: 10px;
