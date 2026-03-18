@@ -72,3 +72,7 @@ export type {
   MenuTriggerProps,
   MenuSplitGroupProps,
 } from './components/Menu';
+
+// TabList
+export { VscTabList, VscTab } from './components/TabList';
+export type { VscTabListProps, VscTabProps } from './components/TabList';
