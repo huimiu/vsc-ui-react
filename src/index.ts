@@ -4,6 +4,8 @@ export type { VscValidationState } from './types';
 // Button
 export { VscButton } from './components/Button';
 export type { VscButtonProps } from './components/Button';
+export { VscSplitButton } from './components/Button';
+export type { VscSplitButtonProps } from './components/Button';
 
 // Input
 export { VscInput } from './components/Input';
@@ -70,3 +72,7 @@ export type {
   MenuTriggerProps,
   MenuSplitGroupProps,
 } from './components/Menu';
+
+// TabList
+export { VscTabList, VscTab } from './components/TabList';
+export type { VscTabListProps, VscTabProps } from './components/TabList';
