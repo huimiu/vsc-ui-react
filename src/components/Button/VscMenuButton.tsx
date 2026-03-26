@@ -1,7 +1,4 @@
-import {
-  MenuButton,
-  type MenuButtonProps,
-} from '@fluentui/react-components';
+import { MenuButton, type MenuButtonProps } from '@fluentui/react-components';
 import clsx from 'clsx';
 import { forwardRef } from 'react';
 
