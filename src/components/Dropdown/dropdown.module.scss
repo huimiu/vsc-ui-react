@@ -371,18 +371,18 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   transition: none !important;
   cursor: pointer;
 
-  &:hover {
-    background-color: var(--vscode-list-hoverBackground);
-  }
-
+  &:hover,
+  &:focus,
+  &:focus-visible,
+  &:focus-within,
   &[aria-selected='true'],
   &:global(.fui-Option--selected) {
-    background-color: var(--vscode-list-activeSelectionBackground);
-    color: var(--vscode-list-activeSelectionForeground);
+    background-color: var(--vscode-list-hoverBackground);
+    color: var(--vscode-dropdown-foreground);
   }
 
   :global(.fui-Option__checkIcon) {
-    color: var(--vscode-list-activeSelectionForeground);
+    color: var(--vscode-dropdown-foreground);
     font-size: 14px;
     width: 14px;
     height: 14px;
@@ -433,9 +433,13 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
 .vscOption[aria-selected='true'] .vscOptionDetail,
 .vscOption[aria-selected='true'] .vscOptionDescription {
   opacity: 0.8;
-  color: var(--vscode-list-activeSelectionForeground);
+  color: var(--vscode-descriptionForeground);
 }
 
+.vscOption:focus .vscOptionDetail,
+.vscOption:focus .vscOptionDescription,
+.vscOption:focus-visible .vscOptionDetail,
+.vscOption:focus-visible .vscOptionDescription,
 .vscOption:hover .vscOptionDetail,
 .vscOption:hover .vscOptionDescription {
   color: inherit;
