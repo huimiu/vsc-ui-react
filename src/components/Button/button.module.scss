@@ -406,6 +406,12 @@
     min-height: 28px;
     border-radius: 4px;
     font-size: var(--fontSizeBase300);
+    line-height: var(--lineHeightBase300);
+  }
+
+  :global(.fui-SplitButton__menuButton) :global(.fui-MenuButton__menuIcon),
+  :global(.fui-SplitButton__menuButton) svg {
+    display: block;
   }
 
   :global(.fui-SplitButton__primaryActionButton) {
