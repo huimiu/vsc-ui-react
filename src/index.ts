@@ -6,6 +6,8 @@ export { VscButton } from './components/Button';
 export type { VscButtonProps } from './components/Button';
 export { VscSplitButton } from './components/Button';
 export type { VscSplitButtonProps } from './components/Button';
+export { VscMenuButton } from './components/Button';
+export type { VscMenuButtonProps } from './components/Button';
 
 // Input
 export { VscInput } from './components/Input';
