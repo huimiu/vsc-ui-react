@@ -409,7 +409,13 @@
     line-height: var(--lineHeightBase300);
   }
 
-  :global(.fui-SplitButton__menuButton) :global(.fui-MenuButton__menuIcon),
+  :global(.fui-SplitButton__menuButton) :global(.fui-MenuButton__menuIcon) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+
   :global(.fui-SplitButton__menuButton) svg {
     display: block;
   }
