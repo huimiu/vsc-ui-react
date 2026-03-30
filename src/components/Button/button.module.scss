@@ -308,6 +308,25 @@
   }
 }
 
+/* Default-size text buttons should not collapse to content width. */
+.vscBase.vscodePrimary:not(.vscodeSmall):not(.vscodeCompact):not(
+    .vscodeIconOnly
+  ),
+.vscBase.vscodeSecondary:not(.vscodeSmall):not(.vscodeCompact):not(
+    .vscodeIconOnly
+  ),
+.vscBase.vscodeOutline:not(.vscodeSmall):not(.vscodeCompact):not(
+    .vscodeIconOnly
+  ),
+.vscBase.vscodeSubtle:not(.vscodeSmall):not(.vscodeCompact):not(
+    .vscodeIconOnly
+  ),
+.vscBase.vscodeTransparent:not(.vscodeSmall):not(.vscodeCompact):not(
+    .vscodeIconOnly
+  ) {
+  min-width: 60px;
+}
+
 /* =============================================================================
    ICON SIZING
    ============================================================================= */
