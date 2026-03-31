@@ -354,6 +354,12 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   animation: none !important;
 }
 
+.vscListbox.vscSelectionIndicatorNone {
+  :global(.fui-Option__checkIcon) {
+    display: none;
+  }
+}
+
 /* =============================================================================
    OPTION — individual list item
    ============================================================================= */
@@ -367,18 +373,32 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   background-color: transparent;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   border-radius: 2px;
   transition: none !important;
   cursor: pointer;
 
-  &:hover,
+  &:hover:not([aria-selected='true']):not(:global(.fui-Option--selected)) {
+    background-color: var(--vscode-list-hoverBackground);
+    color: var(
+      --vscode-list-hoverForeground,
+      var(--vscode-dropdown-foreground)
+    );
+  }
+
   &:focus,
   &:focus-visible,
   &:focus-within,
   &[aria-selected='true'],
   &:global(.fui-Option--selected) {
-    background-color: var(--vscode-list-hoverBackground);
-    color: var(--vscode-dropdown-foreground);
+    background-color: var(
+      --vscode-list-activeSelectionBackground,
+      var(--vscode-list-hoverBackground)
+    );
+    color: var(
+      --vscode-list-activeSelectionForeground,
+      var(--vscode-dropdown-foreground)
+    );
   }
 
   :global(.fui-Option__checkIcon) {
@@ -390,18 +410,39 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   }
 }
 
+.vscOptionIcon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  flex-shrink: 0;
+
+  > :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+
+  :global(.codicon) {
+    font-size: 16px;
+    line-height: 16px;
+  }
+}
+
+.vscOptionLabel {
+  flex: 0 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .vscOption.vscDisabled {
   opacity: 0.4;
   cursor: not-allowed;
   pointer-events: none;
-}
-
-/* Option with description — two-line layout */
-.vscOption.vscWithDescription {
-  min-height: 36px;
-  padding-top: 3px;
-  padding-bottom: 3px;
-  flex-wrap: wrap;
 }
 
 .vscOptionDetail {
@@ -429,19 +470,16 @@ $chevron-svg: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' 
   text-overflow: ellipsis;
 }
 
+.vscOptionDescriptionWithIcon {
+  flex-basis: calc(100% - 22px);
+  width: calc(100% - 22px);
+  margin-left: 22px;
+}
+
 /* Selected option — adjust secondary text */
 .vscOption[aria-selected='true'] .vscOptionDetail,
 .vscOption[aria-selected='true'] .vscOptionDescription {
-  opacity: 0.8;
-  color: var(--vscode-descriptionForeground);
-}
-
-.vscOption:focus .vscOptionDetail,
-.vscOption:focus .vscOptionDescription,
-.vscOption:focus-visible .vscOptionDetail,
-.vscOption:focus-visible .vscOptionDescription,
-.vscOption:hover .vscOptionDetail,
-.vscOption:hover .vscOptionDescription {
+  opacity: 1;
   color: inherit;
 }
 

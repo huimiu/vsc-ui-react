@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Listbox Preview</title>
+    <link
+      rel="stylesheet"
+      href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
+    />
+    <style>
+      :root {
+        --page-bg: #1e1e1e;
+        --card-bg: #252526;
+        --card-border: #3c3c3c;
+        --text: #cccccc;
+        --muted: #8b8b8b;
+        --list-bg: #252526;
+        --list-border: #3c3c3c;
+        --list-hover: #2a2d2e;
+        --list-hover-foreground: #ffffff;
+        --list-selected: #094771;
+        --list-selected-foreground: #ffffff;
+      }
+
+      body.theme-light {
+        --page-bg: #f6f8fb;
+        --card-bg: #ffffff;
+        --card-border: #d6dbe4;
+        --text: #252526;
+        --muted: #616161;
+        --list-bg: #ffffff;
+        --list-border: #c8d0dc;
+        --list-hover: #e8eef9;
+        --list-hover-foreground: #1f1f1f;
+        --list-selected: #cfe4ff;
+        --list-selected-foreground: #123a69;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 40px;
+        background: linear-gradient(180deg, #181818 0%, var(--page-bg) 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+      }
+
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+      }
+
+      .title {
+        margin: 0 0 6px;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .subtitle {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 18px;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid var(--card-border);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.03);
+        font-size: 12px;
+      }
+
+      .toggle input {
+        margin: 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .panel {
+        border: 1px solid var(--list-border);
+        border-radius: 8px;
+        padding: 14px;
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .panel h2 {
+        margin: 0 0 6px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      .panel p {
+        margin: 0 0 12px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .listbox {
+        border: 1px solid var(--list-border);
+        border-radius: 6px;
+        background: var(--list-bg);
+        padding: 2px;
+      }
+
+      .option {
+        min-height: 22px;
+        padding: 2px 8px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        color: var(--text);
+        font-size: 12px;
+        line-height: 16px;
+        border-radius: 2px;
+      }
+
+      .option + .option {
+        margin-top: 1px;
+      }
+
+      .option.selected {
+        background: var(--list-selected);
+        color: var(--list-selected-foreground);
+      }
+
+      .option:hover:not(.selected) {
+        background: var(--list-hover);
+        color: var(--list-hover-foreground);
+      }
+
+      .show-descriptions .option {
+        min-height: 36px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+
+      .check {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text);
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+
+      .flush .check {
+        display: none;
+      }
+
+      .icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: inherit;
+      }
+
+      .icon .codicon {
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      .show-icons .icon {
+        display: inline-flex;
+      }
+
+      .label {
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .detail {
+        display: none;
+        color: var(--muted);
+        padding-left: 6px;
+        white-space: nowrap;
+      }
+
+      .description {
+        display: none;
+        color: var(--muted);
+        margin-top: 1px;
+        width: 100%;
+        flex-basis: 100%;
+      }
+
+      .option.selected .detail,
+      .option.selected .description,
+      .option:hover .detail,
+      .option:hover .description {
+        color: inherit;
+      }
+
+      .show-descriptions .detail,
+      .show-descriptions .description {
+        display: block;
+      }
+
+      .show-icons.show-descriptions .description {
+        width: calc(100% - 22px);
+        flex-basis: calc(100% - 22px);
+        margin-left: 22px;
+      }
+
+      .separator {
+        display: none;
+        position: relative;
+        height: 5px;
+        margin: 2px 0;
+        pointer-events: none;
+      }
+
+      .separator::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        height: 1px;
+        background: var(--list-border);
+      }
+
+      .show-separators .separator {
+        display: block;
+      }
+
+      .note {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      @media (max-width: 760px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="card">
+        <h1 class="title">Listbox Preview</h1>
+        <p class="subtitle">
+          Compare the default flush layout and the opt-in checkmark gutter while
+          toggling leading icons and descriptions.
+        </p>
+
+        <div class="controls">
+          <label class="toggle">
+            <input id="toggle-icons" type="checkbox" />
+            Show leading icons
+          </label>
+          <label class="toggle">
+            <input id="toggle-descriptions" type="checkbox" />
+            Show secondary text and description
+          </label>
+          <label class="toggle">
+            <input id="toggle-light-mode" type="checkbox" />
+            Light mode
+          </label>
+          <label class="toggle">
+            <input id="toggle-separators" type="checkbox" />
+            Show separators
+          </label>
+        </div>
+
+        <div id="preview-grid" class="grid">
+          <section class="panel">
+            <h2>Default: flush</h2>
+            <p>
+              No reserved left gutter. Labels align directly to the list edge.
+            </p>
+            <div class="listbox flush">
+              <div class="option">
+                <span class="check">✓</span>
+                <span class="icon"
+                  ><span class="codicon codicon-save"></span
+                ></span>
+                <span class="label">Alpha</span>
+                <span class="detail">Secondary</span>
+                <span class="description">Short supporting description.</span>
+              </div>
+              <div class="option selected">
+                <span class="check">✓</span>
+                <span class="icon"
+                  ><span class="codicon codicon-add"></span
+                ></span>
+                <span class="label">Beta</span>
+                <span class="detail">Secondary</span>
+                <span class="description"
+                  >Selected item with a second line.</span
+                >
+              </div>
+              <div class="separator" role="separator" aria-hidden="true"></div>
+              <div class="option">
+                <span class="check">✓</span>
+                <span class="icon"
+                  ><span class="codicon codicon-trash"></span
+                ></span>
+                <span class="label">Gamma</span>
+                <span class="detail">Secondary</span>
+                <span class="description">Optional explanatory text.</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel">
+            <h2>Variant: checkmark</h2>
+            <p>
+              Reserves space for a leading selection indicator on every row.
+            </p>
+            <div class="listbox">
+              <div class="option">
+                <span class="check"></span>
+                <span class="icon"
+                  ><span class="codicon codicon-save"></span
+                ></span>
+                <span class="label">Alpha</span>
+                <span class="detail">Secondary</span>
+                <span class="description">Short supporting description.</span>
+              </div>
+              <div class="option selected">
+                <span class="check">✓</span>
+                <span class="icon"
+                  ><span class="codicon codicon-add"></span
+                ></span>
+                <span class="label">Beta</span>
+                <span class="detail">Secondary</span>
+                <span class="description"
+                  >Selected item with a second line.</span
+                >
+              </div>
+              <div class="separator" role="separator" aria-hidden="true"></div>
+              <div class="option">
+                <span class="check"></span>
+                <span class="icon"
+                  ><span class="codicon codicon-trash"></span
+                ></span>
+                <span class="label">Gamma</span>
+                <span class="detail">Secondary</span>
+                <span class="description">Optional explanatory text.</span>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <p class="note">
+          Use the toggles to inspect icon spacing and two-line option density in
+          both listbox variants.
+        </p>
+      </section>
+    </div>
+
+    <script>
+      const previewGrid = document.getElementById('preview-grid');
+      const toggleIcons = document.getElementById('toggle-icons');
+      const toggleDescriptions = document.getElementById('toggle-descriptions');
+      const toggleLightMode = document.getElementById('toggle-light-mode');
+      const toggleSeparators = document.getElementById('toggle-separators');
+
+      const sync = () => {
+        previewGrid.classList.toggle('show-icons', toggleIcons.checked);
+        previewGrid.classList.toggle(
+          'show-descriptions',
+          toggleDescriptions.checked,
+        );
+        previewGrid.classList.toggle(
+          'show-separators',
+          toggleSeparators.checked,
+        );
+        document.body.classList.toggle('theme-light', toggleLightMode.checked);
+      };
+
+      toggleIcons.addEventListener('change', sync);
+      toggleDescriptions.addEventListener('change', sync);
+      toggleLightMode.addEventListener('change', sync);
+      toggleSeparators.addEventListener('change', sync);
+      sync();
+    </script>
+  </body>
+</html>

@@ -5,6 +5,7 @@ export {
   type VscComboboxProps,
   VscListbox,
   type VscListboxProps,
+  type VscSelectionIndicator,
   VscOption,
   type VscOptionProps,
   VscOptionGroup,
