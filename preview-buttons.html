@@ -1,0 +1,914 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Button Preview Matrix</title>
+    <link
+      rel="stylesheet"
+      href="https://microsoft.github.io/vscode-codicons/dist/codicon.css"
+    />
+    <style>
+      :root {
+        --page-bg: #1e1e1e;
+        --page-surface: #252526;
+        --page-border: #3c3c3c;
+        --panel-bg: rgba(255, 255, 255, 0.03);
+        --panel-border: #343434;
+        --table-header: rgba(255, 255, 255, 0.03);
+        --text: #cccccc;
+        --muted: #8b8b8b;
+        --focus: #007fd4;
+        --separator: #4b4f55;
+        --button-border: #3c3c3c;
+        --button-bg: #0e639c;
+        --button-fg: #ffffff;
+        --button-hover: #1177bb;
+        --secondary-bg: #3a3d41;
+        --secondary-fg: #cccccc;
+        --secondary-hover: #45494e;
+        --outline-fg: #cccccc;
+        --subtle-fg: #cccccc;
+        --transparent-fg: #cccccc;
+        --link-fg: #4daafc;
+      }
+
+      body.theme-light {
+        --page-bg: #f6f8fb;
+        --page-surface: #ffffff;
+        --page-border: #d6dbe4;
+        --panel-bg: rgba(18, 32, 56, 0.03);
+        --panel-border: #dde3ec;
+        --table-header: rgba(18, 32, 56, 0.04);
+        --text: #252526;
+        --muted: #616161;
+        --focus: #005fb8;
+        --separator: #d0d7e2;
+        --button-border: #c8d0dc;
+        --button-bg: #005fb8;
+        --button-fg: #ffffff;
+        --button-hover: #0a6ad1;
+        --secondary-bg: #f3f4f6;
+        --secondary-fg: #252526;
+        --secondary-hover: #e8eaed;
+        --outline-fg: #252526;
+        --subtle-fg: #252526;
+        --transparent-fg: #252526;
+        --link-fg: #005fb8;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 32px;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(77, 170, 252, 0.09),
+            transparent 28%
+          ),
+          linear-gradient(180deg, #181818 0%, var(--page-bg) 100%);
+        color: var(--text);
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
+
+      body.theme-light {
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(0, 95, 184, 0.08),
+            transparent 28%
+          ),
+          linear-gradient(180deg, #eef3fb 0%, var(--page-bg) 100%);
+      }
+
+      .wrap {
+        max-width: 1800px;
+        margin: 0 auto;
+      }
+
+      .shell {
+        background: var(--page-surface);
+        border: 1px solid var(--page-border);
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22);
+      }
+
+      .header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      .title-block h1 {
+        margin: 0 0 8px;
+        font-size: 22px;
+        font-weight: 650;
+      }
+
+      .title-block p {
+        margin: 0;
+        max-width: 780px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-self: start;
+      }
+
+      .toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border: 1px solid var(--page-border);
+        border-radius: 999px;
+        background: var(--panel-bg);
+        font-size: 12px;
+      }
+
+      .toggle input {
+        margin: 0;
+      }
+
+      .legend {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+
+      .legend-chip {
+        padding: 6px 10px;
+        border: 1px solid var(--panel-border);
+        border-radius: 999px;
+        font-size: 11px;
+        color: var(--muted);
+        background: var(--panel-bg);
+      }
+
+      .matrix-stack {
+        display: grid;
+        gap: 22px;
+      }
+
+      .family {
+        border: 1px solid var(--panel-border);
+        border-radius: 14px;
+        background: var(--panel-bg);
+        overflow: hidden;
+      }
+
+      .family-header {
+        padding: 16px 18px 12px;
+        border-bottom: 1px solid var(--panel-border);
+      }
+
+      .family-header h2 {
+        margin: 0 0 4px;
+        font-size: 15px;
+      }
+
+      .family-header p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .mode-block {
+        padding: 16px 18px 18px;
+      }
+
+      .mode-block + .mode-block {
+        border-top: 1px solid var(--panel-border);
+      }
+
+      .mode-title {
+        margin: 0 0 12px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table.preview-table {
+        width: 100%;
+        min-width: 1100px;
+        border-collapse: collapse;
+      }
+
+      .preview-table th,
+      .preview-table td {
+        border-bottom: 1px solid var(--panel-border);
+        padding: 10px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+
+      .preview-table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        background: var(--table-header);
+        color: var(--muted);
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      .preview-table tbody tr:last-child td {
+        border-bottom: none;
+      }
+
+      .row-header {
+        min-width: 140px;
+      }
+
+      .appearance-name {
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .appearance-note {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 11px;
+      }
+
+      .cell {
+        min-width: 170px;
+      }
+
+      .cell-label {
+        margin-bottom: 6px;
+        color: var(--muted);
+        font-size: 11px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .cell-stage {
+        min-height: 48px;
+        display: flex;
+        align-items: center;
+      }
+
+      .button,
+      .menu-button,
+      .split-button .action,
+      .split-button .menu {
+        border-radius: 4px;
+        border: 1px solid var(--button-border);
+        font-size: 14px;
+        line-height: 20px;
+        height: 28px;
+        min-height: 28px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 4px 8px;
+        color: var(--secondary-fg);
+        background: var(--secondary-bg);
+        min-width: 60px;
+        white-space: nowrap;
+        box-shadow: none;
+      }
+
+      .button.primary,
+      .menu-button.primary,
+      .split-button.primary .action,
+      .split-button.primary .menu {
+        background: var(--button-bg);
+        color: var(--button-fg);
+      }
+
+      .button.outline,
+      .menu-button.outline,
+      .split-button.outline .action,
+      .split-button.outline .menu {
+        background: transparent;
+        color: var(--outline-fg);
+      }
+
+      .button.subtle,
+      .menu-button.subtle,
+      .split-button.subtle .action,
+      .split-button.subtle .menu {
+        background: transparent;
+        border-color: transparent;
+        color: var(--subtle-fg);
+      }
+
+      .button.transparent,
+      .menu-button.transparent,
+      .split-button.transparent .action,
+      .split-button.transparent .menu {
+        background: transparent;
+        border-color: transparent;
+        color: var(--transparent-fg);
+      }
+
+      .button.small,
+      .menu-button.small,
+      .split-button.small .action,
+      .split-button.small .menu {
+        height: 22px;
+        min-height: 22px;
+        font-size: 12px;
+        line-height: 16px;
+        padding: 3px 6px;
+        gap: 3px;
+      }
+
+      .button.compact,
+      .menu-button.compact,
+      .split-button.compact .action,
+      .split-button.compact .menu {
+        height: 15px;
+        min-height: 15px;
+        font-size: 10px;
+        line-height: 14px;
+        padding: 0 4px;
+        gap: 2px;
+        border-radius: 3px;
+        min-width: auto;
+      }
+
+      .button .icon,
+      .menu-button .icon,
+      .split-button .action .icon {
+        width: 16px;
+        height: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .button.small .icon,
+      .menu-button.small .icon,
+      .split-button.small .action .icon {
+        width: 14px;
+        height: 14px;
+      }
+
+      .button.compact .icon,
+      .menu-button.compact .icon,
+      .split-button.compact .action .icon {
+        width: 12px;
+        height: 12px;
+      }
+
+      .icon .codicon {
+        font-size: 16px;
+        line-height: 16px;
+      }
+
+      .button.small .icon .codicon,
+      .menu-button.small .icon .codicon,
+      .split-button.small .action .icon .codicon {
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .button.compact .icon .codicon,
+      .menu-button.compact .icon .codicon,
+      .split-button.compact .action .icon .codicon {
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      .menu-button .caret,
+      .split-button .menu .caret {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+      }
+
+      .menu-button .caret {
+        width: 14px;
+        height: 14px;
+      }
+
+      .menu-button.small .caret,
+      .split-button.small .menu .caret {
+        width: 12px;
+        height: 12px;
+      }
+
+      .menu-button.compact .caret,
+      .split-button.compact .menu .caret {
+        width: 10px;
+        height: 10px;
+      }
+
+      .menu-button .caret .codicon,
+      .split-button .menu .caret .codicon {
+        font-size: 14px;
+        line-height: 14px;
+      }
+
+      .menu-button.small .caret .codicon,
+      .split-button.small .menu .caret .codicon {
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      .menu-button.compact .caret .codicon,
+      .split-button.compact .menu .caret .codicon {
+        font-size: 10px;
+        line-height: 10px;
+      }
+
+      .split-button {
+        display: inline-flex;
+      }
+
+      .split-button .action {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+        border-right: none;
+      }
+
+      .split-button .menu {
+        width: 24px;
+        min-width: 24px;
+        height: 28px;
+        min-height: 28px;
+        padding: 8px 6px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-left: 1px solid var(--separator);
+      }
+
+      .split-button.small .menu {
+        width: 20px;
+        min-width: 20px;
+        height: 22px;
+        min-height: 22px;
+        padding: 5px 6px;
+      }
+
+      .split-button.compact .action {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      .split-button.compact .menu {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        padding: 1.5px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      .icon-only .label {
+        display: none;
+      }
+
+      .icon-only.button {
+        width: 28px;
+        min-width: 28px;
+        height: 28px;
+        min-height: 28px;
+        padding: 6px;
+      }
+
+      .icon-only.button.small {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        min-height: 22px;
+        padding: 3px;
+      }
+
+      .icon-only.button.compact {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        padding: 0;
+      }
+
+      .icon-only.menu-button {
+        width: auto;
+        min-width: 28px;
+        height: 28px;
+        min-height: 28px;
+        padding: 6px;
+        gap: 2px;
+      }
+
+      .icon-only.menu-button.small {
+        width: auto;
+        min-width: 22px;
+        height: 22px;
+        min-height: 22px;
+        padding: 4px;
+      }
+
+      .icon-only.menu-button.compact {
+        width: auto;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        padding: 1.5px;
+      }
+
+      .icon-only.split-button .action {
+        width: 28px;
+        min-width: 28px;
+        height: 28px;
+        min-height: 28px;
+        padding: 6px;
+      }
+
+      .icon-only.split-button .menu {
+        width: 24px;
+        min-width: 24px;
+        height: 28px;
+        min-height: 28px;
+        padding: 8px 6px;
+      }
+
+      .icon-only.split-button.small .action {
+        width: 22px;
+        min-width: 22px;
+        height: 22px;
+        min-height: 22px;
+        padding: 4px;
+      }
+
+      .icon-only.split-button.small .menu {
+        width: 20px;
+        min-width: 20px;
+        height: 22px;
+        min-height: 22px;
+        padding: 5px 6px;
+      }
+
+      .icon-only.split-button.compact .action {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        padding: 1.5px;
+      }
+
+      .icon-only.split-button.compact .menu {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        padding: 1.5px;
+      }
+
+      .is-hover.button,
+      .is-hover.menu-button,
+      .is-hover.split-button .action,
+      .is-hover.split-button .menu {
+        filter: brightness(1.06);
+      }
+
+      .is-hover.button.subtle,
+      .is-hover.menu-button.subtle,
+      .is-hover.split-button.subtle .action,
+      .is-hover.split-button.subtle .menu,
+      .is-hover.button.outline,
+      .is-hover.menu-button.outline,
+      .is-hover.split-button.outline .action,
+      .is-hover.split-button.outline .menu {
+        background: var(--secondary-hover);
+      }
+
+      .is-hover.button.transparent,
+      .is-hover.menu-button.transparent,
+      .is-hover.split-button.transparent .action,
+      .is-hover.split-button.transparent .menu {
+        color: var(--link-fg);
+      }
+
+      .is-focus.button,
+      .is-focus.menu-button {
+        outline: 1px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      .focus-action .action,
+      .focus-menu .menu {
+        outline: 1px solid var(--focus);
+        outline-offset: 2px;
+      }
+
+      .focus-action .action {
+        z-index: 1;
+      }
+
+      .is-active.button,
+      .is-active.menu-button,
+      .is-active.split-button .action,
+      .is-active.split-button .menu {
+        box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.1);
+      }
+
+      body.theme-light .is-active.button,
+      body.theme-light .is-active.menu-button,
+      body.theme-light .is-active.split-button .action,
+      body.theme-light .is-active.split-button .menu {
+        box-shadow: inset 0 0 0 999px rgba(0, 0, 0, 0.06);
+      }
+
+      .is-disabled.button,
+      .is-disabled.menu-button,
+      .is-disabled.split-button {
+        opacity: 0.4;
+      }
+
+      .footnote {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      @media (max-width: 980px) {
+        body {
+          padding: 20px;
+        }
+
+        .shell {
+          padding: 16px;
+        }
+
+        .header {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <section class="shell">
+        <div class="header">
+          <div class="title-block">
+            <h1>Button Preview Matrix</h1>
+            <p>
+              This view shows every supported button family across appearances,
+              sizes, and interaction states at once. Text and icon-only variants
+              are both included where the component supports them.
+            </p>
+          </div>
+          <div class="controls">
+            <label class="toggle"
+              ><input id="toggle-light" type="checkbox" />Light mode</label
+            >
+          </div>
+        </div>
+
+        <div class="legend">
+          <div class="legend-chip">Families: standard, menu, split</div>
+          <div class="legend-chip">Sizes: large, small, compact</div>
+          <div class="legend-chip">
+            States: default, hover, focus, active, disabled
+          </div>
+          <div class="legend-chip">
+            Split focus: action half and chevron half shown separately
+          </div>
+          <div class="legend-chip">
+            Appearances: primary, secondary, outline, subtle, transparent
+          </div>
+        </div>
+
+        <div class="matrix-stack" id="matrix-root"></div>
+
+        <p class="footnote">
+          Hover, focus, and active are visual simulations in this static page so
+          you can compare combinations side by side without interacting with
+          each example.
+        </p>
+      </section>
+    </div>
+
+    <script>
+      const appearances = [
+        { key: 'primary', label: 'Primary', icon: 'save' },
+        { key: 'secondary', label: 'Secondary', icon: 'add' },
+        { key: 'outline', label: 'Outline', icon: 'symbol-keyword' },
+        { key: 'subtle', label: 'Subtle', icon: 'settings-gear' },
+        { key: 'transparent', label: 'Transparent', icon: 'link-external' },
+      ];
+
+      const defaultStates = [
+        { key: 'default', label: 'Default' },
+        { key: 'hover', label: 'Hover' },
+        { key: 'focus', label: 'Focus' },
+        { key: 'active', label: 'Active' },
+        { key: 'disabled', label: 'Disabled' },
+      ];
+
+      const splitStates = [
+        { key: 'default', label: 'Default' },
+        { key: 'hover', label: 'Hover' },
+        { key: 'focus-action', label: 'Focus Left' },
+        { key: 'focus-menu', label: 'Focus Right' },
+        { key: 'active', label: 'Active' },
+        { key: 'disabled', label: 'Disabled' },
+      ];
+
+      const sizes = [
+        { key: 'large', label: 'Large', note: '28px default' },
+        { key: 'small', label: 'Small', note: '22px' },
+        { key: 'compact', label: 'Compact', note: '15px' },
+      ];
+
+      const families = [
+        {
+          key: 'button',
+          title: 'VscButton',
+          description: 'Standard text buttons.',
+          modes: [
+            { key: 'text', label: 'Text Buttons', iconOnly: false },
+            { key: 'icon-only', label: 'Icon-only Buttons', iconOnly: true },
+          ],
+        },
+        {
+          key: 'menu-button',
+          title: 'VscMenuButton',
+          description: 'Single-button trigger with a chevron.',
+          modes: [
+            { key: 'text', label: 'Text Buttons', iconOnly: false },
+            { key: 'icon-only', label: 'Icon-only Buttons', iconOnly: true },
+          ],
+        },
+        {
+          key: 'split-button',
+          title: 'VscSplitButton',
+          description: 'Primary action plus separate chevron menu segment.',
+          modes: [
+            { key: 'text', label: 'Text Buttons', iconOnly: false },
+            { key: 'icon-only', label: 'Icon-only Buttons', iconOnly: true },
+          ],
+        },
+      ];
+
+      function stateClass(stateKey) {
+        if (stateKey === 'hover') return 'is-hover';
+        if (stateKey === 'focus') return 'is-focus';
+        if (stateKey === 'focus-action') return 'focus-action';
+        if (stateKey === 'focus-menu') return 'focus-menu';
+        if (stateKey === 'active') return 'is-active';
+        if (stateKey === 'disabled') return 'is-disabled';
+        return '';
+      }
+
+      function sizeClass(sizeKey) {
+        if (sizeKey === 'small') return 'small';
+        if (sizeKey === 'compact') return 'compact';
+        return '';
+      }
+
+      function iconMarkup(icon) {
+        return `<span class="icon"><span class="codicon codicon-${icon}"></span></span>`;
+      }
+
+      function caretMarkup() {
+        return `<span class="caret"><span class="codicon codicon-chevron-down"></span></span>`;
+      }
+
+      function buttonMarkup(familyKey, appearance, size, state, iconOnly) {
+        const classes = [
+          appearance.key,
+          sizeClass(size.key),
+          stateClass(state.key),
+          iconOnly ? 'icon-only' : '',
+        ]
+          .filter(Boolean)
+          .join(' ');
+
+        if (familyKey === 'button') {
+          return `
+            <div class="button ${classes}">
+              ${iconMarkup(appearance.icon)}
+              <span class="label">${appearance.label}</span>
+            </div>`;
+        }
+
+        if (familyKey === 'menu-button') {
+          return `
+            <div class="menu-button ${classes}">
+              ${iconMarkup(appearance.icon)}
+              <span class="label">${appearance.label}</span>
+              ${caretMarkup()}
+            </div>`;
+        }
+
+        return `
+          <div class="split-button ${appearance.key} ${sizeClass(size.key)} ${stateClass(state.key)} ${iconOnly ? 'icon-only' : ''}">
+            <div class="action">
+              ${iconMarkup(appearance.icon)}
+              <span class="label">${appearance.label}</span>
+            </div>
+            <div class="menu">${caretMarkup()}</div>
+          </div>`;
+      }
+
+      function buildModeTable(familyKey, mode) {
+        const stateSet =
+          familyKey === 'split-button' ? splitStates : defaultStates;
+        const table = document.createElement('table');
+        table.className = 'preview-table';
+
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+          <tr>
+            <th class="row-header">Appearance</th>
+            ${sizes.map((size) => stateSet.map((state) => `<th>${size.label} ${state.label}</th>`).join('')).join('')}
+          </tr>`;
+
+        const tbody = document.createElement('tbody');
+
+        appearances.forEach((appearance) => {
+          const row = document.createElement('tr');
+          row.innerHTML = `
+            <td class="row-header">
+              <div class="appearance-name">${appearance.label}</div>
+              <div class="appearance-note">${mode.iconOnly ? 'icon-only' : 'text'} variant</div>
+            </td>
+            ${sizes
+              .map((size) =>
+                stateSet
+                  .map(
+                    (state) => `
+              <td class="cell">
+                <div class="cell-label">${size.note}</div>
+                <div class="cell-stage">
+                  ${buttonMarkup(familyKey, appearance, size, state, mode.iconOnly)}
+                </div>
+              </td>`,
+                  )
+                  .join(''),
+              )
+              .join('')}`;
+          tbody.appendChild(row);
+        });
+
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        return table;
+      }
+
+      const root = document.getElementById('matrix-root');
+
+      families.forEach((family) => {
+        const section = document.createElement('section');
+        section.className = 'family';
+
+        const header = document.createElement('div');
+        header.className = 'family-header';
+        header.innerHTML = `<h2>${family.title}</h2><p>${family.description}</p>`;
+        section.appendChild(header);
+
+        family.modes.forEach((mode) => {
+          const block = document.createElement('div');
+          block.className = 'mode-block';
+          block.innerHTML = `<h3 class="mode-title">${mode.label}</h3>`;
+
+          const wrap = document.createElement('div');
+          wrap.className = 'table-wrap';
+          wrap.appendChild(buildModeTable(family.key, mode));
+
+          block.appendChild(wrap);
+          section.appendChild(block);
+        });
+
+        root.appendChild(section);
+      });
+
+      document
+        .getElementById('toggle-light')
+        .addEventListener('change', (event) => {
+          document.body.classList.toggle('theme-light', event.target.checked);
+        });
+    </script>
+  </body>
+</html>
