@@ -220,7 +220,7 @@ export type VscOptionProps = OptionProps & {
   icon?: ReactNode;
   /** Inline secondary text (same line as label, dimmed). */
   secondaryText?: ReactNode;
-  /** Deprecated alias for secondaryText. */
+  /** @deprecated use secondaryText instead. */
   detail?: ReactNode;
   /** Block description text (second line, dimmed). */
   description?: ReactNode;
