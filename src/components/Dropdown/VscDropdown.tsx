@@ -16,6 +16,8 @@ import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
 import type { VscValidationState } from '../../types';
 import styles from './dropdown.module.scss';
 
+export type VscSelectionIndicator = 'none' | 'checkmark';
+
 /* -------------------------------------------------------------------------- */
 /*  Shared maps                                                               */
 /* -------------------------------------------------------------------------- */
@@ -30,6 +32,14 @@ const validationClassMap: Record<VscValidationState, string> = {
   error: styles.vscError,
   warning: styles.vscWarning,
   info: styles.vscInfo,
+};
+
+const selectionIndicatorClassMap: Record<
+  VscSelectionIndicator,
+  string | undefined
+> = {
+  none: styles.vscSelectionIndicatorNone,
+  checkmark: undefined,
 };
 
 /** Normalise Fluent's `listbox` slot (can be a string shorthand) into an object. */
@@ -74,6 +84,8 @@ export type VscDropdownProps = DropdownProps & {
   readOnly?: boolean;
   /** Enable label+description layout in the collapsed trigger. */
   withDescription?: boolean;
+  /** Controls whether options reserve space for a leading selection checkmark. */
+  selectionIndicator?: VscSelectionIndicator;
 };
 
 export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
@@ -82,6 +94,7 @@ export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
       validationState,
       readOnly,
       withDescription,
+      selectionIndicator = 'none',
       size,
       className,
       disabled,
@@ -109,6 +122,7 @@ export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
           ...listboxObj,
           className: clsx(
             styles.vscListbox,
+            selectionIndicatorClassMap[selectionIndicator],
             listboxObj.className as string | undefined,
           ),
         }}
@@ -126,11 +140,22 @@ VscDropdown.displayName = 'VscDropdown';
 export type VscComboboxProps = ComboboxProps & {
   validationState?: VscValidationState;
   readOnly?: boolean;
+  /** Controls whether options reserve space for a leading selection checkmark. */
+  selectionIndicator?: VscSelectionIndicator;
 };
 
 export const VscCombobox = forwardRef<HTMLInputElement, VscComboboxProps>(
   (
-    { validationState, readOnly, size, className, disabled, listbox, ...rest },
+    {
+      validationState,
+      readOnly,
+      selectionIndicator = 'none',
+      size,
+      className,
+      disabled,
+      listbox,
+      ...rest
+    },
     ref,
   ) => {
     const listboxObj = resolveListbox(listbox);
@@ -151,6 +176,7 @@ export const VscCombobox = forwardRef<HTMLInputElement, VscComboboxProps>(
           ...listboxObj,
           className: clsx(
             styles.vscListbox,
+            selectionIndicatorClassMap[selectionIndicator],
             listboxObj.className as string | undefined,
           ),
         }}
@@ -165,13 +191,20 @@ VscCombobox.displayName = 'VscCombobox';
 /*  Listbox (standalone)                                                      */
 /* -------------------------------------------------------------------------- */
 
-export type VscListboxProps = ListboxProps;
+export type VscListboxProps = ListboxProps & {
+  /** Controls whether options reserve space for a leading selection checkmark. */
+  selectionIndicator?: VscSelectionIndicator;
+};
 
 export const VscListbox = forwardRef<HTMLDivElement, VscListboxProps>(
-  ({ className, ...rest }, ref) => (
+  ({ className, selectionIndicator = 'none', ...rest }, ref) => (
     <Listbox
       ref={ref}
-      className={clsx(styles.vscListbox, className)}
+      className={clsx(
+        styles.vscListbox,
+        selectionIndicatorClassMap[selectionIndicator],
+        className,
+      )}
       {...rest}
     />
   ),
@@ -183,7 +216,11 @@ VscListbox.displayName = 'VscListbox';
 /* -------------------------------------------------------------------------- */
 
 export type VscOptionProps = OptionProps & {
+  /** Leading visual placed before the option label. */
+  icon?: ReactNode;
   /** Inline secondary text (same line as label, dimmed). */
+  secondaryText?: ReactNode;
+  /** @deprecated use secondaryText instead. */
   detail?: ReactNode;
   /** Block description text (second line, dimmed). */
   description?: ReactNode;
@@ -191,28 +228,53 @@ export type VscOptionProps = OptionProps & {
 
 export const VscOption = forwardRef<HTMLDivElement, VscOptionProps>(
   (
-    { detail, description, children, className, disabled, text, ...rest },
+    {
+      icon,
+      secondaryText,
+      detail,
+      description,
+      children,
+      className,
+      disabled,
+      text,
+      ...rest
+    },
     ref,
-  ) => (
-    <Option
-      ref={ref}
-      text={text!}
-      disabled={disabled}
-      className={clsx(
-        styles.vscOption,
-        description && styles.vscWithDescription,
-        disabled && styles.vscDisabled,
-        className,
-      )}
-      {...rest}
-    >
-      {children}
-      {detail && <span className={styles.vscOptionDetail}>{detail}</span>}
-      {description && (
-        <span className={styles.vscOptionDescription}>{description}</span>
-      )}
-    </Option>
-  ),
+  ) => {
+    const resolvedSecondaryText = secondaryText ?? detail;
+
+    return (
+      <Option
+        ref={ref}
+        text={text!}
+        disabled={disabled}
+        className={clsx(
+          styles.vscOption,
+          disabled && styles.vscDisabled,
+          className,
+        )}
+        {...rest}
+      >
+        {icon && <span className={styles.vscOptionIcon}>{icon}</span>}
+        <span className={styles.vscOptionLabel}>{children}</span>
+        {resolvedSecondaryText && (
+          <span className={styles.vscOptionDetail}>
+            {resolvedSecondaryText}
+          </span>
+        )}
+        {description && (
+          <span
+            className={clsx(
+              styles.vscOptionDescription,
+              icon && styles.vscOptionDescriptionWithIcon,
+            )}
+          >
+            {description}
+          </span>
+        )}
+      </Option>
+    );
+  },
 );
 VscOption.displayName = 'VscOption';
 

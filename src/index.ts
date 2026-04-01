@@ -40,6 +40,7 @@ export type {
   VscDropdownProps,
   VscComboboxProps,
   VscListboxProps,
+  VscSelectionIndicator,
   VscOptionProps,
   VscOptionGroupProps,
   VscTriggerLabelProps,

@@ -67,6 +67,34 @@ describe('VscDropdown', () => {
     const root = container.querySelector(`.${styles.vscDropdown}`);
     expect(root?.className).toContain('custom');
   });
+
+  it('uses the flush listbox layout by default', () => {
+    render(
+      <VscDropdown open>
+        <VscOption text="A">A</VscOption>
+      </VscDropdown>,
+      { wrapper },
+    );
+
+    const listboxes = screen.getAllByRole('listbox');
+    const listbox = listboxes[listboxes.length - 1];
+
+    expect(listbox?.className).toContain(styles.vscSelectionIndicatorNone);
+  });
+
+  it('keeps the checkmark gutter when requested', () => {
+    render(
+      <VscDropdown open selectionIndicator="checkmark">
+        <VscOption text="A">A</VscOption>
+      </VscDropdown>,
+      { wrapper },
+    );
+
+    const listboxes = screen.getAllByRole('listbox');
+    const listbox = listboxes[listboxes.length - 1];
+
+    expect(listbox?.className).not.toContain(styles.vscSelectionIndicatorNone);
+  });
 });
 
 describe('VscCombobox', () => {
@@ -122,6 +150,53 @@ describe('VscOption', () => {
     );
     expect(container.querySelector(`.${styles.vscOption}`)).toBeTruthy();
   });
+
+  it('renders a leading icon when provided', () => {
+    render(
+      <VscListbox>
+        <VscOption text="Hello" icon={<span data-testid="option-icon">*</span>}>
+          Hello
+        </VscOption>
+      </VscListbox>,
+      { wrapper },
+    );
+
+    expect(screen.getByTestId('option-icon')).toBeInTheDocument();
+  });
+
+  it('supports icon and description together', () => {
+    render(
+      <VscListbox>
+        <VscOption
+          text="Hello"
+          icon={<span aria-hidden="true">*</span>}
+          description="More detail"
+        >
+          Hello
+        </VscOption>
+      </VscListbox>,
+      { wrapper },
+    );
+
+    expect(screen.getByText('More detail')).toBeInTheDocument();
+    expect(screen.getByText('More detail').className).toContain(
+      styles.vscOptionDescriptionWithIcon,
+    );
+  });
+
+  it('prefers secondaryText over the deprecated detail alias', () => {
+    render(
+      <VscListbox>
+        <VscOption text="Hello" secondaryText="Preferred" detail="Fallback">
+          Hello
+        </VscOption>
+      </VscListbox>,
+      { wrapper },
+    );
+
+    expect(screen.getByText('Preferred')).toBeInTheDocument();
+    expect(screen.queryByText('Fallback')).not.toBeInTheDocument();
+  });
 });
 
 describe('VscOptionGroup', () => {
@@ -169,5 +244,31 @@ describe('VscListbox', () => {
       { wrapper },
     );
     expect(container.querySelector(`.${styles.vscListbox}`)).toBeTruthy();
+  });
+
+  it('uses the flush layout by default', () => {
+    const { container } = render(
+      <VscListbox>
+        <VscOption text="A">A</VscOption>
+      </VscListbox>,
+      { wrapper },
+    );
+
+    expect(container.querySelector('[role="listbox"]')?.className).toContain(
+      styles.vscSelectionIndicatorNone,
+    );
+  });
+
+  it('allows opting into the checkmark gutter', () => {
+    const { container } = render(
+      <VscListbox selectionIndicator="checkmark">
+        <VscOption text="A">A</VscOption>
+      </VscListbox>,
+      { wrapper },
+    );
+
+    expect(
+      container.querySelector('[role="listbox"]')?.className,
+    ).not.toContain(styles.vscSelectionIndicatorNone);
   });
 });
