@@ -1,27 +1,10 @@
 import { Button, type ButtonProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import buttonStyles from './button.module.scss';
-
-const appearanceClassMap: Partial<
-  Record<NonNullable<ButtonProps['appearance']>, string>
-> = {
-  primary: buttonStyles.vscodePrimary,
-  secondary: buttonStyles.vscodeSecondary,
-  outline: buttonStyles.vscodeOutline,
-  subtle: buttonStyles.vscodeSubtle,
-  transparent: buttonStyles.vscodeTransparent,
-};
-
-const sizeClassMap: Record<NonNullable<VscButtonSize>, string> = {
-  small: buttonStyles.vscodeSmall,
-  medium: '',
-  large: buttonStyles.vscodeLarge,
-  compact: buttonStyles.vscodeCompact,
-};
-
-type VscButtonSize = ButtonProps['size'] | 'compact';
+import {
+  useButtonStylesHook,
+  type VscButtonSize,
+} from './useButtonStyles';
 
 export type VscButtonProps = Omit<ButtonProps, 'size'> & {
   size?: VscButtonSize;
@@ -32,13 +15,12 @@ export const VscButton = forwardRef<HTMLButtonElement, VscButtonProps>(
     const isCompact = size === 'compact';
     const fluentSize = isCompact ? undefined : size;
 
-    const mergedClassName = clsx(
-      buttonStyles.vscBase,
-      appearanceClassMap[appearance ?? 'secondary'],
-      size && sizeClassMap[size],
-      icon && !children && buttonStyles.vscodeIconOnly,
+    const mergedClassName = useButtonStylesHook({
+      appearance: appearance as VscButtonProps['appearance'],
+      size,
+      iconOnly: !!icon && !children,
       className,
-    );
+    });
 
     return (
       <Button

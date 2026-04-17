@@ -1,4 +1,1 @@
-declare module '*.module.scss' {
-  const classes: Record<string, string>;
-  export default classes;
-}
+// No global type declarations needed — styles are now handled via Griffel CSS-in-JS.

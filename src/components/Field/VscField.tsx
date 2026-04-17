@@ -1,9 +1,8 @@
 import { Field, type FieldProps, Tooltip } from '@fluentui/react-components';
 import { Info16Regular } from '@fluentui/react-icons';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import styles from './field.module.scss';
+import { useFieldStyles } from './useFieldStyles';
 
 export type VscFieldProps = Omit<FieldProps, 'label'> & {
   /** Field label text. */
@@ -14,14 +13,22 @@ export type VscFieldProps = Omit<FieldProps, 'label'> & {
 
 export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
   ({ className, label, tooltipContent, required, ...rest }, ref) => {
+    const {
+      rootClassName,
+      labelRowClassName,
+      labelTextClassName,
+      requiredIndicatorClassName,
+      infoIconClassName,
+    } = useFieldStyles({ className });
+
     const labelSlot = label ? (
-      <span className={styles.labelRow}>
-        <span className={styles.labelText}>{label}</span>
-        {required && <span className={styles.requiredIndicator}>*</span>}
+      <span className={labelRowClassName}>
+        <span className={labelTextClassName}>{label}</span>
+        {required && <span className={requiredIndicatorClassName}>*</span>}
         {tooltipContent && (
           <Tooltip content={tooltipContent} relationship="description">
             <span
-              className={styles.infoIcon}
+              className={infoIconClassName}
               role="img"
               aria-label={tooltipContent}
             >
@@ -35,7 +42,7 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
     return (
       <Field
         ref={ref}
-        className={clsx(styles.vscBase, className)}
+        className={rootClassName}
         label={labelSlot}
         required={required}
         {...rest}

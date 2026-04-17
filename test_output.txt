@@ -1,0 +1,3091 @@
+
+> vsc-ui-react@0.1.0 test
+> vitest run
+
+
+[1m[46m RUN [49m[22m [36mv3.2.4 [39m[90mC:/Users/huimiao/i/vsc-ui-react[39m
+
+ [32mΓ£ô[39m test/VscButton.test.tsx [2m([22m[2m10 tests[22m[2m)[22m[32m 237[2mms[22m[39m
+ [32mΓ£ô[39m test/VscSplitButton.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[32m 233[2mms[22m[39m
+ [31mΓ¥»[39m test/VscField.test.tsx [2m([22m[2m9 tests[22m[2m | [22m[31m5 failed[39m[2m)[22m[32m 296[2mms[22m[39m
+   [32mΓ£ô[39m VscField[2m > [22mrenders a field with label[32m 69[2mms[22m[39m
+   [32mΓ£ô[39m VscField[2m > [22mapplies style classes to root[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m VscField[2m > [22mforwards ref[32m 5[2mms[22m[39m
+[31m   [31m├ù[31m VscField[2m > [22mmerges custom className[39m[32m 17[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'my-field'[39m
+[31m   [31m├ù[31m VscField[2m > [22mshows required indicator when required is true[39m[32m 22[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the text: *
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33maria-hidden[31m=[32m"true"[31m
+  [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r1__control"[31m
+          [33mid[31m=[32m"field-r1__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mUsername[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r1__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r3__control"[31m
+          [33mid[31m=[32m"field-r3__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mTest[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r3__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r5__control"[31m
+          [33mid[31m=[32m"field-r5__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mRef[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r5__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr6 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk my-field ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r7__control"[31m
+          [33mid[31m=[32m"field-r7__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mCustom[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r7__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr8 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r9__control"[31m
+          [33mid[31m=[32m"field-r9__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mEmail[0m
+            [36m</span>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+            [36m>[31m
+              [0m*[0m
+            [36m</span>[31m
+          [36m</span>[31m
+          [36m<span[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+          [36m>[31m
+            [0m*[0m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r9__control"[31m
+            [33mrequired[31m=[32m""[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscField[2m > [22mdoes not show required indicator when required is false[39m[32m 9[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the text: *
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33maria-hidden[31m=[32m"true"[31m
+  [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r1__control"[31m
+          [33mid[31m=[32m"field-r1__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mUsername[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r1__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r3__control"[31m
+          [33mid[31m=[32m"field-r3__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mTest[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r3__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r5__control"[31m
+          [33mid[31m=[32m"field-r5__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mRef[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r5__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr6 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk my-field ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r7__control"[31m
+          [33mid[31m=[32m"field-r7__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mCustom[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r7__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr8 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r9__control"[31m
+          [33mid[31m=[32m"field-r9__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mEmail[0m
+            [36m</span>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+            [36m>[31m
+              [0m*[0m
+            [36m</span>[31m
+          [36m</span>[31m
+          [36m<span[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+          [36m>[31m
+            [0m*[0m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r9__control"[31m
+            [33mrequired[31m=[32m""[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderra ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-rb__control"[31m
+          [33mid[31m=[32m"field-rb__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mEmail[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-rb__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+   [32mΓ£ô[39m VscField[2m > [22mrenders info tooltip icon when tooltipContent is provided[32m 103[2mms[22m[39m
+[31m   [31m├ù[31m VscField[2m > [22mdoes not render info icon when tooltipContent is not provided[39m[32m 32[2mms[22m[39m
+[31m     ΓåÆ [2mexpect([22m[31melement[31m[2m).not.toBeInTheDocument()[22m
+
+[31mexpected document not to contain element, found <span
+  aria-describedby="tooltip-re"
+  aria-label="Enter your full name"
+  class="___zuka520_0000000 ftuwxu6 f122n59 f4d9j23 fjf1xye f1tnc4jg f1u9rtiu frdo0fl f1yunyhq"
+  role="img"
+>
+  <svg
+    aria-hidden="true"
+    class="fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"
+    fill="currentColor"
+    height="16"
+    viewBox="0 0 16 16"
+    width="16"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.5 7.5a.5.5 0 1 0-1 0v3a.5.5 0 0 0 1 0v-3Zm.25-2a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1ZM2 8a6 6 0 1 1 12 0A6 6 0 0 1 2 8Z"
+      fill="currentColor"
+    />
+  </svg>
+</span> instead[31m[39m
+[31m   [31m├ù[31m VscField[2m > [22mrenders label row with all elements[39m[32m 28[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the text: *
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33maria-hidden[31m=[32m"true"[31m
+  [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33mclass[31m=[32m"___g0b8nu0_0000000 f1qqpd00 f1hzsgrp"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+Ignored nodes: comments, script, style
+[36m<span[31m
+  [33maria-hidden[31m=[32m"true"[31m
+  [33mclass[31m=[32m"fui-Label__required ___di7pjm0_79xo450 f1whyuy6 fruq291"[31m
+[36m>[31m
+  [0m*[0m
+[36m</span>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r1__control"[31m
+          [33mid[31m=[32m"field-r1__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mUsername[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r1__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r3__control"[31m
+          [33mid[31m=[32m"field-r3__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mTest[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r3__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r5__control"[31m
+          [33mid[31m=[32m"field-r5__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mRef[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r5__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr6 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk my-field ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r7__control"[31m
+          [33mid[31m=[32m"field-r7__label"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"___1wrlx8u_0000000 f22iagw f122n59"[31m
+          [36m>[31m
+            [36m<span[31m
+              [33mclass[31m=[32m"___1vc57k3_0000000 f1jl8r8c f18bjkci f594gic fwqz0k0"[31m
+            [36m>[31m
+              [0mCustom[0m
+            [36m</span>[31m
+          [36m</span>[31m
+        [36m</label>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input r1oeeo9n ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+        [36m>[31m
+          [36m<input[31m
+            [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+            [33mid[31m=[32m"field-r7__control"[31m
+            [33mtype[31m=[32m"text"[31m
+            [33mvalue[31m=[32m""[31m
+          [36m/>[31m
+        [36m</span>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr8 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Field r18xv3vk ___keyyzl0_1dbn5sh f13qh94s"[31m
+      [36m>[31m
+        [36m<label[31m
+          [33mclass[31m=[32m"fui-Label fui-Field__label ___uxsood0_w9q9lw0 fk6fouc f19n0e5 fkhj508 f1i3iumi f6nezus f1iqmcbn fclwglc fywfov9 fyacil5"[31m
+          [33mfor[31m=[32m"field-r9__control"[31m
+          [33mid[31m=[3...[39m
+ [31mΓ¥»[39m test/VscTextarea.test.tsx [2m([22m[2m6 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[33m 324[2mms[22m[39m
+   [32mΓ£ô[39m VscTextarea[2m > [22mrenders a textarea element[32m 90[2mms[22m[39m
+   [32mΓ£ô[39m VscTextarea[2m > [22mapplies style classes to root[32m 7[2mms[22m[39m
+   [32mΓ£ô[39m VscTextarea[2m > [22mforwards ref[32m 6[2mms[22m[39m
+[31m   [31m├ù[31m VscTextarea[2m > [22mrenders with error validation state[39m[32m 128[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscTextarea[2m > [22mrenders disabled state[39m[32m 79[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<textarea[31m
+  [33mclass[31m=[32m"fui-Textarea__textarea ___o745b80_135ydkw f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f1s2aq7o fqerorx fk6fouc f1l02sjl fahhnxm f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h fdrzuqr"[31m
+  [33mdisabled[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ul6hw50_1iaxcbf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn fxugw4r f1c1zstj fhz96rm f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx fj2g8qd f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f1vnc8sk f3e99gv fhljsf7 f1l4zc64 f9mts5e f1z0osm6 f1acnei2 f1so894s f19ezbcq"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___1exmw6r_wmtmdb0 f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f19n0e5 fqerorx fk6fouc f1l02sjl fwyc1cq f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h"[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Textarea r1lyg7bd ___ibj16e0_1cwr6mf ftuwxu6 f1ewtqcl f10pi13n f1yiegib f1s184ao ft85np5 f12kltsn f1c21dwh ff3nzm7 f9dbb4x f3qs60o fwd1oij f5u9ap2 fllbicn fdrzuqr f1aehjj5"[31m
+      [36m>[31m
+        [36m<textarea[31m
+          [33mclass[31m=[32m"fui-Textarea__textarea ___o745b80_135ydkw f1ern45e f1n71otn f1h8hb77 f1deefiw f1s184ao f3rmtva f1ewtqcl f1s2aq7o fqerorx fk6fouc f1l02sjl fahhnxm f13ta7ih f1s6fcnf fvmd9f f1ww82xo f1if7ixc fkhj508 figsok6 f1i3iumi f1o1s39h fdrzuqr"[31m
+          [33mdisabled[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscTextarea[2m > [22mmerges custom className[39m[32m 12[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'custom'[39m
+ [31mΓ¥»[39m test/VscSearchBox.test.tsx [2m([22m[2m7 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[33m 496[2mms[22m[39m
+   [32mΓ£ô[39m VscSearchBox[2m > [22mrenders a search input[32m 120[2mms[22m[39m
+   [32mΓ£ô[39m VscSearchBox[2m > [22mapplies style classes to root[32m 9[2mms[22m[39m
+   [32mΓ£ô[39m VscSearchBox[2m > [22mforwards ref[32m 6[2mms[22m[39m
+[31m   [31m├ù[31m VscSearchBox[2m > [22mrenders with medium size[39m[32m 154[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "searchbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[...[39m
+[31m   [31m├ù[31m VscSearchBox[2m > [22mrenders with large size[39m[32m 90[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "searchbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[...[39m
+[31m   [31m├ù[31m VscSearchBox[2m > [22mrenders disabled state[39m[32m 101[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "searchbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___17iwk78_1xf7flv fk8j09s f1vdfbxk f1s2aq7o f1c21dwh fdrzuqr fahhnxm f18izjht fcoa6sg"[31m
+  [33mdisabled[31m=[32m""[31m
+  [33mtype[31m=[32m"search"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentBefore r1572tok fui-SearchBox__contentBefore"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"M13.73 14.44a6.5 6.5 0 1 1 .7-.7l3.42 3.4a.5.5 0 0 1-.63.77l-.07-.06-3.42-3.41Zm-.71-.71A5.54 5.54 0 0 0 15 9.5a5.5 5.5 0 1 0-1.98 4.23Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</span>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 fui-SearchBox__input ___69a85s0_ca35df0 fk8j09s f1vdfbxk f18izjht fcoa6sg"[31m
+          [33mtype[31m=[32m"search"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+        [36m<span[31m
+          [33mclass[31m=[32m"fui-Input__contentAfter r1572tok fui-SearchBox__contentAfter ___yrbim60_1xrsupy f1cnd47f f1ufnopg fniina8 f3tsq5r f1a3p1vp"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33maria-label[31m=[32m"clear"[31m
+            [33mclass[31m=[32m"fui-SearchBox__dismiss r1pvzcuu"[31m
+            [33mrole[31m=[32m"button"[31m
+            [33mtabindex[31m=[32m"-1"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</span>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n fui-SearchBox rofldqi ___13yg2oi_15g8mz3 f1f5gg8d fhxju0i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fjuset5 f1xzfw5u"[31m
+      [36m>[31m
+        [36m<span[31m
+          [33mclass[...[39m
+[31m   [31m├ù[31m VscSearchBox[2m > [22mmerges custom className[39m[32m 14[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'custom'[39m
+ [31mΓ¥»[39m test/VscTabList.test.tsx [2m([22m[2m8 tests[22m[2m | [22m[31m3 failed[39m[2m)[22m[33m 528[2mms[22m[39m
+   [32mΓ£ô[39m VscTabList[2m > [22mrenders tabs[32m 76[2mms[22m[39m
+   [32mΓ£ô[39m VscTabList[2m > [22mapplies style classes to TabList[32m 7[2mms[22m[39m
+[31m   [31m├ù[31m VscTabList[2m > [22mapplies style classes to Tab[39m[32m 187[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "tab"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"one"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mTab One[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mTab One[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"two"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mTab Two[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mTab Two[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"one"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mTab One[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mTab One[0m
+          [36m</span>[31m
+        [36m</button>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"two"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mTab Two[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mTab Two[0m
+          [36m</span>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"a"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"a"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+   [32mΓ£ô[39m VscTabList[2m > [22mforwards ref on TabList[32m 7[2mms[22m[39m
+[31m   [31m├ù[31m VscTabList[2m > [22mmerges custom className on TabList[39m[32m 21[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'my-tabs'[39m
+[31m   [31m├ù[31m VscTabList[2m > [22mmerges custom className on Tab[39m[32m 208[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "tab"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"one"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mTab One[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mTab One[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"two"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mTab Two[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mTab Two[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-selected[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Tab r76zrll my-tab ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+  [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+  [33mrole[31m=[32m"tab"[31m
+  [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+  [33mtype[31m=[32m"button"[31m
+  [33mvalue[31m=[32m"a"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+  [36m>[31m
+    [0mA[0m
+  [36m</span>[31m
+[36m</button>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"one"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mTab One[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mTab One[0m
+          [36m</span>[31m
+        [36m</button>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"two"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mTab Two[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mTab Two[0m
+          [36m</span>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m
+          [33mdata-tabster[31m=[32m"{\"focusable\":{\"isDefault\":false}}"[31m
+          [33mrole[31m=[32m"tab"[31m
+          [33mstyle[31m=[32m"--fui-Tab__indicator--offset: 0px; --fui-Tab__indicator--scale: 1;"[31m
+          [33mtype[31m=[32m"button"[31m
+          [33mvalue[31m=[32m"a"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content ___1bw8k0o_h40hz80 fk6fouc fkhj508 figsok6 f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Tab__content--reserved-space ___1aeddh8_59j56c0 fk6fouc fkhj508 fl43uef f1i3iumi f1a3p1vp f1bwptpd fwpfdsa f16hsg94 fd7fpy0"[31m
+          [36m>[31m
+            [0mA[0m
+          [36m</span>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-orientation[31m=[32m"horizontal"[31m
+        [33mclass[31m=[32m"fui-TabList r4kxvvj ___8n9zdb0_1l1dwte f22iagw f1063pyq fi64zpg flvyvdh f10pi13n f1q9h2pe"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":2,\"memorizeCurrent\":false,\"hasDefault\":true}}"[31m
+        [33mrole[31m=[32m"tablist"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-selected[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Tab r76zrll ___vab22l0_mg4w4a0 f122n59 f3bhgqh ft85np5 f1k6fduh f13qh94s fi64zpg f1u07yai frn2hmy f1olsevy fk6fouc f1i3iumi f1s6fcnf f10pi13n f1a3p1vp f1cxpek8 f4d9j23 f1rjii52 f1w08f2p f8hki3x f1d2448m f1bjia2o ffh67wi f1p7hgxw f1way5bb f9znhxp fqa318h f1vjpng2 f1c21dwh f9rvdkv f1051ucx fmmjozx fqhzt5g f7l5cgy fpkze5g f1iywnoi f9n45c4 fhw179n fg9j5n4 f1kmhr4c fl1ydde f1y7maxz fceyvr4 f16cxu0 f1nwgacf fm6alxz fhx32z1 fchca7p f1s2r9ax f1o0nnkk fxb7rol"[31m...[39m
+   [32mΓ£ô[39m VscTabList[2m > [22mrenders with default size[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m VscTabList[2m > [22mmarks selected tab with aria-selected[32m 13[2mms[22m[39m
+ [31mΓ¥»[39m test/VscInput.test.tsx [2m([22m[2m9 tests[22m[2m | [22m[31m6 failed[39m[2m)[22m[33m 719[2mms[22m[39m
+   [32mΓ£ô[39m VscInput[2m > [22mrenders an input element[32m 133[2mms[22m[39m
+   [32mΓ£ô[39m VscInput[2m > [22mapplies style classes to root[32m 8[2mms[22m[39m
+   [32mΓ£ô[39m VscInput[2m > [22mforwards ref[32m 7[2mms[22m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mrenders with small size[39m[32m 152[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___j7n6zo0_1jb7407 f1pha7fy fk6fouc fy9rknc figsok6 fwrc4pm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm frvgh55 f1ujyikd f17vdgsw f1c5atdv fev9 fma3mlt f1ldlsuz f7xnhqp f14cdcie f1nj9422 fgqbjgl fst5tx2 f1c7db46 f3k6zsi fovfdce f136ft61 f1y66xvt"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mrenders with large size[39m[32m 91[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___j7n6zo0_1jb7407 f1pha7fy fk6fouc fy9rknc figsok6 fwrc4pm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm frvgh55 f1ujyikd f17vdgsw f1c5atdv fev9 fma3mlt f1ldlsuz f7xnhqp f14cdcie f1nj9422 fgqbjgl fst5tx2 f1c7db46 f3k6zsi fovfdce f136ft61 f1y66xvt"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1034m6g_9wrfpa0 f1ysfysz fk6fouc fod5ikn figsok6 faaz57k f1eyhf9v fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fxldao9 fercs9z f1t6a0jg f1w0kdzf fcpoera fma3mlt f1ldlsuz"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mrenders with error validation state[39m[32m 95[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___j7n6zo0_1jb7407 f1pha7fy fk6fouc fy9rknc figsok6 fwrc4pm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm frvgh55 f1ujyikd f17vdgsw f1c5atdv fev9 fma3mlt f1ldlsuz f7xnhqp f14cdcie f1nj9422 fgqbjgl fst5tx2 f1c7db46 f3k6zsi fovfdce f136ft61 f1y66xvt"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1034m6g_9wrfpa0 f1ysfysz fk6fouc fod5ikn figsok6 faaz57k f1eyhf9v fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fxldao9 fercs9z f1t6a0jg f1w0kdzf fcpoera fma3mlt f1ldlsuz"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr5 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mrenders with warning validation state[39m[32m 114[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___j7n6zo0_1jb7407 f1pha7fy fk6fouc fy9rknc figsok6 fwrc4pm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm frvgh55 f1ujyikd f17vdgsw f1c5atdv fev9 fma3mlt f1ldlsuz f7xnhqp f14cdcie f1nj9422 fgqbjgl fst5tx2 f1c7db46 f3k6zsi fovfdce f136ft61 f1y66xvt"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1034m6g_9wrfpa0 f1ysfysz fk6fouc fod5ikn figsok6 faaz57k f1eyhf9v fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fxldao9 fercs9z f1t6a0jg f1w0kdzf fcpoera fma3mlt f1ldlsuz"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr5 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr6 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mrenders disabled state[39m[32m 104[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "textbox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+Ignored nodes: comments, script, style
+[36m<input[31m
+  [33mclass[31m=[32m"fui-Input__input r12stul0 ___12qx8ed_15h66xx f1s2aq7o f1c21dwh fdrzuqr fahhnxm"[31m
+  [33mdisabled[31m=[32m""[31m
+  [33mtype[31m=[32m"text"[31m
+  [33mvalue[31m=[32m""[31m
+[36m/>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr1 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr3 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___j7n6zo0_1jb7407 f1pha7fy fk6fouc fy9rknc figsok6 fwrc4pm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm frvgh55 f1ujyikd f17vdgsw f1c5atdv fev9 fma3mlt f1ldlsuz f7xnhqp f14cdcie f1nj9422 fgqbjgl fst5tx2 f1c7db46 f3k6zsi fovfdce f136ft61 f1y66xvt"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___dmmac90_19wzd1i f1f5gg8d f1vdfbxk"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr4 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1034m6g_9wrfpa0 f1ysfysz fk6fouc fod5ikn figsok6 faaz57k f1eyhf9v fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm fxldao9 fercs9z f1t6a0jg f1w0kdzf fcpoera fma3mlt f1ldlsuz"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___e4pcmp0_u8glci0 fnphzt9 flt1dlf"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr5 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr6 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___1v9icnz_137yv9i fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi f8vnjqi fz1etlk f1klwx88 f1hc16gm"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0"[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr7 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<span[31m
+        [33mclass[31m=[32m"fui-Input r1oeeo9n r18uwdp5 ___y4cctv0_2mkqyj0 fdrzuqr f1c21dwh f1jj8ep1 f15xbau f4ikngz fy0fskl f9dbb4x f3qs60o fwd1oij f5u9ap2 fhr9occ f99w1ws fllbicn f1aehjj5"[31m
+      [36m>[31m
+        [36m<input[31m
+          [33mclass[31m=[32m"fui-Input__input r12stul0 ___12qx8ed_15h66xx f1s2aq7o f1c21dwh fdrzuqr fahhnxm"[31m
+          [33mdisabled[31m=[32m""[31m
+          [33mtype[31m=[32m"text"[31m
+          [33mvalue[31m=[32m""[31m
+        [36m/>[31m
+      [36m</span>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+[31m   [31m├ù[31m VscInput[2m > [22mmerges custom className[39m[32m 14[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'my-custom'[39m
+ [31mΓ¥»[39m test/VscMenu.test.tsx [2m([22m[2m8 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 1071[2mms[22m[39m
+   [32mΓ£ô[39m VscMenuPopover[2m > [22mrenders popover with style classes[32m 234[2mms[22m[39m
+[31m   [31m├ù[31m VscMenuList[2m > [22mrenders a menu role element[39m[32m 141[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "menu"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<div[31m
+  [33maria-labelledby[31m=[32m"menur1"[31m
+  [33mclass[31m=[32m"fui-MenuList r2c7z2s ___1cyqkw0_k0y38j0 f22iagw f1vx9l62 f1t6b6ee f1l02sjl"[31m
+  [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":1,\"memorizeCurrent\":true}}"[31m
+  [33mrole[31m=[32m"menu"[31m
+[36m>[31m
+  [36m<div[31m
+    [33mclass[31m=[32m"fui-MenuItem rfoezjv r1y6abc"[31m
+    [33mrole[31m=[32m"menuitem"[31m
+    [33mtabindex[31m=[32m"0"[31m
+  [36m>[31m
+    [36m<span[31m
+      [33mclass[31m=[32m"fui-MenuItem__content r1ls86vo"[31m
+    [36m>[31m
+      [0mItem[0m
+    [36m</span>[31m
+  [36m</div>[31m
+[36m</div>[31m
+
+Ignored nodes: comments, script, style
+[36m<div[31m
+  [33maria-labelledby[31m=[32m"menur3"[31m
+  [33mclass[31m=[32m"fui-MenuList r2c7z2s ___1cyqkw0_k0y38j0 f22iagw f1vx9l62 f1t6b6ee f1l02sjl"[31m
+  [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":1,\"memorizeCurrent\":true}}"[31m
+  [33mrole[31m=[32m"menu"[31m
+[36m>[31m
+  [36m<div[31m
+    [33mclass[31m=[32m"fui-MenuItem rfoezjv r1y6abc"[31m
+    [33mrole[31m=[32m"menuitem"[31m
+    [33mtabindex[31m=[32m"0"[31m
+  [36m>[31m
+    [36m<span[31m
+      [33mclass[31m=[32m"fui-MenuItem__content r1ls86vo"[31m
+    [36m>[31m
+      [0mAlpha[0m
+    [36m</span>[31m
+  [36m</div>[31m
+[36m</div>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body[31m
+  [33mdata-tabster[31m=[32m"{\"root\":{}}"[31m
+[36m>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<button[31m
+        [33maria-expanded[31m=[32m"true"[31m
+        [33maria-haspopup[31m=[32m"menu"[31m
+        [33mid[31m=[32m"menur1"[31m
+      [36m>[31m
+        [0mOpen[0m
+      [36m</button>[31m
+      [36m<span[31m
+        [33mhidden[31m=[32m""[31m
+      [36m/>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div[31m
+    [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___1bsm0mz_h39jby0 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi f1euv43f f15twtuk f1vgc2s3 f1e31b4d f494woh"[31m
+    [33mdata-portal-node[31m=[32m"true"[31m
+    [33mdir[31m=[32m"ltr"[31m
+  [36m>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-MenuPopover r1wazz8o ___7a6mni0_18saflo ft85np5 fxugw4r f19n0e5 f1ewtqcl fl8fusi f1kaai3v f1p9o1ba f1ahpp82 f1hg901r fd3pd8h f9ggezi fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdata-tabster[31m=[32m"{\"restorer\":{\"type\":0}}"[31m
+      [33mrole[31m=[32m"presentation"[31m
+      [33mstyle[31m=[32m"position: absolute; left: 0px; top: 0px; margin: 0px;"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-labelledby[31m=[32m"menur1"[31m
+        [33mclass[31m=[32m"fui-MenuList r2c7z2s ___1cyqkw0_k0y38j0 f22iagw f1vx9l62 f1t6b6ee f1l02sjl"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":1,\"memorizeCurrent\":true}}"[31m
+        [33mrole[31m=[32m"menu"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"fui-MenuItem rfoezjv r1y6abc"[31m
+          [33mrole[31m=[32m"menuitem"[31m
+          [33mtabindex[31m=[32m"0"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-MenuItem__content r1ls86vo"[31m
+          [36m>[31m
+            [0mItem[0m
+          [36m</span>[31m
+        [36m</div>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+    [36m<span[31m
+      [33mhidden[31m=[32m""[31m
+    [36m/>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<button[31m
+        [33maria-expanded[31m=[32m"true"[31m
+        [33maria-haspopup[31m=[32m"menu"[31m
+        [33mid[31m=[32m"menur3"[31m
+      [36m>[31m
+        [0mOpen[0m
+      [36m</button>[31m
+      [36m<span[31m
+        [33mhidden[31m=[32m""[31m
+      [36m/>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div[31m
+    [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___1bsm0mz_h39jby0 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi f1euv43f f15twtuk f1vgc2s3 f1e31b4d f494woh"[31m
+    [33mdata-portal-node[31m=[32m"true"[31m
+    [33mdir[31m=[32m"ltr"[31m
+  [36m>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-MenuPopover r1wazz8o ___7a6mni0_18saflo ft85np5 fxugw4r f19n0e5 f1ewtqcl fl8fusi f1kaai3v f1p9o1ba f1ahpp82 f1hg901r fd3pd8h f9ggezi fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdata-tabster[31m=[32m"{\"restorer\":{\"type\":0}}"[31m
+      [33mrole[31m=[32m"presentation"[31m
+      [33mstyle[31m=[32m"position: fixed; left: 0px; top: 0px; margin: 0px;"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33maria-labelledby[31m=[32m"menur3"[31m
+        [33mclass[31m=[32m"fui-MenuList r2c7z2s ___1cyqkw0_k0y38j0 f22iagw f1vx9l62 f1t6b6ee f1l02sjl"[31m
+        [33mdata-tabster[31m=[32m"{\"mover\":{\"cyclic\":true,\"direction\":1,\"memorizeCurrent\":true}}"[31m
+        [33mrole[31m=[32m"menu"[31m
+      [36m>[31m
+        [36m<div[31m
+          [33mclass[31m=[32m"fui-MenuItem rfoezjv r1y6abc"[31m
+          [33mrole[31m=[32m"menuitem"[31m
+          [33mtabindex[31m=[32m"0"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-MenuItem__content r1ls86vo"[31m
+          [36m>[31m
+            [0mAlpha[0m
+          [36m</span>[31m
+        [36m</div>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+    [36m<span[31m
+      [33mhidden[31m=[32m""[31m
+    [36m/>[31m
+  [36m</div>[31m
+[36m</body>[31m[39m
+   [32mΓ£ô[39m VscMenuItem[2m > [22mrenders a menuitem[32m 130[2mms[22m[39m
+   [32mΓ£ô[39m VscMenuItem[2m > [22mrenders with accent prop[32m 129[2mms[22m[39m
+   [32mΓ£ô[39m VscMenuItem[2m > [22mrenders with indented prop[32m 118[2mms[22m[39m
+[31m   [31m├ù[31m VscMenuDivider[2m > [22mrenders a divider[39m[32m 77[2mms[22m[39m
+[31m     ΓåÆ expected null to be truthy[39m
+   [32mΓ£ô[39m VscMenuGroup[2m > [22mrenders a group[32m 70[2mms[22m[39m
+   [32mΓ£ô[39m VscMenuGroupHeader[2m > [22mrenders group header text[32m 72[2mms[22m[39m
+ [31mΓ¥»[39m test/VscDropdown.test.tsx [2m([22m[2m21 tests[22m[2m | [22m[31m6 failed[39m[2m)[22m[33m 1268[2mms[22m[39m
+   [32mΓ£ô[39m VscDropdown[2m > [22mrenders a combobox trigger[32m 141[2mms[22m[39m
+   [32mΓ£ô[39m VscDropdown[2m > [22mapplies style classes to root[32m 9[2mms[22m[39m
+   [32mΓ£ô[39m VscDropdown[2m > [22mforwards ref[32m 7[2mms[22m[39m
+[31m   [31m├ù[31m VscDropdown[2m > [22mrenders with validation state[39m[32m 171[2mms[22m[39m
+[31m     ΓåÆ Found multiple elements with the role "combobox"
+
+Here are the matching elements:
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-expanded[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+  [33mrole[31m=[32m"combobox"[31m
+  [33mtabindex[31m=[32m"0"[31m
+  [33mtype[31m=[32m"button"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+  [36m>[31m
+    [36m<svg[31m
+      [33maria-hidden[31m=[32m"true"[31m
+      [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+      [33mfill[31m=[32m"currentColor"[31m
+      [33mheight[31m=[32m"1em"[31m
+      [33mviewBox[31m=[32m"0 0 20 20"[31m
+      [33mwidth[31m=[32m"1em"[31m
+      [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+    [36m>[31m
+      [36m<path[31m
+        [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+        [33mfill[31m=[32m"currentColor"[31m
+      [36m/>[31m
+    [36m</svg>[31m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-expanded[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+  [33mrole[31m=[32m"combobox"[31m
+  [33mtabindex[31m=[32m"0"[31m
+  [33mtype[31m=[32m"button"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+  [36m>[31m
+    [36m<svg[31m
+      [33maria-hidden[31m=[32m"true"[31m
+      [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+      [33mfill[31m=[32m"currentColor"[31m
+      [33mheight[31m=[32m"1em"[31m
+      [33mviewBox[31m=[32m"0 0 20 20"[31m
+      [33mwidth[31m=[32m"1em"[31m
+      [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+    [36m>[31m
+      [36m<path[31m
+        [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+        [33mfill[31m=[32m"currentColor"[31m
+      [36m/>[31m
+    [36m</svg>[31m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-expanded[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+  [33mrole[31m=[32m"combobox"[31m
+  [33mtabindex[31m=[32m"0"[31m
+  [33mtype[31m=[32m"button"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+  [36m>[31m
+    [36m<svg[31m
+      [33maria-hidden[31m=[32m"true"[31m
+      [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+      [33mfill[31m=[32m"currentColor"[31m
+      [33mheight[31m=[32m"1em"[31m
+      [33mviewBox[31m=[32m"0 0 20 20"[31m
+      [33mwidth[31m=[32m"1em"[31m
+      [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+    [36m>[31m
+      [36m<path[31m
+        [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+        [33mfill[31m=[32m"currentColor"[31m
+      [36m/>[31m
+    [36m</svg>[31m
+  [36m</span>[31m
+[36m</button>[31m
+
+Ignored nodes: comments, script, style
+[36m<button[31m
+  [33maria-expanded[31m=[32m"false"[31m
+  [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+  [33mrole[31m=[32m"combobox"[31m
+  [33mtabindex[31m=[32m"0"[31m
+  [33mtype[31m=[32m"button"[31m
+[36m>[31m
+  [36m<span[31m
+    [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+  [36m>[31m
+    [36m<svg[31m
+      [33maria-hidden[31m=[32m"true"[31m
+      [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+      [33mfill[31m=[32m"currentColor"[31m
+      [33mheight[31m=[32m"1em"[31m
+      [33mviewBox[31m=[32m"0 0 20 20"[31m
+      [33mwidth[31m=[32m"1em"[31m
+      [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+    [36m>[31m
+      [36m<path[31m
+        [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+        [33mfill[31m=[32m"currentColor"[31m
+      [36m/>[31m
+    [36m</svg>[31m
+  [36m</span>[31m
+[36m</button>[31m
+
+(If this is intentional, then use the `*AllBy*` variant of the query (like `queryAllByText`, `getAllByText`, or `findAllByText`)).
+
+Ignored nodes: comments, script, style
+[36m<body>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr0 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Dropdown r1v8pt5v ___11d5zms_mmbwks0 ft85np5 f1ewtqcl ftuwxu6 f1exfvgq f10pi13n fmrv4ls f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f18qfb8s f1m082s7 fxugw4r f1c1zstj fhz96rm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi fvs00aa f1assf6x f1z0osm6 f4ruux4 f1b473iu f381qr8 f1qzcrsd ft4skwv"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-expanded[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+          [33mrole[31m=[32m"combobox"[31m
+          [33mtabindex[31m=[32m"0"[31m
+          [33mtype[31m=[32m"button"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</button>[31m
+        [36m<button[31m
+          [33maria-label[31m=[32m"Clear selection"[31m
+          [33mclass[31m=[32m"fui-Dropdown__clearButton rticfuj ___1ijk9xi_1ynmboo f1ewtqcl fxkbij4 fjseox fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+          [33mtype[31m=[32m"button"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 1-.06-.63l.06-.07-.06.07Z"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+            [36m/>[31m
+          [36m</svg>[31m
+        [36m</button>[31m
+      [36m</div>[31m
+    [36m</div>[31m
+  [36m</div>[31m
+  [36m<div>[31m
+    [36m<div[31m
+      [33mclass[31m=[32m"fui-FluentProvider fui-FluentProviderr2 ___jdtuxv0_17k0bs4 f19n0e5 fxugw4r f1o700av fk6fouc fkhj508 figsok6 f1i3iumi"[31m
+      [33mdir[31m=[32m"ltr"[31m
+    [36m>[31m
+      [36m<div[31m
+        [33mclass[31m=[32m"fui-Dropdown r1v8pt5v ___11d5zms_mmbwks0 ft85np5 f1ewtqcl ftuwxu6 f1exfvgq f10pi13n fmrv4ls f14a1fxs f3e99gv fhljsf7 f1gw3sf2 f13zj6fq f1mdlcz9 f1a7op3 f1gboi2j f1cjjd47 ffyw7fx f1kp91vd f1ibwz09 f1mnjydx f13evtba f1yk9hq fhwpy7i f14ee0xe f1xhbsuh fsrmcvb f1t3k7v9 fjw5xc1 f1xdyd5c fatpbeo fb7uyps fx04xgm f1c7in40 f1ibeo51 f18qfb8s f1m082s7 fxugw4r f1c1zstj fhz96rm fvcxoqz f1ub3y4t f1l4zc64 f1m52nbi fvs00aa f1assf6x f1z0osm6 f4ruux4 f1b473iu f381qr8 f1qzcrsd ft4skwv"[31m
+      [36m>[31m
+        [36m<button[31m
+          [33maria-expanded[31m=[32m"false"[31m
+          [33mclass[31m=[32m"fui-Dropdown__button ___12pyx89_1vewwra f122n59 f1c21dwh f3bhgqh f1ewtqcl f19n0e5 f14mj54c f1k6fduh f13qh94s fk6fouc f12nh0o2 f1869bpl f1o700av fly5x3f ftqa4ok fkhj508 figsok6 f1i3iumi f14ev680"[31m
+          [33mrole[31m=[32m"combobox"[31m
+          [33mtabindex[31m=[32m"0"[31m
+          [33mtype[31m=[32m"button"[31m
+        [36m>[31m
+          [36m<span[31m
+            [33mclass[31m=[32m"fui-Dropdown__expandIcon ___5y6ahy0_3cm10l0 f1ewtqcl fxkbij4 ftgm304 fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+          [36m>[31m
+            [36m<svg[31m
+              [33maria-hidden[31m=[32m"true"[31m
+              [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+              [33mfill[31m=[32m"currentColor"[31m
+              [33mheight[31m=[32m"1em"[31m
+              [33mviewBox[31m=[32m"0 0 20 20"[31m
+              [33mwidth[31m=[32m"1em"[31m
+              [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+            [36m>[31m
+              [36m<path[31m
+                [33md[31m=[32m"M15.85 7.65c.2.2.2.5 0 .7l-5.46 5.49a.55.55 0 0 1-.78 0L4.15 8.35a.5.5 0 1 1 .7-.7L10 12.8l5.15-5.16c.2-.2.5-.2.7 0Z"[31m
+                [33mfill[31m=[32m"currentColor"[31m
+              [36m/>[31m
+            [36m</svg>[31m
+          [36m</span>[31m
+        [36m</button>[31m
+        [36m<button[31m
+          [33maria-label[31m=[32m"Clear selection"[31m
+          [33mclass[31m=[32m"fui-Dropdown__clearButton rticfuj ___1ijk9xi_1ynmboo f1ewtqcl fxkbij4 fjseox fe5j1ua f12w6cgp f8bv1bt fvc9v3g f1h9en5y"[31m
+          [33mtype[31m=[32m"button"[31m
+        [36m>[31m
+          [36m<svg[31m
+            [33maria-hidden[31m=[32m"true"[31m
+            [33mclass[31m=[32m"fui-Icon ___9ctc0p0_1xvj9ao f1w7gpdv fez10in f1dd5bof"[31m
+            [33mfill[31m=[32m"currentColor"[31m
+            [33mheight[31m=[32m"1em"[31m
+            [33mviewBox[31m=[32m"0 0 20 20"[31m
+            [33mwidth[31m=[32m"1em"[31m
+            [33mxmlns[31m=[32m"http://www.w3.org/2000/svg"[31m
+          [36m>[31m
+            [36m<path[31m
+              [33md[31m=[32m"m4.09 4.22.06-.07a.5.5 0 0 1 .63-.06l.07.06L10 9.29l5.15-5.14a.5.5 0 0 1 .63-.06l.07.06c.18.17.2.44.06.63l-.06.07L10.71 10l5.14 5.15c.18.17.2.44.06.63l-.06.07a.5.5 0 0 1-.63.06l-.07-.06L10 10.71l-5.15 5.14a.5.5 0 0 1-.63.06l-.07-.06a.5.5 0 0 1-.06-.63l.06-.07L9.29 10 4.15 4.85a.5.5 0 0 ...[39m
+[31m   [31m├ù[31m VscDropdown[2m > [22mmerges custom className[39m[32m 16[2mms[22m[39m
+[31m     ΓåÆ expected 'fui-FluentProvider fui-FluentProviderΓÇª' to contain 'custom'[39m
+   [32mΓ£ô[39m VscDropdown[2m > [22mrenders open dropdown with listbox[32m 182[2mms[22m[39m
+   [32mΓ£ô[39m VscDropdown[2m > [22mrenders open dropdown with checkmark selection indicator[32m 141[2mms[22m[39m
+   [32mΓ£ô[39m VscCombobox[2m > [22mrenders a combobox[32m 49[2mms[22m[39m
+   [32mΓ£ô[39m VscCombobox[2m > [22mapplies style classes to root[32m 27[2mms[22m[39m
+   [32mΓ£ô[39m VscCombobox[2m > [22mforwards ref[32m 37[2mms[22m[39m
+   [32mΓ£ô[39m VscOption[2m > [22mrenders option text[32m 193[2mms[22m[39m
+   [32mΓ£ô[39m VscOption[2m > [22mapplies style classes to option[32m 113[2mms[22m[39m
+   [32mΓ£ô[39m VscOption[2m > [22mrenders a leading icon when provided[32m 4[2mms[22m[39m
+   [32mΓ£ô[39m VscOption[2m > [22msupports icon and description together[32m 11[2mms[22m[39m
+   [32mΓ£ô[39m VscOption[2m > [22mprefers secondaryText over the deprecated detail alias[32m 6[2mms[22m[39m
+   [32mΓ£ô[39m VscOptionGroup[2m > [22mrenders option group with label[32m 61[2mms[22m[39m
+[31m   [31m├ù[31m VscOptionGroup[2m > [22mapplies vscOptionGroup class[39m[32m 5[2mms[22m[39m
+[31m     ΓåÆ styles is not defined[39m
+   [32mΓ£ô[39m VscListbox[2m > [22mrenders a listbox[32m 3[2mms[22m[39m
+[31m   [31m├ù[31m VscListbox[2m > [22mapplies vscListbox class[39m[32m 3[2mms[22m[39m
+[31m     ΓåÆ styles is not defined[39m
+[31m   [31m├ù[31m VscListbox[2m > [22muses the flush layout by default[39m[32m 3[2mms[22m[39m
+[31m     ΓåÆ styles is not defined[39m
+[31m   [31m├ù[31m VscListbox[2m > [22mallows opting into the checkmark gutter[39m[32m 3[2mms[22m[39m
+[31m     ΓåÆ styles is not defined[39m
+
+[2m Test Files [22m [1m[31m7 failed[39m[22m[2m | [22m[1m[32m2 passed[39m[22m[90m (9)[39m
+[2m      Tests [22m [1m[31m29 failed[39m[22m[2m | [22m[1m[32m62 passed[39m[22m[90m (91)[39m
+[2m   Start at [22m 21:42:01
+[2m   Duration [22m 14.87s[2m (transform 3.16s, setup 2.88s, collect 101.92s, tests 5.17s, environment 10.17s, prepare 2.93s)[22m
+

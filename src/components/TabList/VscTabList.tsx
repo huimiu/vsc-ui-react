@@ -4,29 +4,20 @@ import {
   Tab,
   type TabProps,
 } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import styles from './tablist.module.scss';
+import { useVscTabListStyles, useVscTabStyles } from './useTabListStyles';
 
 export type VscTabListProps = TabListProps;
 
-const sizeClassMap: Record<NonNullable<TabListProps['size']>, string> = {
-  small: styles.vscSmall,
-  medium: '',
-  large: '',
-};
-
 export const VscTabList = forwardRef<HTMLDivElement, VscTabListProps>(
   ({ className, size = 'medium', ...rest }, ref) => {
+    const mergedClass = useVscTabListStyles({ size, className });
+
     return (
       <TabList
         ref={ref}
-        className={clsx(
-          styles.vscTabList,
-          sizeClassMap[size ?? 'medium'],
-          className,
-        )}
+        className={mergedClass}
         size={size}
         {...rest}
       />
@@ -40,8 +31,10 @@ export type VscTabProps = TabProps;
 
 export const VscTab = forwardRef<HTMLButtonElement, VscTabProps>(
   ({ className, ...rest }, ref) => {
+    const mergedClass = useVscTabStyles(className);
+
     return (
-      <Tab ref={ref} className={clsx(styles.vscTab, className)} {...rest} />
+      <Tab ref={ref} className={mergedClass} {...rest} />
     );
   },
 );
