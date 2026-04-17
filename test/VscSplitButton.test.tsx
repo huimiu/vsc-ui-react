@@ -12,83 +12,109 @@ describe('VscSplitButton', () => {
     expect(buttons[0]).toHaveTextContent('Split');
   });
 
-  it('renders with primary split appearance', () => {
-    const { container } = render(
+  it('produces distinct classes for primary vs secondary appearance', () => {
+    const { container: primaryContainer } = render(
       <VscSplitButton appearance="primary">Primary</VscSplitButton>,
     );
+    const { container: secondaryContainer } = render(
+      <VscSplitButton appearance="secondary">Secondary</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    const primaryWrapper = primaryContainer.firstElementChild!;
+    const secondaryWrapper = secondaryContainer.firstElementChild!;
+    expect(primaryWrapper.className).not.toBe(secondaryWrapper.className);
   });
 
-  it('renders with secondary split appearance by default', () => {
-    const { container } = render(<VscSplitButton>Default</VscSplitButton>);
+  it('applies secondary split appearance by default', () => {
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: secondaryContainer } = render(
+      <VscSplitButton appearance="secondary">Secondary</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    const defaultWrapper = defaultContainer.firstElementChild!;
+    const secondaryWrapper = secondaryContainer.firstElementChild!;
+    expect(defaultWrapper.className).toBe(secondaryWrapper.className);
   });
 
-  it('renders with outline split appearance', () => {
-    const { container } = render(
+  it('produces distinct classes for outline appearance', () => {
+    const { container: outlineContainer } = render(
       <VscSplitButton appearance="outline">Outline</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(outlineContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders with subtle split appearance', () => {
-    const { container } = render(
+  it('produces distinct classes for subtle appearance', () => {
+    const { container: subtleContainer } = render(
       <VscSplitButton appearance="subtle">Subtle</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(subtleContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders with transparent split appearance', () => {
-    const { container } = render(
+  it('produces distinct classes for transparent appearance', () => {
+    const { container: transparentContainer } = render(
       <VscSplitButton appearance="transparent">Transparent</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(transparentContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders with small size', () => {
-    const { container } = render(
+  it('produces distinct classes for small size', () => {
+    const { container: smallContainer } = render(
       <VscSplitButton size="small">Small</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(smallContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders with compact size', () => {
-    const { container } = render(
+  it('produces distinct classes for compact size', () => {
+    const { container: compactContainer } = render(
       <VscSplitButton size="compact">Compact</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(compactContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders icon-only split when icon provided without children', () => {
-    const { container } = render(
+  it('produces distinct classes for icon-only vs text', () => {
+    const { container: iconOnlyContainer } = render(
       <VscSplitButton icon={<span aria-hidden="true">*</span>} />,
     );
+    const { container: textContainer } = render(<VscSplitButton>Text</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    expect(iconOnlyContainer.firstElementChild!.className).not.toBe(
+      textContainer.firstElementChild!.className,
+    );
   });
 
-  it('renders with icon and children present', () => {
-    const { container } = render(
+  it('does not apply icon-only classes when children are present', () => {
+    const { container: withTextContainer } = render(
       <VscSplitButton icon={<span>ico</span>}>With Text</VscSplitButton>,
     );
+    const { container: textOnlyContainer } = render(
+      <VscSplitButton>With Text</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toBeTruthy();
+    // When children are present, icon-only classes should not apply,
+    // so the class output should match a text-only button
+    expect(withTextContainer.firstElementChild!.className).toBe(
+      textOnlyContainer.firstElementChild!.className,
+    );
   });
 
   it('merges custom className with generated classes', () => {

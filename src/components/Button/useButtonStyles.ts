@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -12,10 +11,11 @@ const vscFontFamily =
   'var(--vscode-font-family, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif)';
 
 // ---------------------------------------------------------------------------
-//  Base – single monolithic class via makeResetStyles (avoids CSS‑rule explosion)
+//  Base – root override styles via makeStyles
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '28px',
   minHeight: '28px',
@@ -55,6 +55,7 @@ const useBaseClassName = makeResetStyles({
     opacity: 0.4,
     cursor: 'not-allowed',
     pointerEvents: 'none',
+  },
   },
 });
 
@@ -233,7 +234,7 @@ export function useButtonStylesHook(options: UseButtonStylesOptions): string {
     className,
   } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const appearanceClasses = useAppearanceStyles();
   const sizeClasses = useSizeStyles();
   const iconOnlyClasses = useIconOnlyStyles();
@@ -242,7 +243,7 @@ export function useButtonStylesHook(options: UseButtonStylesOptions): string {
   const isDefaultSizeText = !iconOnly && (!size || size === 'medium');
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     appearanceClasses[appearance],
     size && sizeClasses[size],
     iconOnly && iconOnlyClasses.base,

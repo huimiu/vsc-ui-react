@@ -19,7 +19,8 @@ const chevronDownSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/
 //  DROPDOWN — trigger
 // ============================================================================
 
-const useDropdownBaseClassName = makeResetStyles({
+const useDropdownBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '26px',
   minHeight: '26px',
@@ -78,12 +79,13 @@ const useDropdownBaseClassName = makeResetStyles({
   },
 
   ':hover': {
-    borderColor: 'var(--vscode-dropdown-border)',
+    ...shorthands.borderColor('var(--vscode-dropdown-border)'),
   },
 
   ':focus-within': {
-    borderColor: 'var(--vscode-focusBorder)',
+    ...shorthands.borderColor('var(--vscode-focusBorder)'),
     outline: 'none',
+  },
   },
 });
 
@@ -172,7 +174,8 @@ const useDropdownStyles = makeStyles({
 //  COMBOBOX — trigger (editable input)
 // ============================================================================
 
-const useComboboxBaseClassName = makeResetStyles({
+const useComboboxBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '26px',
   minHeight: '26px',
@@ -231,12 +234,13 @@ const useComboboxBaseClassName = makeResetStyles({
   },
 
   ':hover': {
-    borderColor: 'var(--vscode-dropdown-border)',
+    ...shorthands.borderColor('var(--vscode-dropdown-border)'),
   },
 
   ':focus-within': {
-    borderColor: 'var(--vscode-focusBorder)',
+    ...shorthands.borderColor('var(--vscode-focusBorder)'),
     outline: 'none',
+  },
   },
 });
 
@@ -311,7 +315,8 @@ const useComboboxStyles = makeStyles({
 //  LISTBOX — popup container (shared by Dropdown + Combobox)
 // ============================================================================
 
-const useListboxBaseClassName = makeResetStyles({
+const useListboxBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   backgroundColor: 'var(--vscode-dropdown-listBackground)',
   border: '1px solid var(--vscode-dropdown-border)',
@@ -320,6 +325,7 @@ const useListboxBaseClassName = makeResetStyles({
   boxSizing: 'border-box',
   padding: '2px',
   animation: 'none !important',
+  },
 });
 
 const useListboxStyles = makeStyles({
@@ -334,7 +340,8 @@ const useListboxStyles = makeStyles({
 //  OPTION — individual list item
 // ============================================================================
 
-const useOptionBaseClassName = makeResetStyles({
+const useOptionBaseStyles = makeStyles({
+  root: {
   minHeight: '22px',
   padding: '2px 8px',
   fontSize: 'var(--fontSizeBase200, 12px)',
@@ -369,6 +376,7 @@ const useOptionBaseClassName = makeResetStyles({
     width: '14px',
     height: '14px',
     marginRight: '4px',
+  },
   },
 });
 
@@ -442,7 +450,8 @@ const useOptionStyles = makeStyles({
 //  OPTION GROUP
 // ============================================================================
 
-const useOptionGroupBaseClassName = makeResetStyles({
+const useOptionGroupBaseStyles = makeStyles({
+  root: {
   '& .fui-OptionGroup__label': {
     fontSize: 'var(--fontSizeBase200, 12px)',
     lineHeight: 'var(--lineHeightBase200, 16px)',
@@ -457,6 +466,7 @@ const useOptionGroupBaseClassName = makeResetStyles({
     height: '1px',
     backgroundColor: 'var(--vscode-menu-separatorBackground)',
     margin: '2px 0',
+  },
   },
 });
 
@@ -530,14 +540,14 @@ export function useVscDropdownStyles(options: UseVscDropdownStylesOptions) {
     listboxClassName,
   } = options;
 
-  const baseClassName = useDropdownBaseClassName();
+  const base = useDropdownBaseStyles();
   const classes = useDropdownStyles();
-  const listboxBase = useListboxBaseClassName();
+  const listboxBase = useListboxBaseStyles();
   const listboxClasses = useListboxStyles();
 
   return {
     rootClassName: mergeClasses(
-      baseClassName,
+      base.root,
       size === 'small' && classes.small,
       size === 'large' && classes.large,
       validationState === 'error' && classes.error,
@@ -549,7 +559,7 @@ export function useVscDropdownStyles(options: UseVscDropdownStylesOptions) {
       className,
     ),
     listboxClassName: mergeClasses(
-      listboxBase,
+      listboxBase.root,
       selectionIndicator === 'none' && listboxClasses.selectionIndicatorNone,
       listboxClassName,
     ),
@@ -577,14 +587,14 @@ export function useVscComboboxStyles(options: UseVscComboboxStylesOptions) {
     listboxClassName,
   } = options;
 
-  const baseClassName = useComboboxBaseClassName();
+  const base = useComboboxBaseStyles();
   const classes = useComboboxStyles();
-  const listboxBase = useListboxBaseClassName();
+  const listboxBase = useListboxBaseStyles();
   const listboxClasses = useListboxStyles();
 
   return {
     rootClassName: mergeClasses(
-      baseClassName,
+      base.root,
       size === 'small' && classes.small,
       size === 'large' && classes.large,
       validationState === 'error' && classes.error,
@@ -595,7 +605,7 @@ export function useVscComboboxStyles(options: UseVscComboboxStylesOptions) {
       className,
     ),
     listboxClassName: mergeClasses(
-      listboxBase,
+      listboxBase.root,
       selectionIndicator === 'none' && listboxClasses.selectionIndicatorNone,
       listboxClassName,
     ),
@@ -608,11 +618,11 @@ export function useVscListboxStyles(options: {
 }): string {
   const { selectionIndicator = 'none', className } = options;
 
-  const baseClassName = useListboxBaseClassName();
+  const base = useListboxBaseStyles();
   const classes = useListboxStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     selectionIndicator === 'none' && classes.selectionIndicatorNone,
     className,
   );
@@ -629,12 +639,12 @@ export interface UseVscOptionStylesOptions {
 export function useVscOptionStyles(options: UseVscOptionStylesOptions) {
   const { disabled, className } = options;
 
-  const baseClassName = useOptionBaseClassName();
+  const base = useOptionBaseStyles();
   const classes = useOptionStyles();
 
   return {
     rootClassName: mergeClasses(
-      baseClassName,
+      base.root,
       disabled && classes.disabled,
       className,
     ),
@@ -647,8 +657,8 @@ export function useVscOptionStyles(options: UseVscOptionStylesOptions) {
 }
 
 export function useVscOptionGroupStyles(className?: string): string {
-  const baseClassName = useOptionGroupBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useOptionGroupBaseStyles();
+  return mergeClasses(base.root, className);
 }
 
 export function useVscTriggerLabelStyles(className?: string): string {

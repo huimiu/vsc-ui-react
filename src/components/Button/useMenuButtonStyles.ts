@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -12,7 +11,8 @@ const vscFontFamily =
 //  Base – shared structural styles for MenuButton
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '28px',
   minHeight: '28px',
@@ -51,6 +51,7 @@ const useBaseClassName = makeResetStyles({
     opacity: 0.4,
     cursor: 'not-allowed',
     pointerEvents: 'none',
+  },
   },
 });
 
@@ -206,13 +207,13 @@ export function useMenuButtonStylesHook(options: UseMenuButtonStylesOptions): st
     className,
   } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const appearanceClasses = useAppearanceStyles();
   const sizeClasses = useSizeStyles();
   const iconOnlyClasses = useIconOnlyStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     appearanceClasses[appearance],
     (size === 'small' || size === 'compact') && sizeClasses[size],
     iconOnly && iconOnlyClasses.base,

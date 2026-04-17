@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -8,10 +7,11 @@ import {
 import { vscFontFamily } from '../../styles/tokens';
 
 // ---------------------------------------------------------------------------
-//  Base – monolithic class via makeResetStyles
+//  Base – root override styles via makeStyles
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '24px',
   minHeight: '24px',
@@ -73,12 +73,13 @@ const useBaseClassName = makeResetStyles({
   },
 
   ':hover': {
-    borderColor: 'var(--vscode-input-border)',
+    ...shorthands.borderColor('var(--vscode-input-border)'),
   },
 
   ':focus-within': {
-    borderColor: 'var(--vscode-focusBorder)',
+    ...shorthands.borderColor('var(--vscode-focusBorder)'),
     outline: 'none',
+  },
   },
 });
 
@@ -162,11 +163,11 @@ export interface UseSearchBoxStylesOptions {
 export function useSearchBoxStyles(options: UseSearchBoxStylesOptions): string {
   const { size = 'small', disabled, readOnly, className } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const classes = useStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     size === 'medium' && classes.medium,
     size === 'large' && classes.large,
     disabled && classes.disabled,

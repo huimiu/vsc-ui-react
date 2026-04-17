@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -9,10 +8,11 @@ import { vscFontFamily } from '../../styles/tokens';
 import type { VscValidationState } from '../../types';
 
 // ---------------------------------------------------------------------------
-//  Base – monolithic class via makeResetStyles
+//  Base – root override styles via makeStyles
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   borderRadius: '2px',
   border: '1px solid var(--vscode-input-border)',
@@ -45,12 +45,13 @@ const useBaseClassName = makeResetStyles({
   },
 
   ':hover': {
-    borderColor: 'var(--vscode-input-border)',
+    ...shorthands.borderColor('var(--vscode-input-border)'),
   },
 
   ':focus-within': {
-    borderColor: 'var(--vscode-focusBorder)',
+    ...shorthands.borderColor('var(--vscode-focusBorder)'),
     outline: 'none',
+  },
   },
 });
 
@@ -118,11 +119,11 @@ export interface UseTextareaStylesOptions {
 export function useTextareaStyles(options: UseTextareaStylesOptions): string {
   const { size, validationState, disabled, readOnly, className } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const classes = useStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     size === 'small' && classes.small,
     validationState && classes[validationState],
     disabled && classes.disabled,

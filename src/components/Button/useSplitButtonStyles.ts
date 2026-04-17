@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -18,7 +17,8 @@ const vscFontFamily =
 //  when direct class application is impossible).
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
 
   '& .fui-SplitButton__primaryActionButton': {
@@ -107,6 +107,7 @@ const useBaseClassName = makeResetStyles({
     height: '16px',
   },
 
+  },
 });
 
 // ---------------------------------------------------------------------------
@@ -382,13 +383,13 @@ export function useSplitButtonStylesHook(options: UseSplitButtonStylesOptions): 
     className,
   } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const appearanceClasses = useAppearanceStyles();
   const sizeClasses = useSizeStyles();
   const iconOnlyClasses = useIconOnlyStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     appearanceClasses[appearance],
     (size === 'small' || size === 'compact') && sizeClasses[size],
     iconOnly && iconOnlyClasses.base,

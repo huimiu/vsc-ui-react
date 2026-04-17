@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
 } from '@fluentui/react-components';
@@ -16,7 +15,8 @@ const chevronRightSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 //  MENU POPOVER
 // ============================================================================
 
-const useMenuPopoverBaseClassName = makeResetStyles({
+const useMenuPopoverBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   backgroundColor: 'var(--vscode-menu-background)',
   border: '1px solid var(--vscode-menu-border)',
@@ -26,26 +26,30 @@ const useMenuPopoverBaseClassName = makeResetStyles({
   padding: '4px 0',
   animation: 'none !important',
   transition: 'none !important',
+  },
 });
 
 // ============================================================================
 //  MENU LIST
 // ============================================================================
 
-const useMenuListBaseClassName = makeResetStyles({
+const useMenuListBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   backgroundColor: 'transparent',
   padding: '0',
   display: 'flex',
   flexDirection: 'column',
   minWidth: '0',
+  },
 });
 
 // ============================================================================
 //  MENU ITEM — base (shared by MenuItem, MenuItemCheckbox, MenuItemRadio)
 // ============================================================================
 
-const useMenuItemBaseClassName = makeResetStyles({
+const useMenuItemBaseStyles = makeStyles({
+  root: {
   margin: '0 2px',
   padding: '6px 10px',
   minHeight: '28px',
@@ -140,6 +144,7 @@ const useMenuItemBaseClassName = makeResetStyles({
   '&:hover .fui-MenuItem__submenuIndicator, &[data-focused="true"] .fui-MenuItem__submenuIndicator, &:focus .fui-MenuItem__submenuIndicator': {
     color: 'var(--vscode-menu-selectionForeground)',
   },
+  },
 });
 
 // ---------------------------------------------------------------------------
@@ -213,20 +218,23 @@ const useRadioStyles = makeStyles({
 //  MENU DIVIDER
 // ============================================================================
 
-const useMenuDividerBaseClassName = makeResetStyles({
+const useMenuDividerBaseStyles = makeStyles({
+  root: {
   margin: '2px 8px',
   height: '1px',
   minHeight: '1px',
   backgroundColor: 'var(--vscode-menu-separatorBackground)',
   border: 'none',
   flexShrink: 0,
+  },
 });
 
 // ============================================================================
 //  MENU GROUP
 // ============================================================================
 
-const useMenuGroupBaseClassName = makeResetStyles({
+const useMenuGroupBaseStyles = makeStyles({
+  root: {
   display: 'flex',
   flexDirection: 'column',
 
@@ -237,13 +245,15 @@ const useMenuGroupBaseClassName = makeResetStyles({
     backgroundColor: 'var(--vscode-menu-separatorBackground)',
     margin: '2px 8px',
   },
+  },
 });
 
 // ============================================================================
 //  MENU GROUP HEADER
 // ============================================================================
 
-const useMenuGroupHeaderBaseClassName = makeResetStyles({
+const useMenuGroupHeaderBaseStyles = makeStyles({
+  root: {
   margin: '0 2px',
   padding: '6px 10px',
   minHeight: '28px',
@@ -254,6 +264,7 @@ const useMenuGroupHeaderBaseClassName = makeResetStyles({
   fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
   lineHeight: 'var(--lineHeightBase200, 16px)',
   color: 'var(--vscode-menu-foreground)',
+  },
 });
 
 // ============================================================================
@@ -261,13 +272,13 @@ const useMenuGroupHeaderBaseClassName = makeResetStyles({
 // ============================================================================
 
 export function useVscMenuPopoverStyles(className?: string): string {
-  const baseClassName = useMenuPopoverBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useMenuPopoverBaseStyles();
+  return mergeClasses(base.root, className);
 }
 
 export function useVscMenuListStyles(className?: string): string {
-  const baseClassName = useMenuListBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useMenuListBaseStyles();
+  return mergeClasses(base.root, className);
 }
 
 export interface UseVscMenuItemStylesOptions {
@@ -280,11 +291,11 @@ export interface UseVscMenuItemStylesOptions {
 export function useVscMenuItemStyles(options: UseVscMenuItemStylesOptions): string {
   const { accent, indented, disabled, className } = options;
 
-  const baseClassName = useMenuItemBaseClassName();
+  const base = useMenuItemBaseStyles();
   const variants = useMenuItemVariants();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     accent && variants.accent,
     indented && variants.indented,
     disabled && variants.disabled,
@@ -295,12 +306,12 @@ export function useVscMenuItemStyles(options: UseVscMenuItemStylesOptions): stri
 export function useVscMenuItemCheckboxStyles(options: { disabled?: boolean; className?: string }): string {
   const { disabled, className } = options;
 
-  const baseClassName = useMenuItemBaseClassName();
+  const base = useMenuItemBaseStyles();
   const variants = useMenuItemVariants();
   const checkbox = useCheckboxStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     checkbox.root,
     disabled && variants.disabled,
     className,
@@ -310,12 +321,12 @@ export function useVscMenuItemCheckboxStyles(options: { disabled?: boolean; clas
 export function useVscMenuItemRadioStyles(options: { disabled?: boolean; className?: string }): string {
   const { disabled, className } = options;
 
-  const baseClassName = useMenuItemBaseClassName();
+  const base = useMenuItemBaseStyles();
   const variants = useMenuItemVariants();
   const radio = useRadioStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     radio.root,
     disabled && variants.disabled,
     className,
@@ -323,16 +334,16 @@ export function useVscMenuItemRadioStyles(options: { disabled?: boolean; classNa
 }
 
 export function useVscMenuDividerStyles(className?: string): string {
-  const baseClassName = useMenuDividerBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useMenuDividerBaseStyles();
+  return mergeClasses(base.root, className);
 }
 
 export function useVscMenuGroupStyles(className?: string): string {
-  const baseClassName = useMenuGroupBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useMenuGroupBaseStyles();
+  return mergeClasses(base.root, className);
 }
 
 export function useVscMenuGroupHeaderStyles(className?: string): string {
-  const baseClassName = useMenuGroupHeaderBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useMenuGroupHeaderBaseStyles();
+  return mergeClasses(base.root, className);
 }

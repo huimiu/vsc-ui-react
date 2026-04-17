@@ -25,12 +25,15 @@ describe('VscTextarea', () => {
     expect(ref.current).toBeInstanceOf(HTMLTextAreaElement);
   });
 
-  it('renders with error validation state', () => {
-    const { container } = render(<VscTextarea validationState="error" />, { wrapper });
-    expect(container.querySelector('textarea')).toBeInTheDocument();
+  it('produces distinct classes for error validation state', () => {
+    const { container: errorContainer } = render(<VscTextarea validationState="error" />, { wrapper });
+    const { container: defaultContainer } = render(<VscTextarea />, { wrapper });
+    const errorRoot = errorContainer.querySelector('.fui-Textarea')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Textarea')!;
+    expect(errorRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('renders disabled state', () => {
+  it('renders disabled textarea with disabled attribute', () => {
     const { container } = render(<VscTextarea disabled />, { wrapper });
     expect(container.querySelector('textarea')).toBeDisabled();
   });

@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
 } from '@fluentui/react-components';
@@ -10,7 +9,8 @@ import { vscFontFamily } from '../../styles/tokens';
 //  TAB LIST — container
 // ============================================================================
 
-const useTabListBaseClassName = makeResetStyles({
+const useTabListBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   gap: '0',
 
@@ -38,6 +38,7 @@ const useTabListBaseClassName = makeResetStyles({
     borderRadius: 'var(--borderRadiusCircular, 9999px) !important' as '0',
     opacity: '1 !important' as '1',
     transform: 'none !important' as 'none',
+  },
   },
 });
 
@@ -84,7 +85,8 @@ const useTabListSizeStyles = makeStyles({
 //  TAB — individual tab button
 // ============================================================================
 
-const useTabBaseClassName = makeResetStyles({
+const useTabBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '28px',
   minHeight: '28px',
@@ -161,6 +163,7 @@ const useTabBaseClassName = makeResetStyles({
   "&[aria-disabled='true'] .fui-Tab__icon, &:disabled .fui-Tab__icon": {
     color: 'var(--vscode-disabledForeground) !important' as 'inherit',
   },
+  },
 });
 
 // ============================================================================
@@ -173,17 +176,17 @@ export function useVscTabListStyles(options: {
 }): string {
   const { size, className } = options;
 
-  const baseClassName = useTabListBaseClassName();
+  const base = useTabListBaseStyles();
   const sizeClasses = useTabListSizeStyles();
 
   return mergeClasses(
-    baseClassName,
+    base.root,
     size === 'small' && sizeClasses.small,
     className,
   );
 }
 
 export function useVscTabStyles(className?: string): string {
-  const baseClassName = useTabBaseClassName();
-  return mergeClasses(baseClassName, className);
+  const base = useTabBaseStyles();
+  return mergeClasses(base.root, className);
 }

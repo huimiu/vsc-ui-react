@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
   shorthands,
@@ -9,10 +8,11 @@ import { vscFontFamily } from '../../styles/tokens';
 import type { VscValidationState } from '../../types';
 
 // ---------------------------------------------------------------------------
-//  Base – monolithic class via makeResetStyles
+//  Base – root override styles via makeStyles
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
   height: '26px',
   minHeight: '26px',
@@ -61,12 +61,13 @@ const useBaseClassName = makeResetStyles({
   },
 
   ':hover': {
-    borderColor: 'var(--vscode-input-border)',
+    ...shorthands.borderColor('var(--vscode-input-border)'),
   },
 
   ':focus-within': {
-    borderColor: 'var(--vscode-focusBorder)',
+    ...shorthands.borderColor('var(--vscode-focusBorder)'),
     outline: 'none',
+  },
   },
 });
 
@@ -237,11 +238,11 @@ const validationMsgMap: Record<VscValidationState, 'validationError' | 'validati
 export function useInputStyles(options: UseInputStylesOptions) {
   const { size, validationState, withIcon, disabled, readOnly, className } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const classes = useStyles();
 
   const rootClassName = mergeClasses(
-    baseClassName,
+    base.root,
     size === 'small' && classes.small,
     size === 'large' && classes.large,
     validationState && classes[validationState],

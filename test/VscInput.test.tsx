@@ -25,24 +25,36 @@ describe('VscInput', () => {
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
-  it('renders with small size', () => {
-    const { container } = render(<VscInput size="small" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for small size', () => {
+    const { container: smallContainer } = render(<VscInput size="small" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const smallRoot = smallContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(smallRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('renders with large size', () => {
-    const { container } = render(<VscInput size="large" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for large size', () => {
+    const { container: largeContainer } = render(<VscInput size="large" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const largeRoot = largeContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(largeRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('renders with error validation state', () => {
-    const { container } = render(<VscInput validationState="error" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for error validation state', () => {
+    const { container: errorContainer } = render(<VscInput validationState="error" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const errorRoot = errorContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(errorRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('renders with warning validation state', () => {
-    const { container } = render(<VscInput validationState="warning" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for warning validation state', () => {
+    const { container: warningContainer } = render(<VscInput validationState="warning" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const warningRoot = warningContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(warningRoot.className).not.toBe(defaultRoot.className);
   });
 
   it('renders disabled state', () => {

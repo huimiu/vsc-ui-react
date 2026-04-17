@@ -1,5 +1,4 @@
 import {
-  makeResetStyles,
   makeStyles,
   mergeClasses,
 } from '@fluentui/react-components';
@@ -7,10 +6,11 @@ import {
 import { vscFontFamily } from '../../styles/tokens';
 
 // ---------------------------------------------------------------------------
-//  Base – monolithic class via makeResetStyles
+//  Base – root override styles via makeStyles
 // ---------------------------------------------------------------------------
 
-const useBaseClassName = makeResetStyles({
+const useBaseStyles = makeStyles({
+  root: {
   fontFamily: vscFontFamily,
 
   '& .fui-Label': {
@@ -36,6 +36,7 @@ const useBaseClassName = makeResetStyles({
     fontSize: 'var(--fontSizeBase200, 12px)',
     lineHeight: 'var(--lineHeightBase200, 16px)',
     paddingTop: '4px',
+  },
   },
 });
 
@@ -86,11 +87,11 @@ export interface UseFieldStylesOptions {
 export function useFieldStyles(options: UseFieldStylesOptions) {
   const { className } = options;
 
-  const baseClassName = useBaseClassName();
+  const base = useBaseStyles();
   const elements = useElementStyles();
 
   return {
-    rootClassName: mergeClasses(baseClassName, className),
+    rootClassName: mergeClasses(base.root, className),
     labelRowClassName: elements.labelRow,
     labelTextClassName: elements.labelText,
     requiredIndicatorClassName: elements.requiredIndicator,

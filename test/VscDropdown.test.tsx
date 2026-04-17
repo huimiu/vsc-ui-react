@@ -46,14 +46,22 @@ describe('VscDropdown', () => {
     expect(ref.current).toBeInstanceOf(HTMLButtonElement);
   });
 
-  it('renders with validation state', () => {
-    const { container } = render(
+  it('produces distinct classes for error validation state', () => {
+    const { container: errorContainer } = render(
       <VscDropdown validationState="error">
         <VscOption text="A">A</VscOption>
       </VscDropdown>,
       { wrapper },
     );
-    expect(container.querySelector('.fui-Dropdown')).toBeTruthy();
+    const { container: defaultContainer } = render(
+      <VscDropdown>
+        <VscOption text="B">B</VscOption>
+      </VscDropdown>,
+      { wrapper },
+    );
+    const errorRoot = errorContainer.querySelector('.fui-Dropdown')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Dropdown')!;
+    expect(errorRoot.className).not.toBe(defaultRoot.className);
   });
 
   it('merges custom className', () => {
@@ -66,7 +74,7 @@ describe('VscDropdown', () => {
     expect(container.querySelector('.custom')).toBeTruthy();
   });
 
-  it('renders open dropdown with listbox', () => {
+  it('renders open dropdown with options', () => {
     render(
       <VscDropdown open>
         <VscOption text="A">A</VscOption>
@@ -74,20 +82,7 @@ describe('VscDropdown', () => {
       { wrapper },
     );
 
-    const listboxes = screen.getAllByRole('listbox');
-    expect(listboxes.length).toBeGreaterThan(0);
-  });
-
-  it('renders open dropdown with checkmark selection indicator', () => {
-    render(
-      <VscDropdown open selectionIndicator="checkmark">
-        <VscOption text="A">A</VscOption>
-      </VscDropdown>,
-      { wrapper },
-    );
-
-    const listboxes = screen.getAllByRole('listbox');
-    expect(listboxes.length).toBeGreaterThan(0);
+    expect(screen.getByRole('option', { name: 'A' })).toBeInTheDocument();
   });
 });
 
@@ -240,23 +235,22 @@ describe('VscListbox', () => {
     expect(listbox?.className).toBeTruthy();
   });
 
-  it('renders with default selection indicator', () => {
-    const { container } = render(
-      <VscListbox>
+  it('produces distinct listbox classes for none vs checkmark selection indicator', () => {
+    const { container: noneContainer } = render(
+      <VscListbox selectionIndicator="none">
         <VscOption text="A">A</VscOption>
       </VscListbox>,
       { wrapper },
     );
-    expect(container.querySelector('[role="listbox"]')).toBeTruthy();
-  });
-
-  it('allows opting into the checkmark gutter', () => {
-    const { container } = render(
+    const { container: checkContainer } = render(
       <VscListbox selectionIndicator="checkmark">
-        <VscOption text="A">A</VscOption>
+        <VscOption text="B">B</VscOption>
       </VscListbox>,
       { wrapper },
     );
-    expect(container.querySelector('[role="listbox"]')).toBeTruthy();
+
+    const noneListbox = noneContainer.querySelector('[role="listbox"]')!;
+    const checkListbox = checkContainer.querySelector('[role="listbox"]')!;
+    expect(noneListbox.className).not.toBe(checkListbox.className);
   });
 });

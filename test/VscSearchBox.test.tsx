@@ -25,14 +25,20 @@ describe('VscSearchBox', () => {
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
-  it('renders with medium size', () => {
-    const { container } = render(<VscSearchBox size="medium" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for medium size', () => {
+    const { container: mediumContainer } = render(<VscSearchBox size="medium" />, { wrapper });
+    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const mediumRoot = mediumContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(mediumRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('renders with large size', () => {
-    const { container } = render(<VscSearchBox size="large" />, { wrapper });
-    expect(container.querySelector('input')).toBeInTheDocument();
+  it('produces distinct classes for large size', () => {
+    const { container: largeContainer } = render(<VscSearchBox size="large" />, { wrapper });
+    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const largeRoot = largeContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(largeRoot.className).not.toBe(defaultRoot.className);
   });
 
   it('renders disabled state', () => {

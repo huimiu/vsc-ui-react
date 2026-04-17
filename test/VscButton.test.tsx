@@ -24,7 +24,11 @@ describe('VscButton', () => {
 
     const button = container.querySelector('button')!;
     // Griffel produces dynamic class names; verify the element rendered with classes
+    // and the class output differs from a default button
     expect(button.className).toBeTruthy();
+    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const defaultButton = defaultContainer.querySelector('button')!;
+    expect(button.className).not.toBe(defaultButton.className);
   });
 
   it('forwards ref to underlying button element', () => {
@@ -41,20 +45,28 @@ describe('VscButton', () => {
     expect(button).toBeDisabled();
   });
 
-  it('renders with primary appearance', () => {
-    const { container } = render(
+  it('produces distinct classes for primary vs secondary appearance', () => {
+    const { container: primaryContainer } = render(
       <VscButton appearance="primary">Primary</VscButton>,
     );
+    const { container: secondaryContainer } = render(
+      <VscButton appearance="secondary">Secondary</VscButton>,
+    );
 
-    const button = container.querySelector('button')!;
-    expect(button.className).toBeTruthy();
+    const primaryBtn = primaryContainer.querySelector('button')!;
+    const secondaryBtn = secondaryContainer.querySelector('button')!;
+    expect(primaryBtn.className).not.toBe(secondaryBtn.className);
   });
 
-  it('renders with secondary appearance by default', () => {
-    const { container } = render(<VscButton>Default</VscButton>);
+  it('applies secondary appearance by default', () => {
+    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const { container: secondaryContainer } = render(
+      <VscButton appearance="secondary">Secondary</VscButton>,
+    );
 
-    const button = container.querySelector('button')!;
-    expect(button.className).toBeTruthy();
+    const defaultBtn = defaultContainer.querySelector('button')!;
+    const secondaryBtn = secondaryContainer.querySelector('button')!;
+    expect(defaultBtn.className).toBe(secondaryBtn.className);
   });
 
   it('merges custom className with generated classes', () => {
@@ -68,18 +80,22 @@ describe('VscButton', () => {
     expect(button.className).toContain('custom-class');
   });
 
-  it('renders with small size', () => {
-    const { container } = render(<VscButton size="small">Small</VscButton>);
+  it('produces distinct classes for small vs default size', () => {
+    const { container: smallContainer } = render(<VscButton size="small">Small</VscButton>);
+    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
 
-    const button = container.querySelector('button')!;
-    expect(button.className).toBeTruthy();
+    const smallBtn = smallContainer.querySelector('button')!;
+    const defaultBtn = defaultContainer.querySelector('button')!;
+    expect(smallBtn.className).not.toBe(defaultBtn.className);
   });
 
-  it('renders with large size', () => {
-    const { container } = render(<VscButton size="large">Large</VscButton>);
+  it('produces distinct classes for large vs default size', () => {
+    const { container: largeContainer } = render(<VscButton size="large">Large</VscButton>);
+    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
 
-    const button = container.querySelector('button')!;
-    expect(button.className).toBeTruthy();
+    const largeBtn = largeContainer.querySelector('button')!;
+    const defaultBtn = defaultContainer.querySelector('button')!;
+    expect(largeBtn.className).not.toBe(defaultBtn.className);
   });
 
   it('does not crash when icon and children are both present', () => {
