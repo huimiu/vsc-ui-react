@@ -26,6 +26,7 @@ const useBaseStyles = makeStyles({
     minHeight: '28px',
     borderRadius: '4px',
     fontSize: 'var(--fontSizeBase300, 14px)',
+    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
     lineHeight: 'var(--lineHeightBase300, 20px)',
     padding: '4px 8px',
     borderTopRightRadius: '0',
