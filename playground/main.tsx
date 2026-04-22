@@ -16,10 +16,17 @@ import {
   VscField,
   VscSearchBox,
   VscDropdown,
+  VscListbox,
   VscOption,
+  VscOptionGroup,
+  VscOptionSeparator,
   VscMenuList,
   VscMenuItem,
   VscMenuItemCheckbox,
+  VscMenuItemRadio,
+  VscMenuDivider,
+  VscMenuGroup,
+  VscMenuGroupHeader,
   VscTabList,
   VscTab,
 } from '../src';
@@ -47,6 +54,12 @@ const gridHeadStyle: React.CSSProperties = {
   fontWeight: 600,
   letterSpacing: '0.06em',
   textTransform: 'uppercase',
+  color: 'var(--vscode-descriptionForeground)',
+};
+
+const helperNoteStyle: React.CSSProperties = {
+  margin: 0,
+  fontSize: 12,
   color: 'var(--vscode-descriptionForeground)',
 };
 
@@ -680,10 +693,65 @@ function SearchBoxSection() {
   );
 }
 
+function MultiSelectListboxPreview({
+  initiallySelected,
+  disabled,
+  focused,
+}: {
+  initiallySelected: string[];
+  disabled: boolean;
+  focused: boolean;
+}) {
+  const [selectedValues, setSelectedValues] =
+    useState<string[]>(initiallySelected);
+
+  return (
+    <VscListbox
+      style={{ minWidth: 220 }}
+      multiselect
+      selectionIndicator="checkmark"
+      selectedOptions={selectedValues}
+      onOptionSelect={(_, data) => {
+        setSelectedValues(data.selectedOptions.map(String));
+      }}
+    >
+      <VscOption
+        value="a"
+        data-active={focused ? 'true' : undefined}
+        disabled={disabled}
+      >
+        Option A
+      </VscOption>
+      <VscOption value="b" disabled={disabled}>
+        Option B
+      </VscOption>
+    </VscListbox>
+  );
+}
+
 function DropdownSection() {
+  const listboxRows = [
+    { key: 'default', label: 'Default' },
+    { key: 'secondary', label: 'Secondary text' },
+    { key: 'description', label: 'Description' },
+    { key: 'grouped', label: 'Grouped + separator' },
+    { key: 'multiselect', label: 'Multi-select' },
+  ];
+
+  const listboxCols = [
+    { key: 'default', label: 'Default' },
+    { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
+    { key: 'selected', label: 'Selected', className: 'vsc-force-selected' },
+    { key: 'disabled', label: 'Disabled' },
+  ];
+
   return (
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscDropdown</h2>
+      <p style={helperNoteStyle}>
+        Includes dropdown trigger states and the standalone dropdown
+        listbox/option primitives.
+      </p>
       <h3 style={headerStyle}>Sizes</h3>
       <Matrix
         rows={CONTROL_SIZE_ROWS}
@@ -725,6 +793,64 @@ function DropdownSection() {
               <VscOption value="one">One</VscOption>
               <VscOption value="two">Two</VscOption>
             </VscDropdown>
+          );
+        }}
+      />
+
+      <h3 style={headerStyle}>VscListbox / VscOption</h3>
+      <Matrix
+        rows={listboxRows}
+        columns={listboxCols}
+        rowLabelWidth={140}
+        columnWidthMode="content"
+        cellRender={(row, col) => {
+          const disabled = col === 'disabled';
+          const focused = col === 'hover';
+          const selected = col === 'selected';
+
+          if (row === 'grouped') {
+            return (
+              <VscListbox style={{ minWidth: 220 }}>
+                <VscOptionGroup label="Group A">
+                  <VscOption data-active={focused ? 'true' : undefined}>
+                    Alpha
+                  </VscOption>
+                  <VscOption>Beta</VscOption>
+                </VscOptionGroup>
+                <VscOptionSeparator />
+                <VscOptionGroup label="Group B">
+                  <VscOption disabled={disabled}>Gamma</VscOption>
+                </VscOptionGroup>
+              </VscListbox>
+            );
+          }
+
+          if (row === 'multiselect') {
+            return (
+              <MultiSelectListboxPreview
+                initiallySelected={selected ? ['a'] : []}
+                disabled={disabled}
+                focused={focused}
+              />
+            );
+          }
+
+          return (
+            <VscListbox style={{ minWidth: 220 }}>
+              <VscOption
+                disabled={disabled}
+                selected={selected}
+                data-active={focused ? 'true' : undefined}
+                secondaryText={row === 'secondary' ? '⌘K' : undefined}
+                description={
+                  row === 'description'
+                    ? 'Additional details shown below.'
+                    : undefined
+                }
+              >
+                Open command palette
+              </VscOption>
+            </VscListbox>
           );
         }}
       />
@@ -780,6 +906,11 @@ function MenuSection() {
     { key: 'default', label: 'Default' },
     { key: 'accent', label: 'Accent' },
     { key: 'checkbox', label: 'Checkbox' },
+    { key: 'radio', label: 'Radio' },
+    { key: 'multiselect', label: 'Multi-select' },
+    { key: 'submenu', label: 'Submenu' },
+    { key: 'secondary', label: 'Secondary Text' },
+    { key: 'grouped', label: 'Grouped' },
   ];
   const itemCols = [
     { key: 'default', label: 'Default' },
@@ -790,6 +921,10 @@ function MenuSection() {
   return (
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscMenuList / VscMenuItem</h2>
+      <p style={helperNoteStyle}>
+        Context menu primitives only. Dropdown options are shown in the
+        VscDropdown section.
+      </p>
       <Matrix
         rows={itemRows}
         columns={itemCols}
@@ -811,6 +946,102 @@ function MenuSection() {
               </VscMenuList>
             );
           }
+
+          if (row === 'radio') {
+            return (
+              <VscMenuList style={{ minWidth: 180 }}>
+                <VscMenuItemRadio
+                  name="demo-radio"
+                  value="option-a"
+                  disabled={disabled}
+                  data-focused={focused ? 'true' : undefined}
+                  aria-checked={col === 'selected' ? true : undefined}
+                >
+                  Radio option
+                </VscMenuItemRadio>
+              </VscMenuList>
+            );
+          }
+
+          if (row === 'multiselect') {
+            return (
+              <VscMenuList style={{ minWidth: 180 }}>
+                <VscMenuItemCheckbox
+                  name="multi"
+                  value="alpha"
+                  disabled={disabled}
+                  data-focused={focused ? 'true' : undefined}
+                  aria-checked={col === 'selected' ? true : undefined}
+                >
+                  Alpha
+                </VscMenuItemCheckbox>
+                <VscMenuItemCheckbox
+                  name="multi"
+                  value="beta"
+                  disabled={disabled}
+                  data-focused={focused ? 'true' : undefined}
+                  aria-checked={col === 'selected' ? true : undefined}
+                >
+                  Beta
+                </VscMenuItemCheckbox>
+              </VscMenuList>
+            );
+          }
+
+          if (row === 'submenu') {
+            return (
+              <VscMenuList style={{ minWidth: 180 }}>
+                <VscMenuItem
+                  disabled={disabled}
+                  data-focused={focused ? 'true' : undefined}
+                  hasSubmenu
+                >
+                  More options
+                </VscMenuItem>
+              </VscMenuList>
+            );
+          }
+
+          if (row === 'secondary') {
+            return (
+              <VscMenuList style={{ minWidth: 180 }}>
+                <VscMenuItem
+                  disabled={disabled}
+                  data-focused={focused ? 'true' : undefined}
+                  secondaryContent="⌘K"
+                >
+                  Command
+                </VscMenuItem>
+              </VscMenuList>
+            );
+          }
+
+          if (row === 'grouped') {
+            return (
+              <VscMenuList style={{ minWidth: 180 }}>
+                <VscMenuGroupHeader>Group A</VscMenuGroupHeader>
+                <VscMenuGroup>
+                  <VscMenuItem
+                    disabled={disabled}
+                    data-focused={focused ? 'true' : undefined}
+                  >
+                    Group item
+                  </VscMenuItem>
+                </VscMenuGroup>
+                <VscMenuDivider />
+                <VscMenuGroupHeader>Group B</VscMenuGroupHeader>
+                <VscMenuGroup>
+                  <VscMenuItem
+                    disabled={disabled}
+                    data-focused={focused ? 'true' : undefined}
+                  >
+                    Another item
+                  </VscMenuItem>
+                </VscMenuGroup>
+              </VscMenuList>
+            );
+          }
+
           return (
             <VscMenuList style={{ minWidth: 160 }}>
               <VscMenuItem

@@ -36,7 +36,7 @@ const useDropdownBaseStyles = makeStyles({
     },
 
     '& .fui-Dropdown__button': {
-      padding: '4px 6px',
+      padding: '4px 8px 4px 6px',
       fontSize: 'var(--fontSizeBase200, 12px)',
       fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
       lineHeight: 'var(--lineHeightBase200, 16px)',
@@ -52,30 +52,39 @@ const useDropdownBaseStyles = makeStyles({
     },
 
     '& .fui-Dropdown__expandIcon': {
-      fontSize: '16px',
-      width: '16px',
-      height: '16px',
+      fontSize: 0,
+      width: '14px',
+      height: '14px',
+      minWidth: '14px',
       color: 'var(--vscode-input-foreground)',
-      padding: '0 4px 0 0',
+      padding: '0',
+      margin: '0',
+      marginRight: '0',
+      marginLeft: '0',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'relative',
     },
 
-    '& .fui-Dropdown__expandIcon > svg': {
-      display: 'none',
+    '& .fui-Dropdown__expandIcon svg': {
+      display: 'none !important' as 'none',
     },
 
-    '& .fui-Dropdown__expandIcon::after': {
+    '& .fui-Dropdown__expandIcon.fui-Dropdown__expandIcon::after': {
       content: '""',
       display: 'block',
-      width: '16px',
-      height: '16px',
+      width: '14px',
+      height: '14px',
       backgroundColor: 'currentColor',
       WebkitMaskImage: chevronDownSvg,
       maskImage: chevronDownSvg,
-      WebkitMaskSize: '16px 16px',
-      maskSize: '16px 16px',
+      WebkitMaskSize: '14px 14px',
+      maskSize: '14px 14px',
+      WebkitMaskPosition: 'center',
+      maskPosition: 'center',
+      WebkitMaskRepeat: 'no-repeat',
+      maskRepeat: 'no-repeat',
     },
 
     ':hover': {
@@ -111,16 +120,17 @@ const useDropdownStyles = makeStyles({
     height: '24px',
     minHeight: '24px',
     '& .fui-Dropdown__button': {
-      ...shorthands.padding('2px', '6px'),
+      padding: '2px 8px 2px 6px',
       fontSize: 'var(--fontSizeBase200, 12px)',
       lineHeight: 'var(--lineHeightBase200, 16px)',
     },
     '& .fui-Dropdown__expandIcon': {
-      fontSize: '14px',
+      fontSize: 0,
       width: '14px',
       height: '14px',
+      minWidth: '14px',
     },
-    '& .fui-Dropdown__expandIcon::after': {
+    '& .fui-Dropdown__expandIcon.fui-Dropdown__expandIcon::after': {
       width: '14px',
       height: '14px',
       WebkitMaskSize: '14px 14px',
@@ -133,6 +143,19 @@ const useDropdownStyles = makeStyles({
     minHeight: '28px',
     '& .fui-Dropdown__button': {
       ...shorthands.padding('5px', '8px'),
+    },
+    '& .fui-Dropdown__expandIcon': {
+      width: '16px',
+      height: '16px',
+      minWidth: '16px',
+      marginRight: '0',
+      marginLeft: '0',
+    },
+    '& .fui-Dropdown__expandIcon.fui-Dropdown__expandIcon::after': {
+      width: '16px',
+      height: '16px',
+      WebkitMaskSize: '16px 16px',
+      maskSize: '16px 16px',
     },
   },
 
@@ -200,7 +223,7 @@ const useComboboxBaseStyles = makeStyles({
     },
 
     '& .fui-Combobox__input': {
-      padding: '4px 6px',
+      padding: '4px 8px 4px 6px',
       fontSize: 'var(--fontSizeBase200, 12px)',
       fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
       lineHeight: 'var(--lineHeightBase200, 16px)',
@@ -216,30 +239,39 @@ const useComboboxBaseStyles = makeStyles({
     },
 
     '& .fui-Combobox__expandIcon': {
-      fontSize: '16px',
-      width: '16px',
-      height: '16px',
+      fontSize: 0,
+      width: '14px',
+      height: '14px',
+      minWidth: '14px',
       color: 'var(--vscode-input-foreground)',
-      padding: '0 4px 0 0',
+      padding: '0',
+      margin: '0',
+      marginRight: '0',
+      marginLeft: '0',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      position: 'relative',
     },
 
-    '& .fui-Combobox__expandIcon > svg': {
-      display: 'none',
+    '& .fui-Combobox__expandIcon svg': {
+      display: 'none !important' as 'none',
     },
 
-    '& .fui-Combobox__expandIcon::after': {
+    '& .fui-Combobox__expandIcon.fui-Combobox__expandIcon::after': {
       content: '""',
       display: 'block',
-      width: '16px',
-      height: '16px',
+      width: '14px',
+      height: '14px',
       backgroundColor: 'currentColor',
       WebkitMaskImage: chevronDownSvg,
       maskImage: chevronDownSvg,
-      WebkitMaskSize: '16px 16px',
-      maskSize: '16px 16px',
+      WebkitMaskSize: '14px 14px',
+      maskSize: '14px 14px',
+      WebkitMaskPosition: 'center',
+      maskPosition: 'center',
+      WebkitMaskRepeat: 'no-repeat',
+      maskRepeat: 'no-repeat',
     },
 
     ':hover': {
@@ -275,14 +307,15 @@ const useComboboxStyles = makeStyles({
     height: '24px',
     minHeight: '24px',
     '& .fui-Combobox__input': {
-      ...shorthands.padding('2px', '6px'),
+      padding: '2px 8px 2px 6px',
     },
     '& .fui-Combobox__expandIcon': {
-      fontSize: '14px',
+      fontSize: 0,
       width: '14px',
       height: '14px',
+      minWidth: '14px',
     },
-    '& .fui-Combobox__expandIcon::after': {
+    '& .fui-Combobox__expandIcon.fui-Combobox__expandIcon::after': {
       width: '14px',
       height: '14px',
       WebkitMaskSize: '14px 14px',
@@ -295,6 +328,19 @@ const useComboboxStyles = makeStyles({
     minHeight: '28px',
     '& .fui-Combobox__input': {
       ...shorthands.padding('5px', '8px'),
+    },
+    '& .fui-Combobox__expandIcon': {
+      width: '16px',
+      height: '16px',
+      minWidth: '16px',
+      marginRight: '0',
+      marginLeft: '0',
+    },
+    '& .fui-Combobox__expandIcon.fui-Combobox__expandIcon::after': {
+      width: '16px',
+      height: '16px',
+      WebkitMaskSize: '16px 16px',
+      maskSize: '16px 16px',
     },
   },
 
@@ -360,15 +406,18 @@ const useOptionBaseStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
+    columnGap: '0',
+    rowGap: '0',
     borderRadius: '2px',
     transition: 'none !important',
     cursor: 'pointer',
 
-    "&:hover:not([aria-selected='true']):not(.fui-Option--selected)": {
-      backgroundColor: 'var(--vscode-list-hoverBackground)',
-      color:
-        'var(--vscode-list-hoverForeground, var(--vscode-input-foreground))',
-    },
+    "&:hover:not([aria-selected='true']):not([aria-checked='true']):not(.fui-Option--selected)":
+      {
+        backgroundColor: 'var(--vscode-list-hoverBackground)',
+        color:
+          'var(--vscode-list-hoverForeground, var(--vscode-input-foreground))',
+      },
 
     '&:focus, &:focus-visible, &:focus-within': {
       backgroundColor:
@@ -377,11 +426,11 @@ const useOptionBaseStyles = makeStyles({
         'var(--vscode-list-activeSelectionForeground, var(--vscode-input-foreground))',
     },
 
-    "&[aria-selected='true'], &.fui-Option--selected": {
+    "&[aria-selected='true'], &[aria-checked='true'], &.fui-Option--selected": {
       backgroundColor:
-        'var(--vscode-list-activeSelectionBackground, var(--vscode-list-hoverBackground))',
+        'var(--vscode-list-inactiveSelectionBackground, var(--vscode-list-hoverBackground))',
       color:
-        'var(--vscode-list-activeSelectionForeground, var(--vscode-input-foreground))',
+        'var(--vscode-list-inactiveSelectionForeground, var(--vscode-input-foreground))',
     },
 
     '& .fui-Option__checkIcon': {
@@ -466,20 +515,18 @@ const useOptionStyles = makeStyles({
 
 const useOptionGroupBaseStyles = makeStyles({
   root: {
+    '&::after, &.fui-OptionGroup::after': {
+      display: 'none' as 'none',
+      borderBottom: 'none',
+      content: 'none',
+    },
+
     '& .fui-OptionGroup__label': {
       fontSize: 'var(--fontSizeBase200, 12px)',
       lineHeight: 'var(--lineHeightBase200, 16px)',
       fontWeight: 600 as unknown as number,
       color: 'var(--vscode-descriptionForeground)',
       padding: '4px 6px',
-    },
-
-    '& + &::before': {
-      content: '""',
-      display: 'block',
-      height: '1px',
-      backgroundColor: 'var(--vscode-menu-separatorBackground)',
-      margin: '2px 0',
     },
   },
 });

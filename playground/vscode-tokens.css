@@ -312,6 +312,31 @@ body {
 }
 
 /*
+ * Force-hover/selected for listbox options in playground matrix.
+ * Keep hover and selected distinct: hover uses hover tokens, selected uses
+ * inactive-selection tokens.
+ */
+.vsc-force-hover
+  .fui-Option:not([aria-selected='true']):not([aria-checked='true']) {
+  background-color: var(--vscode-list-hoverBackground) !important;
+  color: var(
+    --vscode-list-hoverForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+.vsc-force-selected .fui-Option {
+  background-color: var(
+    --vscode-list-inactiveSelectionBackground,
+    var(--vscode-list-hoverBackground)
+  ) !important;
+  color: var(
+    --vscode-list-inactiveSelectionForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+/*
  * Force-hover for SplitButton: apply hover background to both the primary
  * action and menu (chevron) buttons so the whole component looks hovered.
  */
