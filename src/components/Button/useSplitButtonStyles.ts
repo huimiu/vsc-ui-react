@@ -2,6 +2,7 @@ import {
   makeStyles,
   mergeClasses,
   shorthands,
+  typographyStyles,
 } from '@fluentui/react-components';
 
 const vscFontFamily =
@@ -19,95 +20,97 @@ const vscFontFamily =
 
 const useBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
+    fontFamily: vscFontFamily,
 
-  '& .fui-SplitButton__primaryActionButton': {
-    height: '28px',
-    minHeight: '28px',
-    borderRadius: '4px',
-    fontSize: 'var(--fontSizeBase300, 14px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase300, 20px)',
-    padding: '4px 8px',
-    borderTopRightRadius: '0',
-    borderBottomRightRadius: '0',
-  },
+    '& .fui-SplitButton__primaryActionButton': {
+      ...typographyStyles.body1,
+      height: '28px',
+      minHeight: '28px',
+      minWidth: 'auto',
+      borderRadius: '4px',
+      padding: '4px 8px',
+      gap: '4px !important',
+      borderTopRightRadius: '0',
+      borderBottomRightRadius: '0',
+    },
 
-  '& .fui-SplitButton__menuButton': {
-    height: '28px',
-    minHeight: '28px',
-    borderRadius: '4px',
-    fontSize: 'var(--fontSizeBase300, 14px)',
-    lineHeight: 'var(--lineHeightBase300, 20px)',
-    width: '24px',
-    minWidth: '24px',
-    padding: '8px 6px',
-    borderTopLeftRadius: '0',
-    borderBottomLeftRadius: '0',
-  },
+    '& .fui-SplitButton__menuButton': {
+      ...typographyStyles.body1,
+      height: '28px',
+      minHeight: '28px',
+      borderRadius: '4px',
+      width: '24px',
+      minWidth: '24px',
+      padding: '8px 6px',
+      borderTopLeftRadius: '0',
+      borderBottomLeftRadius: '0',
+    },
 
-  '& .fui-SplitButton__menuButton .fui-MenuButton__menuIcon': {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    lineHeight: '1',
-  },
+    '& .fui-SplitButton__menuButton .fui-MenuButton__menuIcon': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '14px',
+      lineHeight: '1',
+      padding: '0',
+      margin: '0',
+    },
 
-  '& .fui-SplitButton__menuButton svg': {
-    display: 'block',
-    width: '14px',
-    height: '14px',
-  },
+    '& .fui-SplitButton__menuButton svg': {
+      display: 'block',
+      width: '14px',
+      height: '14px',
+    },
 
-  '& .fui-SplitButton__primaryActionButton:focus-visible': {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-    zIndex: 1,
-  },
+    '& .fui-SplitButton__primaryActionButton:focus-visible': {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+      zIndex: 1,
+    },
 
-  '& .fui-SplitButton__menuButton:focus-visible': {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    '& .fui-SplitButton__menuButton:focus-visible': {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
 
-  "& .fui-SplitButton__primaryActionButton[aria-pressed='true']": {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-    zIndex: 1,
-  },
+    "& .fui-SplitButton__primaryActionButton[aria-pressed='true']": {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+      zIndex: 1,
+    },
 
-  "& .fui-SplitButton__menuButton[aria-pressed='true']": {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    "& .fui-SplitButton__menuButton[aria-pressed='true']": {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
 
-  '& .fui-SplitButton__primaryActionButton:disabled': {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    '& .fui-SplitButton__primaryActionButton:disabled': {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
 
-  '& .fui-SplitButton__menuButton:disabled': {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    '& .fui-SplitButton__menuButton:disabled': {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
 
-  // Icon sizing – default (16px)
-  '& .fui-SplitButton__primaryActionButton .fui-Button__icon': {
-    fontSize: '16px',
-    width: '16px',
-    height: '16px',
-  },
-
+    // Icon sizing – default (16px)
+    '& .fui-SplitButton__primaryActionButton .fui-Button__icon': {
+      fontSize: '16px',
+      width: '16px',
+      height: '16px',
+      margin: '0',
+    },
   },
 });
 
@@ -200,14 +203,14 @@ const useAppearanceStyles = makeStyles({
   subtle: {
     '& .fui-SplitButton__primaryActionButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('1px'),
       ...shorthands.borderStyle('solid'),
       ...shorthands.borderColor('transparent'),
     },
     '& .fui-SplitButton__menuButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('1px'),
       ...shorthands.borderStyle('solid'),
       ...shorthands.borderColor('transparent'),
@@ -217,10 +220,12 @@ const useAppearanceStyles = makeStyles({
     },
     '& .fui-SplitButton__primaryActionButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
     },
     '& .fui-SplitButton__menuButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
     },
   },
@@ -228,13 +233,13 @@ const useAppearanceStyles = makeStyles({
   transparent: {
     '& .fui-SplitButton__primaryActionButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('0'),
       ...shorthands.borderStyle('none'),
     },
     '& .fui-SplitButton__menuButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('0'),
       ...shorthands.borderStyle('none'),
       borderLeftWidth: '1px',
@@ -259,19 +264,18 @@ const useAppearanceStyles = makeStyles({
 const useSizeStyles = makeStyles({
   small: {
     '& .fui-SplitButton__primaryActionButton': {
+      ...typographyStyles.caption1,
       height: '22px',
       minHeight: '22px',
-      gap: '3px',
-      fontSize: 'var(--fontSizeBase200, 12px)',
-      lineHeight: 'var(--lineHeightBase200, 16px)',
+      minWidth: 'auto',
+      gap: '3px !important',
       padding: '3px 6px',
     },
     '& .fui-SplitButton__menuButton': {
+      ...typographyStyles.caption1,
       height: '22px',
       minHeight: '22px',
-      gap: '3px',
-      fontSize: 'var(--fontSizeBase200, 12px)',
-      lineHeight: 'var(--lineHeightBase200, 16px)',
+      gap: '3px !important',
       width: '20px',
       minWidth: '20px',
       padding: '5px 6px',
@@ -281,6 +285,7 @@ const useSizeStyles = makeStyles({
       fontSize: '14px',
       width: '14px',
       height: '14px',
+      margin: '0',
     },
     '& .fui-SplitButton__menuButton svg': {
       width: '12px',
@@ -290,21 +295,20 @@ const useSizeStyles = makeStyles({
 
   compact: {
     '& .fui-SplitButton__primaryActionButton': {
+      ...typographyStyles.caption2,
       height: '15px',
       minHeight: '15px',
-      gap: '2px',
-      fontSize: 'var(--fontSizeBase100, 10px)',
-      lineHeight: 'var(--lineHeightBase100, 14px)',
+      minWidth: 'auto',
+      gap: '2px !important',
       padding: '0 4px',
       borderTopRightRadius: '0',
       borderBottomRightRadius: '0',
     },
     '& .fui-SplitButton__menuButton': {
+      ...typographyStyles.caption2,
       height: '15px',
       minHeight: '15px',
-      gap: '2px',
-      fontSize: 'var(--fontSizeBase100, 10px)',
-      lineHeight: 'var(--lineHeightBase100, 14px)',
+      gap: '2px !important',
       width: '15px',
       minWidth: '15px',
       padding: '1.5px',
@@ -316,6 +320,7 @@ const useSizeStyles = makeStyles({
       fontSize: '12px',
       width: '12px',
       height: '12px',
+      margin: '0',
     },
     '& .fui-SplitButton__menuButton svg': {
       width: '10px',
@@ -366,7 +371,12 @@ const useIconOnlyStyles = makeStyles({
 //  Exported hook
 // ---------------------------------------------------------------------------
 
-type SplitButtonAppearance = 'primary' | 'secondary' | 'outline' | 'subtle' | 'transparent';
+type SplitButtonAppearance =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'subtle'
+  | 'transparent';
 type SplitButtonSize = 'small' | 'medium' | 'large' | 'compact';
 
 export interface UseSplitButtonStylesOptions {
@@ -376,7 +386,9 @@ export interface UseSplitButtonStylesOptions {
   className?: string;
 }
 
-export function useSplitButtonStylesHook(options: UseSplitButtonStylesOptions): string {
+export function useSplitButtonStylesHook(
+  options: UseSplitButtonStylesOptions,
+): string {
   const {
     appearance = 'secondary',
     size,

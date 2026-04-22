@@ -2,6 +2,7 @@ import {
   makeStyles,
   mergeClasses,
   shorthands,
+  typographyStyles,
 } from '@fluentui/react-components';
 
 /**
@@ -16,46 +17,51 @@ const vscFontFamily =
 
 const useBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  height: '28px',
-  minHeight: '28px',
-  minWidth: 'auto',
-  paddingTop: '4px',
-  paddingRight: '8px',
-  paddingBottom: '4px',
-  paddingLeft: '8px',
-  borderRadius: '4px',
-  gap: '4px',
-  fontSize: 'var(--fontSizeBase300, 14px)',
-  fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-  lineHeight: 'var(--lineHeightBase300, 20px)',
-  boxShadow: 'none',
+    ...typographyStyles.body1,
+    fontFamily: vscFontFamily,
+    height: '28px',
+    minHeight: '28px',
+    minWidth: 'auto',
+    paddingTop: '4px',
+    paddingRight: '8px',
+    paddingBottom: '4px',
+    paddingLeft: '8px',
+    borderRadius: '4px',
+    gap: '4px !important',
+    boxShadow: 'none',
 
-  ':focus-visible': {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    '& .fui-Button__icon': {
+      fontSize: '16px',
+      width: '16px',
+      height: '16px',
+      margin: '0',
+    },
 
-  "[aria-pressed='true']": {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    ':focus-visible': {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
 
-  ':disabled': {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    "[aria-pressed='true']": {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
 
-  "[aria-disabled='true']": {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    ':disabled': {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
+
+    "[aria-disabled='true']": {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
   },
 });
 
@@ -111,11 +117,11 @@ const useAppearanceStyles = makeStyles({
     ...shorthands.borderStyle('solid'),
     ...shorthands.borderColor('transparent'),
     backgroundColor: 'transparent',
-    color: 'var(--vscode-foreground)',
+    color: 'var(--vscode-button-secondaryForeground)',
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
     },
   },
@@ -125,7 +131,7 @@ const useAppearanceStyles = makeStyles({
     ...shorthands.borderStyle('none'),
     ...shorthands.borderColor('transparent'),
     backgroundColor: 'transparent',
-    color: 'var(--vscode-foreground)',
+    color: 'var(--vscode-button-secondaryForeground)',
 
     ':hover': {
       backgroundColor: 'transparent',
@@ -140,27 +146,39 @@ const useAppearanceStyles = makeStyles({
 
 const useSizeStyles = makeStyles({
   small: {
+    ...typographyStyles.caption1,
     height: '22px',
     minHeight: '22px',
     paddingTop: '3px',
     paddingRight: '6px',
     paddingBottom: '3px',
     paddingLeft: '6px',
-    gap: '3px',
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    lineHeight: 'var(--lineHeightBase200, 16px)',
+    gap: '3px !important',
+
+    '& .fui-Button__icon': {
+      fontSize: '14px',
+      width: '14px',
+      height: '14px',
+      margin: '0',
+    },
   },
 
   compact: {
+    ...typographyStyles.caption2,
     height: '15px',
     minHeight: '15px',
     paddingTop: '0',
     paddingRight: '4px',
     paddingBottom: '0',
     paddingLeft: '4px',
-    gap: '2px',
-    fontSize: 'var(--fontSizeBase100, 10px)',
-    lineHeight: 'var(--lineHeightBase100, 14px)',
+    gap: '2px !important',
+
+    '& .fui-Button__icon': {
+      fontSize: '12px',
+      width: '12px',
+      height: '12px',
+      margin: '0',
+    },
   },
 
   large: {
@@ -182,6 +200,7 @@ const useIconOnlyStyles = makeStyles({
     height: '28px',
     minWidth: '28px',
     minHeight: '28px',
+    boxSizing: 'border-box',
     padding: '6px',
   },
 
@@ -190,6 +209,8 @@ const useIconOnlyStyles = makeStyles({
     height: '22px',
     minWidth: '22px',
     minHeight: '22px',
+    maxWidth: '22px',
+    maxHeight: '22px',
     padding: '3px',
   },
 
@@ -198,6 +219,8 @@ const useIconOnlyStyles = makeStyles({
     height: '15px',
     minWidth: '15px',
     minHeight: '15px',
+    maxWidth: '15px',
+    maxHeight: '15px',
     padding: '0',
   },
 });
@@ -217,13 +240,18 @@ const useMinWidthStyle = makeStyles({
 // ---------------------------------------------------------------------------
 
 export type VscButtonSize = 'small' | 'medium' | 'large' | 'compact';
-type ButtonAppearance = 'primary' | 'secondary' | 'outline' | 'subtle' | 'transparent';
+type ButtonAppearance =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'subtle'
+  | 'transparent';
 
 export interface UseButtonStylesOptions {
   appearance?: ButtonAppearance;
   size?: VscButtonSize;
   iconOnly?: boolean;
-  className?: string; 
+  className?: string;
 }
 
 export function useButtonStylesHook(options: UseButtonStylesOptions): string {
