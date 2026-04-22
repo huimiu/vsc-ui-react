@@ -1,5 +1,6 @@
 // Types
 export type { VscValidationState } from './types';
+export type { VscInputValidationState } from './types';
 
 // Button
 export { VscButton } from './components/Button';

@@ -81,6 +81,10 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-hoverBackground)',
       color: 'var(--vscode-button-foreground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-foreground)',
+      },
     },
   },
 
@@ -95,6 +99,10 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -109,6 +117,10 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -123,6 +135,20 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
+    },
+
+    ':active': {
+      backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+
+      '& .fui-Button__icon': {
+        color:
+          'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+      },
     },
   },
 
@@ -136,6 +162,10 @@ const useAppearanceStyles = makeStyles({
     ':hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-textLink-foreground)',
+      },
     },
   },
 });
@@ -202,6 +232,14 @@ const useIconOnlyStyles = makeStyles({
     minHeight: '28px',
     boxSizing: 'border-box',
     padding: '6px',
+
+    ':disabled': {
+      opacity: 0.5,
+    },
+
+    "[aria-disabled='true']": {
+      opacity: 0.5,
+    },
   },
 
   small: {

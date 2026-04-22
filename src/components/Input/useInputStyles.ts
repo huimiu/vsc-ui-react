@@ -5,7 +5,7 @@ import {
 } from '@fluentui/react-components';
 
 import { vscFontFamily } from '../../styles/tokens';
-import type { VscValidationState } from '../../types';
+import type { VscInputValidationState } from '../../types';
 
 // ---------------------------------------------------------------------------
 //  Base – root override styles via makeStyles
@@ -13,61 +13,61 @@ import type { VscValidationState } from '../../types';
 
 const useBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  height: '26px',
-  minHeight: '26px',
-  padding: '0',
-  borderRadius: '2px',
-  border: '1px solid var(--vscode-input-border)',
-  boxShadow: 'none',
-  boxSizing: 'border-box',
-  backgroundColor: 'var(--vscode-input-background)',
-  transition: 'none !important',
-
-  '::after': {
-    display: 'none !important' as 'none',
-  },
-
-  '& .fui-Input__input': {
-    padding: '4px 6px',
-    height: '100%',
+    fontFamily: vscFontFamily,
+    height: '26px',
+    minHeight: '26px',
+    padding: '0',
+    borderRadius: '2px',
+    border: '1px solid var(--vscode-input-border)',
+    boxShadow: 'none',
     boxSizing: 'border-box',
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase200, 16px)',
-    color: 'var(--vscode-input-foreground)',
-    backgroundColor: 'transparent',
-  },
+    backgroundColor: 'var(--vscode-input-background)',
+    transition: 'none !important',
 
-  '& .fui-Input__input::placeholder': {
-    color: 'var(--vscode-input-placeholderForeground)',
-    opacity: 1,
-  },
+    '::after': {
+      display: 'none !important' as 'none',
+    },
 
-  '& .fui-Input__input:focus-visible': {
-    outline: 'none',
-  },
+    '& .fui-Input__input': {
+      padding: '4px 6px',
+      height: '100%',
+      boxSizing: 'border-box',
+      fontSize: 'var(--fontSizeBase200, 12px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase200, 16px)',
+      color: 'var(--vscode-input-foreground)',
+      backgroundColor: 'transparent',
+    },
 
-  '& .fui-Input__contentBefore': {
-    padding: '0 4px',
-    color: 'var(--vscode-input-foreground)',
-    fontSize: '16px',
-  },
+    '& .fui-Input__input::placeholder': {
+      color: 'var(--vscode-input-placeholderForeground)',
+      opacity: 1,
+    },
 
-  '& .fui-Input__contentAfter': {
-    padding: '0 4px',
-    color: 'var(--vscode-input-foreground)',
-    fontSize: '16px',
-  },
+    '& .fui-Input__input:focus-visible': {
+      outline: 'none',
+    },
 
-  ':hover': {
-    ...shorthands.borderColor('var(--vscode-input-border)'),
-  },
+    '& .fui-Input__contentBefore': {
+      padding: '0 4px',
+      color: 'var(--vscode-input-foreground)',
+      fontSize: '16px',
+    },
 
-  ':focus-within': {
-    ...shorthands.borderColor('var(--vscode-focusBorder)'),
-    outline: 'none',
-  },
+    '& .fui-Input__contentAfter': {
+      padding: '0 4px',
+      color: 'var(--vscode-input-foreground)',
+      fontSize: '16px',
+    },
+
+    ':hover': {
+      ...shorthands.borderColor('var(--vscode-input-border)'),
+    },
+
+    ':focus-within': {
+      ...shorthands.borderColor('var(--vscode-focusBorder)'),
+      outline: 'none',
+    },
   },
 });
 
@@ -119,23 +119,34 @@ const useStyles = makeStyles({
   },
 
   error: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
+    ...shorthands.borderColor(
+      'var(--vscode-inputValidation-errorBorder) !important',
+    ),
+    ':hover': {
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-errorBorder) !important',
+      ),
+    },
     ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-errorBorder) !important',
+      ),
     },
   },
 
   warning: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
-    ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
+    ...shorthands.borderColor(
+      'var(--vscode-inputValidation-warningBorder) !important',
+    ),
+    ':hover': {
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-warningBorder) !important',
+      ),
     },
-  },
-
-  info: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-infoBorder)'),
     ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-infoBorder)'),
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-warningBorder) !important',
+      ),
     },
   },
 
@@ -160,11 +171,7 @@ const useStyles = makeStyles({
 
   validationError: {
     backgroundColor: 'var(--vscode-inputValidation-errorBackground)',
-    ...shorthands.borderWidth('1px'),
-    ...shorthands.borderStyle('solid'),
-    ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
-    borderTopWidth: '0',
-    borderTopStyle: 'none' as const,
+    ...shorthands.border('0'),
     color: 'var(--vscode-inputValidation-errorForeground)',
     ...shorthands.padding('4px', '6px'),
     fontSize: 'var(--fontSizeBase200, 12px)',
@@ -177,29 +184,8 @@ const useStyles = makeStyles({
 
   validationWarning: {
     backgroundColor: 'var(--vscode-inputValidation-warningBackground)',
-    ...shorthands.borderWidth('1px'),
-    ...shorthands.borderStyle('solid'),
-    ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
-    borderTopWidth: '0',
-    borderTopStyle: 'none' as const,
+    ...shorthands.border('0'),
     color: 'var(--vscode-inputValidation-warningForeground)',
-    ...shorthands.padding('4px', '6px'),
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    lineHeight: 'var(--lineHeightBase200, 16px)',
-    ...shorthands.borderRadius('0', '0', '2px', '2px'),
-    marginTop: '-1px',
-    width: '100%',
-    boxSizing: 'border-box' as const,
-  },
-
-  validationInfo: {
-    backgroundColor: 'var(--vscode-inputValidation-infoBackground)',
-    ...shorthands.borderWidth('1px'),
-    ...shorthands.borderStyle('solid'),
-    ...shorthands.borderColor('var(--vscode-inputValidation-infoBorder)'),
-    borderTopWidth: '0',
-    borderTopStyle: 'none' as const,
-    color: 'var(--vscode-inputValidation-infoForeground)',
     ...shorthands.padding('4px', '6px'),
     fontSize: 'var(--fontSizeBase200, 12px)',
     lineHeight: 'var(--lineHeightBase200, 16px)',
@@ -222,21 +208,27 @@ const useStyles = makeStyles({
 
 export interface UseInputStylesOptions {
   size?: 'small' | 'medium' | 'large';
-  validationState?: VscValidationState;
+  validationState?: VscInputValidationState;
   withIcon?: boolean;
   disabled?: boolean;
   readOnly?: boolean;
   className?: string;
 }
 
-const validationMsgMap: Record<VscValidationState, 'validationError' | 'validationWarning' | 'validationInfo'> = {
+const validationMsgMap: Record<
+  VscInputValidationState,
+  'validationError' | 'validationWarning'
+> = {
   error: 'validationError',
   warning: 'validationWarning',
-  info: 'validationInfo',
 };
 
 export function useInputStyles(options: UseInputStylesOptions) {
-  const { size, validationState, withIcon, disabled, readOnly, className } = options;
+  const { size, validationState, withIcon, disabled, readOnly, className } =
+    options;
+
+  const effectiveValidationState =
+    disabled || readOnly ? undefined : validationState;
 
   const base = useBaseStyles();
   const classes = useStyles();
@@ -245,7 +237,7 @@ export function useInputStyles(options: UseInputStylesOptions) {
     base.root,
     size === 'small' && classes.small,
     size === 'large' && classes.large,
-    validationState && classes[validationState],
+    effectiveValidationState && classes[effectiveValidationState],
     withIcon && classes.withIcon,
     disabled && classes.disabled,
     readOnly && !disabled && classes.readonly,
@@ -255,6 +247,8 @@ export function useInputStyles(options: UseInputStylesOptions) {
   return {
     rootClassName,
     wrapperClassName: classes.wrapper,
-    validationMsgClassName: validationState ? classes[validationMsgMap[validationState]] : undefined,
+    validationMsgClassName: effectiveValidationState
+      ? classes[validationMsgMap[effectiveValidationState]]
+      : undefined,
   };
 }

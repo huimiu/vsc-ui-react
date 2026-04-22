@@ -140,9 +140,19 @@ const useAppearanceStyles = makeStyles({
     },
     '& .fui-SplitButton__primaryActionButton:hover': {
       backgroundColor: 'var(--vscode-button-hoverBackground)',
+      color: 'var(--vscode-button-foreground)',
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-foreground)',
+      },
     },
     '& .fui-SplitButton__menuButton:hover': {
       backgroundColor: 'var(--vscode-button-hoverBackground)',
+      color: 'var(--vscode-button-foreground)',
+
+      '& .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-foreground)',
+      },
     },
   },
 
@@ -167,16 +177,26 @@ const useAppearanceStyles = makeStyles({
     },
     '& .fui-SplitButton__primaryActionButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
     '& .fui-SplitButton__menuButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
   outline: {
     '& .fui-SplitButton__primaryActionButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('1px'),
       ...shorthands.borderStyle('solid'),
       ...shorthands.borderColor('var(--vscode-button-border)'),
@@ -184,7 +204,7 @@ const useAppearanceStyles = makeStyles({
     },
     '& .fui-SplitButton__menuButton': {
       backgroundColor: 'transparent',
-      color: 'var(--vscode-foreground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderWidth('1px'),
       ...shorthands.borderStyle('solid'),
       ...shorthands.borderColor('var(--vscode-button-border)'),
@@ -194,9 +214,19 @@ const useAppearanceStyles = makeStyles({
     },
     '& .fui-SplitButton__primaryActionButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
     '& .fui-SplitButton__menuButton:hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -227,6 +257,10 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -249,10 +283,18 @@ const useAppearanceStyles = makeStyles({
     '& .fui-SplitButton__primaryActionButton:hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
+
+      '& .fui-Button__icon': {
+        color: 'var(--vscode-textLink-foreground)',
+      },
     },
     '& .fui-SplitButton__menuButton:hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
+
+      '& .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-textLink-foreground)',
+      },
     },
   },
 });
@@ -347,6 +389,12 @@ const useIconOnlyStyles = makeStyles({
       borderRadius: '4px',
       borderTopLeftRadius: '0',
       borderBottomLeftRadius: '0',
+    },
+    '& .fui-SplitButton__primaryActionButton:disabled': {
+      opacity: 0.5,
+    },
+    '& .fui-SplitButton__menuButton:disabled': {
+      opacity: 0.5,
     },
   },
 

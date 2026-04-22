@@ -23,7 +23,7 @@ import {
   VscTabList,
   VscTab,
 } from '../src';
-import type { VscValidationState } from '../src';
+import type { VscInputValidationState, VscValidationState } from '../src';
 
 const sectionStyle: React.CSSProperties = {
   display: 'flex',
@@ -88,7 +88,9 @@ function Matrix({
           {columns.map((c) => (
             <div
               key={c.key}
-              className={c.className}
+              className={['vsc-matrix-cell', c.className]
+                .filter(Boolean)
+                .join(' ')}
               style={{ display: 'inline-flex', width: 'max-content' }}
             >
               {cellRender(r.key, c.key)}
@@ -100,20 +102,58 @@ function Matrix({
   );
 }
 
-const BUTTON_COLUMNS = [
-  { key: 'default', label: 'Default' },
-  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
-  { key: 'selected', label: 'Selected' },
-  { key: 'disabled', label: 'Disabled' },
-];
+// Size × State combinations for buttons (text & icon variants)
+const BUTTON_STATE_COLUMNS = [
+  'default',
+  'hover',
+  'selected',
+  'disabled',
+] as const;
+const BUTTON_SIZE_LABELS = ['Large', 'Small', 'Compact'] as const;
+const BUTTON_COMBINED_COLUMNS = BUTTON_SIZE_LABELS.flatMap((sizeLabel) =>
+  BUTTON_STATE_COLUMNS.map((state) => ({
+    key: `${sizeLabel.toLowerCase()}-${state}`,
+    label: `${sizeLabel} ${state.charAt(0).toUpperCase() + state.slice(1)}`,
+    className: state === 'hover' ? 'vsc-force-hover' : undefined,
+  })),
+);
 
-const SPLIT_COLUMNS = [
-  { key: 'default', label: 'Default' },
-  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
-  { key: 'selected-left', label: 'Selected Left' },
-  { key: 'selected-right', label: 'Selected Right' },
-  { key: 'disabled', label: 'Disabled' },
-];
+// Size × State combinations for icon-only buttons
+const ICON_ONLY_STATE_COLUMNS = [
+  'default',
+  'hover',
+  'selected',
+  'disabled',
+] as const;
+const ICON_ONLY_COMBINED_COLUMNS = BUTTON_SIZE_LABELS.flatMap((sizeLabel) =>
+  ICON_ONLY_STATE_COLUMNS.map((state) => ({
+    key: `icon-${sizeLabel.toLowerCase()}-${state}`,
+    label: `Icon ${sizeLabel} ${state.charAt(0).toUpperCase() + state.slice(1)}`,
+    className: state === 'hover' ? 'vsc-force-hover' : undefined,
+  })),
+);
+
+// Size × State for split buttons
+const SPLIT_STATE_COLUMNS = [
+  'default',
+  'hover',
+  'selected-left',
+  'selected-right',
+  'disabled',
+] as const;
+const SPLIT_COMBINED_COLUMNS = BUTTON_SIZE_LABELS.flatMap((sizeLabel) =>
+  SPLIT_STATE_COLUMNS.map((state) => ({
+    key: `${sizeLabel.toLowerCase()}-${state}`,
+    label: `${sizeLabel} ${
+      state === 'selected-left'
+        ? 'Selected L'
+        : state === 'selected-right'
+          ? 'Selected R'
+          : state.charAt(0).toUpperCase() + state.slice(1)
+    }`,
+    className: state === 'hover' ? 'vsc-force-hover' : undefined,
+  })),
+);
 
 const INPUT_COLUMNS = [
   { key: 'default', label: 'Default' },
@@ -122,45 +162,47 @@ const INPUT_COLUMNS = [
   { key: 'disabled', label: 'Disabled' },
 ];
 
-const FORM_FIELD_COLUMNS = [
+const FORM_STATE_COLUMNS = [
   { key: 'default', label: 'Default' },
+  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
+  { key: 'selected', label: 'Selected', className: 'vsc-force-selected' },
+  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
   { key: 'readonly', label: 'Readonly' },
   { key: 'disabled', label: 'Disabled' },
 ];
 
-const BUTTON_ROWS = [
-  { key: 'primary', label: 'Primary' },
-  { key: 'secondary', label: 'Secondary' },
-  { key: 'outline', label: 'Outline' },
-  { key: 'subtle', label: 'Subtle' },
-  { key: 'transparent', label: 'Transparent' },
+const FORM_STATE_COLUMNS_NO_SELECTED = [
+  { key: 'default', label: 'Default' },
+  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
+  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
+  { key: 'readonly', label: 'Readonly' },
+  { key: 'disabled', label: 'Disabled' },
 ];
 
-const BUTTON_SIZE_ROWS = [
-  { key: 'medium', label: 'Medium' },
-  { key: 'small', label: 'Small' },
-  { key: 'compact', label: 'Compact' },
+const SEARCHBOX_STATE_COLUMNS = [
+  { key: 'default', label: 'Default' },
+  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
+  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
+  { key: 'disabled', label: 'Disabled' },
 ];
 
-const ICON_ONLY_SIZE_ROWS = [
-  { key: 'medium', label: 'Icon-only Medium' },
-  { key: 'small', label: 'Icon-only Small' },
-  { key: 'compact', label: 'Icon-only Compact' },
+const INPUT_TEXTAREA_VALIDATION_ROWS = [
+  { key: 'none', label: 'None' },
+  { key: 'error', label: 'Error' },
+  { key: 'warning', label: 'Warning' },
 ];
 
-const ICON_ONLY_APPEARANCE_ROWS = [
-  { key: 'primary', label: 'Icon-only Primary' },
-  { key: 'secondary', label: 'Icon-only Secondary' },
-  { key: 'outline', label: 'Icon-only Outline' },
-  { key: 'subtle', label: 'Icon-only Subtle' },
-  { key: 'transparent', label: 'Icon-only Transparent' },
-];
-
-const VALIDATION_ROWS = [
+const FIELD_VALIDATION_ROWS = [
   { key: 'none', label: 'None' },
   { key: 'error', label: 'Error' },
   { key: 'warning', label: 'Warning' },
   { key: 'info', label: 'Info' },
+];
+
+const CONTROL_SIZE_ROWS = [
+  { key: 'small', label: 'Small' },
+  { key: 'medium', label: 'Medium' },
+  { key: 'large', label: 'Large' },
 ];
 
 type Appearance = 'primary' | 'outline' | 'subtle' | 'transparent' | undefined;
@@ -172,88 +214,115 @@ function validationFor(rowKey: string): VscValidationState | undefined {
   return rowKey === 'none' ? undefined : (rowKey as VscValidationState);
 }
 
+function inputValidationFor(
+  rowKey: string,
+): VscInputValidationState | undefined {
+  return rowKey === 'none' ? undefined : (rowKey as VscInputValidationState);
+}
+
 function ButtonSection() {
+  const appearances: Appearance[] = [
+    'primary',
+    undefined,
+    'outline',
+    'subtle',
+    'transparent',
+  ];
+  const appearanceLabels = [
+    'Primary',
+    'Secondary',
+    'Outline',
+    'Subtle',
+    'Transparent',
+  ];
+  const appearanceRows = appearances.map((app, i) => ({
+    key: app ?? 'secondary',
+    label: appearanceLabels[i],
+  }));
+
+  const sizeStateMap = (
+    col: string,
+  ): { size: 'medium' | 'small' | 'compact'; state: string } => {
+    const parts = col.split('-');
+    const size =
+      parts[0] === 'large' ? 'medium' : (parts[0] as 'small' | 'compact');
+    const state = parts.slice(1).join('-');
+    return { size, state };
+  };
+
   return (
     <section style={sectionStyle}>
-      <h2 style={headerStyle}>VscButton</h2>
+      <h2 style={headerStyle}>VscButton (Appearance) × (Size × State)</h2>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={BUTTON_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscButton> & {
             'data-appearance'?: string;
-          } = { appearance, 'data-appearance': appearance ?? 'secondary' };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
-          return (
-            <VscButton {...props}>
-              {BUTTON_ROWS.find((r) => r.key === row)!.label}
-            </VscButton>
-          );
+          } = {
+            appearance,
+            'data-appearance': appearance ?? 'secondary',
+            size,
+          };
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
+          return <VscButton {...props}>Button</VscButton>;
         }}
       />
-      <h3 style={headerStyle}>Sizes</h3>
-      <Matrix
-        rows={BUTTON_SIZE_ROWS}
-        columns={BUTTON_COLUMNS}
-        columnWidthMode="content"
-        cellRender={(row, col) => {
-          const size = row as 'medium' | 'small' | 'compact';
-          const props: React.ComponentProps<typeof VscButton> & {
-            'data-appearance'?: string;
-          } = { appearance: 'primary', 'data-appearance': 'primary', size };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
-          return (
-            <VscButton {...props}>
-              {BUTTON_SIZE_ROWS.find((r) => r.key === row)!.label}
-            </VscButton>
-          );
-        }}
-      />
+
       <h3 style={headerStyle}>With Icons</h3>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={BUTTON_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
+            size,
             icon: <AddRegular />,
           };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
-          return (
-            <VscButton {...props}>
-              {BUTTON_ROWS.find((r) => r.key === row)!.label}
-            </VscButton>
-          );
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
+          return <VscButton {...props}>Button</VscButton>;
         }}
       />
-      <h3 style={headerStyle}>Icon-only Appearances</h3>
+
+      <h3 style={headerStyle}>Icon-only (Appearance) × (Size × State)</h3>
       <Matrix
-        rows={ICON_ONLY_APPEARANCE_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={ICON_ONLY_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const parts = col.split('-');
+          const size =
+            parts[1] === 'large' ? 'medium' : (parts[1] as 'small' | 'compact');
+          const state = parts.slice(2).join('-');
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
+            size,
             icon: <AddRegular />,
-            menuIcon: <ChevronDownRegular />,
             'aria-label': row,
           };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscButton {...props} />;
         }}
       />
@@ -262,97 +331,109 @@ function ButtonSection() {
 }
 
 function MenuButtonSection() {
+  const appearances: Appearance[] = [
+    'primary',
+    undefined,
+    'outline',
+    'subtle',
+    'transparent',
+  ];
+  const appearanceLabels = [
+    'Primary',
+    'Secondary',
+    'Outline',
+    'Subtle',
+    'Transparent',
+  ];
+  const appearanceRows = appearances.map((app, i) => ({
+    key: app ?? 'secondary',
+    label: appearanceLabels[i],
+  }));
+
+  const sizeStateMap = (
+    col: string,
+  ): { size: 'medium' | 'small' | 'compact'; state: string } => {
+    const parts = col.split('-');
+    const size =
+      parts[0] === 'large' ? 'medium' : (parts[0] as 'small' | 'compact');
+    const state = parts.slice(1).join('-');
+    return { size, state };
+  };
+
   return (
     <section style={sectionStyle}>
-      <h2 style={headerStyle}>VscMenuButton</h2>
+      <h2 style={headerStyle}>VscMenuButton (Appearance) × (Size × State)</h2>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={BUTTON_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscMenuButton> & {
             'data-appearance'?: string;
-          } = { appearance, 'data-appearance': appearance ?? 'secondary' };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
+          } = {
+            appearance,
+            'data-appearance': appearance ?? 'secondary',
+            size,
+          };
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscMenuButton {...props}>Menu</VscMenuButton>;
         }}
       />
-      <h3 style={headerStyle}>Sizes</h3>
-      <Matrix
-        rows={BUTTON_SIZE_ROWS}
-        columns={BUTTON_COLUMNS}
-        columnWidthMode="content"
-        cellRender={(row, col) => {
-          const size = row as 'medium' | 'small' | 'compact';
-          const props: React.ComponentProps<typeof VscMenuButton> & {
-            'data-appearance'?: string;
-          } = { appearance: 'primary', 'data-appearance': 'primary', size };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
-          return <VscMenuButton {...props}>Menu</VscMenuButton>;
-        }}
-      />
+
       <h3 style={headerStyle}>With Icons</h3>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={BUTTON_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscMenuButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
+            size,
             icon: <AddRegular />,
           };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscMenuButton {...props}>Menu</VscMenuButton>;
         }}
       />
-      <h3 style={headerStyle}>Icon-only Appearances</h3>
+
+      <h3 style={headerStyle}>Icon-only (Appearance) × (Size × State)</h3>
       <Matrix
-        rows={ICON_ONLY_APPEARANCE_ROWS}
-        columns={BUTTON_COLUMNS}
+        rows={appearanceRows}
+        columns={ICON_ONLY_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const parts = col.split('-');
+          const size =
+            parts[1] === 'large' ? 'medium' : (parts[1] as 'small' | 'compact');
+          const state = parts.slice(2).join('-');
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscMenuButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
-            icon: <AddRegular />,
-            'aria-label': row,
-          };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
-          return <VscMenuButton {...props} />;
-        }}
-      />
-      <h3 style={headerStyle}>Icon-only Sizes</h3>
-      <Matrix
-        rows={ICON_ONLY_SIZE_ROWS}
-        columns={BUTTON_COLUMNS}
-        columnWidthMode="content"
-        cellRender={(row, col) => {
-          const size =
-            row === 'medium' ? 'medium' : (row as 'small' | 'compact');
-          const props: React.ComponentProps<typeof VscMenuButton> & {
-            'data-appearance'?: string;
-          } = {
-            appearance: 'primary',
-            'data-appearance': 'primary',
             size,
             icon: <AddRegular />,
             menuIcon: <ChevronDownRegular />,
-            'aria-label': 'Menu',
+            'aria-label': row,
           };
-          if (col === 'selected') props['aria-pressed'] = true;
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'selected') props['aria-pressed'] = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscMenuButton {...props} />;
         }}
       />
@@ -361,121 +442,120 @@ function MenuButtonSection() {
 }
 
 function SplitButtonSection() {
+  const appearances: Appearance[] = [
+    'primary',
+    undefined,
+    'outline',
+    'subtle',
+    'transparent',
+  ];
+  const appearanceLabels = [
+    'Primary',
+    'Secondary',
+    'Outline',
+    'Subtle',
+    'Transparent',
+  ];
+  const appearanceRows = appearances.map((app, i) => ({
+    key: app ?? 'secondary',
+    label: appearanceLabels[i],
+  }));
+
+  const sizeStateMap = (
+    col: string,
+  ): { size: 'medium' | 'small' | 'compact'; state: string } => {
+    const parts = col.split('-');
+    const size =
+      parts[0] === 'large' ? 'medium' : (parts[0] as 'small' | 'compact');
+    const state = parts.slice(1).join('-');
+    return { size, state };
+  };
+
   return (
     <section style={sectionStyle}>
-      <h2 style={headerStyle}>VscSplitButton</h2>
+      <h2 style={headerStyle}>VscSplitButton (Appearance) × (Size × State)</h2>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={SPLIT_COLUMNS}
+        rows={appearanceRows}
+        columns={SPLIT_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscSplitButton> & {
             'data-appearance'?: string;
-          } = { appearance, 'data-appearance': appearance ?? 'secondary' };
-          if (col === 'selected-left') {
+          } = {
+            appearance,
+            'data-appearance': appearance ?? 'secondary',
+            size,
+          };
+          if (state === 'selected-left') {
             props.primaryActionButton = { 'aria-pressed': true };
           }
-          if (col === 'selected-right') {
+          if (state === 'selected-right') {
             props.menuButton = { 'aria-pressed': true };
           }
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscSplitButton {...props}>Split</VscSplitButton>;
         }}
       />
-      <h3 style={headerStyle}>Sizes</h3>
-      <Matrix
-        rows={BUTTON_SIZE_ROWS}
-        columns={SPLIT_COLUMNS}
-        columnWidthMode="content"
-        cellRender={(row, col) => {
-          const size = row as 'medium' | 'small' | 'compact';
-          const props: React.ComponentProps<typeof VscSplitButton> & {
-            'data-appearance'?: string;
-          } = { appearance: 'primary', 'data-appearance': 'primary', size };
-          if (col === 'selected-left') {
-            props.primaryActionButton = { 'aria-pressed': true };
-          }
-          if (col === 'selected-right') {
-            props.menuButton = { 'aria-pressed': true };
-          }
-          if (col === 'disabled') props.disabled = true;
-          return <VscSplitButton {...props}>Split</VscSplitButton>;
-        }}
-      />
+
       <h3 style={headerStyle}>With Icons</h3>
       <Matrix
-        rows={BUTTON_ROWS}
-        columns={SPLIT_COLUMNS}
+        rows={appearanceRows}
+        columns={SPLIT_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscSplitButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
+            size,
             icon: <AddRegular />,
           };
-          if (col === 'selected-left') {
+          if (state === 'selected-left') {
             props.primaryActionButton = { 'aria-pressed': true };
           }
-          if (col === 'selected-right') {
+          if (state === 'selected-right') {
             props.menuButton = { 'aria-pressed': true };
           }
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscSplitButton {...props}>Split</VscSplitButton>;
         }}
       />
-      <h3 style={headerStyle}>Icon-only Appearances</h3>
+
+      <h3 style={headerStyle}>Icon-only (Appearance) × (Size × State)</h3>
       <Matrix
-        rows={ICON_ONLY_APPEARANCE_ROWS}
-        columns={SPLIT_COLUMNS}
+        rows={appearanceRows}
+        columns={SPLIT_COMBINED_COLUMNS}
         columnWidthMode="content"
+        rowLabelWidth={100}
         cellRender={(row, col) => {
-          const appearance = appearanceFor(row);
+          const { size, state } = sizeStateMap(col);
+          const appearance =
+            row === 'secondary' ? undefined : (row as Appearance);
           const props: React.ComponentProps<typeof VscSplitButton> & {
             'data-appearance'?: string;
           } = {
             appearance,
             'data-appearance': appearance ?? 'secondary',
+            size,
             icon: <AddRegular />,
             'aria-label': row,
           };
-          if (col === 'selected-left') {
+          if (state === 'selected-left') {
             props.primaryActionButton = { 'aria-pressed': true };
           }
-          if (col === 'selected-right') {
+          if (state === 'selected-right') {
             props.menuButton = { 'aria-pressed': true };
           }
-          if (col === 'disabled') props.disabled = true;
-          return <VscSplitButton {...props} />;
-        }}
-      />
-      <h3 style={headerStyle}>Icon-only Sizes</h3>
-      <Matrix
-        rows={ICON_ONLY_SIZE_ROWS}
-        columns={SPLIT_COLUMNS}
-        columnWidthMode="content"
-        cellRender={(row, col) => {
-          const size =
-            row === 'medium' ? 'medium' : (row as 'small' | 'compact');
-          const props: React.ComponentProps<typeof VscSplitButton> & {
-            'data-appearance'?: string;
-          } = {
-            appearance: 'primary',
-            'data-appearance': 'primary',
-            size,
-            icon: <AddRegular />,
-            'aria-label': 'Split',
-          };
-          if (col === 'selected-left') {
-            props.primaryActionButton = { 'aria-pressed': true };
-          }
-          if (col === 'selected-right') {
-            props.menuButton = { 'aria-pressed': true };
-          }
-          if (col === 'disabled') props.disabled = true;
+          if (state === 'disabled') props.disabled = true;
           return <VscSplitButton {...props} />;
         }}
       />
@@ -487,17 +567,43 @@ function InputSection() {
   return (
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscInput</h2>
+      <h3 style={headerStyle}>Sizes</h3>
       <Matrix
-        rows={VALIDATION_ROWS}
-        columns={FORM_FIELD_COLUMNS}
+        rows={CONTROL_SIZE_ROWS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
         cellRender={(row, col) => (
           <VscInput
             placeholder="Input"
+            size={row as 'small' | 'medium' | 'large'}
             readOnly={col === 'readonly'}
             disabled={col === 'disabled'}
-            validationState={validationFor(row)}
           />
         )}
+      />
+
+      <h3 style={headerStyle}>Validation</h3>
+      <Matrix
+        rows={INPUT_TEXTAREA_VALIDATION_ROWS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
+        cellRender={(row, col) => {
+          const isInvalid = row === 'error' || row === 'warning';
+          const isUnavailable =
+            isInvalid && (col === 'readonly' || col === 'disabled');
+          if (isUnavailable) {
+            return <span style={gridHeadStyle}>-</span>;
+          }
+
+          return (
+            <VscInput
+              placeholder="Input"
+              validationState={
+                row === 'none' ? undefined : inputValidationFor(row)
+              }
+              readOnly={col === 'readonly'}
+              disabled={col === 'disabled'}
+            />
+          );
+        }}
       />
     </section>
   );
@@ -508,17 +614,42 @@ function TextareaSection() {
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscTextarea</h2>
       <Matrix
-        rows={VALIDATION_ROWS}
-        columns={FORM_FIELD_COLUMNS}
-        cellRender={(row, col) => (
+        rows={[{ key: 'default', label: 'Default' }]}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
+        cellRender={(_, col) => (
           <VscTextarea
             placeholder="Textarea"
             rows={2}
             readOnly={col === 'readonly'}
             disabled={col === 'disabled'}
-            validationState={validationFor(row)}
           />
         )}
+      />
+
+      <h3 style={headerStyle}>Validation</h3>
+      <Matrix
+        rows={INPUT_TEXTAREA_VALIDATION_ROWS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
+        cellRender={(row, col) => {
+          const isInvalid = row === 'error' || row === 'warning';
+          const isUnavailable =
+            isInvalid && (col === 'readonly' || col === 'disabled');
+          if (isUnavailable) {
+            return <span style={gridHeadStyle}>-</span>;
+          }
+
+          return (
+            <VscTextarea
+              placeholder="Textarea"
+              rows={2}
+              validationState={
+                row === 'none' ? undefined : inputValidationFor(row)
+              }
+              readOnly={col === 'readonly'}
+              disabled={col === 'disabled'}
+            />
+          );
+        }}
       />
     </section>
   );
@@ -529,14 +660,19 @@ function SearchBoxSection() {
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscSearchBox</h2>
       <Matrix
-        rows={[{ key: 'default', label: 'Default' }]}
-        columns={FORM_FIELD_COLUMNS}
+        rows={[
+          { key: 'small', label: 'Small' },
+          { key: 'medium', label: 'Medium' },
+          { key: 'large', label: 'Large' },
+        ]}
+        columns={SEARCHBOX_STATE_COLUMNS}
         rowLabelWidth={100}
-        cellRender={(_row, col) => (
+        cellRender={(row, col) => (
           <VscSearchBox
             placeholder="Search"
-            readOnly={col === 'readonly'}
+            size={row as 'small' | 'medium' | 'large'}
             disabled={col === 'disabled'}
+            style={{ width: 220 }}
           />
         )}
       />
@@ -548,13 +684,15 @@ function DropdownSection() {
   return (
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscDropdown</h2>
+      <h3 style={headerStyle}>Sizes</h3>
       <Matrix
-        rows={[{ key: 'default', label: 'Default' }]}
-        columns={FORM_FIELD_COLUMNS}
+        rows={CONTROL_SIZE_ROWS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
         rowLabelWidth={100}
-        cellRender={(_row, col) => (
+        cellRender={(row, col) => (
           <VscDropdown
             placeholder="Pick one"
+            size={row as 'small' | 'medium' | 'large'}
             readOnly={col === 'readonly'}
             disabled={col === 'disabled'}
           >
@@ -563,37 +701,75 @@ function DropdownSection() {
           </VscDropdown>
         )}
       />
+
+      <h3 style={headerStyle}>Validation</h3>
+      <Matrix
+        rows={INPUT_TEXTAREA_VALIDATION_ROWS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
+        rowLabelWidth={100}
+        cellRender={(row, col) => {
+          const isInvalid = row === 'error' || row === 'warning';
+          const isUnavailable =
+            isInvalid && (col === 'readonly' || col === 'disabled');
+          if (isUnavailable) {
+            return <span style={gridHeadStyle}>-</span>;
+          }
+
+          return (
+            <VscDropdown
+              placeholder="Pick one"
+              validationState={row === 'none' ? undefined : validationFor(row)}
+              readOnly={col === 'readonly'}
+              disabled={col === 'disabled'}
+            >
+              <VscOption value="one">One</VscOption>
+              <VscOption value="two">Two</VscOption>
+            </VscDropdown>
+          );
+        }}
+      />
     </section>
   );
 }
 
 function FieldSection() {
-  const fieldRows = [
-    { key: 'none', label: 'None' },
-    { key: 'error', label: 'Error' },
-    { key: 'warning', label: 'Warning' },
-    { key: 'success', label: 'Success' },
-  ];
-  type FieldValidation = 'error' | 'warning' | 'success' | undefined;
   return (
     <section style={sectionStyle}>
       <h2 style={headerStyle}>VscField</h2>
       <Matrix
-        rows={fieldRows}
+        rows={FIELD_VALIDATION_ROWS}
         rowLabelWidth={100}
-        columns={[{ key: 'field', label: 'Field' }]}
-        cellRender={(row) => (
-          <VscField
-            label="Label"
-            hint={row === 'none' ? 'A short hint' : undefined}
-            validationState={
-              row === 'none' ? undefined : (row as FieldValidation)
-            }
-            validationMessage={row === 'none' ? undefined : `${row} message`}
-          >
-            <VscInput placeholder="With field" />
-          </VscField>
-        )}
+        columns={FORM_STATE_COLUMNS}
+        cellRender={(row, col) => {
+          const isUnavailable =
+            row !== 'none' && (col === 'readonly' || col === 'disabled');
+
+          if (isUnavailable) {
+            return <span style={gridHeadStyle}>-</span>;
+          }
+
+          return (
+            <VscField
+              label="Label"
+              hint={row === 'none' ? 'A short hint' : undefined}
+              validationState={validationFor(row)}
+              validationMessage={row === 'none' ? undefined : `${row} message`}
+            >
+              <VscInput
+                placeholder="With field"
+                readOnly={col === 'readonly'}
+                disabled={col === 'disabled'}
+                validationState={
+                  col === 'readonly'
+                    ? undefined
+                    : row === 'error' || row === 'warning'
+                      ? inputValidationFor(row)
+                      : undefined
+                }
+              />
+            </VscField>
+          );
+        }}
       />
     </section>
   );
@@ -704,6 +880,129 @@ function TabListSection() {
   );
 }
 
+function LiveHoverDemo() {
+  return (
+    <section style={sectionStyle}>
+      <h2 style={headerStyle}>
+        Live Hover Demo (Interactive — Hover to Verify Real Behavior)
+      </h2>
+      <p
+        style={{
+          fontSize: 12,
+          color: 'var(--vscode-descriptionForeground)',
+          margin: '0 0 12px 0',
+        }}
+      >
+        These components are interactive. Hover to verify real runtime behavior
+        matches the matrix.
+      </p>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+        <div>
+          <div style={gridHeadStyle}>Buttons with Icons</div>
+          <div
+            style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 8 }}
+          >
+            <VscButton appearance="primary" icon={<AddRegular />}>
+              Primary
+            </VscButton>
+            <VscButton icon={<AddRegular />}>Secondary</VscButton>
+            <VscButton appearance="outline" icon={<AddRegular />}>
+              Outline
+            </VscButton>
+            <VscButton appearance="subtle" icon={<AddRegular />}>
+              Subtle
+            </VscButton>
+            <VscButton appearance="transparent" icon={<AddRegular />}>
+              Transparent
+            </VscButton>
+          </div>
+        </div>
+
+        <div>
+          <div style={gridHeadStyle}>Icon-Only Buttons</div>
+          <div
+            style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 8 }}
+          >
+            <VscButton
+              appearance="primary"
+              icon={<AddRegular />}
+              aria-label="Primary"
+            />
+            <VscButton icon={<AddRegular />} aria-label="Secondary" />
+            <VscButton
+              appearance="outline"
+              icon={<AddRegular />}
+              aria-label="Outline"
+            />
+            <VscButton
+              appearance="subtle"
+              icon={<AddRegular />}
+              aria-label="Subtle"
+            />
+            <VscButton
+              appearance="transparent"
+              icon={<AddRegular />}
+              aria-label="Transparent"
+            />
+          </div>
+        </div>
+
+        <div>
+          <div style={gridHeadStyle}>Menu Buttons</div>
+          <div
+            style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginTop: 8 }}
+          >
+            <VscMenuButton
+              appearance="primary"
+              menuIcon={<ChevronDownRegular />}
+            >
+              Primary
+            </VscMenuButton>
+            <VscMenuButton menuIcon={<ChevronDownRegular />}>
+              Secondary
+            </VscMenuButton>
+            <VscMenuButton
+              appearance="outline"
+              menuIcon={<ChevronDownRegular />}
+            >
+              Outline
+            </VscMenuButton>
+            <VscMenuButton
+              appearance="subtle"
+              menuIcon={<ChevronDownRegular />}
+            >
+              Subtle
+            </VscMenuButton>
+            <VscMenuButton
+              appearance="transparent"
+              menuIcon={<ChevronDownRegular />}
+            >
+              Transparent
+            </VscMenuButton>
+          </div>
+        </div>
+
+        <div>
+          <div style={gridHeadStyle}>Form Controls</div>
+          <div
+            style={{
+              display: 'flex',
+              gap: 8,
+              flexDirection: 'column',
+              marginTop: 8,
+              maxWidth: 300,
+            }}
+          >
+            <VscInput placeholder="Hover over me" />
+            <VscSearchBox placeholder="Search..." />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Playground() {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
 
@@ -714,51 +1013,61 @@ function Playground() {
 
   return (
     <FluentProvider theme={theme === 'dark' ? webDarkTheme : webLightTheme}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: 32 }}>
-        <header
-          style={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            marginBottom: 16,
-          }}
-        >
-          <div>
-            <h1 style={{ margin: 0, fontSize: 20 }}>vsc-ui-react playground</h1>
-            <p
-              style={{
-                margin: '4px 0 0',
-                color: 'var(--vscode-descriptionForeground)',
-                fontSize: 12,
-              }}
-            >
-              State matrix for each component. Each row is a variant; each
-              column is an interaction state (Hover / Focus / Selected /
-              Disabled simulated statically).
-            </p>
-          </div>
-          <label
-            style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
+      <div
+        style={{
+          minHeight: '100vh',
+          backgroundColor: 'var(--vscode-editor-background)',
+        }}
+      >
+        <div style={{ maxWidth: 1100, margin: '0 auto', padding: 32 }}>
+          <header
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: 16,
+            }}
           >
-            <input
-              type="checkbox"
-              checked={theme === 'light'}
-              onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
-            />
-            Light mode
-          </label>
-        </header>
+            <div>
+              <h1 style={{ margin: 0, fontSize: 20 }}>
+                vsc-ui-react playground
+              </h1>
+              <p
+                style={{
+                  margin: '4px 0 0',
+                  color: 'var(--vscode-descriptionForeground)',
+                  fontSize: 12,
+                }}
+              >
+                State matrix for each component. Each row is a variant; each
+                column is an interaction state (Hover / Focus / Selected /
+                Disabled simulated statically).
+              </p>
+            </div>
+            <label
+              style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
+            >
+              <input
+                type="checkbox"
+                checked={theme === 'light'}
+                onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
+              />
+              Light mode
+            </label>
+          </header>
 
-        <ButtonSection />
-        <MenuButtonSection />
-        <SplitButtonSection />
-        <InputSection />
-        <TextareaSection />
-        <SearchBoxSection />
-        <DropdownSection />
-        <FieldSection />
-        <MenuSection />
-        <TabListSection />
+          <ButtonSection />
+          <MenuButtonSection />
+          <SplitButtonSection />
+          <InputSection />
+          <TextareaSection />
+          <SearchBoxSection />
+          <DropdownSection />
+          <FieldSection />
+          <MenuSection />
+          <TabListSection />
+          <LiveHoverDemo />
+        </div>
       </div>
     </FluentProvider>
   );

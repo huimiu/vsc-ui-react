@@ -34,10 +34,20 @@ const useBaseStyles = makeStyles({
       fontSize: '14px',
       lineHeight: '1',
       padding: '0',
+      margin: '0',
     },
 
     '& .fui-Button__icon': {
       fontSize: '16px',
+      width: '16px',
+      height: '16px',
+      margin: '0',
+    },
+
+    '& .fui-MenuButton__menuIcon svg': {
+      display: 'block',
+      width: '14px',
+      height: '14px',
     },
 
     ':focus-visible': {
@@ -82,6 +92,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-hoverBackground)',
+      color: 'var(--vscode-button-foreground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-foreground)',
+      },
     },
   },
 
@@ -94,6 +109,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -106,6 +126,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -120,6 +145,20 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
+    },
+
+    ':active': {
+      backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color:
+          'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+      },
     },
   },
 
@@ -133,6 +172,10 @@ const useAppearanceStyles = makeStyles({
     ':hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-textLink-foreground)',
+      },
     },
   },
 });
@@ -156,8 +199,16 @@ const useSizeStyles = makeStyles({
       fontSize: '12px',
     },
 
+    '& .fui-MenuButton__menuIcon svg': {
+      width: '12px',
+      height: '12px',
+    },
+
     '& .fui-Button__icon': {
       fontSize: '14px',
+      width: '14px',
+      height: '14px',
+      margin: '0',
     },
   },
 
@@ -175,8 +226,16 @@ const useSizeStyles = makeStyles({
       fontSize: '10px',
     },
 
+    '& .fui-MenuButton__menuIcon svg': {
+      width: '10px',
+      height: '10px',
+    },
+
     '& .fui-Button__icon': {
       fontSize: '12px',
+      width: '12px',
+      height: '12px',
+      margin: '0',
     },
   },
 });
@@ -196,6 +255,14 @@ const useIconOnlyStyles = makeStyles({
     boxSizing: 'border-box',
     ...shorthands.padding('6px'),
     gap: '2px',
+
+    ':disabled': {
+      opacity: 0.5,
+    },
+
+    "[aria-disabled='true']": {
+      opacity: 0.5,
+    },
   },
 
   small: {
