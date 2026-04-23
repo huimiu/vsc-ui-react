@@ -442,3 +442,8 @@ body {
     var(--vscode-foreground)
   ) !important;
 }
+
+.vsc-force-hover .fui-Tab .fui-Tab__content {
+  color: var(--vscode-tab-activeForeground,
+      var(--vscode-foreground)) !important;
+}

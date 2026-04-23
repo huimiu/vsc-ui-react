@@ -133,6 +133,9 @@ const useTabBaseStyles = makeStyles({
     ':hover': {
       color: 'var(--vscode-tab-activeForeground)',
       backgroundColor: 'transparent',
+      '& .fui-Tab__content': {
+        color: 'var(--vscode-tab-activeForeground) !important' as 'inherit',
+      },
       '& .fui-Tab__icon': {
         color: 'var(--vscode-tab-activeForeground) !important' as 'inherit',
       },
