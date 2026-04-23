@@ -6,6 +6,7 @@ import {
 
 import { vscFontFamily } from '../../styles/tokens';
 import type { VscInputValidationState } from '../../types';
+import type { VscTextareaResize } from './VscTextarea';
 
 // ---------------------------------------------------------------------------
 //  Base – root override styles via makeStyles
@@ -56,6 +57,17 @@ const useBaseStyles = makeStyles({
 });
 
 // ---------------------------------------------------------------------------
+//  Resize styles – padding to prevent focus indicator overlapping the grip
+// ---------------------------------------------------------------------------
+
+const useResizeStyles = makeStyles({
+  resizable: {
+    // Bottom padding prevents the focus border from overlapping the resize grip
+    paddingBottom: '2px',
+  },
+});
+
+// ---------------------------------------------------------------------------
 //  Permutation styles via makeStyles
 // ---------------------------------------------------------------------------
 
@@ -101,22 +113,27 @@ const useStyles = makeStyles({
 
 export interface UseTextareaStylesOptions {
   validationState?: VscInputValidationState;
+  resize?: VscTextareaResize;
   disabled?: boolean;
   readOnly?: boolean;
   className?: string;
 }
 
 export function useTextareaStyles(options: UseTextareaStylesOptions): string {
-  const { validationState, disabled, readOnly, className } = options;
+  const { validationState, resize, disabled, readOnly, className } = options;
 
   const effectiveValidationState =
     disabled || readOnly ? undefined : validationState;
 
   const base = useBaseStyles();
   const classes = useStyles();
+  const resizeClasses = useResizeStyles();
+
+  const isResizable = resize && resize !== 'none';
 
   return mergeClasses(
     base.root,
+    isResizable && resizeClasses.resizable,
     effectiveValidationState && classes[effectiveValidationState],
     disabled && classes.disabled,
     readOnly && !disabled && classes.readonly,

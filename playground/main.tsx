@@ -639,6 +639,20 @@ function TextareaSection() {
         )}
       />
 
+      <h3 style={headerStyle}>Resize</h3>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+        {(['none', 'vertical', 'horizontal', 'both'] as const).map((mode) => (
+          <div key={mode} style={{ display: 'flex', alignItems: 'start', gap: 12 }}>
+            <span style={{ ...gridHeadStyle, width: 140, flexShrink: 0, paddingTop: 6 }}>{mode}</span>
+            <VscTextarea
+              placeholder={`resize="${mode}"`}
+              rows={2}
+              resize={mode}
+            />
+          </div>
+        ))}
+      </div>
+
       <h3 style={headerStyle}>Validation</h3>
       <Matrix
         rows={INPUT_TEXTAREA_VALIDATION_ROWS}

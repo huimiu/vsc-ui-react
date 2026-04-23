@@ -42,4 +42,16 @@ describe('VscTextarea', () => {
     const { container } = render(<VscTextarea className="custom" />, { wrapper });
     expect(container.querySelector('.custom')).toBeTruthy();
   });
+
+  it('applies resize="both" to the underlying textarea', () => {
+    const { container } = render(<VscTextarea resize="both" />, { wrapper });
+    const textarea = container.querySelector('textarea')!;
+    expect(getComputedStyle(textarea).resize).toBe('both');
+  });
+
+  it('applies resize="vertical" to the underlying textarea', () => {
+    const { container } = render(<VscTextarea resize="vertical" />, { wrapper });
+    const textarea = container.querySelector('textarea')!;
+    expect(getComputedStyle(textarea).resize).toBe('vertical');
+  });
 });

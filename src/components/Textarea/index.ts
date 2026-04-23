@@ -1,2 +1,2 @@
 export { VscTextarea } from './VscTextarea';
-export type { VscTextareaProps } from './VscTextarea';
+export type { VscTextareaProps, VscTextareaResize } from './VscTextarea';
