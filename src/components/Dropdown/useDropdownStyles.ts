@@ -29,10 +29,10 @@ const useDropdownBaseStyles = makeStyles({
     boxShadow: 'none',
     boxSizing: 'border-box',
     backgroundColor: 'var(--vscode-dropdown-background)',
-    transition: 'none !important',
+    transition: 'none',
 
     '::after': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Dropdown__button': {
@@ -68,7 +68,7 @@ const useDropdownBaseStyles = makeStyles({
     },
 
     '& .fui-Dropdown__expandIcon svg': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Dropdown__expandIcon.fui-Dropdown__expandIcon::after': {
@@ -216,10 +216,10 @@ const useComboboxBaseStyles = makeStyles({
     boxShadow: 'none',
     boxSizing: 'border-box',
     backgroundColor: 'var(--vscode-dropdown-background)',
-    transition: 'none !important',
+    transition: 'none',
 
     '::after': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Combobox__input': {
@@ -255,7 +255,7 @@ const useComboboxBaseStyles = makeStyles({
     },
 
     '& .fui-Combobox__expandIcon svg': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Combobox__expandIcon.fui-Combobox__expandIcon::after': {
@@ -379,7 +379,7 @@ const useListboxBaseStyles = makeStyles({
     boxShadow: 'none',
     boxSizing: 'border-box',
     padding: '2px',
-    animation: 'none !important',
+    animation: 'none',
   },
 });
 
@@ -409,7 +409,7 @@ const useOptionBaseStyles = makeStyles({
     columnGap: '0',
     rowGap: '0',
     borderRadius: '2px',
-    transition: 'none !important',
+    transition: 'none',
     cursor: 'pointer',
 
     "&:hover:not([aria-selected='true']):not([aria-checked='true']):not(.fui-Option--selected)":

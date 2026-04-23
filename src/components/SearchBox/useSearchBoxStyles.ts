@@ -21,10 +21,10 @@ const useBaseStyles = makeStyles({
     backgroundColor: 'var(--vscode-input-background)',
     boxShadow: 'none',
     boxSizing: 'border-box',
-    transition: 'none !important',
+    transition: 'none',
 
     '::after': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Input__input': {

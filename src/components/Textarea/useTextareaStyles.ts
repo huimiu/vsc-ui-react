@@ -19,10 +19,10 @@ const useBaseStyles = makeStyles({
     boxShadow: 'none',
     boxSizing: 'border-box',
     backgroundColor: 'var(--vscode-input-background)',
-    transition: 'none !important',
+    transition: 'none',
 
     '::after': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-Textarea__textarea': {
@@ -75,34 +75,22 @@ const useStyles = makeStyles({
   },
 
   error: {
-    ...shorthands.borderColor(
-      'var(--vscode-inputValidation-errorBorder) !important',
-    ),
+    ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
     ':hover': {
-      ...shorthands.borderColor(
-        'var(--vscode-inputValidation-errorBorder) !important',
-      ),
+      ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
     },
     ':focus-within': {
-      ...shorthands.borderColor(
-        'var(--vscode-inputValidation-errorBorder) !important',
-      ),
+      ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
     },
   },
 
   warning: {
-    ...shorthands.borderColor(
-      'var(--vscode-inputValidation-warningBorder) !important',
-    ),
+    ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
     ':hover': {
-      ...shorthands.borderColor(
-        'var(--vscode-inputValidation-warningBorder) !important',
-      ),
+      ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
     },
     ':focus-within': {
-      ...shorthands.borderColor(
-        'var(--vscode-inputValidation-warningBorder) !important',
-      ),
+      ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
     },
   },
 });

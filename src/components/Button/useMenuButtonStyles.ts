@@ -24,7 +24,7 @@ const useBaseStyles = makeStyles({
     paddingBottom: '4px',
     paddingLeft: '8px',
     borderRadius: '4px',
-    gap: '4px !important',
+    gap: '4px',
     boxShadow: 'none',
 
     '& .fui-MenuButton__menuIcon': {
@@ -153,11 +153,10 @@ const useAppearanceStyles = makeStyles({
 
     ':active': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
-      color: 'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+      color: 'var(--vscode-button-secondaryForeground)',
 
       '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
-        color:
-          'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+        color: 'var(--vscode-button-secondaryForeground)',
       },
     },
   },
@@ -193,7 +192,7 @@ const useSizeStyles = makeStyles({
     paddingRight: '6px',
     paddingBottom: '3px',
     paddingLeft: '6px',
-    gap: '3px !important',
+    gap: '3px',
 
     '& .fui-MenuButton__menuIcon': {
       fontSize: '12px',
@@ -220,7 +219,7 @@ const useSizeStyles = makeStyles({
     paddingRight: '4px',
     paddingBottom: '0',
     paddingLeft: '4px',
-    gap: '2px !important',
+    gap: '2px',
 
     '& .fui-MenuButton__menuIcon': {
       fontSize: '10px',

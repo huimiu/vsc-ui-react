@@ -21,8 +21,8 @@ const useMenuPopoverBaseStyles = makeStyles({
     boxShadow: '0px 2px 16px 0px rgba(0, 0, 0, 0.36)',
     boxSizing: 'border-box',
     padding: '4px 0',
-    animation: 'none !important',
-    transition: 'none !important',
+    animation: 'none',
+    transition: 'none',
   },
 });
 
@@ -58,11 +58,11 @@ const useMenuItemBaseStyles = makeStyles({
     border: 'none',
     backgroundColor: 'transparent',
     color: 'var(--vscode-menu-foreground)',
-    transition: 'none !important',
+    transition: 'none',
     cursor: 'pointer',
 
     '::after': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-MenuItem__icon': {
@@ -107,7 +107,7 @@ const useMenuItemBaseStyles = makeStyles({
     },
 
     '& .fui-MenuItem__submenuIndicator svg': {
-      display: 'none !important' as 'none',
+      display: 'none' as 'none',
     },
 
     '& .fui-MenuItem__submenuIndicator::after': {
