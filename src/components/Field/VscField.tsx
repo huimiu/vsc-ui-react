@@ -1,7 +1,13 @@
-import { Field, type FieldProps, Tooltip } from '@fluentui/react-components';
+import {
+  Field,
+  mergeClasses,
+  type FieldProps,
+  Tooltip,
+} from '@fluentui/react-components';
 import { Info16Regular } from '@fluentui/react-icons';
 import { forwardRef } from 'react';
 
+import type { VscValidationState } from '../../types';
 import { useFieldStyles } from './useFieldStyles';
 
 export type VscFieldProps = Omit<FieldProps, 'label'> & {
@@ -9,17 +15,43 @@ export type VscFieldProps = Omit<FieldProps, 'label'> & {
   label?: string;
   /** When provided, renders an info icon with a tooltip next to the label. */
   tooltipContent?: string;
+  /** Applies VS Code validation styling via Fluent Field component. */
+  validationState?: VscValidationState;
 };
 
 export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
-  ({ className, label, tooltipContent, required, ...rest }, ref) => {
+  (
+    { className, label, tooltipContent, required, validationState, ...rest },
+    ref,
+  ) => {
     const {
       rootClassName,
+      validationMessageIconClassName,
       labelRowClassName,
       labelTextClassName,
       requiredIndicatorClassName,
       infoIconClassName,
-    } = useFieldStyles({ className });
+    } = useFieldStyles({ validationState, className });
+
+    const validationIconName =
+      validationState === 'error'
+        ? 'codicon-error'
+        : validationState === 'warning'
+          ? 'codicon-warning'
+          : validationState === 'info'
+            ? 'codicon-info'
+            : undefined;
+
+    const validationMessageIcon = validationIconName ? (
+      <span
+        className={mergeClasses(
+          validationMessageIconClassName,
+          'codicon',
+          validationIconName,
+        )}
+        aria-hidden="true"
+      />
+    ) : undefined;
 
     const labelSlot = label ? (
       <span className={labelRowClassName}>
@@ -45,6 +77,8 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
         className={rootClassName}
         label={labelSlot}
         required={required}
+        validationMessageIcon={validationMessageIcon}
+        validationState={validationState}
         {...rest}
       />
     );

@@ -1,7 +1,4 @@
-import {
-  makeStyles,
-  mergeClasses,
-} from '@fluentui/react-components';
+import { makeStyles, mergeClasses } from '@fluentui/react-components';
 
 import { vscFontFamily } from '../../styles/tokens';
 
@@ -17,15 +14,15 @@ const chevronRightSvg = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org
 
 const useMenuPopoverBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  backgroundColor: 'var(--vscode-menu-background)',
-  border: '1px solid var(--vscode-menu-border)',
-  borderRadius: '5px',
-  boxShadow: '0px 2px 16px 0px rgba(0, 0, 0, 0.36)',
-  boxSizing: 'border-box',
-  padding: '4px 0',
-  animation: 'none !important',
-  transition: 'none !important',
+    fontFamily: vscFontFamily,
+    backgroundColor: 'var(--vscode-menu-background)',
+    border: '1px solid var(--vscode-menu-border)',
+    borderRadius: '5px',
+    boxShadow: '0px 2px 16px 0px rgba(0, 0, 0, 0.36)',
+    boxSizing: 'border-box',
+    padding: '4px 0',
+    animation: 'none !important',
+    transition: 'none !important',
   },
 });
 
@@ -35,12 +32,12 @@ const useMenuPopoverBaseStyles = makeStyles({
 
 const useMenuListBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  backgroundColor: 'transparent',
-  padding: '0',
-  display: 'flex',
-  flexDirection: 'column',
-  minWidth: '0',
+    fontFamily: vscFontFamily,
+    backgroundColor: 'transparent',
+    padding: '0',
+    display: 'flex',
+    flexDirection: 'column',
+    minWidth: '0',
   },
 });
 
@@ -50,100 +47,109 @@ const useMenuListBaseStyles = makeStyles({
 
 const useMenuItemBaseStyles = makeStyles({
   root: {
-  margin: '0 2px',
-  padding: '6px 10px',
-  minHeight: '28px',
-  gap: '4px',
-  boxSizing: 'border-box',
-  display: 'flex',
-  alignItems: 'center',
-  borderRadius: '3px',
-  border: 'none',
-  backgroundColor: 'transparent',
-  color: 'var(--vscode-menu-foreground)',
-  transition: 'none !important',
-  cursor: 'pointer',
-
-  '::after': {
-    display: 'none !important' as 'none',
-  },
-
-  '& .fui-MenuItem__icon': {
-    width: '16px',
-    height: '16px',
-    flexShrink: 0,
+    margin: '0 2px',
+    padding: '6px 10px',
+    minHeight: '28px',
+    gap: '4px',
+    boxSizing: 'border-box',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    borderRadius: '3px',
+    border: 'none',
+    backgroundColor: 'transparent',
     color: 'var(--vscode-menu-foreground)',
-  },
+    transition: 'none !important',
+    cursor: 'pointer',
 
-  '& .fui-MenuItem__content': {
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase200, 16px)',
-    color: 'var(--vscode-menu-foreground)',
-    flex: '1 0 0',
-    minWidth: '0',
-  },
+    '::after': {
+      display: 'none !important' as 'none',
+    },
 
-  '& .fui-MenuItem__secondaryContent': {
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase200, 16px)',
-    color: 'var(--vscode-descriptionForeground)',
-    whiteSpace: 'nowrap',
-    flexShrink: 0,
-    marginLeft: 'auto',
-    paddingLeft: '16px',
-  },
+    '& .fui-MenuItem__icon': {
+      width: '16px',
+      height: '16px',
+      flexShrink: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'var(--vscode-menu-foreground)',
+    },
 
-  '& .fui-MenuItem__submenuIndicator': {
-    width: '16px',
-    height: '16px',
-    flexShrink: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'var(--vscode-menu-foreground)',
-  },
+    '& .fui-MenuItem__content': {
+      fontSize: 'var(--fontSizeBase200, 12px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase200, 16px)',
+      color: 'var(--vscode-menu-foreground)',
+      flex: '1 0 0',
+      minWidth: '0',
+    },
 
-  '& .fui-MenuItem__submenuIndicator > svg': {
-    display: 'none',
-  },
+    '& .fui-MenuItem__secondaryContent': {
+      fontSize: 'var(--fontSizeBase200, 12px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase200, 16px)',
+      color: 'var(--vscode-descriptionForeground)',
+      whiteSpace: 'nowrap',
+      flexShrink: 0,
+      marginLeft: 'auto',
+      paddingLeft: '16px',
+    },
 
-  '& .fui-MenuItem__submenuIndicator::after': {
-    content: '""',
-    display: 'block',
-    width: '16px',
-    height: '16px',
-    backgroundColor: 'currentColor',
-    WebkitMaskImage: chevronRightSvg,
-    maskImage: chevronRightSvg,
-    WebkitMaskSize: '16px 16px',
-    maskSize: '16px 16px',
-  },
+    '& .fui-MenuItem__submenuIndicator': {
+      width: '16px',
+      height: '16px',
+      flexShrink: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: 'var(--vscode-menu-foreground)',
+      fontSize: 0,
+    },
 
-  '&:hover, &[data-focused="true"], &:focus': {
-    backgroundColor: 'var(--vscode-menu-selectionBackground)',
-    outline: 'none',
-  },
+    '& .fui-MenuItem__submenuIndicator svg': {
+      display: 'none !important' as 'none',
+    },
 
-  '&:hover .fui-MenuItem__content, &[data-focused="true"] .fui-MenuItem__content, &:focus .fui-MenuItem__content': {
-    color: 'var(--vscode-menu-selectionForeground)',
-  },
+    '& .fui-MenuItem__submenuIndicator::after': {
+      content: '""',
+      display: 'block',
+      width: '16px',
+      height: '16px',
+      backgroundColor: 'currentColor',
+      WebkitMaskImage: chevronRightSvg,
+      maskImage: chevronRightSvg,
+      WebkitMaskSize: '16px 16px',
+      maskSize: '16px 16px',
+      WebkitMaskPosition: 'center',
+      maskPosition: 'center',
+      WebkitMaskRepeat: 'no-repeat',
+      maskRepeat: 'no-repeat',
+    },
 
-  '&:hover .fui-MenuItem__secondaryContent, &[data-focused="true"] .fui-MenuItem__secondaryContent, &:focus .fui-MenuItem__secondaryContent': {
-    color: 'var(--vscode-menu-selectionForeground)',
-  },
+    '&:hover, &[data-focused="true"], &:focus': {
+      backgroundColor: 'var(--vscode-menu-selectionBackground)',
+      outline: 'none',
+    },
 
-  '&:hover .fui-MenuItem__icon, &[data-focused="true"] .fui-MenuItem__icon, &:focus .fui-MenuItem__icon': {
-    color: 'var(--vscode-menu-selectionForeground)',
-  },
+    '&:hover .fui-MenuItem__content, &[data-focused="true"] .fui-MenuItem__content, &:focus .fui-MenuItem__content':
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
 
-  '&:hover .fui-MenuItem__submenuIndicator, &[data-focused="true"] .fui-MenuItem__submenuIndicator, &:focus .fui-MenuItem__submenuIndicator': {
-    color: 'var(--vscode-menu-selectionForeground)',
-  },
+    '&:hover .fui-MenuItem__secondaryContent, &[data-focused="true"] .fui-MenuItem__secondaryContent, &:focus .fui-MenuItem__secondaryContent':
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
+
+    '&:hover .fui-MenuItem__icon, &[data-focused="true"] .fui-MenuItem__icon, &:focus .fui-MenuItem__icon':
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
+
+    '&:hover .fui-MenuItem__submenuIndicator, &[data-focused="true"] .fui-MenuItem__submenuIndicator, &:focus .fui-MenuItem__submenuIndicator':
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
   },
 });
 
@@ -162,9 +168,10 @@ const useMenuItemVariants = makeStyles({
     '& .fui-MenuItem__content': {
       color: 'var(--vscode-textLink-foreground)',
     },
-    '&:hover .fui-MenuItem__content, &[data-focused="true"] .fui-MenuItem__content, &:focus .fui-MenuItem__content': {
-      color: 'var(--vscode-menu-selectionForeground)',
-    },
+    '&:hover .fui-MenuItem__content, &[data-focused="true"] .fui-MenuItem__content, &:focus .fui-MenuItem__content':
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
   },
 
   indented: {
@@ -188,9 +195,10 @@ const useCheckboxStyles = makeStyles({
       opacity: 1,
       color: 'var(--vscode-menu-foreground)',
     },
-    "&[aria-checked='true']:hover .fui-MenuItem__icon, &[aria-checked='true'][data-focused='true'] .fui-MenuItem__icon, &[aria-checked='true']:focus .fui-MenuItem__icon": {
-      color: 'var(--vscode-menu-selectionForeground)',
-    },
+    "&[aria-checked='true']:hover .fui-MenuItem__icon, &[aria-checked='true'][data-focused='true'] .fui-MenuItem__icon, &[aria-checked='true']:focus .fui-MenuItem__icon":
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
   },
 });
 
@@ -208,9 +216,10 @@ const useRadioStyles = makeStyles({
       opacity: 1,
       color: 'var(--vscode-menu-foreground)',
     },
-    "&[aria-checked='true']:hover .fui-MenuItem__icon, &[aria-checked='true'][data-focused='true'] .fui-MenuItem__icon, &[aria-checked='true']:focus .fui-MenuItem__icon": {
-      color: 'var(--vscode-menu-selectionForeground)',
-    },
+    "&[aria-checked='true']:hover .fui-MenuItem__icon, &[aria-checked='true'][data-focused='true'] .fui-MenuItem__icon, &[aria-checked='true']:focus .fui-MenuItem__icon":
+      {
+        color: 'var(--vscode-menu-selectionForeground)',
+      },
   },
 });
 
@@ -220,12 +229,12 @@ const useRadioStyles = makeStyles({
 
 const useMenuDividerBaseStyles = makeStyles({
   root: {
-  margin: '2px 8px',
-  height: '1px',
-  minHeight: '1px',
-  backgroundColor: 'var(--vscode-menu-separatorBackground)',
-  border: 'none',
-  flexShrink: 0,
+    margin: '2px 8px',
+    height: '1px',
+    minHeight: '1px',
+    backgroundColor: 'var(--vscode-menu-separatorBackground)',
+    border: 'none',
+    flexShrink: 0,
   },
 });
 
@@ -235,16 +244,16 @@ const useMenuDividerBaseStyles = makeStyles({
 
 const useMenuGroupBaseStyles = makeStyles({
   root: {
-  display: 'flex',
-  flexDirection: 'column',
+    display: 'flex',
+    flexDirection: 'column',
 
-  '& + &::before': {
-    content: '""',
-    display: 'block',
-    height: '1px',
-    backgroundColor: 'var(--vscode-menu-separatorBackground)',
-    margin: '2px 8px',
-  },
+    '& + &::before': {
+      content: '""',
+      display: 'block',
+      height: '1px',
+      backgroundColor: 'var(--vscode-menu-separatorBackground)',
+      margin: '2px 8px',
+    },
   },
 });
 
@@ -254,16 +263,16 @@ const useMenuGroupBaseStyles = makeStyles({
 
 const useMenuGroupHeaderBaseStyles = makeStyles({
   root: {
-  margin: '0 2px',
-  padding: '6px 10px',
-  minHeight: '28px',
-  boxSizing: 'border-box',
-  display: 'flex',
-  alignItems: 'center',
-  fontSize: 'var(--fontSizeBase200, 12px)',
-  fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
-  lineHeight: 'var(--lineHeightBase200, 16px)',
-  color: 'var(--vscode-menu-foreground)',
+    margin: '0 2px',
+    padding: '6px 10px',
+    minHeight: '28px',
+    boxSizing: 'border-box',
+    display: 'flex',
+    alignItems: 'center',
+    fontSize: 'var(--fontSizeBase200, 12px)',
+    fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
+    lineHeight: 'var(--lineHeightBase200, 16px)',
+    color: 'var(--vscode-menu-foreground)',
   },
 });
 
@@ -288,7 +297,9 @@ export interface UseVscMenuItemStylesOptions {
   className?: string;
 }
 
-export function useVscMenuItemStyles(options: UseVscMenuItemStylesOptions): string {
+export function useVscMenuItemStyles(
+  options: UseVscMenuItemStylesOptions,
+): string {
   const { accent, indented, disabled, className } = options;
 
   const base = useMenuItemBaseStyles();
@@ -303,7 +314,10 @@ export function useVscMenuItemStyles(options: UseVscMenuItemStylesOptions): stri
   );
 }
 
-export function useVscMenuItemCheckboxStyles(options: { disabled?: boolean; className?: string }): string {
+export function useVscMenuItemCheckboxStyles(options: {
+  disabled?: boolean;
+  className?: string;
+}): string {
   const { disabled, className } = options;
 
   const base = useMenuItemBaseStyles();
@@ -318,7 +332,10 @@ export function useVscMenuItemCheckboxStyles(options: { disabled?: boolean; clas
   );
 }
 
-export function useVscMenuItemRadioStyles(options: { disabled?: boolean; className?: string }): string {
+export function useVscMenuItemRadioStyles(options: {
+  disabled?: boolean;
+  className?: string;
+}): string {
   const { disabled, className } = options;
 
   const base = useMenuItemBaseStyles();

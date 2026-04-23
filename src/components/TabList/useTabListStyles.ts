@@ -1,7 +1,4 @@
-import {
-  makeStyles,
-  mergeClasses,
-} from '@fluentui/react-components';
+import { makeStyles, mergeClasses } from '@fluentui/react-components';
 
 import { vscFontFamily } from '../../styles/tokens';
 
@@ -11,34 +8,36 @@ import { vscFontFamily } from '../../styles/tokens';
 
 const useTabListBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  gap: '0',
+    fontFamily: vscFontFamily,
+    gap: '0',
 
-  /* Horizontal indicator — inset 8px from tab edges */
-  '&:not([aria-orientation="vertical"]) [role="tab"]::after': {
-    position: 'absolute !important' as 'absolute',
-    left: '8px !important' as '8px',
-    right: '8px !important' as '8px',
-    bottom: '0 !important' as '0',
-    top: 'auto !important' as 'auto',
-  },
+    /* Horizontal indicator — inset 8px from tab edges */
+    '&:not([aria-orientation="vertical"]) [role="tab"]::after': {
+      position: 'absolute !important' as 'absolute',
+      left: '8px !important' as '8px',
+      right: '8px !important' as '8px',
+      bottom: '0 !important' as '0',
+      top: 'auto !important' as 'auto',
+    },
 
-  /* Vertical indicator — on the left edge */
-  '&[aria-orientation="vertical"] [role="tab"][aria-selected="true"]::after': {
-    content: '"" !important' as '""',
-    display: 'block !important' as 'block',
-    position: 'absolute !important' as 'absolute',
-    left: '0 !important' as '0',
-    top: '25% !important' as '25%',
-    bottom: '25% !important' as '25%',
-    width: '2px !important' as '2px',
-    height: 'auto !important' as 'auto',
-    right: 'auto !important' as 'auto',
-    backgroundColor: 'var(--colorCompoundBrandStroke, #0078d4) !important' as 'inherit',
-    borderRadius: 'var(--borderRadiusCircular, 9999px) !important' as '0',
-    opacity: '1 !important' as '1',
-    transform: 'none !important' as 'none',
-  },
+    /* Vertical indicator — on the left edge */
+    '&[aria-orientation="vertical"] [role="tab"][aria-selected="true"]::after':
+      {
+        content: '"" !important' as '""',
+        display: 'block !important' as 'block',
+        position: 'absolute !important' as 'absolute',
+        left: '0 !important' as '0',
+        top: '25% !important' as '25%',
+        bottom: '25% !important' as '25%',
+        width: '2px !important' as '2px',
+        height: 'auto !important' as 'auto',
+        right: 'auto !important' as 'auto',
+        backgroundColor:
+          'var(--colorCompoundBrandStroke, #0078d4) !important' as 'inherit',
+        borderRadius: 'var(--borderRadiusCircular, 9999px) !important' as '0',
+        opacity: '1 !important' as '1',
+        transform: 'none !important' as 'none',
+      },
   },
 });
 
@@ -75,7 +74,7 @@ const useTabListSizeStyles = makeStyles({
       width: '16px !important' as '16px',
       height: '16px !important' as '16px',
     },
-    "& [role=\"tab\"][aria-selected='true'] .fui-Tab__content": {
+    '& [role="tab"][aria-selected=\'true\'] .fui-Tab__content': {
       fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
     },
   },
@@ -87,82 +86,83 @@ const useTabListSizeStyles = makeStyles({
 
 const useTabBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  height: '28px',
-  minHeight: '28px',
-  boxSizing: 'border-box',
-  color: 'var(--vscode-tab-inactiveForeground)',
-  padding: '4px 8px !important' as '4px 8px',
-  borderRadius: '0',
-  backgroundColor: 'transparent',
-  border: 'none',
-  cursor: 'pointer',
-  columnGap: '2px !important' as '2px',
-  alignItems: 'center !important' as 'center',
-  transition: 'none !important',
-
-  '::after': {
+    fontFamily: vscFontFamily,
+    height: '28px',
+    minHeight: '28px',
+    boxSizing: 'border-box',
+    color: 'var(--vscode-tab-inactiveForeground)',
+    padding: '4px 8px !important' as '4px 8px',
+    borderRadius: '0',
+    backgroundColor: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    columnGap: '2px !important' as '2px',
+    alignItems: 'center !important' as 'center',
     transition: 'none !important',
-    animation: 'none !important',
-  },
 
-  '& .fui-Tab__content': {
-    fontSize: 'var(--fontSizeBase300, 14px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase300, 20px)',
-    padding: '0 2px',
-  },
+    '::after': {
+      transition: 'none !important',
+      animation: 'none !important',
+    },
 
-  '& .fui-Tab__content--reserved-space': {
-    fontSize: 'var(--fontSizeBase300, 14px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase300, 20px)',
-    padding: '0 2px',
-  },
+    '& .fui-Tab__content': {
+      fontSize: 'var(--fontSizeBase300, 14px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase300, 20px)',
+      padding: '0 2px',
+    },
 
-  '& .fui-Tab__icon': {
-    fontSize: '20px !important' as '20px',
-    width: '20px !important' as '20px',
-    height: '20px !important' as '20px',
-  },
+    '& .fui-Tab__content--reserved-space': {
+      fontSize: 'var(--fontSizeBase300, 14px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase300, 20px)',
+      padding: '0 2px',
+    },
 
-  '& .fui-Tab__icon > svg': {
-    width: '20px !important' as '20px',
-    height: '20px !important' as '20px',
-  },
+    '& .fui-Tab__icon': {
+      fontSize: '20px !important' as '20px',
+      width: '20px !important' as '20px',
+      height: '20px !important' as '20px',
+    },
 
-  ':hover': {
-    color: 'var(--vscode-tab-activeForeground)',
-  },
+    '& .fui-Tab__icon > svg': {
+      width: '20px !important' as '20px',
+      height: '20px !important' as '20px',
+    },
 
-  ':hover .fui-Tab__icon': {
-    color: 'var(--vscode-tab-activeForeground) !important' as 'inherit',
-  },
+    ':hover': {
+      color: 'var(--vscode-tab-activeForeground)',
+      backgroundColor: 'transparent',
+      '& .fui-Tab__icon': {
+        color: 'var(--vscode-tab-activeForeground) !important' as 'inherit',
+      },
+    },
 
-  "&[aria-selected='true']": {
-    color: 'var(--vscode-tab-activeForeground)',
-  },
+    "&[aria-selected='true']": {
+      color: 'var(--vscode-tab-activeForeground)',
+    },
 
-  "&[aria-selected='true'] .fui-Tab__content": {
-    fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
-  },
+    "&[aria-selected='true'] .fui-Tab__content": {
+      fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
+    },
 
-  "&[aria-disabled='true'], &:disabled": {
-    cursor: 'default',
-    pointerEvents: 'none',
-  },
+    "&[aria-disabled='true'], &:disabled": {
+      cursor: 'default',
+      pointerEvents: 'none',
+    },
 
-  "&[aria-disabled='true'] .fui-Tab__content, &:disabled .fui-Tab__content": {
-    color: 'var(--vscode-disabledForeground) !important' as 'inherit',
-  },
+    "&[aria-disabled='true'] .fui-Tab__content, &:disabled .fui-Tab__content": {
+      color: 'var(--vscode-disabledForeground) !important' as 'inherit',
+    },
 
-  "&[aria-disabled='true'] .fui-Tab__content--reserved-space, &:disabled .fui-Tab__content--reserved-space": {
-    color: 'var(--vscode-disabledForeground) !important' as 'inherit',
-  },
+    "&[aria-disabled='true'] .fui-Tab__content--reserved-space, &:disabled .fui-Tab__content--reserved-space":
+      {
+        color: 'var(--vscode-disabledForeground) !important' as 'inherit',
+      },
 
-  "&[aria-disabled='true'] .fui-Tab__icon, &:disabled .fui-Tab__icon": {
-    color: 'var(--vscode-disabledForeground) !important' as 'inherit',
-  },
+    "&[aria-disabled='true'] .fui-Tab__icon, &:disabled .fui-Tab__icon": {
+      color: 'var(--vscode-disabledForeground) !important' as 'inherit',
+    },
   },
 });
 

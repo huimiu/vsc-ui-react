@@ -5,7 +5,7 @@ import {
 } from '@fluentui/react-components';
 
 import { vscFontFamily } from '../../styles/tokens';
-import type { VscValidationState } from '../../types';
+import type { VscInputValidationState } from '../../types';
 
 // ---------------------------------------------------------------------------
 //  Base – root override styles via makeStyles
@@ -13,45 +13,45 @@ import type { VscValidationState } from '../../types';
 
 const useBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  borderRadius: '2px',
-  border: '1px solid var(--vscode-input-border)',
-  boxShadow: 'none',
-  boxSizing: 'border-box',
-  backgroundColor: 'var(--vscode-input-background)',
-  transition: 'none !important',
+    fontFamily: vscFontFamily,
+    borderRadius: '2px',
+    border: '1px solid var(--vscode-input-border)',
+    boxShadow: 'none',
+    boxSizing: 'border-box',
+    backgroundColor: 'var(--vscode-input-background)',
+    transition: 'none !important',
 
-  '::after': {
-    display: 'none !important' as 'none',
-  },
+    '::after': {
+      display: 'none !important' as 'none',
+    },
 
-  '& .fui-Textarea__textarea': {
-    padding: '4px 6px',
-    minHeight: '52px',
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-    lineHeight: 'var(--lineHeightBase200, 16px)',
-    color: 'var(--vscode-input-foreground)',
-    backgroundColor: 'transparent',
-  },
+    '& .fui-Textarea__textarea': {
+      padding: '4px 6px',
+      minHeight: '52px',
+      fontSize: 'var(--fontSizeBase200, 12px)',
+      fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
+      lineHeight: 'var(--lineHeightBase200, 16px)',
+      color: 'var(--vscode-input-foreground)',
+      backgroundColor: 'transparent',
+    },
 
-  '& .fui-Textarea__textarea::placeholder': {
-    color: 'var(--vscode-input-placeholderForeground)',
-    opacity: 1,
-  },
+    '& .fui-Textarea__textarea::placeholder': {
+      color: 'var(--vscode-input-placeholderForeground)',
+      opacity: 1,
+    },
 
-  '& .fui-Textarea__textarea:focus-visible': {
-    outline: 'none',
-  },
+    '& .fui-Textarea__textarea:focus-visible': {
+      outline: 'none',
+    },
 
-  ':hover': {
-    ...shorthands.borderColor('var(--vscode-input-border)'),
-  },
+    ':hover': {
+      ...shorthands.borderColor('var(--vscode-input-border)'),
+    },
 
-  ':focus-within': {
-    ...shorthands.borderColor('var(--vscode-focusBorder)'),
-    outline: 'none',
-  },
+    ':focus-within': {
+      ...shorthands.borderColor('var(--vscode-focusBorder)'),
+      outline: 'none',
+    },
   },
 });
 
@@ -74,32 +74,35 @@ const useStyles = makeStyles({
     },
   },
 
-  small: {
-    '& .fui-Textarea__textarea': {
-      ...shorthands.padding('2px', '4px'),
-      fontSize: 'var(--fontSizeBase200, 12px)',
-      lineHeight: 'var(--lineHeightBase200, 16px)',
-    },
-  },
-
   error: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
+    ...shorthands.borderColor(
+      'var(--vscode-inputValidation-errorBorder) !important',
+    ),
+    ':hover': {
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-errorBorder) !important',
+      ),
+    },
     ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-errorBorder)'),
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-errorBorder) !important',
+      ),
     },
   },
 
   warning: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
-    ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-warningBorder)'),
+    ...shorthands.borderColor(
+      'var(--vscode-inputValidation-warningBorder) !important',
+    ),
+    ':hover': {
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-warningBorder) !important',
+      ),
     },
-  },
-
-  info: {
-    ...shorthands.borderColor('var(--vscode-inputValidation-infoBorder)'),
     ':focus-within': {
-      ...shorthands.borderColor('var(--vscode-inputValidation-infoBorder)'),
+      ...shorthands.borderColor(
+        'var(--vscode-inputValidation-warningBorder) !important',
+      ),
     },
   },
 });
@@ -109,23 +112,24 @@ const useStyles = makeStyles({
 // ---------------------------------------------------------------------------
 
 export interface UseTextareaStylesOptions {
-  size?: 'small' | 'medium' | 'large';
-  validationState?: VscValidationState;
+  validationState?: VscInputValidationState;
   disabled?: boolean;
   readOnly?: boolean;
   className?: string;
 }
 
 export function useTextareaStyles(options: UseTextareaStylesOptions): string {
-  const { size, validationState, disabled, readOnly, className } = options;
+  const { validationState, disabled, readOnly, className } = options;
+
+  const effectiveValidationState =
+    disabled || readOnly ? undefined : validationState;
 
   const base = useBaseStyles();
   const classes = useStyles();
 
   return mergeClasses(
     base.root,
-    size === 'small' && classes.small,
-    validationState && classes[validationState],
+    effectiveValidationState && classes[effectiveValidationState],
     disabled && classes.disabled,
     readOnly && !disabled && classes.readonly,
     className,

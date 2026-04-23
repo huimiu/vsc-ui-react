@@ -2,6 +2,7 @@ import {
   makeStyles,
   mergeClasses,
   shorthands,
+  typographyStyles,
 } from '@fluentui/react-components';
 
 const vscFontFamily =
@@ -13,45 +14,67 @@ const vscFontFamily =
 
 const useBaseStyles = makeStyles({
   root: {
-  fontFamily: vscFontFamily,
-  height: '28px',
-  minHeight: '28px',
-  paddingTop: '4px',
-  paddingRight: '8px',
-  paddingBottom: '4px',
-  paddingLeft: '8px',
-  borderRadius: '4px',
-  fontSize: 'var(--fontSizeBase300, 14px)',
-  fontWeight: 'var(--fontWeightRegular, 400)' as unknown as number,
-  lineHeight: 'var(--lineHeightBase300, 20px)',
-  gap: '4px',
-  boxShadow: 'none',
+    ...typographyStyles.body1,
+    fontFamily: vscFontFamily,
+    height: '28px',
+    minHeight: '28px',
+    minWidth: 'auto',
+    paddingTop: '4px',
+    paddingRight: '8px',
+    paddingBottom: '4px',
+    paddingLeft: '8px',
+    borderRadius: '4px',
+    gap: '4px !important',
+    boxShadow: 'none',
 
-  ':focus-visible': {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    '& .fui-MenuButton__menuIcon': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontSize: '14px',
+      lineHeight: '1',
+      padding: '0',
+      margin: '0',
+    },
 
-  "[aria-pressed='true']": {
-    outlineStyle: 'solid',
-    outlineWidth: '1px',
-    outlineColor: 'var(--vscode-focusBorder)',
-    outlineOffset: '2px',
-  },
+    '& .fui-Button__icon': {
+      fontSize: '16px',
+      width: '16px',
+      height: '16px',
+      margin: '0',
+    },
 
-  ':disabled': {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    '& .fui-MenuButton__menuIcon svg': {
+      display: 'block',
+      width: '14px',
+      height: '14px',
+    },
 
-  "[aria-disabled='true']": {
-    opacity: 0.4,
-    cursor: 'not-allowed',
-    pointerEvents: 'none',
-  },
+    ':focus-visible': {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
+
+    "[aria-pressed='true']": {
+      outlineStyle: 'solid',
+      outlineWidth: '1px',
+      outlineColor: 'var(--vscode-focusBorder)',
+      outlineOffset: '2px',
+    },
+
+    ':disabled': {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
+
+    "[aria-disabled='true']": {
+      opacity: 0.4,
+      cursor: 'not-allowed',
+      pointerEvents: 'none',
+    },
   },
 });
 
@@ -69,6 +92,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-hoverBackground)',
+      color: 'var(--vscode-button-foreground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-foreground)',
+      },
     },
   },
 
@@ -81,6 +109,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -93,6 +126,11 @@ const useAppearanceStyles = makeStyles({
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
     },
   },
 
@@ -101,11 +139,26 @@ const useAppearanceStyles = makeStyles({
     ...shorthands.borderStyle('solid'),
     ...shorthands.borderColor('transparent'),
     backgroundColor: 'transparent',
-    color: 'var(--vscode-foreground)',
+    color: 'var(--vscode-button-secondaryForeground)',
 
     ':hover': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-button-secondaryForeground)',
+      },
+    },
+
+    ':active': {
+      backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
+      color: 'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color:
+          'var(--vscode-button-secondaryForeground) !important' as 'inherit',
+      },
     },
   },
 
@@ -114,11 +167,15 @@ const useAppearanceStyles = makeStyles({
     ...shorthands.borderStyle('none'),
     ...shorthands.borderColor('transparent'),
     backgroundColor: 'transparent',
-    color: 'var(--vscode-foreground)',
+    color: 'var(--vscode-button-secondaryForeground)',
 
     ':hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
+
+      '& .fui-Button__icon, & .fui-MenuButton__menuIcon': {
+        color: 'var(--vscode-textLink-foreground)',
+      },
     },
   },
 });
@@ -129,27 +186,57 @@ const useAppearanceStyles = makeStyles({
 
 const useSizeStyles = makeStyles({
   small: {
+    ...typographyStyles.caption1,
     height: '22px',
     minHeight: '22px',
     paddingTop: '3px',
     paddingRight: '6px',
     paddingBottom: '3px',
     paddingLeft: '6px',
-    gap: '3px',
-    fontSize: 'var(--fontSizeBase200, 12px)',
-    lineHeight: 'var(--lineHeightBase200, 16px)',
+    gap: '3px !important',
+
+    '& .fui-MenuButton__menuIcon': {
+      fontSize: '12px',
+    },
+
+    '& .fui-MenuButton__menuIcon svg': {
+      width: '12px',
+      height: '12px',
+    },
+
+    '& .fui-Button__icon': {
+      fontSize: '14px',
+      width: '14px',
+      height: '14px',
+      margin: '0',
+    },
   },
 
   compact: {
+    ...typographyStyles.caption2,
     height: '15px',
     minHeight: '15px',
     paddingTop: '0',
     paddingRight: '4px',
     paddingBottom: '0',
     paddingLeft: '4px',
-    gap: '2px',
-    fontSize: 'var(--fontSizeBase100, 10px)',
-    lineHeight: 'var(--lineHeightBase100, 14px)',
+    gap: '2px !important',
+
+    '& .fui-MenuButton__menuIcon': {
+      fontSize: '10px',
+    },
+
+    '& .fui-MenuButton__menuIcon svg': {
+      width: '10px',
+      height: '10px',
+    },
+
+    '& .fui-Button__icon': {
+      fontSize: '12px',
+      width: '12px',
+      height: '12px',
+      margin: '0',
+    },
   },
 });
 
@@ -159,24 +246,41 @@ const useSizeStyles = makeStyles({
 
 const useIconOnlyStyles = makeStyles({
   base: {
-    width: 'auto',
+    width: '28px',
+    maxWidth: '28px',
     minWidth: '28px',
     height: '28px',
+    maxHeight: '28px',
     minHeight: '28px',
+    boxSizing: 'border-box',
     ...shorthands.padding('6px'),
     gap: '2px',
+
+    ':disabled': {
+      opacity: 0.5,
+    },
+
+    "[aria-disabled='true']": {
+      opacity: 0.5,
+    },
   },
 
   small: {
+    width: '22px',
+    maxWidth: '22px',
     minWidth: '22px',
     height: '22px',
+    maxHeight: '22px',
     minHeight: '22px',
     ...shorthands.padding('4px'),
   },
 
   compact: {
+    width: '15px',
+    maxWidth: '15px',
     minWidth: '15px',
     height: '15px',
+    maxHeight: '15px',
     minHeight: '15px',
     paddingTop: '1.5px',
     paddingRight: '1.5px',
@@ -189,7 +293,12 @@ const useIconOnlyStyles = makeStyles({
 //  Exported hook
 // ---------------------------------------------------------------------------
 
-type MenuButtonAppearance = 'primary' | 'secondary' | 'outline' | 'subtle' | 'transparent';
+type MenuButtonAppearance =
+  | 'primary'
+  | 'secondary'
+  | 'outline'
+  | 'subtle'
+  | 'transparent';
 type MenuButtonSize = 'small' | 'medium' | 'large' | 'compact';
 
 export interface UseMenuButtonStylesOptions {
@@ -199,7 +308,9 @@ export interface UseMenuButtonStylesOptions {
   className?: string;
 }
 
-export function useMenuButtonStylesHook(options: UseMenuButtonStylesOptions): string {
+export function useMenuButtonStylesHook(
+  options: UseMenuButtonStylesOptions,
+): string {
   const {
     appearance = 'secondary',
     size,

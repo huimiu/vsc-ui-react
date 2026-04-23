@@ -1,18 +1,17 @@
 import { Textarea, type TextareaProps } from '@fluentui/react-components';
 import { forwardRef } from 'react';
 
-import type { VscValidationState } from '../../types';
+import type { VscInputValidationState } from '../../types';
 import { useTextareaStyles } from './useTextareaStyles';
 
 export type VscTextareaProps = TextareaProps & {
   /** Applies VS Code validation border color. */
-  validationState?: VscValidationState;
+  validationState?: VscInputValidationState;
 };
 
 export const VscTextarea = forwardRef<HTMLTextAreaElement, VscTextareaProps>(
-  ({ validationState, size, className, disabled, readOnly, ...rest }, ref) => {
+  ({ validationState, className, disabled, readOnly, ...rest }, ref) => {
     const mergedClass = useTextareaStyles({
-      size,
       validationState,
       disabled,
       readOnly,
@@ -22,10 +21,10 @@ export const VscTextarea = forwardRef<HTMLTextAreaElement, VscTextareaProps>(
     return (
       <Textarea
         ref={ref}
-        size={size}
         disabled={disabled}
         readOnly={readOnly}
         className={mergedClass}
+        data-validation-state={validationState}
         {...rest}
       />
     );

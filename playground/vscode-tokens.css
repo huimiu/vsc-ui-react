@@ -21,6 +21,8 @@
   --vscode-disabledForeground: rgba(204, 204, 204, 0.5);
   --vscode-descriptionForeground: #8b8b8b;
   --vscode-errorForeground: #f48771;
+  --vscode-editorWarning-foreground: #cca700;
+  --vscode-editorInfo-foreground: #3794ff;
   --vscode-icon-foreground: #c5c5c5;
   --vscode-focusBorder: #007fd4;
   --vscode-contrastBorder: transparent;
@@ -117,6 +119,8 @@
   --vscode-disabledForeground: rgba(97, 97, 97, 0.5);
   --vscode-descriptionForeground: #717171;
   --vscode-errorForeground: #a1260d;
+  --vscode-editorWarning-foreground: #855f00;
+  --vscode-editorInfo-foreground: #005fb8;
   --vscode-icon-foreground: #424242;
   --vscode-focusBorder: #005fb8;
   --vscode-widget-border: #d4d4d4;
@@ -209,6 +213,17 @@ body {
 }
 
 /*
+ * Matrix cells are for static QA snapshots. Disable live pointer interactions
+ * so real :hover/:focus doesn't conflict with forced state columns.
+ */
+.vsc-matrix-cell button,
+.vsc-matrix-cell input,
+.vsc-matrix-cell textarea,
+.vsc-matrix-cell [role='combobox'] {
+  pointer-events: none !important;
+}
+
+/*
  * Force-hover visualization for the playground state matrix.
  * Mirrors the `:hover` rules defined in each appearance's makeStyles block,
  * so a static "Hover" column shows the same visuals without real pointer hover.
@@ -216,33 +231,55 @@ body {
  * The :not() guards exclude SplitButton internal buttons — they are handled
  * by separate rules further down.
  */
-.vsc-force-hover button[data-appearance='primary']:not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton) {
+.vsc-force-hover
+  button[data-appearance='primary']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
   background-color: var(--vscode-button-hoverBackground) !important;
   color: var(--vscode-button-foreground) !important;
 }
-.vsc-force-hover button:not([data-appearance]):not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton),
-.vsc-force-hover button[data-appearance='secondary']:not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton) {
+.vsc-force-hover
+  button:not([data-appearance]):not(.fui-SplitButton__primaryActionButton):not(
+    .fui-SplitButton__menuButton
+  ):not(.fui-Tab),
+.vsc-force-hover
+  button[data-appearance='secondary']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton):not(.fui-Tab) {
   background-color: var(--vscode-button-secondaryHoverBackground) !important;
 }
-.vsc-force-hover button[data-appearance='outline']:not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton),
-.vsc-force-hover button[data-appearance='subtle']:not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton),
-.vsc-force-hover button[data-appearance='transparent']:not(.fui-SplitButton__primaryActionButton):not(.fui-SplitButton__menuButton) {
-  background-color: var(--vscode-toolbar-hoverBackground, var(--vscode-list-hoverBackground)) !important;
-  color: var(--vscode-list-hoverForeground, var(--vscode-foreground)) !important;
+.vsc-force-hover
+  button[data-appearance='outline']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  button[data-appearance='subtle']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+  border-color: var(--vscode-button-border) !important;
+}
+.vsc-force-hover
+  button[data-appearance='transparent']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
 }
 
 /*
  * Force-hover for inputs/textareas/dropdowns/searchbox: VS Code form widgets
  * keep the same border on hover, so just nudge the border-color toward the
  * normal input border for visual consistency.
+ * 
+ * Note: Do NOT apply blanket border-color override here. Validation states
+ * are applied by the component's CSS-in-JS, which includes :hover rules that
+ * preserve validation border colors. The component handles all cases.
  */
-.vsc-force-hover .fui-Input,
-.vsc-force-hover .fui-Textarea,
-.vsc-force-hover .fui-Combobox,
-.vsc-force-hover .fui-Dropdown,
-.vsc-force-hover .fui-SearchBox {
-  border-color: var(--vscode-input-border, var(--vscode-focusBorder)) !important;
-}
 
 /*
  * Force-focus for inputs/textareas/dropdowns/searchbox: paint the focus
@@ -261,44 +298,147 @@ body {
 }
 
 /*
+ * Force-selected for form controls: mirrors an active/selected surface using
+ * VS Code input-option active tokens so selected columns are clearly visible.
+ */
+.vsc-force-selected .fui-Input,
+.vsc-force-selected .fui-Textarea,
+.vsc-force-selected .fui-Combobox,
+.vsc-force-selected .fui-Dropdown,
+.vsc-force-selected .fui-SearchBox,
+.vsc-force-selected button[role='combobox'] {
+  border-color: var(--vscode-inputOption-activeBorder) !important;
+  background-color: var(--vscode-inputOption-activeBackground) !important;
+}
+
+/*
+ * Force-hover/selected for listbox options in playground matrix.
+ * Keep hover and selected distinct: hover uses hover tokens, selected uses
+ * inactive-selection tokens.
+ */
+.vsc-force-hover
+  .fui-Option:not([aria-selected='true']):not([aria-checked='true']) {
+  background-color: var(--vscode-list-hoverBackground) !important;
+  color: var(
+    --vscode-list-hoverForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+.vsc-force-selected .fui-Option {
+  background-color: var(
+    --vscode-list-inactiveSelectionBackground,
+    var(--vscode-list-hoverBackground)
+  ) !important;
+  color: var(
+    --vscode-list-inactiveSelectionForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+/*
  * Force-hover for SplitButton: apply hover background to both the primary
  * action and menu (chevron) buttons so the whole component looks hovered.
  */
-.vsc-force-hover [data-appearance='primary'] .fui-SplitButton__primaryActionButton,
+.vsc-force-hover
+  [data-appearance='primary']
+  .fui-SplitButton__primaryActionButton,
 .vsc-force-hover [data-appearance='primary'] .fui-SplitButton__menuButton {
   background-color: var(--vscode-button-hoverBackground) !important;
 }
-.vsc-force-hover [data-appearance='secondary'] .fui-SplitButton__primaryActionButton,
+.vsc-force-hover
+  [data-appearance='secondary']
+  .fui-SplitButton__primaryActionButton,
 .vsc-force-hover [data-appearance='secondary'] .fui-SplitButton__menuButton,
 .vsc-force-hover :not([data-appearance]) .fui-SplitButton__primaryActionButton,
 .vsc-force-hover :not([data-appearance]) .fui-SplitButton__menuButton {
   background-color: var(--vscode-button-secondaryHoverBackground) !important;
 }
-.vsc-force-hover [data-appearance='outline'] .fui-SplitButton__primaryActionButton,
+.vsc-force-hover
+  [data-appearance='outline']
+  .fui-SplitButton__primaryActionButton,
 .vsc-force-hover [data-appearance='outline'] .fui-SplitButton__menuButton,
-.vsc-force-hover [data-appearance='subtle'] .fui-SplitButton__primaryActionButton,
+.vsc-force-hover
+  [data-appearance='subtle']
+  .fui-SplitButton__primaryActionButton,
 .vsc-force-hover [data-appearance='subtle'] .fui-SplitButton__menuButton {
-  background-color: var(--vscode-toolbar-hoverBackground, var(--vscode-list-hoverBackground)) !important;
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
 }
-.vsc-force-hover [data-appearance='transparent'] .fui-SplitButton__primaryActionButton,
+.vsc-force-hover
+  [data-appearance='subtle']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='subtle'] .fui-SplitButton__menuButton {
+  border-color: var(--vscode-button-border) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='transparent']
+  .fui-SplitButton__primaryActionButton,
 .vsc-force-hover [data-appearance='transparent'] .fui-SplitButton__menuButton {
-  background-color: var(--vscode-toolbar-hoverBackground, var(--vscode-list-hoverBackground)) !important;
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
 }
 
 /* Force-hover for MenuButton: same treatment as regular buttons per appearance.
- * Use :not(.fui-SplitButton) to avoid also matching SplitButton wrappers. */
-.vsc-force-hover [data-appearance='primary']:not(.fui-SplitButton) > button {
+ * Use :not(.fui-SplitButton) to avoid also matching SplitButton wrappers.
+ * Use :not(.fui-Tab) to avoid matching tabs (which have their own styling).
+ */
+.vsc-force-hover
+  [data-appearance='primary']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
   background-color: var(--vscode-button-hoverBackground) !important;
 }
-.vsc-force-hover [data-appearance='secondary']:not(.fui-SplitButton) > button,
-.vsc-force-hover :not([data-appearance]):not(.fui-SplitButton) > button {
+.vsc-force-hover
+  [data-appearance='secondary']:not(.fui-SplitButton)
+  > button:not(.fui-Tab),
+.vsc-force-hover
+  :not([data-appearance]):not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
   background-color: var(--vscode-button-secondaryHoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='outline']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='subtle']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  border-color: var(--vscode-button-border) !important;
+}
+
+.vsc-force-hover
+  [data-appearance='subtle']:not(.fui-SplitButton)
+  > button:not(.fui-Tab):active,
+.fui-Button[data-appearance='subtle']:active .fui-Button__icon,
+.fui-MenuButton[data-appearance='subtle']:active .fui-Button__icon,
+.fui-MenuButton[data-appearance='subtle']:active .fui-MenuButton__menuIcon {
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='transparent']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
 }
 
 /*
- * Force-hover for tabs: VscTab :hover sets foreground to the active foreground.
+ * Force-hover for tabs: VscTab :hover sets foreground to the active foreground
+ * and adds an underline border.
  */
 .vsc-force-hover .fui-Tab {
-  color: var(--vscode-tab-activeForeground, var(--vscode-foreground)) !important;
-  background-color: var(--vscode-tab-hoverBackground, transparent) !important;
+  color: var(
+    --vscode-tab-activeForeground,
+    var(--vscode-foreground)
+  ) !important;
+  background-color: transparent !important;
+}
+
+.vsc-force-hover .fui-Tab .fui-Tab__icon {
+  color: var(
+    --vscode-tab-activeForeground,
+    var(--vscode-foreground)
+  ) !important;
 }

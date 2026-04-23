@@ -1,12 +1,12 @@
 import { Input, type InputProps } from '@fluentui/react-components';
 import { forwardRef, type ReactNode } from 'react';
 
-import type { VscValidationState } from '../../types';
+import type { VscInputValidationState } from '../../types';
 import { useInputStyles } from './useInputStyles';
 
 export type VscInputProps = InputProps & {
   /** Applies VS Code validation border color. */
-  validationState?: VscValidationState;
+  validationState?: VscInputValidationState;
   /** Applies search-style icon coloring for contentBefore / contentAfter. */
   withIcon?: boolean;
   /** Message rendered in a coloured box below the input. Requires validationState. */
@@ -44,6 +44,7 @@ export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
         disabled={disabled}
         readOnly={readOnly}
         className={rootClassName}
+        data-validation-state={validationState}
         {...rest}
       />
     );
@@ -52,9 +53,7 @@ export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
       return (
         <div className={wrapperClassName}>
           {input}
-          <div className={validationMsgClassName}>
-            {validationMessage}
-          </div>
+          <div className={validationMsgClassName}>{validationMessage}</div>
         </div>
       );
     }
