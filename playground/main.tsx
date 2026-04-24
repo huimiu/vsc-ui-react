@@ -1289,16 +1289,28 @@ function Playground() {
                 Disabled simulated statically).
               </p>
             </div>
-            <label
-              style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
-            >
-              <input
-                type="checkbox"
-                checked={theme === 'light'}
-                onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
-              />
-              {theme === 'dark' ? 'Dark Modern' : 'Light Modern'}
-            </label>
+            <div style={{ display: 'inline-flex', gap: 16, alignItems: 'center' }}>
+              <label style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}>
+                <input
+                  type="radio"
+                  name="theme"
+                  value="dark"
+                  checked={theme === 'dark'}
+                  onChange={() => setTheme('dark')}
+                />
+                Dark Modern
+              </label>
+              <label style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}>
+                <input
+                  type="radio"
+                  name="theme"
+                  value="light"
+                  checked={theme === 'light'}
+                  onChange={() => setTheme('light')}
+                />
+                Light Modern
+              </label>
+            </div>
           </header>
 
           <ButtonSection />
