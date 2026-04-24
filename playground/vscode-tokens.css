@@ -102,7 +102,6 @@
   --vscode-tab-activeForeground: #ffffff;
   --vscode-tab-inactiveBackground: #181818;
   --vscode-tab-inactiveForeground: #9d9d9d;
-  --vscode-tab-hoverBackground: #2d2d2d;
   --vscode-tab-border: #2b2b2b;
   --vscode-tab-activeBorder: transparent;
   --vscode-tab-activeBorderTop: #0078d4;
@@ -191,7 +190,6 @@
   --vscode-tab-activeForeground: #3b3b3b;
   --vscode-tab-inactiveBackground: #f8f8f8;
   --vscode-tab-inactiveForeground: #868686;
-  --vscode-tab-hoverBackground: #f0f0f0;
   --vscode-tab-border: #e5e5e5;
   --vscode-tab-activeBorderTop: #005fb8;
 
@@ -427,12 +425,11 @@ body {
 }
 
 /*
- * Force-hover for tabs: VscTab :hover changes text color and applies subtle background.
- * Dark: #2d2d2d (subtle grey), Light: #f0f0f0 (subtle grey)
+ * Force-hover for tabs: VscTab :hover - only text color changes to active foreground.
  */
 .vsc-force-hover .fui-Tab {
   color: var(--vscode-tab-activeForeground) !important;
-  background-color: var(--vscode-tab-hoverBackground) !important;
+  background-color: transparent !important;
 }
 
 .vsc-force-hover .fui-Tab .fui-Tab__icon {
