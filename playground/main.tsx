@@ -1297,7 +1297,7 @@ function Playground() {
                 checked={theme === 'light'}
                 onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
               />
-              Light mode
+              {theme === 'dark' ? 'Dark Modern' : 'Light Modern'}
             </label>
           </header>
 
