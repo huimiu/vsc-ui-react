@@ -879,7 +879,7 @@ function FieldSection() {
       <Matrix
         rows={FIELD_VALIDATION_ROWS}
         rowLabelWidth={100}
-        columns={FORM_STATE_COLUMNS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
         cellRender={(row, col) => {
           const isUnavailable =
             row !== 'none' && (col === 'readonly' || col === 'disabled');
