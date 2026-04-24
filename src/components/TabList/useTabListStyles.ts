@@ -33,7 +33,7 @@ const useTabListBaseStyles = makeStyles({
         height: 'auto' as 'auto',
         right: 'auto' as 'auto',
         backgroundColor:
-          'var(--colorCompoundBrandStroke, #0078d4)' as 'inherit',
+          'var(--vscode-tab-activeBorderTop)' as 'inherit',
         borderRadius: 'var(--borderRadiusCircular, 9999px)' as '0',
         opacity: '1' as '1',
         transform: 'none' as 'none',
