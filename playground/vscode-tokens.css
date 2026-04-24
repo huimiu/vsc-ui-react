@@ -43,7 +43,7 @@
   --vscode-button-hoverBackground: #026ec1;
   --vscode-button-border: rgba(255, 255, 255, 0.1);
   --vscode-button-separator: rgba(255, 255, 255, 0.4);
-  --vscode-button-secondaryBackground: var(--vscode-input-background);
+  --vscode-button-secondaryBackground: #00000000;
   --vscode-button-secondaryForeground: #cccccc;
   --vscode-button-secondaryHoverBackground: #2b2b2b;
 
@@ -137,7 +137,7 @@
   --vscode-button-hoverBackground: #0258a8;
   --vscode-button-border: #0000001a;
   --vscode-button-separator: rgba(255, 255, 255, 0.4);
-  --vscode-button-secondaryBackground: var(--vscode-input-background);
+  --vscode-button-secondaryBackground: #00000000;
   --vscode-button-secondaryForeground: #3b3b3b;
   --vscode-button-secondaryHoverBackground: #cccccc;
 
