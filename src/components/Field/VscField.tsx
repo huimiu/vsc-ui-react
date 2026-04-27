@@ -10,7 +10,7 @@ import { forwardRef } from 'react';
 import type { VscValidationState } from '../../types';
 import { useFieldStyles } from './useFieldStyles';
 
-export type VscFieldProps = Omit<FieldProps, 'label'> & {
+export type VscFieldProps = Omit<FieldProps, 'label' | 'validationState'> & {
   /** Field label text. */
   label?: string;
   /** When provided, renders an info icon with a tooltip next to the label. */
@@ -71,6 +71,9 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
       </span>
     ) : undefined;
 
+    const fluentValidationState =
+      validationState === 'info' ? undefined : validationState;
+
     return (
       <Field
         ref={ref}
@@ -78,7 +81,7 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
         label={labelSlot}
         required={required}
         validationMessageIcon={validationMessageIcon}
-        validationState={validationState}
+        validationState={fluentValidationState}
         {...rest}
       />
     );

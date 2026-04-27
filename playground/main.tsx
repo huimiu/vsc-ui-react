@@ -862,10 +862,13 @@ function DropdownSection() {
           }
 
           return (
-            <VscListbox style={{ minWidth: 220 }}>
+            <VscListbox
+              selectedOptions={selected ? ['command-palette'] : []}
+              style={{ minWidth: 220 }}
+            >
               <VscOption
+                value="command-palette"
                 disabled={disabled}
-                selected={selected}
                 data-active={focused ? 'true' : undefined}
                 secondaryText={row === 'secondary' ? '⌘K' : undefined}
                 description={
@@ -1100,9 +1103,9 @@ function TabListSection() {
         <span style={gridHeadStyle}>Horizontal</span>
         <VscTabList defaultSelectedValue="selected">
           <VscTab value="default">Default</VscTab>
-          <span className="vsc-force-hover" style={{ display: 'inline-flex' }}>
-            <VscTab value="hover">Hover</VscTab>
-          </span>
+          <VscTab value="hover" className="vsc-force-hover">
+            Hover
+          </VscTab>
           <VscTab value="selected">Selected</VscTab>
           <VscTab value="disabled" disabled>
             Disabled
@@ -1112,9 +1115,9 @@ function TabListSection() {
         <span style={gridHeadStyle}>Small</span>
         <VscTabList defaultSelectedValue="selected" size="small">
           <VscTab value="default">Default</VscTab>
-          <span className="vsc-force-hover" style={{ display: 'inline-flex' }}>
-            <VscTab value="hover">Hover</VscTab>
-          </span>
+          <VscTab value="hover" className="vsc-force-hover">
+            Hover
+          </VscTab>
           <VscTab value="selected">Selected</VscTab>
           <VscTab value="disabled" disabled>
             Disabled
@@ -1124,9 +1127,9 @@ function TabListSection() {
         <span style={gridHeadStyle}>Vertical</span>
         <VscTabList defaultSelectedValue="selected" vertical>
           <VscTab value="default">Default</VscTab>
-          <span className="vsc-force-hover" style={{ display: 'inline-flex' }}>
-            <VscTab value="hover">Hover</VscTab>
-          </span>
+          <VscTab value="hover" className="vsc-force-hover">
+            Hover
+          </VscTab>
           <VscTab value="selected">Selected</VscTab>
           <VscTab value="disabled" disabled>
             Disabled

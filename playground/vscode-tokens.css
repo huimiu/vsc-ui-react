@@ -427,15 +427,25 @@ body {
 /*
  * Force-hover for tabs: VscTab :hover - only text color changes to active foreground.
  */
+.vsc-force-hover.fui-Tab,
 .vsc-force-hover .fui-Tab {
   color: var(--vscode-tab-activeForeground) !important;
   background-color: transparent !important;
 }
 
+.vsc-force-hover.fui-Tab .fui-Tab__icon,
 .vsc-force-hover .fui-Tab .fui-Tab__icon {
   color: var(--vscode-tab-activeForeground) !important;
 }
 
+.vsc-force-hover.fui-Tab .fui-Tab__content,
 .vsc-force-hover .fui-Tab .fui-Tab__content {
   color: var(--vscode-tab-activeForeground) !important;
+}
+.vsc-force-hover.fui-Tab::before,
+.vsc-force-hover .fui-Tab::before {
+  content: "" !important;
+  position: absolute !important;
+  background-color: var(--colorNeutralStroke1Hover) !important;
+  border-radius: var(--borderRadiusCircular, 9999px) !important;
 }
