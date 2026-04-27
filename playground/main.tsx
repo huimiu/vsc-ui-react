@@ -642,8 +642,20 @@ function TextareaSection() {
       <h3 style={headerStyle}>Resize</h3>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
         {(['none', 'vertical', 'horizontal', 'both'] as const).map((mode) => (
-          <div key={mode} style={{ display: 'flex', alignItems: 'start', gap: 12 }}>
-            <span style={{ ...gridHeadStyle, width: 140, flexShrink: 0, paddingTop: 6 }}>{mode}</span>
+          <div
+            key={mode}
+            style={{ display: 'flex', alignItems: 'start', gap: 12 }}
+          >
+            <span
+              style={{
+                ...gridHeadStyle,
+                width: 140,
+                flexShrink: 0,
+                paddingTop: 6,
+              }}
+            >
+              {mode}
+            </span>
             <VscTextarea
               placeholder={`resize="${mode}"`}
               rows={2}
@@ -879,7 +891,7 @@ function FieldSection() {
       <Matrix
         rows={FIELD_VALIDATION_ROWS}
         rowLabelWidth={100}
-        columns={FORM_STATE_COLUMNS}
+        columns={FORM_STATE_COLUMNS_NO_SELECTED}
         cellRender={(row, col) => {
           const isUnavailable =
             row !== 'none' && (col === 'readonly' || col === 'disabled');
@@ -1289,16 +1301,34 @@ function Playground() {
                 Disabled simulated statically).
               </p>
             </div>
-            <label
-              style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
+            <div
+              style={{ display: 'inline-flex', gap: 16, alignItems: 'center' }}
             >
-              <input
-                type="checkbox"
-                checked={theme === 'light'}
-                onChange={(e) => setTheme(e.target.checked ? 'light' : 'dark')}
-              />
-              Light mode
-            </label>
+              <label
+                style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
+              >
+                <input
+                  type="radio"
+                  name="theme"
+                  value="dark"
+                  checked={theme === 'dark'}
+                  onChange={() => setTheme('dark')}
+                />
+                Dark Modern
+              </label>
+              <label
+                style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}
+              >
+                <input
+                  type="radio"
+                  name="theme"
+                  value="light"
+                  checked={theme === 'light'}
+                  onChange={() => setTheme('light')}
+                />
+                Light Modern
+              </label>
+            </div>
           </header>
 
           <ButtonSection />

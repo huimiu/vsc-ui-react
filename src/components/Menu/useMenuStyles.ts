@@ -18,7 +18,7 @@ const useMenuPopoverBaseStyles = makeStyles({
     backgroundColor: 'var(--vscode-menu-background)',
     border: '1px solid var(--vscode-menu-border)',
     borderRadius: '5px',
-    boxShadow: '0px 2px 16px 0px rgba(0, 0, 0, 0.36)',
+    boxShadow: '0px 2px 16px 0px var(--vscode-widget-shadow)',
     boxSizing: 'border-box',
     padding: '4px 0',
     animation: 'none',
