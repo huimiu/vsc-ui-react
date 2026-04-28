@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscSearchBox } from '../src';
@@ -26,16 +26,26 @@ describe('VscSearchBox', () => {
   });
 
   it('produces distinct classes for medium size', () => {
-    const { container: mediumContainer } = render(<VscSearchBox size="medium" />, { wrapper });
-    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const { container: mediumContainer } = render(
+      <VscSearchBox size="medium" />,
+      { wrapper },
+    );
+    const { container: defaultContainer } = render(<VscSearchBox />, {
+      wrapper,
+    });
     const mediumRoot = mediumContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
     expect(mediumRoot.className).not.toBe(defaultRoot.className);
   });
 
   it('produces distinct classes for large size', () => {
-    const { container: largeContainer } = render(<VscSearchBox size="large" />, { wrapper });
-    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const { container: largeContainer } = render(
+      <VscSearchBox size="large" />,
+      { wrapper },
+    );
+    const { container: defaultContainer } = render(<VscSearchBox />, {
+      wrapper,
+    });
     const largeRoot = largeContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
     expect(largeRoot.className).not.toBe(defaultRoot.className);
@@ -47,7 +57,9 @@ describe('VscSearchBox', () => {
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscSearchBox className="custom" />, { wrapper });
+    const { container } = render(<VscSearchBox className="custom" />, {
+      wrapper,
+    });
     expect(container.querySelector('.custom')).toBeTruthy();
   });
 });

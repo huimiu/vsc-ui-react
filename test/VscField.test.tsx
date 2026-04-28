@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import {
   FluentProvider,
@@ -90,7 +90,9 @@ describe('VscField', () => {
       { wrapper },
     );
     expect(
-      container.querySelector('[role="img"][aria-label="Enter your full name"]'),
+      container.querySelector(
+        '[role="img"][aria-label="Enter your full name"]',
+      ),
     ).toBeTruthy();
   });
 
@@ -101,9 +103,7 @@ describe('VscField', () => {
       </VscField>,
       { wrapper },
     );
-    expect(
-      container.querySelector('[role="img"]'),
-    ).toBeFalsy();
+    expect(container.querySelector('[role="img"]')).toBeFalsy();
   });
 
   it('renders label row with all elements', () => {

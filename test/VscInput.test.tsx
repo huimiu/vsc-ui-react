@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscInput } from '../src';
@@ -26,7 +26,9 @@ describe('VscInput', () => {
   });
 
   it('produces distinct classes for small size', () => {
-    const { container: smallContainer } = render(<VscInput size="small" />, { wrapper });
+    const { container: smallContainer } = render(<VscInput size="small" />, {
+      wrapper,
+    });
     const { container: defaultContainer } = render(<VscInput />, { wrapper });
     const smallRoot = smallContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
@@ -34,7 +36,9 @@ describe('VscInput', () => {
   });
 
   it('produces distinct classes for large size', () => {
-    const { container: largeContainer } = render(<VscInput size="large" />, { wrapper });
+    const { container: largeContainer } = render(<VscInput size="large" />, {
+      wrapper,
+    });
     const { container: defaultContainer } = render(<VscInput />, { wrapper });
     const largeRoot = largeContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
@@ -42,7 +46,10 @@ describe('VscInput', () => {
   });
 
   it('produces distinct classes for error validation state', () => {
-    const { container: errorContainer } = render(<VscInput validationState="error" />, { wrapper });
+    const { container: errorContainer } = render(
+      <VscInput validationState="error" />,
+      { wrapper },
+    );
     const { container: defaultContainer } = render(<VscInput />, { wrapper });
     const errorRoot = errorContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
@@ -50,7 +57,10 @@ describe('VscInput', () => {
   });
 
   it('produces distinct classes for warning validation state', () => {
-    const { container: warningContainer } = render(<VscInput validationState="warning" />, { wrapper });
+    const { container: warningContainer } = render(
+      <VscInput validationState="warning" />,
+      { wrapper },
+    );
     const { container: defaultContainer } = render(<VscInput />, { wrapper });
     const warningRoot = warningContainer.querySelector('.fui-Input')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
@@ -63,7 +73,9 @@ describe('VscInput', () => {
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscInput className="my-custom" />, { wrapper });
+    const { container } = render(<VscInput className="my-custom" />, {
+      wrapper,
+    });
     expect(container.querySelector('.my-custom')).toBeTruthy();
   });
 });

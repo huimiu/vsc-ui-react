@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 
 import { useSearchBoxStyles } from './useSearchBoxStyles';
 
-export interface VscSearchBoxProps extends SearchBoxProps {}
+export type VscSearchBoxProps = SearchBoxProps;
 
 export const VscSearchBox = forwardRef<HTMLInputElement, VscSearchBoxProps>(
   ({ size = 'small', disabled, className, ...rest }, ref) => {
