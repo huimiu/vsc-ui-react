@@ -1,33 +1,20 @@
 import { SearchBox, type SearchBoxProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import styles from './searchbox.module.scss';
+import { useSearchBoxStyles } from './useSearchBoxStyles';
 
-export interface VscSearchBoxProps extends SearchBoxProps {
-  /** Render in read-only mode (transparent background, no border). */
-  readOnly?: boolean;
-}
-
-const sizeClassMap: Record<string, string | undefined> = {
-  small: undefined, // default – no extra class
-  medium: styles.vscMedium,
-  large: styles.vscLarge,
-};
+export interface VscSearchBoxProps extends SearchBoxProps {}
 
 export const VscSearchBox = forwardRef<HTMLInputElement, VscSearchBoxProps>(
-  ({ size = 'small', readOnly, disabled, className, ...rest }, ref) => {
+  ({ size = 'small', disabled, className, ...rest }, ref) => {
+    const mergedClass = useSearchBoxStyles({ size, disabled, className });
+
     return (
       <SearchBox
         ref={ref}
+        size={size}
         disabled={disabled}
-        className={clsx(
-          styles.vscBase,
-          sizeClassMap[size],
-          disabled && styles.vscDisabled,
-          readOnly && styles.vscReadonly,
-          className,
-        )}
+        className={mergedClass}
         {...rest}
       />
     );

@@ -1,39 +1,40 @@
 import { Textarea, type TextareaProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import type { VscValidationState } from '../../types';
-import styles from './textarea.module.scss';
+import type { VscInputValidationState } from '../../types';
+import { useTextareaStyles } from './useTextareaStyles';
+
+export type VscTextareaResize = 'none' | 'horizontal' | 'vertical' | 'both';
 
 export type VscTextareaProps = TextareaProps & {
   /** Applies VS Code validation border color. */
-  validationState?: VscValidationState;
-};
-
-const validationClassMap: Record<VscValidationState, string> = {
-  error: styles.vscError,
-  warning: styles.vscWarning,
-  info: styles.vscInfo,
+  validationState?: VscInputValidationState;
+  /**
+   * Controls the resize behavior of the textarea.
+   * Shows a native resize grip in the bottom-right corner.
+   * @default 'none'
+   */
+  resize?: VscTextareaResize;
 };
 
 export const VscTextarea = forwardRef<HTMLTextAreaElement, VscTextareaProps>(
-  ({ validationState, size, className, disabled, readOnly, ...rest }, ref) => {
-    const mergedClass = clsx(
-      styles.vscBase,
-      size === 'small' && styles.vscSmall,
-      validationState && validationClassMap[validationState],
-      disabled && styles.vscDisabled,
-      readOnly && !disabled && styles.vscReadonly,
+  ({ validationState, resize, className, disabled, readOnly, ...rest }, ref) => {
+    const mergedClass = useTextareaStyles({
+      validationState,
+      resize,
+      disabled,
+      readOnly,
       className,
-    );
+    });
 
     return (
       <Textarea
         ref={ref}
-        size={size}
+        resize={resize}
         disabled={disabled}
         readOnly={readOnly}
         className={mergedClass}
+        data-validation-state={validationState}
         {...rest}
       />
     );

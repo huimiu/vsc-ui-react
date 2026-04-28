@@ -1,27 +1,66 @@
-import { Field, type FieldProps, Tooltip } from '@fluentui/react-components';
+import {
+  Field,
+  mergeClasses,
+  type FieldProps,
+  Tooltip,
+} from '@fluentui/react-components';
 import { Info16Regular } from '@fluentui/react-icons';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import styles from './field.module.scss';
+import type { VscValidationState } from '../../types';
+import { useFieldStyles } from './useFieldStyles';
 
-export type VscFieldProps = Omit<FieldProps, 'label'> & {
+export type VscFieldProps = Omit<FieldProps, 'label' | 'validationState'> & {
   /** Field label text. */
   label?: string;
   /** When provided, renders an info icon with a tooltip next to the label. */
   tooltipContent?: string;
+  /** Applies VS Code validation styling via Fluent Field component. */
+  validationState?: VscValidationState;
 };
 
 export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
-  ({ className, label, tooltipContent, required, ...rest }, ref) => {
+  (
+    { className, label, tooltipContent, required, validationState, ...rest },
+    ref,
+  ) => {
+    const {
+      rootClassName,
+      validationMessageIconClassName,
+      labelRowClassName,
+      labelTextClassName,
+      requiredIndicatorClassName,
+      infoIconClassName,
+    } = useFieldStyles({ validationState, className });
+
+    const validationIconName =
+      validationState === 'error'
+        ? 'codicon-error'
+        : validationState === 'warning'
+          ? 'codicon-warning'
+          : validationState === 'info'
+            ? 'codicon-info'
+            : undefined;
+
+    const validationMessageIcon = validationIconName ? (
+      <span
+        className={mergeClasses(
+          validationMessageIconClassName,
+          'codicon',
+          validationIconName,
+        )}
+        aria-hidden="true"
+      />
+    ) : undefined;
+
     const labelSlot = label ? (
-      <span className={styles.labelRow}>
-        <span className={styles.labelText}>{label}</span>
-        {required && <span className={styles.requiredIndicator}>*</span>}
+      <span className={labelRowClassName}>
+        <span className={labelTextClassName}>{label}</span>
+        {required && <span className={requiredIndicatorClassName}>*</span>}
         {tooltipContent && (
           <Tooltip content={tooltipContent} relationship="description">
             <span
-              className={styles.infoIcon}
+              className={infoIconClassName}
               role="img"
               aria-label={tooltipContent}
             >
@@ -32,12 +71,17 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
       </span>
     ) : undefined;
 
+    const fluentValidationState =
+      validationState === 'info' ? undefined : validationState;
+
     return (
       <Field
         ref={ref}
-        className={clsx(styles.vscBase, className)}
+        className={rootClassName}
         label={labelSlot}
         required={required}
+        validationMessageIcon={validationMessageIcon}
+        validationState={fluentValidationState}
         {...rest}
       />
     );

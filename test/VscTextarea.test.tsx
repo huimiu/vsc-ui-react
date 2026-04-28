@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscTextarea } from '../src';
-import styles from '../src/components/Textarea/textarea.module.scss';
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
   <FluentProvider theme={webLightTheme}>{children}</FluentProvider>
@@ -11,13 +10,13 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 
 describe('VscTextarea', () => {
   it('renders a textarea element', () => {
-    render(<VscTextarea />, { wrapper });
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    const { container } = render(<VscTextarea />, { wrapper });
+    expect(container.querySelector('textarea')).toBeInTheDocument();
   });
 
-  it('applies vscBase class', () => {
+  it('applies style classes to root', () => {
     const { container } = render(<VscTextarea />, { wrapper });
-    expect(container.querySelector(`.${styles.vscBase}`)).toBeTruthy();
+    expect(container.querySelector('.fui-Textarea')).toBeTruthy();
   });
 
   it('forwards ref', () => {
@@ -26,23 +25,33 @@ describe('VscTextarea', () => {
     expect(ref.current).toBeInstanceOf(HTMLTextAreaElement);
   });
 
-  it('applies error validation class', () => {
-    const { container } = render(<VscTextarea validationState="error" />, {
-      wrapper,
-    });
-    expect(container.querySelector(`.${styles.vscError}`)).toBeTruthy();
+  it('produces distinct classes for error validation state', () => {
+    const { container: errorContainer } = render(<VscTextarea validationState="error" />, { wrapper });
+    const { container: defaultContainer } = render(<VscTextarea />, { wrapper });
+    const errorRoot = errorContainer.querySelector('.fui-Textarea')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Textarea')!;
+    expect(errorRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies disabled class', () => {
+  it('renders disabled textarea with disabled attribute', () => {
     const { container } = render(<VscTextarea disabled />, { wrapper });
-    expect(container.querySelector(`.${styles.vscDisabled}`)).toBeTruthy();
+    expect(container.querySelector('textarea')).toBeDisabled();
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscTextarea className="custom" />, {
-      wrapper,
-    });
-    const root = container.querySelector(`.${styles.vscBase}`);
-    expect(root?.className).toContain('custom');
+    const { container } = render(<VscTextarea className="custom" />, { wrapper });
+    expect(container.querySelector('.custom')).toBeTruthy();
+  });
+
+  it('applies resize="both" to the underlying textarea', () => {
+    const { container } = render(<VscTextarea resize="both" />, { wrapper });
+    const textarea = container.querySelector('textarea')!;
+    expect(getComputedStyle(textarea).resize).toBe('both');
+  });
+
+  it('applies resize="vertical" to the underlying textarea', () => {
+    const { container } = render(<VscTextarea resize="vertical" />, { wrapper });
+    const textarea = container.querySelector('textarea')!;
+    expect(getComputedStyle(textarea).resize).toBe('vertical');
   });
 });

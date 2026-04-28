@@ -1,5 +1,6 @@
 // Types
 export type { VscValidationState } from './types';
+export type { VscInputValidationState } from './types';
 
 // Button
 export { VscButton } from './components/Button';
@@ -15,7 +16,7 @@ export type { VscInputProps } from './components/Input';
 
 // Textarea
 export { VscTextarea } from './components/Textarea';
-export type { VscTextareaProps } from './components/Textarea';
+export type { VscTextareaProps, VscTextareaResize } from './components/Textarea';
 
 // Field
 export { VscField } from './components/Field';

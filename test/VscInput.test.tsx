@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscInput } from '../src';
-import inputStyles from '../src/components/Input/input.module.scss';
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
   <FluentProvider theme={webLightTheme}>{children}</FluentProvider>
@@ -11,14 +10,13 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 
 describe('VscInput', () => {
   it('renders an input element', () => {
-    render(<VscInput />, { wrapper });
-    expect(screen.getByRole('textbox')).toBeInTheDocument();
+    const { container } = render(<VscInput />, { wrapper });
+    expect(container.querySelector('input')).toBeInTheDocument();
   });
 
-  it('applies vscBase class', () => {
+  it('applies style classes to root', () => {
     const { container } = render(<VscInput />, { wrapper });
-    const root = container.querySelector(`.${inputStyles.vscBase}`);
-    expect(root).toBeTruthy();
+    expect(container.querySelector('.fui-Input')).toBeTruthy();
   });
 
   it('forwards ref', () => {
@@ -27,40 +25,45 @@ describe('VscInput', () => {
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
-  it('applies small size class', () => {
-    const { container } = render(<VscInput size="small" />, { wrapper });
-    expect(container.querySelector(`.${inputStyles.vscSmall}`)).toBeTruthy();
+  it('produces distinct classes for small size', () => {
+    const { container: smallContainer } = render(<VscInput size="small" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const smallRoot = smallContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(smallRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies large size class', () => {
-    const { container } = render(<VscInput size="large" />, { wrapper });
-    expect(container.querySelector(`.${inputStyles.vscLarge}`)).toBeTruthy();
+  it('produces distinct classes for large size', () => {
+    const { container: largeContainer } = render(<VscInput size="large" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const largeRoot = largeContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(largeRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies error validation class', () => {
-    const { container } = render(<VscInput validationState="error" />, {
-      wrapper,
-    });
-    expect(container.querySelector(`.${inputStyles.vscError}`)).toBeTruthy();
+  it('produces distinct classes for error validation state', () => {
+    const { container: errorContainer } = render(<VscInput validationState="error" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const errorRoot = errorContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(errorRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies warning validation class', () => {
-    const { container } = render(<VscInput validationState="warning" />, {
-      wrapper,
-    });
-    expect(container.querySelector(`.${inputStyles.vscWarning}`)).toBeTruthy();
+  it('produces distinct classes for warning validation state', () => {
+    const { container: warningContainer } = render(<VscInput validationState="warning" />, { wrapper });
+    const { container: defaultContainer } = render(<VscInput />, { wrapper });
+    const warningRoot = warningContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(warningRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies disabled class', () => {
+  it('renders disabled state', () => {
     const { container } = render(<VscInput disabled />, { wrapper });
-    expect(container.querySelector(`.${inputStyles.vscDisabled}`)).toBeTruthy();
+    expect(container.querySelector('input')).toBeDisabled();
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscInput className="my-custom" />, {
-      wrapper,
-    });
-    const root = container.querySelector(`.${inputStyles.vscBase}`);
-    expect(root?.className).toContain('my-custom');
+    const { container } = render(<VscInput className="my-custom" />, { wrapper });
+    expect(container.querySelector('.my-custom')).toBeTruthy();
   });
 });

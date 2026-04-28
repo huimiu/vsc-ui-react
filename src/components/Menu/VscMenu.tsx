@@ -16,10 +16,18 @@ import {
   MenuGroupHeader,
   type MenuGroupHeaderProps,
 } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import styles from './menu.module.scss';
+import {
+  useVscMenuPopoverStyles,
+  useVscMenuListStyles,
+  useVscMenuItemStyles,
+  useVscMenuItemCheckboxStyles,
+  useVscMenuItemRadioStyles,
+  useVscMenuDividerStyles,
+  useVscMenuGroupStyles,
+  useVscMenuGroupHeaderStyles,
+} from './useMenuStyles';
 
 /* -------------------------------------------------------------------------- */
 /*  MenuPopover                                                               */
@@ -28,13 +36,10 @@ import styles from './menu.module.scss';
 export type VscMenuPopoverProps = MenuPopoverProps;
 
 export const VscMenuPopover = forwardRef<HTMLDivElement, VscMenuPopoverProps>(
-  ({ className, ...rest }, ref) => (
-    <MenuPopover
-      ref={ref}
-      className={clsx(styles.vscMenuPopover, className)}
-      {...rest}
-    />
-  ),
+  ({ className, ...rest }, ref) => {
+    const mergedClass = useVscMenuPopoverStyles(className);
+    return <MenuPopover ref={ref} className={mergedClass} {...rest} />;
+  },
 );
 VscMenuPopover.displayName = 'VscMenuPopover';
 
@@ -45,13 +50,10 @@ VscMenuPopover.displayName = 'VscMenuPopover';
 export type VscMenuListProps = MenuListProps;
 
 export const VscMenuList = forwardRef<HTMLDivElement, VscMenuListProps>(
-  ({ className, ...rest }, ref) => (
-    <MenuList
-      ref={ref}
-      className={clsx(styles.vscMenuList, className)}
-      {...rest}
-    />
-  ),
+  ({ className, ...rest }, ref) => {
+    const mergedClass = useVscMenuListStyles(className);
+    return <MenuList ref={ref} className={mergedClass} {...rest} />;
+  },
 );
 VscMenuList.displayName = 'VscMenuList';
 
@@ -67,20 +69,10 @@ export interface VscMenuItemProps extends MenuItemProps {
 }
 
 export const VscMenuItem = forwardRef<HTMLDivElement, VscMenuItemProps>(
-  ({ accent, indented, className, disabled, ...rest }, ref) => (
-    <MenuItem
-      ref={ref}
-      disabled={disabled}
-      className={clsx(
-        styles.vscMenuItem,
-        accent && styles.vscAccent,
-        indented && styles.vscIndented,
-        disabled && styles.vscDisabled,
-        className,
-      )}
-      {...rest}
-    />
-  ),
+  ({ accent, indented, className, disabled, ...rest }, ref) => {
+    const mergedClass = useVscMenuItemStyles({ accent, indented, disabled, className });
+    return <MenuItem ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+  },
 );
 VscMenuItem.displayName = 'VscMenuItem';
 
@@ -93,18 +85,10 @@ export type VscMenuItemCheckboxProps = MenuItemCheckboxProps;
 export const VscMenuItemCheckbox = forwardRef<
   HTMLDivElement,
   VscMenuItemCheckboxProps
->(({ className, disabled, ...rest }, ref) => (
-  <MenuItemCheckbox
-    ref={ref}
-    disabled={disabled}
-    className={clsx(
-      styles.vscMenuItemCheckbox,
-      disabled && styles.vscDisabled,
-      className,
-    )}
-    {...rest}
-  />
-));
+>(({ className, disabled, ...rest }, ref) => {
+  const mergedClass = useVscMenuItemCheckboxStyles({ disabled, className });
+  return <MenuItemCheckbox ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+});
 VscMenuItemCheckbox.displayName = 'VscMenuItemCheckbox';
 
 /* -------------------------------------------------------------------------- */
@@ -116,18 +100,10 @@ export type VscMenuItemRadioProps = MenuItemRadioProps;
 export const VscMenuItemRadio = forwardRef<
   HTMLDivElement,
   VscMenuItemRadioProps
->(({ className, disabled, ...rest }, ref) => (
-  <MenuItemRadio
-    ref={ref}
-    disabled={disabled}
-    className={clsx(
-      styles.vscMenuItemRadio,
-      disabled && styles.vscDisabled,
-      className,
-    )}
-    {...rest}
-  />
-));
+>(({ className, disabled, ...rest }, ref) => {
+  const mergedClass = useVscMenuItemRadioStyles({ disabled, className });
+  return <MenuItemRadio ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+});
 VscMenuItemRadio.displayName = 'VscMenuItemRadio';
 
 /* -------------------------------------------------------------------------- */
@@ -137,13 +113,10 @@ VscMenuItemRadio.displayName = 'VscMenuItemRadio';
 export type VscMenuDividerProps = MenuDividerProps;
 
 export const VscMenuDivider = forwardRef<HTMLDivElement, VscMenuDividerProps>(
-  ({ className, ...rest }, ref) => (
-    <MenuDivider
-      ref={ref}
-      className={clsx(styles.vscMenuDivider, className)}
-      {...rest}
-    />
-  ),
+  ({ className, ...rest }, ref) => {
+    const mergedClass = useVscMenuDividerStyles(className);
+    return <MenuDivider ref={ref} className={mergedClass} {...rest} />;
+  },
 );
 VscMenuDivider.displayName = 'VscMenuDivider';
 
@@ -154,13 +127,10 @@ VscMenuDivider.displayName = 'VscMenuDivider';
 export type VscMenuGroupProps = MenuGroupProps;
 
 export const VscMenuGroup = forwardRef<HTMLDivElement, VscMenuGroupProps>(
-  ({ className, ...rest }, ref) => (
-    <MenuGroup
-      ref={ref}
-      className={clsx(styles.vscMenuGroup, className)}
-      {...rest}
-    />
-  ),
+  ({ className, ...rest }, ref) => {
+    const mergedClass = useVscMenuGroupStyles(className);
+    return <MenuGroup ref={ref} className={mergedClass} {...rest} />;
+  },
 );
 VscMenuGroup.displayName = 'VscMenuGroup';
 
@@ -173,11 +143,8 @@ export type VscMenuGroupHeaderProps = MenuGroupHeaderProps;
 export const VscMenuGroupHeader = forwardRef<
   HTMLDivElement,
   VscMenuGroupHeaderProps
->(({ className, ...rest }, ref) => (
-  <MenuGroupHeader
-    ref={ref}
-    className={clsx(styles.vscMenuGroupHeader, className)}
-    {...rest}
-  />
-));
+>(({ className, ...rest }, ref) => {
+  const mergedClass = useVscMenuGroupHeaderStyles(className);
+  return <MenuGroupHeader ref={ref} className={mergedClass} {...rest} />;
+});
 VscMenuGroupHeader.displayName = 'VscMenuGroupHeader';

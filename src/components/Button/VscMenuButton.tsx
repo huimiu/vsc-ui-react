@@ -1,25 +1,7 @@
 import { MenuButton, type MenuButtonProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import buttonStyles from './button.module.scss';
-
-const menuAppearanceClassMap: Partial<
-  Record<NonNullable<MenuButtonProps['appearance']>, string>
-> = {
-  primary: buttonStyles.vscodePrimaryMenu,
-  secondary: buttonStyles.vscodeSecondaryMenu,
-  outline: buttonStyles.vscodeOutlineMenu,
-  subtle: buttonStyles.vscodeSubtleMenu,
-  transparent: buttonStyles.vscodeTransparentMenu,
-};
-
-const menuSizeClassMap: Record<NonNullable<VscMenuButtonSize>, string> = {
-  small: buttonStyles.vscodeSmallMenu,
-  medium: '',
-  large: '',
-  compact: buttonStyles.vscodeCompactMenu,
-};
+import { useMenuButtonStylesHook } from './useMenuButtonStyles';
 
 type VscMenuButtonSize = MenuButtonProps['size'] | 'compact';
 
@@ -32,13 +14,12 @@ export const VscMenuButton = forwardRef<HTMLButtonElement, VscMenuButtonProps>(
     const isCompact = size === 'compact';
     const fluentSize = isCompact ? undefined : size;
 
-    const mergedClassName = clsx(
-      buttonStyles.vscBase,
-      menuAppearanceClassMap[appearance ?? 'secondary'],
-      size && menuSizeClassMap[size],
-      icon && !children && buttonStyles.vscodeIconOnlyMenu,
+    const mergedClassName = useMenuButtonStylesHook({
+      appearance: appearance as VscMenuButtonProps['appearance'],
+      size,
+      iconOnly: !!icon && !children,
       className,
-    );
+    });
 
     return (
       <MenuButton

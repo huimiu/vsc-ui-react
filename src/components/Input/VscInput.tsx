@@ -1,35 +1,16 @@
 import { Input, type InputProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef, type ReactNode } from 'react';
 
-import type { VscValidationState } from '../../types';
-import styles from './input.module.scss';
+import type { VscInputValidationState } from '../../types';
+import { useInputStyles } from './useInputStyles';
 
 export type VscInputProps = InputProps & {
   /** Applies VS Code validation border color. */
-  validationState?: VscValidationState;
+  validationState?: VscInputValidationState;
   /** Applies search-style icon coloring for contentBefore / contentAfter. */
   withIcon?: boolean;
   /** Message rendered in a coloured box below the input. Requires validationState. */
   validationMessage?: ReactNode;
-};
-
-const sizeClassMap: Record<NonNullable<InputProps['size']>, string> = {
-  small: styles.vscSmall,
-  medium: '',
-  large: styles.vscLarge,
-};
-
-const validationClassMap: Record<VscValidationState, string> = {
-  error: styles.vscError,
-  warning: styles.vscWarning,
-  info: styles.vscInfo,
-};
-
-const validationMsgClassMap: Record<VscValidationState, string> = {
-  error: styles.vscValidationError,
-  warning: styles.vscValidationWarning,
-  info: styles.vscValidationInfo,
 };
 
 export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
@@ -46,15 +27,15 @@ export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
     },
     ref,
   ) => {
-    const mergedClass = clsx(
-      styles.vscBase,
-      size && sizeClassMap[size],
-      validationState && validationClassMap[validationState],
-      withIcon && styles.vscWithIcon,
-      disabled && styles.vscDisabled,
-      readOnly && !disabled && styles.vscReadonly,
-      className,
-    );
+    const { rootClassName, wrapperClassName, validationMsgClassName } =
+      useInputStyles({
+        size,
+        validationState,
+        withIcon,
+        disabled,
+        readOnly,
+        className,
+      });
 
     const input = (
       <Input
@@ -62,18 +43,17 @@ export const VscInput = forwardRef<HTMLInputElement, VscInputProps>(
         size={size}
         disabled={disabled}
         readOnly={readOnly}
-        className={mergedClass}
+        className={rootClassName}
+        data-validation-state={validationState}
         {...rest}
       />
     );
 
-    if (validationState && validationMessage) {
+    if (validationState && validationMessage && validationMsgClassName) {
       return (
-        <div className={styles.vscInputWrapper}>
+        <div className={wrapperClassName}>
           {input}
-          <div className={validationMsgClassMap[validationState]}>
-            {validationMessage}
-          </div>
+          <div className={validationMsgClassName}>{validationMessage}</div>
         </div>
       );
     }

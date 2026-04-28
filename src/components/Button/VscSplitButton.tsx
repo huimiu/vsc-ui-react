@@ -1,25 +1,7 @@
 import { SplitButton, type SplitButtonProps } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef } from 'react';
 
-import buttonStyles from './button.module.scss';
-
-const splitAppearanceClassMap: Partial<
-  Record<NonNullable<SplitButtonProps['appearance']>, string>
-> = {
-  primary: buttonStyles.vscodePrimarySplit,
-  secondary: buttonStyles.vscodeSecondarySplit,
-  outline: buttonStyles.vscodeOutlineSplit,
-  subtle: buttonStyles.vscodeSubtleSplit,
-  transparent: buttonStyles.vscodeTransparentSplit,
-};
-
-const splitSizeClassMap: Record<NonNullable<VscSplitButtonSize>, string> = {
-  small: buttonStyles.vscodeSmallSplit,
-  medium: '',
-  large: '',
-  compact: buttonStyles.vscodeCompactSplit,
-};
+import { useSplitButtonStylesHook } from './useSplitButtonStyles';
 
 type VscSplitButtonSize = SplitButtonProps['size'] | 'compact';
 
@@ -34,13 +16,12 @@ export const VscSplitButton = forwardRef<
   const isCompact = size === 'compact';
   const fluentSize = isCompact ? undefined : size;
 
-  const mergedClassName = clsx(
-    buttonStyles.vscBase,
-    splitAppearanceClassMap[appearance ?? 'secondary'],
-    size && splitSizeClassMap[size],
-    icon && !children && buttonStyles.vscodeIconOnlySplit,
+  const mergedClassName = useSplitButtonStylesHook({
+    appearance: appearance as VscSplitButtonProps['appearance'],
+    size,
+    iconOnly: !!icon && !children,
     className,
-  );
+  });
 
   return (
     <SplitButton

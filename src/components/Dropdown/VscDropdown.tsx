@@ -9,38 +9,23 @@ import {
   type OptionProps,
   OptionGroup,
   type OptionGroupProps,
+  mergeClasses,
 } from '@fluentui/react-components';
-import clsx from 'clsx';
 import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
 
 import type { VscValidationState } from '../../types';
-import styles from './dropdown.module.scss';
+import {
+  useVscDropdownStyles,
+  useVscComboboxStyles,
+  useVscListboxStyles,
+  useVscOptionStyles,
+  useVscOptionGroupStyles,
+  useVscTriggerLabelStyles,
+  useVscTriggerDescriptionStyles,
+  useVscOptionSeparatorStyles,
+} from './useDropdownStyles';
 
 export type VscSelectionIndicator = 'none' | 'checkmark';
-
-/* -------------------------------------------------------------------------- */
-/*  Shared maps                                                               */
-/* -------------------------------------------------------------------------- */
-
-const sizeClassMap: Record<string, string | undefined> = {
-  small: styles.vscSmall,
-  medium: undefined,
-  large: styles.vscLarge,
-};
-
-const validationClassMap: Record<VscValidationState, string> = {
-  error: styles.vscError,
-  warning: styles.vscWarning,
-  info: styles.vscInfo,
-};
-
-const selectionIndicatorClassMap: Record<
-  VscSelectionIndicator,
-  string | undefined
-> = {
-  none: styles.vscSelectionIndicatorNone,
-  checkmark: undefined,
-};
 
 /** Normalise Fluent's `listbox` slot (can be a string shorthand) into an object. */
 function resolveListbox(listbox: unknown): Record<string, unknown> {
@@ -59,9 +44,10 @@ export type VscTriggerLabelProps = HTMLAttributes<HTMLSpanElement>;
 export const VscTriggerLabel = ({
   className,
   ...rest
-}: VscTriggerLabelProps) => (
-  <span className={clsx(styles.vscTriggerLabel, className)} {...rest} />
-);
+}: VscTriggerLabelProps) => {
+  const mergedClass = useVscTriggerLabelStyles(className);
+  return <span className={mergedClass} {...rest} />;
+};
 VscTriggerLabel.displayName = 'VscTriggerLabel';
 
 /** Secondary description beside the label in a dropdown trigger. */
@@ -70,9 +56,10 @@ export type VscTriggerDescriptionProps = HTMLAttributes<HTMLSpanElement>;
 export const VscTriggerDescription = ({
   className,
   ...rest
-}: VscTriggerDescriptionProps) => (
-  <span className={clsx(styles.vscTriggerDescription, className)} {...rest} />
-);
+}: VscTriggerDescriptionProps) => {
+  const mergedClass = useVscTriggerDescriptionStyles(className);
+  return <span className={mergedClass} {...rest} />;
+};
 VscTriggerDescription.displayName = 'VscTriggerDescription';
 
 /* -------------------------------------------------------------------------- */
@@ -104,27 +91,26 @@ export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
     ref,
   ) => {
     const listboxObj = resolveListbox(listbox);
+    const styles = useVscDropdownStyles({
+      validationState,
+      readOnly,
+      withDescription,
+      selectionIndicator,
+      size,
+      disabled,
+      className,
+      listboxClassName: listboxObj.className as string | undefined,
+    });
+
     return (
       <Dropdown
         ref={ref}
         size={size}
         disabled={disabled}
-        className={clsx(
-          styles.vscDropdown,
-          size && sizeClassMap[size],
-          validationState && validationClassMap[validationState],
-          disabled && styles.vscDisabled,
-          readOnly && styles.vscReadonly,
-          withDescription && styles.vscWithDescription,
-          className,
-        )}
+        className={styles.rootClassName}
         listbox={{
           ...listboxObj,
-          className: clsx(
-            styles.vscListbox,
-            selectionIndicatorClassMap[selectionIndicator],
-            listboxObj.className as string | undefined,
-          ),
+          className: styles.listboxClassName,
         }}
         {...rest}
       />
@@ -159,26 +145,25 @@ export const VscCombobox = forwardRef<HTMLInputElement, VscComboboxProps>(
     ref,
   ) => {
     const listboxObj = resolveListbox(listbox);
+    const styles = useVscComboboxStyles({
+      validationState,
+      readOnly,
+      selectionIndicator,
+      size,
+      disabled,
+      className,
+      listboxClassName: listboxObj.className as string | undefined,
+    });
+
     return (
       <Combobox
         ref={ref}
         size={size}
         disabled={disabled}
-        className={clsx(
-          styles.vscCombobox,
-          size && sizeClassMap[size],
-          validationState && validationClassMap[validationState],
-          disabled && styles.vscDisabled,
-          readOnly && styles.vscReadonly,
-          className,
-        )}
+        className={styles.rootClassName}
         listbox={{
           ...listboxObj,
-          className: clsx(
-            styles.vscListbox,
-            selectionIndicatorClassMap[selectionIndicator],
-            listboxObj.className as string | undefined,
-          ),
+          className: styles.listboxClassName,
         }}
         {...rest}
       />
@@ -197,17 +182,17 @@ export type VscListboxProps = ListboxProps & {
 };
 
 export const VscListbox = forwardRef<HTMLDivElement, VscListboxProps>(
-  ({ className, selectionIndicator = 'none', ...rest }, ref) => (
-    <Listbox
-      ref={ref}
-      className={clsx(
-        styles.vscListbox,
-        selectionIndicatorClassMap[selectionIndicator],
-        className,
-      )}
-      {...rest}
-    />
-  ),
+  ({ className, selectionIndicator = 'none', ...rest }, ref) => {
+    const mergedClass = useVscListboxStyles({ selectionIndicator, className });
+
+    return (
+      <Listbox
+        ref={ref}
+        className={mergedClass}
+        {...rest}
+      />
+    );
+  },
 );
 VscListbox.displayName = 'VscListbox';
 
@@ -242,31 +227,28 @@ export const VscOption = forwardRef<HTMLDivElement, VscOptionProps>(
     ref,
   ) => {
     const resolvedSecondaryText = secondaryText ?? detail;
+    const optionStyles = useVscOptionStyles({ disabled, className });
 
     return (
       <Option
         ref={ref}
         text={text!}
         disabled={disabled}
-        className={clsx(
-          styles.vscOption,
-          disabled && styles.vscDisabled,
-          className,
-        )}
+        className={optionStyles.rootClassName}
         {...rest}
       >
-        {icon && <span className={styles.vscOptionIcon}>{icon}</span>}
-        <span className={styles.vscOptionLabel}>{children}</span>
+        {icon && <span className={optionStyles.iconClassName}>{icon}</span>}
+        <span className={optionStyles.labelClassName}>{children}</span>
         {resolvedSecondaryText && (
-          <span className={styles.vscOptionDetail}>
+          <span className={optionStyles.detailClassName}>
             {resolvedSecondaryText}
           </span>
         )}
         {description && (
           <span
-            className={clsx(
-              styles.vscOptionDescription,
-              icon && styles.vscOptionDescriptionWithIcon,
+            className={mergeClasses(
+              optionStyles.descriptionClassName,
+              !!icon && optionStyles.descriptionWithIconClassName,
             )}
           >
             {description}
@@ -285,13 +267,17 @@ VscOption.displayName = 'VscOption';
 export type VscOptionGroupProps = OptionGroupProps;
 
 export const VscOptionGroup = forwardRef<HTMLDivElement, VscOptionGroupProps>(
-  ({ className, ...rest }, ref) => (
-    <OptionGroup
-      ref={ref}
-      className={clsx(styles.vscOptionGroup, className)}
-      {...rest}
-    />
-  ),
+  ({ className, ...rest }, ref) => {
+    const mergedClass = useVscOptionGroupStyles(className);
+
+    return (
+      <OptionGroup
+        ref={ref}
+        className={mergedClass}
+        {...rest}
+      />
+    );
+  },
 );
 VscOptionGroup.displayName = 'VscOptionGroup';
 
@@ -302,13 +288,17 @@ export type VscOptionSeparatorProps = HTMLAttributes<HTMLDivElement>;
 export const VscOptionSeparator = forwardRef<
   HTMLDivElement,
   VscOptionSeparatorProps
->(({ className, ...rest }, ref) => (
-  <div
-    ref={ref}
-    role="separator"
-    aria-hidden="true"
-    className={clsx(styles.vscOptionSeparator, className)}
-    {...rest}
-  />
-));
+>(({ className, ...rest }, ref) => {
+  const mergedClass = useVscOptionSeparatorStyles(className);
+
+  return (
+    <div
+      ref={ref}
+      role="separator"
+      aria-hidden="true"
+      className={mergedClass}
+      {...rest}
+    />
+  );
+});
 VscOptionSeparator.displayName = 'VscOptionSeparator';

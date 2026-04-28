@@ -1,0 +1,451 @@
+/*
+ * Approximate VS Code CSS variables for the playground.
+ * These mirror the `--vscode-*` custom properties that the editor injects into
+ * webviews, so makeStyles rules using `var(--vscode-...)` resolve to a real
+ * value here. Colors come from the built-in Dark Modern and Light Modern themes.
+ *
+ * Add more variables on demand as components reference them.
+ */
+
+:root,
+:root.theme-dark {
+  color-scheme: dark;
+
+  /* Base */
+  --vscode-font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --vscode-font-size: 13px;
+  --vscode-font-weight: normal;
+
+  --vscode-foreground: #cccccc;
+  --vscode-disabledForeground: rgba(204, 204, 204, 0.5);
+  --vscode-descriptionForeground: #9d9d9d;
+  --vscode-errorForeground: #f85149;
+  --vscode-editorWarning-foreground: #cca700;
+  --vscode-editorInfo-foreground: #3794ff;
+  --vscode-icon-foreground: #cccccc;
+  --vscode-focusBorder: #0078d4;
+  --vscode-contrastBorder: transparent;
+  --vscode-contrastActiveBorder: transparent;
+  --vscode-widget-border: #313131;
+  --vscode-widget-shadow: rgba(0, 0, 0, 0.36);
+
+  /* Editor + workbench surfaces */
+  --vscode-editor-background: #1f1f1f;
+  --vscode-editor-foreground: #cccccc;
+  --vscode-editorWidget-background: #202020;
+  --vscode-editorWidget-foreground: #cccccc;
+  --vscode-editorWidget-border: #313131;
+
+  /* Buttons */
+  --vscode-button-background: #0078d4;
+  --vscode-button-foreground: #ffffff;
+  --vscode-button-hoverBackground: #026ec1;
+  --vscode-button-border: rgba(255, 255, 255, 0.1);
+  --vscode-button-separator: rgba(255, 255, 255, 0.4);
+  --vscode-button-secondaryBackground: #00000000;
+  --vscode-button-secondaryForeground: #cccccc;
+  --vscode-button-secondaryHoverBackground: #2b2b2b;
+
+  /* Inputs */
+  --vscode-input-background: #313131;
+  --vscode-input-foreground: #cccccc;
+  --vscode-input-border: #3c3c3c;
+  --vscode-input-placeholderForeground: #989898;
+  --vscode-inputOption-activeBackground: rgba(36, 137, 219, 0.5);
+  --vscode-inputOption-activeBorder: #2488db;
+  --vscode-inputOption-activeForeground: #ffffff;
+  --vscode-inputOption-hoverBackground: rgba(184, 184, 184, 0.31);
+  --vscode-inputValidation-errorBackground: #5a1d1d;
+  --vscode-inputValidation-errorBorder: #be1100;
+  --vscode-inputValidation-errorForeground: #ffffff;
+  --vscode-inputValidation-warningBackground: #352a05;
+  --vscode-inputValidation-warningBorder: #b89500;
+  --vscode-inputValidation-warningForeground: #ffffff;
+  --vscode-inputValidation-infoBackground: #063b49;
+  --vscode-inputValidation-infoBorder: #0078d4;
+  --vscode-inputValidation-infoForeground: #ffffff;
+
+  /* Dropdown */
+  --vscode-dropdown-background: #313131;
+  --vscode-dropdown-foreground: #cccccc;
+  --vscode-dropdown-border: #3c3c3c;
+  --vscode-dropdown-listBackground: #1f1f1f;
+
+  /* Lists */
+  --vscode-list-activeSelectionBackground: #0078d4;
+  --vscode-list-activeSelectionForeground: #ffffff;
+  --vscode-list-inactiveSelectionBackground: #313131;
+  --vscode-list-inactiveSelectionForeground: #cccccc;
+  --vscode-list-hoverBackground: #2b2b2b;
+  --vscode-list-hoverForeground: #ffffff;
+  --vscode-list-focusBackground: #0078d4;
+  --vscode-list-focusForeground: #ffffff;
+  --vscode-list-focusOutline: #0078d4;
+
+  /* Menu */
+  --vscode-menu-background: #1f1f1f;
+  --vscode-menu-foreground: #cccccc;
+  --vscode-menu-selectionBackground: #0078d4;
+  --vscode-menu-selectionForeground: #ffffff;
+  --vscode-menu-separatorBackground: #616161;
+  --vscode-menu-border: #313131;
+
+  /* Badges, links */
+  --vscode-badge-background: #616161;
+  --vscode-badge-foreground: #f8f8f8;
+  --vscode-textLink-foreground: #4daafc;
+  --vscode-textLink-activeForeground: #4daafc;
+
+  /* Tabs */
+  --vscode-tab-activeBackground: #1f1f1f;
+  --vscode-tab-activeForeground: #ffffff;
+  --vscode-tab-inactiveBackground: #181818;
+  --vscode-tab-inactiveForeground: #9d9d9d;
+  --vscode-tab-border: #2b2b2b;
+  --vscode-tab-activeBorder: transparent;
+  --vscode-tab-activeBorderTop: #0078d4;
+
+  /* Scrollbar */
+  --vscode-scrollbarSlider-background: rgba(121, 121, 121, 0.4);
+  --vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+  --vscode-scrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+}
+
+:root.theme-light {
+  color-scheme: light;
+
+  --vscode-foreground: #3b3b3b;
+  --vscode-disabledForeground: rgba(97, 97, 97, 0.5);
+  --vscode-descriptionForeground: #3b3b3b;
+  --vscode-errorForeground: #f85149;
+  --vscode-editorWarning-foreground: #855f00;
+  --vscode-editorInfo-foreground: #005fb8;
+  --vscode-icon-foreground: #3b3b3b;
+  --vscode-focusBorder: #005fb8;
+  --vscode-widget-border: #e5e5e5;
+  --vscode-widget-shadow: rgba(0, 0, 0, 0.16);
+
+  --vscode-editor-background: #ffffff;
+  --vscode-editor-foreground: #3b3b3b;
+  --vscode-editorWidget-background: #f8f8f8;
+  --vscode-editorWidget-foreground: #3b3b3b;
+  --vscode-editorWidget-border: #e5e5e5;
+
+  --vscode-button-background: #005fb8;
+  --vscode-button-foreground: #ffffff;
+  --vscode-button-hoverBackground: #0258a8;
+  --vscode-button-border: #0000001a;
+  --vscode-button-separator: rgba(255, 255, 255, 0.4);
+  --vscode-button-secondaryBackground: #e5e5e5;
+  --vscode-button-secondaryForeground: #3b3b3b;
+  --vscode-button-secondaryHoverBackground: #cccccc;
+
+  --vscode-input-background: #ffffff;
+  --vscode-input-foreground: #3b3b3b;
+  --vscode-input-border: #cecece;
+  --vscode-input-placeholderForeground: #767676;
+  --vscode-inputOption-activeBackground: #bed6ed;
+  --vscode-inputOption-activeBorder: #005fb8;
+  --vscode-inputOption-activeForeground: #000000;
+  --vscode-inputOption-hoverBackground: #f2f2f2;
+  --vscode-inputValidation-errorBackground: #f2dede;
+  --vscode-inputValidation-errorBorder: #be1100;
+  --vscode-inputValidation-errorForeground: #3b3b3b;
+  --vscode-inputValidation-warningBackground: #fff8e5;
+  --vscode-inputValidation-warningBorder: #b89500;
+  --vscode-inputValidation-warningForeground: #3b3b3b;
+  --vscode-inputValidation-infoBackground: #d6ecf2;
+  --vscode-inputValidation-infoBorder: #005fb8;
+  --vscode-inputValidation-infoForeground: #3b3b3b;
+
+  --vscode-dropdown-background: #ffffff;
+  --vscode-dropdown-foreground: #3b3b3b;
+  --vscode-dropdown-border: #cecece;
+  --vscode-dropdown-listBackground: #ffffff;
+
+  --vscode-list-activeSelectionBackground: #e8e8e8;
+  --vscode-list-activeSelectionForeground: #000000;
+  --vscode-list-inactiveSelectionBackground: #e5ebf1;
+  --vscode-list-inactiveSelectionForeground: #3b3b3b;
+  --vscode-list-hoverBackground: #f2f2f2;
+  --vscode-list-hoverForeground: #3b3b3b;
+  --vscode-list-focusBackground: #005fb8;
+  --vscode-list-focusForeground: #ffffff;
+  --vscode-list-focusOutline: #005fb8;
+
+  --vscode-menu-background: #ffffff;
+  --vscode-menu-foreground: #3b3b3b;
+  --vscode-menu-selectionBackground: #005fb8;
+  --vscode-menu-selectionForeground: #ffffff;
+  --vscode-menu-separatorBackground: #e5e5e5;
+  --vscode-menu-border: #cecece;
+
+  --vscode-badge-background: #cccccc;
+  --vscode-badge-foreground: #3b3b3b;
+  --vscode-textLink-foreground: #005fb8;
+  --vscode-textLink-activeForeground: #005fb8;
+
+  --vscode-tab-activeBackground: #ffffff;
+  --vscode-tab-activeForeground: #3b3b3b;
+  --vscode-tab-inactiveBackground: #f8f8f8;
+  --vscode-tab-inactiveForeground: #868686;
+  --vscode-tab-border: #e5e5e5;
+  --vscode-tab-activeBorderTop: #005fb8;
+
+  --vscode-scrollbarSlider-background: rgba(100, 100, 100, 0.4);
+  --vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+  --vscode-scrollbarSlider-activeBackground: rgba(0, 0, 0, 0.6);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--vscode-editor-background);
+  color: var(--vscode-foreground);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+/*
+ * Matrix cells are for static QA snapshots. Disable live pointer interactions
+ * so real :hover/:focus doesn't conflict with forced state columns.
+ */
+.vsc-matrix-cell button,
+.vsc-matrix-cell input,
+.vsc-matrix-cell textarea,
+.vsc-matrix-cell [role='combobox'] {
+  pointer-events: none !important;
+}
+
+/*
+ * Force-hover visualization for the playground state matrix.
+ * Mirrors the `:hover` rules defined in each appearance's makeStyles block,
+ * so a static "Hover" column shows the same visuals without real pointer hover.
+ *
+ * The :not() guards exclude SplitButton internal buttons — they are handled
+ * by separate rules further down.
+ */
+.vsc-force-hover
+  button[data-appearance='primary']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: var(--vscode-button-hoverBackground) !important;
+  color: var(--vscode-button-foreground) !important;
+}
+.vsc-force-hover
+  button:not([data-appearance]):not(.fui-SplitButton__primaryActionButton):not(
+    .fui-SplitButton__menuButton
+  ):not(.fui-Tab),
+.vsc-force-hover
+  button[data-appearance='secondary']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton):not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+}
+.vsc-force-hover
+  button[data-appearance='outline']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  button[data-appearance='subtle']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+  border-color: var(--vscode-button-border) !important;
+}
+.vsc-force-hover
+  button[data-appearance='transparent']:not(
+    .fui-SplitButton__primaryActionButton
+  ):not(.fui-SplitButton__menuButton) {
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
+}
+
+/*
+ * Force-hover for inputs/textareas/dropdowns/searchbox: VS Code form widgets
+ * keep the same border on hover, so just nudge the border-color toward the
+ * normal input border for visual consistency.
+ * 
+ * Note: Do NOT apply blanket border-color override here. Validation states
+ * are applied by the component's CSS-in-JS, which includes :hover rules that
+ * preserve validation border colors. The component handles all cases.
+ */
+
+/*
+ * Force-focus for inputs/textareas/dropdowns/searchbox: paint the focus
+ * border statically so the "Focus" column reflects what the component would
+ * look like with keyboard focus.
+ */
+.vsc-force-focus .fui-Input,
+.vsc-force-focus .fui-Textarea,
+.vsc-force-focus .fui-Combobox,
+.vsc-force-focus .fui-Dropdown,
+.vsc-force-focus .fui-SearchBox,
+.vsc-force-focus button[role='combobox'] {
+  border-color: var(--vscode-focusBorder) !important;
+  outline: 1px solid var(--vscode-focusBorder) !important;
+  outline-offset: -1px !important;
+}
+
+/*
+ * Force-selected for form controls: mirrors an active/selected surface using
+ * VS Code input-option active tokens so selected columns are clearly visible.
+ */
+.vsc-force-selected .fui-Input,
+.vsc-force-selected .fui-Textarea,
+.vsc-force-selected .fui-Combobox,
+.vsc-force-selected .fui-Dropdown,
+.vsc-force-selected .fui-SearchBox,
+.vsc-force-selected button[role='combobox'] {
+  border-color: var(--vscode-inputOption-activeBorder) !important;
+  background-color: var(--vscode-inputOption-activeBackground) !important;
+}
+
+/*
+ * Force-hover/selected for listbox options in playground matrix.
+ * Keep hover and selected distinct: hover uses hover tokens, selected uses
+ * inactive-selection tokens.
+ */
+.vsc-force-hover
+  .fui-Option:not([aria-selected='true']):not([aria-checked='true']) {
+  background-color: var(--vscode-list-hoverBackground) !important;
+  color: var(
+    --vscode-list-hoverForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+.vsc-force-selected .fui-Option {
+  background-color: var(
+    --vscode-list-inactiveSelectionBackground,
+    var(--vscode-list-hoverBackground)
+  ) !important;
+  color: var(
+    --vscode-list-inactiveSelectionForeground,
+    var(--vscode-input-foreground)
+  ) !important;
+}
+
+/*
+ * Force-hover for SplitButton: apply hover background to both the primary
+ * action and menu (chevron) buttons so the whole component looks hovered.
+ */
+.vsc-force-hover
+  [data-appearance='primary']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='primary'] .fui-SplitButton__menuButton {
+  background-color: var(--vscode-button-hoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='secondary']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='secondary'] .fui-SplitButton__menuButton,
+.vsc-force-hover :not([data-appearance]) .fui-SplitButton__primaryActionButton,
+.vsc-force-hover :not([data-appearance]) .fui-SplitButton__menuButton {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='outline']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='outline'] .fui-SplitButton__menuButton,
+.vsc-force-hover
+  [data-appearance='subtle']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='subtle'] .fui-SplitButton__menuButton {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='subtle']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='subtle'] .fui-SplitButton__menuButton {
+  border-color: var(--vscode-button-border) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='transparent']
+  .fui-SplitButton__primaryActionButton,
+.vsc-force-hover [data-appearance='transparent'] .fui-SplitButton__menuButton {
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
+}
+
+/* Force-hover for MenuButton: same treatment as regular buttons per appearance.
+ * Use :not(.fui-SplitButton) to avoid also matching SplitButton wrappers.
+ * Use :not(.fui-Tab) to avoid matching tabs (which have their own styling).
+ */
+.vsc-force-hover
+  [data-appearance='primary']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-hoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='secondary']:not(.fui-SplitButton)
+  > button:not(.fui-Tab),
+.vsc-force-hover
+  :not([data-appearance]):not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+}
+.vsc-force-hover
+  [data-appearance='outline']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='subtle']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: var(--vscode-button-secondaryHoverBackground) !important;
+  border-color: var(--vscode-button-border) !important;
+}
+
+.vsc-force-hover
+  [data-appearance='subtle']:not(.fui-SplitButton)
+  > button:not(.fui-Tab):active,
+.fui-Button[data-appearance='subtle']:active .fui-Button__icon,
+.fui-MenuButton[data-appearance='subtle']:active .fui-Button__icon,
+.fui-MenuButton[data-appearance='subtle']:active .fui-MenuButton__menuIcon {
+  color: var(--vscode-button-secondaryForeground) !important;
+}
+.vsc-force-hover
+  [data-appearance='transparent']:not(.fui-SplitButton)
+  > button:not(.fui-Tab) {
+  background-color: transparent !important;
+  color: var(--vscode-textLink-foreground) !important;
+}
+
+/*
+ * Force-hover for tabs: VscTab :hover - only text color changes to active foreground.
+ */
+.vsc-force-hover.fui-Tab,
+.vsc-force-hover .fui-Tab {
+  color: var(--vscode-tab-activeForeground) !important;
+  background-color: transparent !important;
+}
+
+.vsc-force-hover.fui-Tab .fui-Tab__icon,
+.vsc-force-hover .fui-Tab .fui-Tab__icon {
+  color: var(--vscode-tab-activeForeground) !important;
+}
+
+.vsc-force-hover.fui-Tab .fui-Tab__content,
+.vsc-force-hover .fui-Tab .fui-Tab__content {
+  color: var(--vscode-tab-activeForeground) !important;
+}
+.vsc-force-hover.fui-Tab::before,
+.vsc-force-hover .fui-Tab::before {
+  content: "" !important;
+  position: absolute !important;
+  background-color: var(--colorNeutralStroke1Hover) !important;
+  border-radius: var(--borderRadiusCircular, 9999px) !important;
+}

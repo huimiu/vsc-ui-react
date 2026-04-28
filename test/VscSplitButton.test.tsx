@@ -2,7 +2,6 @@ import React, { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { VscSplitButton } from '../src';
-import buttonStyles from '../src/components/Button/button.module.scss';
 
 describe('VscSplitButton', () => {
   it('renders with children text', () => {
@@ -13,86 +12,112 @@ describe('VscSplitButton', () => {
     expect(buttons[0]).toHaveTextContent('Split');
   });
 
-  it('applies primary split appearance class', () => {
-    const { container } = render(
+  it('produces distinct classes for primary vs secondary appearance', () => {
+    const { container: primaryContainer } = render(
       <VscSplitButton appearance="primary">Primary</VscSplitButton>,
     );
+    const { container: secondaryContainer } = render(
+      <VscSplitButton appearance="secondary">Secondary</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodePrimarySplit);
+    const primaryWrapper = primaryContainer.firstElementChild!;
+    const secondaryWrapper = secondaryContainer.firstElementChild!;
+    expect(primaryWrapper.className).not.toBe(secondaryWrapper.className);
   });
 
-  it('applies secondary split appearance class by default', () => {
-    const { container } = render(<VscSplitButton>Default</VscSplitButton>);
+  it('applies secondary split appearance by default', () => {
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: secondaryContainer } = render(
+      <VscSplitButton appearance="secondary">Secondary</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeSecondarySplit);
+    const defaultWrapper = defaultContainer.firstElementChild!;
+    const secondaryWrapper = secondaryContainer.firstElementChild!;
+    expect(defaultWrapper.className).toBe(secondaryWrapper.className);
   });
 
-  it('applies outline split appearance class', () => {
-    const { container } = render(
+  it('produces distinct classes for outline appearance', () => {
+    const { container: outlineContainer } = render(
       <VscSplitButton appearance="outline">Outline</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeOutlineSplit);
+    expect(outlineContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('applies subtle split appearance class', () => {
-    const { container } = render(
+  it('produces distinct classes for subtle appearance', () => {
+    const { container: subtleContainer } = render(
       <VscSplitButton appearance="subtle">Subtle</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeSubtleSplit);
+    expect(subtleContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('applies transparent split appearance class', () => {
-    const { container } = render(
+  it('produces distinct classes for transparent appearance', () => {
+    const { container: transparentContainer } = render(
       <VscSplitButton appearance="transparent">Transparent</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeTransparentSplit);
+    expect(transparentContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('applies small size class', () => {
-    const { container } = render(
+  it('produces distinct classes for small size', () => {
+    const { container: smallContainer } = render(
       <VscSplitButton size="small">Small</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeSmallSplit);
+    expect(smallContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('applies compact size class', () => {
-    const { container } = render(
+  it('produces distinct classes for compact size', () => {
+    const { container: compactContainer } = render(
       <VscSplitButton size="compact">Compact</VscSplitButton>,
     );
+    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeCompactSplit);
+    expect(compactContainer.firstElementChild!.className).not.toBe(
+      defaultContainer.firstElementChild!.className,
+    );
   });
 
-  it('applies icon-only split class when icon provided without children', () => {
-    const { container } = render(
+  it('produces distinct classes for icon-only vs text', () => {
+    const { container: iconOnlyContainer } = render(
       <VscSplitButton icon={<span aria-hidden="true">*</span>} />,
     );
+    const { container: textContainer } = render(<VscSplitButton>Text</VscSplitButton>);
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodeIconOnlySplit);
+    expect(iconOnlyContainer.firstElementChild!.className).not.toBe(
+      textContainer.firstElementChild!.className,
+    );
   });
 
-  it('does not apply icon-only split class when children are present', () => {
-    const { container } = render(
+  it('does not apply icon-only classes when children are present', () => {
+    const { container: withTextContainer } = render(
       <VscSplitButton icon={<span>ico</span>}>With Text</VscSplitButton>,
     );
+    const { container: textOnlyContainer } = render(
+      <VscSplitButton>With Text</VscSplitButton>,
+    );
 
-    const wrapper = container.firstElementChild!;
-    expect(wrapper.className).not.toContain(buttonStyles.vscodeIconOnlySplit);
+    // When children are present, icon-only classes should not apply,
+    // so the class output should match a text-only button
+    expect(withTextContainer.firstElementChild!.className).toBe(
+      textOnlyContainer.firstElementChild!.className,
+    );
   });
 
-  it('merges custom className with split classes', () => {
+  it('merges custom className with generated classes', () => {
     const { container } = render(
       <VscSplitButton appearance="primary" className="custom-class">
         Merge
@@ -100,7 +125,6 @@ describe('VscSplitButton', () => {
     );
 
     const wrapper = container.firstElementChild!;
-    expect(wrapper.className).toContain(buttonStyles.vscodePrimarySplit);
     expect(wrapper.className).toContain('custom-class');
   });
 

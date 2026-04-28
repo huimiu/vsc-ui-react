@@ -3,7 +3,6 @@ import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscSearchBox } from '../src';
-import styles from '../src/components/SearchBox/searchbox.module.scss';
 
 const wrapper = ({ children }: { children: React.ReactNode }) => (
   <FluentProvider theme={webLightTheme}>{children}</FluentProvider>
@@ -11,13 +10,13 @@ const wrapper = ({ children }: { children: React.ReactNode }) => (
 
 describe('VscSearchBox', () => {
   it('renders a search input', () => {
-    render(<VscSearchBox />, { wrapper });
-    expect(screen.getByRole('searchbox')).toBeInTheDocument();
+    const { container } = render(<VscSearchBox />, { wrapper });
+    expect(container.querySelector('input')).toBeInTheDocument();
   });
 
-  it('applies vscBase class', () => {
+  it('applies style classes to root', () => {
     const { container } = render(<VscSearchBox />, { wrapper });
-    expect(container.querySelector(`.${styles.vscBase}`)).toBeTruthy();
+    expect(container.querySelector('.fui-Input')).toBeTruthy();
   });
 
   it('forwards ref', () => {
@@ -26,26 +25,29 @@ describe('VscSearchBox', () => {
     expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 
-  it('applies medium size class', () => {
-    const { container } = render(<VscSearchBox size="medium" />, { wrapper });
-    expect(container.querySelector(`.${styles.vscMedium}`)).toBeTruthy();
+  it('produces distinct classes for medium size', () => {
+    const { container: mediumContainer } = render(<VscSearchBox size="medium" />, { wrapper });
+    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const mediumRoot = mediumContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(mediumRoot.className).not.toBe(defaultRoot.className);
   });
 
-  it('applies large size class', () => {
-    const { container } = render(<VscSearchBox size="large" />, { wrapper });
-    expect(container.querySelector(`.${styles.vscLarge}`)).toBeTruthy();
+  it('produces distinct classes for large size', () => {
+    const { container: largeContainer } = render(<VscSearchBox size="large" />, { wrapper });
+    const { container: defaultContainer } = render(<VscSearchBox />, { wrapper });
+    const largeRoot = largeContainer.querySelector('.fui-Input')!;
+    const defaultRoot = defaultContainer.querySelector('.fui-Input')!;
+    expect(largeRoot.className).not.toBe(defaultRoot.className);
   });
 
   it('renders disabled state', () => {
     const { container } = render(<VscSearchBox disabled />, { wrapper });
-    expect(container.querySelector(`.${styles.vscDisabled}`)).toBeTruthy();
+    expect(container.querySelector('input')).toBeDisabled();
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscSearchBox className="custom" />, {
-      wrapper,
-    });
-    const root = container.querySelector(`.${styles.vscBase}`);
-    expect(root?.className).toContain('custom');
+    const { container } = render(<VscSearchBox className="custom" />, { wrapper });
+    expect(container.querySelector('.custom')).toBeTruthy();
   });
 });
