@@ -32,7 +32,7 @@ const useDropdownBaseStyles = makeStyles({
     transition: 'none',
 
     '::after': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-Dropdown__button': {
@@ -68,7 +68,7 @@ const useDropdownBaseStyles = makeStyles({
     },
 
     '& .fui-Dropdown__expandIcon svg': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-Dropdown__expandIcon.fui-Dropdown__expandIcon::after': {
@@ -112,7 +112,7 @@ const useDropdownStyles = makeStyles({
       cursor: 'default',
     },
     '& .fui-Dropdown__expandIcon': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
   },
 
@@ -219,7 +219,7 @@ const useComboboxBaseStyles = makeStyles({
     transition: 'none',
 
     '::after': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-Combobox__input': {
@@ -255,7 +255,7 @@ const useComboboxBaseStyles = makeStyles({
     },
 
     '& .fui-Combobox__expandIcon svg': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-Combobox__expandIcon.fui-Combobox__expandIcon::after': {
@@ -299,7 +299,7 @@ const useComboboxStyles = makeStyles({
       cursor: 'default',
     },
     '& .fui-Combobox__expandIcon': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
   },
 
@@ -386,7 +386,7 @@ const useListboxBaseStyles = makeStyles({
 const useListboxStyles = makeStyles({
   selectionIndicatorNone: {
     '& .fui-Option__checkIcon': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
   },
 });
@@ -516,7 +516,7 @@ const useOptionStyles = makeStyles({
 const useOptionGroupBaseStyles = makeStyles({
   root: {
     '&::after, &.fui-OptionGroup::after': {
-      display: 'none' as 'none',
+      display: 'none' as const,
       borderBottom: 'none',
       content: 'none',
     },

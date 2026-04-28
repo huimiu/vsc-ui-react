@@ -62,7 +62,7 @@ const useMenuItemBaseStyles = makeStyles({
     cursor: 'pointer',
 
     '::after': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-MenuItem__icon': {
@@ -107,7 +107,7 @@ const useMenuItemBaseStyles = makeStyles({
     },
 
     '& .fui-MenuItem__submenuIndicator svg': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-MenuItem__submenuIndicator::after': {

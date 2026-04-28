@@ -168,22 +168,6 @@ const SPLIT_COMBINED_COLUMNS = BUTTON_SIZE_LABELS.flatMap((sizeLabel) =>
   })),
 );
 
-const INPUT_COLUMNS = [
-  { key: 'default', label: 'Default' },
-  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
-  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
-  { key: 'disabled', label: 'Disabled' },
-];
-
-const FORM_STATE_COLUMNS = [
-  { key: 'default', label: 'Default' },
-  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
-  { key: 'selected', label: 'Selected', className: 'vsc-force-selected' },
-  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
-  { key: 'readonly', label: 'Readonly' },
-  { key: 'disabled', label: 'Disabled' },
-];
-
 const FORM_STATE_COLUMNS_NO_SELECTED = [
   { key: 'default', label: 'Default' },
   { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
@@ -219,9 +203,6 @@ const CONTROL_SIZE_ROWS = [
 ];
 
 type Appearance = 'primary' | 'outline' | 'subtle' | 'transparent' | undefined;
-function appearanceFor(rowKey: string): Appearance {
-  return rowKey === 'secondary' ? undefined : (rowKey as Appearance);
-}
 
 function validationFor(rowKey: string): VscValidationState | undefined {
   return rowKey === 'none' ? undefined : (rowKey as VscValidationState);

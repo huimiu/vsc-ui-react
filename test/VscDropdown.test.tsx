@@ -131,7 +131,7 @@ describe('VscOption', () => {
   });
 
   it('applies style classes to option', () => {
-    const { container } = render(
+    render(
       <VscListbox>
         <VscOption text="X">X</VscOption>
       </VscListbox>,

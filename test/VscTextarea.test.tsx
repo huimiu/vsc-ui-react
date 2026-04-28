@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { FluentProvider, webLightTheme } from '@fluentui/react-components';
 import { VscTextarea } from '../src';
@@ -26,8 +26,13 @@ describe('VscTextarea', () => {
   });
 
   it('produces distinct classes for error validation state', () => {
-    const { container: errorContainer } = render(<VscTextarea validationState="error" />, { wrapper });
-    const { container: defaultContainer } = render(<VscTextarea />, { wrapper });
+    const { container: errorContainer } = render(
+      <VscTextarea validationState="error" />,
+      { wrapper },
+    );
+    const { container: defaultContainer } = render(<VscTextarea />, {
+      wrapper,
+    });
     const errorRoot = errorContainer.querySelector('.fui-Textarea')!;
     const defaultRoot = defaultContainer.querySelector('.fui-Textarea')!;
     expect(errorRoot.className).not.toBe(defaultRoot.className);
@@ -39,7 +44,9 @@ describe('VscTextarea', () => {
   });
 
   it('merges custom className', () => {
-    const { container } = render(<VscTextarea className="custom" />, { wrapper });
+    const { container } = render(<VscTextarea className="custom" />, {
+      wrapper,
+    });
     expect(container.querySelector('.custom')).toBeTruthy();
   });
 
@@ -50,7 +57,9 @@ describe('VscTextarea', () => {
   });
 
   it('applies resize="vertical" to the underlying textarea', () => {
-    const { container } = render(<VscTextarea resize="vertical" />, { wrapper });
+    const { container } = render(<VscTextarea resize="vertical" />, {
+      wrapper,
+    });
     const textarea = container.querySelector('textarea')!;
     expect(getComputedStyle(textarea).resize).toBe('vertical');
   });

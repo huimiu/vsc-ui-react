@@ -13,29 +13,29 @@ const useTabListBaseStyles = makeStyles({
 
     /* Horizontal indicator — inset 8px from tab edges */
     '&:not([aria-orientation="vertical"]) [role="tab"]::after': {
-      position: 'absolute' as 'absolute',
-      left: '8px' as '8px',
-      right: '8px' as '8px',
-      bottom: '0' as '0',
-      top: 'auto' as 'auto',
+      position: 'absolute' as const,
+      left: '8px' as const,
+      right: '8px' as const,
+      bottom: '0' as const,
+      top: 'auto' as const,
     },
 
     /* Vertical indicator — on the left edge */
     '&[aria-orientation="vertical"] [role="tab"][aria-selected="true"]::after':
       {
-        content: '""' as '""',
-        display: 'block' as 'block',
-        position: 'absolute' as 'absolute',
-        left: '0' as '0',
-        top: '25%' as '25%',
-        bottom: '25%' as '25%',
-        width: '2px' as '2px',
-        height: 'auto' as 'auto',
-        right: 'auto' as 'auto',
+        content: '""' as const,
+        display: 'block' as const,
+        position: 'absolute' as const,
+        left: '0' as const,
+        top: '25%' as const,
+        bottom: '25%' as const,
+        width: '2px' as const,
+        height: 'auto' as const,
+        right: 'auto' as const,
         backgroundColor: 'var(--vscode-tab-activeBorderTop)' as 'inherit',
         borderRadius: 'var(--borderRadiusCircular, 9999px)' as '0',
-        opacity: '1' as '1',
-        transform: 'none' as 'none',
+        opacity: '1' as const,
+        transform: 'none' as const,
       },
   },
 });
@@ -45,12 +45,12 @@ const useTabListSizeStyles = makeStyles({
     '& [role="tab"]': {
       height: '22px',
       minHeight: '22px',
-      padding: '4px 6px' as '4px 6px',
-      columnGap: '2px' as '2px',
+      padding: '4px 6px' as const,
+      columnGap: '2px' as const,
     },
     '& [role="tab"]::after': {
-      left: '6px' as '6px',
-      right: '6px' as '6px',
+      left: '6px' as const,
+      right: '6px' as const,
     },
     '& [role="tab"] .fui-Tab__content': {
       fontSize: 'var(--fontSizeBase200, 12px)',
@@ -65,13 +65,13 @@ const useTabListSizeStyles = makeStyles({
       padding: '0 2px',
     },
     '& [role="tab"] .fui-Tab__icon': {
-      fontSize: '16px' as '16px',
-      width: '16px' as '16px',
-      height: '16px' as '16px',
+      fontSize: '16px' as const,
+      width: '16px' as const,
+      height: '16px' as const,
     },
     '& [role="tab"] .fui-Tab__icon > svg': {
-      width: '16px' as '16px',
-      height: '16px' as '16px',
+      width: '16px' as const,
+      height: '16px' as const,
     },
     '& [role="tab"][aria-selected=\'true\'] .fui-Tab__content': {
       fontWeight: 'var(--fontWeightSemibold, 600)' as unknown as number,
@@ -90,13 +90,13 @@ const useTabBaseStyles = makeStyles({
     minHeight: '28px',
     boxSizing: 'border-box',
     color: 'var(--vscode-tab-inactiveForeground)',
-    padding: '4px 8px' as '4px 8px',
+    padding: '4px 8px' as const,
     borderRadius: '0',
     backgroundColor: 'transparent',
     border: 'none',
     cursor: 'pointer',
-    columnGap: '2px' as '2px',
-    alignItems: 'center' as 'center',
+    columnGap: '2px' as const,
+    alignItems: 'center' as const,
     transition: 'none',
 
     '::after': {
@@ -119,14 +119,14 @@ const useTabBaseStyles = makeStyles({
     },
 
     '& .fui-Tab__icon': {
-      fontSize: '20px' as '20px',
-      width: '20px' as '20px',
-      height: '20px' as '20px',
+      fontSize: '20px' as const,
+      width: '20px' as const,
+      height: '20px' as const,
     },
 
     '& .fui-Tab__icon > svg': {
-      width: '20px' as '20px',
-      height: '20px' as '20px',
+      width: '20px' as const,
+      height: '20px' as const,
     },
 
     ':hover': {

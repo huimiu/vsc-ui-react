@@ -24,7 +24,7 @@ const useBaseStyles = makeStyles({
     transition: 'none',
 
     '::after': {
-      display: 'none' as 'none',
+      display: 'none' as const,
     },
 
     '& .fui-Input__input': {
