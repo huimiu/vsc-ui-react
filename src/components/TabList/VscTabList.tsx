@@ -14,14 +14,7 @@ export const VscTabList = forwardRef<HTMLDivElement, VscTabListProps>(
   ({ className, size = 'medium', ...rest }, ref) => {
     const mergedClass = useVscTabListStyles({ size, className });
 
-    return (
-      <TabList
-        ref={ref}
-        className={mergedClass}
-        size={size}
-        {...rest}
-      />
-    );
+    return <TabList ref={ref} className={mergedClass} size={size} {...rest} />;
   },
 );
 
@@ -33,9 +26,7 @@ export const VscTab = forwardRef<HTMLButtonElement, VscTabProps>(
   ({ className, ...rest }, ref) => {
     const mergedClass = useVscTabStyles(className);
 
-    return (
-      <Tab ref={ref} className={mergedClass} {...rest} />
-    );
+    return <Tab ref={ref} className={mergedClass} {...rest} />;
   },
 );
 

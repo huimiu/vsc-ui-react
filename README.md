@@ -8,8 +8,6 @@ VS Code styled Fluent UI components for React. Wraps Fluent UI v9 components and
 npm install vsc-ui-react
 ```
 
-> `@fluentui/react-components`, `react`, and `react-dom` are peer dependencies and will be installed automatically (npm v7+).
-
 ## Usage
 
 ```tsx
@@ -17,7 +15,7 @@ import { VscButton } from 'vsc-ui-react';
 
 export function Example() {
   return (
-    <VscButton appearance="primary" compact>
+    <VscButton appearance="primary" size="compact">
       Save
     </VscButton>
   );
@@ -26,7 +24,62 @@ export function Example() {
 
 ## Components
 
-- `VscButton` — VS Code styled button
+### Button
+
+| Component        | Description                                         |
+| ---------------- | --------------------------------------------------- |
+| `VscButton`      | Standard button with VS Code styling                |
+| `VscSplitButton` | Button with a primary action and a dropdown trigger |
+| `VscMenuButton`  | Button that opens a menu                            |
+
+### Input & Textarea
+
+| Component      | Description                                       |
+| -------------- | ------------------------------------------------- |
+| `VscInput`     | Text input with validation state and icon support |
+| `VscTextarea`  | Multi-line text input                             |
+| `VscSearchBox` | Search-specific input with built-in icon styling  |
+
+### Field
+
+| Component  | Description                                                             |
+| ---------- | ----------------------------------------------------------------------- |
+| `VscField` | Wrapper providing label, validation message, and hint for form controls |
+
+### Dropdown / Combobox / Listbox
+
+| Component               | Description                                   |
+| ----------------------- | --------------------------------------------- |
+| `VscDropdown`           | Select-style dropdown                         |
+| `VscCombobox`           | Editable combobox with filtering              |
+| `VscListbox`            | Inline listbox                                |
+| `VscOption`             | Option item                                   |
+| `VscOptionGroup`        | Grouped options                               |
+| `VscTriggerLabel`       | Label portion inside a dropdown trigger       |
+| `VscTriggerDescription` | Description portion inside a dropdown trigger |
+| `VscOptionSeparator`    | Visual separator between options              |
+
+### Menu
+
+| Component             | Description             |
+| --------------------- | ----------------------- |
+| `VscMenuPopover`      | Menu popover container  |
+| `VscMenuList`         | Menu list wrapper       |
+| `VscMenuItem`         | Standard menu item      |
+| `VscMenuItemCheckbox` | Checkbox menu item      |
+| `VscMenuItemRadio`    | Radio menu item         |
+| `VscMenuDivider`      | Menu divider            |
+| `VscMenuGroup`        | Grouped menu items      |
+| `VscMenuGroupHeader`  | Header for a menu group |
+
+Also re-exports `Menu`, `MenuTrigger`, and `MenuSplitGroup` from Fluent UI for convenience.
+
+### TabList
+
+| Component    | Description         |
+| ------------ | ------------------- |
+| `VscTabList` | Tab strip container |
+| `VscTab`     | Individual tab      |
 
 ## Contributing
 

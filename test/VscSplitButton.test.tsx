@@ -26,7 +26,9 @@ describe('VscSplitButton', () => {
   });
 
   it('applies secondary split appearance by default', () => {
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
     const { container: secondaryContainer } = render(
       <VscSplitButton appearance="secondary">Secondary</VscSplitButton>,
     );
@@ -40,7 +42,9 @@ describe('VscSplitButton', () => {
     const { container: outlineContainer } = render(
       <VscSplitButton appearance="outline">Outline</VscSplitButton>,
     );
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
 
     expect(outlineContainer.firstElementChild!.className).not.toBe(
       defaultContainer.firstElementChild!.className,
@@ -51,7 +55,9 @@ describe('VscSplitButton', () => {
     const { container: subtleContainer } = render(
       <VscSplitButton appearance="subtle">Subtle</VscSplitButton>,
     );
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
 
     expect(subtleContainer.firstElementChild!.className).not.toBe(
       defaultContainer.firstElementChild!.className,
@@ -62,7 +68,9 @@ describe('VscSplitButton', () => {
     const { container: transparentContainer } = render(
       <VscSplitButton appearance="transparent">Transparent</VscSplitButton>,
     );
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
 
     expect(transparentContainer.firstElementChild!.className).not.toBe(
       defaultContainer.firstElementChild!.className,
@@ -73,7 +81,9 @@ describe('VscSplitButton', () => {
     const { container: smallContainer } = render(
       <VscSplitButton size="small">Small</VscSplitButton>,
     );
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
 
     expect(smallContainer.firstElementChild!.className).not.toBe(
       defaultContainer.firstElementChild!.className,
@@ -84,7 +94,9 @@ describe('VscSplitButton', () => {
     const { container: compactContainer } = render(
       <VscSplitButton size="compact">Compact</VscSplitButton>,
     );
-    const { container: defaultContainer } = render(<VscSplitButton>Default</VscSplitButton>);
+    const { container: defaultContainer } = render(
+      <VscSplitButton>Default</VscSplitButton>,
+    );
 
     expect(compactContainer.firstElementChild!.className).not.toBe(
       defaultContainer.firstElementChild!.className,
@@ -95,7 +107,9 @@ describe('VscSplitButton', () => {
     const { container: iconOnlyContainer } = render(
       <VscSplitButton icon={<span aria-hidden="true">*</span>} />,
     );
-    const { container: textContainer } = render(<VscSplitButton>Text</VscSplitButton>);
+    const { container: textContainer } = render(
+      <VscSplitButton>Text</VscSplitButton>,
+    );
 
     expect(iconOnlyContainer.firstElementChild!.className).not.toBe(
       textContainer.firstElementChild!.className,

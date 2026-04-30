@@ -92,7 +92,9 @@ describe('VscTabList', () => {
       </VscTabList>,
       { wrapper },
     );
-    const selectedTab = container.querySelector('[role="tab"][aria-selected="true"]');
+    const selectedTab = container.querySelector(
+      '[role="tab"][aria-selected="true"]',
+    );
     expect(selectedTab).toBeTruthy();
   });
 });

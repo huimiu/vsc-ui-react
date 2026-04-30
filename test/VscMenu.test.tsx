@@ -71,9 +71,7 @@ describe('VscMenuItem', () => {
       </Menu>,
       { wrapper },
     );
-    expect(
-      baseElement.querySelector('[role="menuitem"]'),
-    ).toBeTruthy();
+    expect(baseElement.querySelector('[role="menuitem"]')).toBeTruthy();
   });
 
   it('renders with accent prop', () => {
@@ -90,7 +88,9 @@ describe('VscMenuItem', () => {
       </Menu>,
       { wrapper },
     );
-    expect(screen.getByRole('menuitem', { name: 'Accent' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Accent' }),
+    ).toBeInTheDocument();
   });
 
   it('renders with indented prop', () => {
@@ -107,7 +107,9 @@ describe('VscMenuItem', () => {
       </Menu>,
       { wrapper },
     );
-    expect(screen.getByRole('menuitem', { name: 'Indented' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('menuitem', { name: 'Indented' }),
+    ).toBeInTheDocument();
   });
 });
 

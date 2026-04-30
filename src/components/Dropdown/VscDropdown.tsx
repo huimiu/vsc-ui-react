@@ -185,13 +185,7 @@ export const VscListbox = forwardRef<HTMLDivElement, VscListboxProps>(
   ({ className, selectionIndicator = 'none', ...rest }, ref) => {
     const mergedClass = useVscListboxStyles({ selectionIndicator, className });
 
-    return (
-      <Listbox
-        ref={ref}
-        className={mergedClass}
-        {...rest}
-      />
-    );
+    return <Listbox ref={ref} className={mergedClass} {...rest} />;
   },
 );
 VscListbox.displayName = 'VscListbox';
@@ -270,13 +264,7 @@ export const VscOptionGroup = forwardRef<HTMLDivElement, VscOptionGroupProps>(
   ({ className, ...rest }, ref) => {
     const mergedClass = useVscOptionGroupStyles(className);
 
-    return (
-      <OptionGroup
-        ref={ref}
-        className={mergedClass}
-        {...rest}
-      />
-    );
+    return <OptionGroup ref={ref} className={mergedClass} {...rest} />;
   },
 );
 VscOptionGroup.displayName = 'VscOptionGroup';

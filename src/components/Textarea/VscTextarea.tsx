@@ -18,7 +18,10 @@ export type VscTextareaProps = TextareaProps & {
 };
 
 export const VscTextarea = forwardRef<HTMLTextAreaElement, VscTextareaProps>(
-  ({ validationState, resize, className, disabled, readOnly, ...rest }, ref) => {
+  (
+    { validationState, resize, className, disabled, readOnly, ...rest },
+    ref,
+  ) => {
     const mergedClass = useTextareaStyles({
       validationState,
       resize,
