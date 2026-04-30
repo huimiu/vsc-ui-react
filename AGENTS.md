@@ -232,7 +232,7 @@ This ensures all code committed to the repo is lint-clean, well-formatted, type-
 | UI framework      | React 18/19                                                       |
 | Component library | Fluent UI React v9 (`@fluentui/react-components`)                 |
 | CSS-in-JS         | Griffel (via Fluent's `makeStyles`, `mergeClasses`, `shorthands`) |
-| Icons             | `@fluentui/react-icons`                                           |
+| Icons             | Codicon (`@vscode/codicons`) preferred, fallback to `@fluentui/react-icons` |
 | Build             | Vite (library mode) + TypeScript declaration emit                 |
 | Test              | Vitest + happy-dom + @testing-library/react + jest-dom            |
 | Lint              | ESLint 9 flat config + Prettier                                   |
