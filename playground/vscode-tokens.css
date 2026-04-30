@@ -444,7 +444,7 @@ body {
 }
 .vsc-force-hover.fui-Tab::before,
 .vsc-force-hover .fui-Tab::before {
-  content: "" !important;
+  content: '' !important;
   position: absolute !important;
   background-color: var(--colorNeutralStroke1Hover) !important;
   border-radius: var(--borderRadiusCircular, 9999px) !important;

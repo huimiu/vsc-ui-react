@@ -70,8 +70,20 @@ export interface VscMenuItemProps extends MenuItemProps {
 
 export const VscMenuItem = forwardRef<HTMLDivElement, VscMenuItemProps>(
   ({ accent, indented, className, disabled, ...rest }, ref) => {
-    const mergedClass = useVscMenuItemStyles({ accent, indented, disabled, className });
-    return <MenuItem ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+    const mergedClass = useVscMenuItemStyles({
+      accent,
+      indented,
+      disabled,
+      className,
+    });
+    return (
+      <MenuItem
+        ref={ref}
+        disabled={disabled}
+        className={mergedClass}
+        {...rest}
+      />
+    );
   },
 );
 VscMenuItem.displayName = 'VscMenuItem';
@@ -87,7 +99,14 @@ export const VscMenuItemCheckbox = forwardRef<
   VscMenuItemCheckboxProps
 >(({ className, disabled, ...rest }, ref) => {
   const mergedClass = useVscMenuItemCheckboxStyles({ disabled, className });
-  return <MenuItemCheckbox ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+  return (
+    <MenuItemCheckbox
+      ref={ref}
+      disabled={disabled}
+      className={mergedClass}
+      {...rest}
+    />
+  );
 });
 VscMenuItemCheckbox.displayName = 'VscMenuItemCheckbox';
 
@@ -102,7 +121,14 @@ export const VscMenuItemRadio = forwardRef<
   VscMenuItemRadioProps
 >(({ className, disabled, ...rest }, ref) => {
   const mergedClass = useVscMenuItemRadioStyles({ disabled, className });
-  return <MenuItemRadio ref={ref} disabled={disabled} className={mergedClass} {...rest} />;
+  return (
+    <MenuItemRadio
+      ref={ref}
+      disabled={disabled}
+      className={mergedClass}
+      {...rest}
+    />
+  );
 });
 VscMenuItemRadio.displayName = 'VscMenuItemRadio';
 

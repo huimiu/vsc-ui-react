@@ -1,10 +1,7 @@
 import { Button, type ButtonProps } from '@fluentui/react-components';
 import { forwardRef } from 'react';
 
-import {
-  useButtonStylesHook,
-  type VscButtonSize,
-} from './useButtonStyles';
+import { useButtonStylesHook, type VscButtonSize } from './useButtonStyles';
 
 export type VscButtonProps = Omit<ButtonProps, 'size'> & {
   size?: VscButtonSize;

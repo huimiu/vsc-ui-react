@@ -16,7 +16,10 @@ export type { VscInputProps } from './components/Input';
 
 // Textarea
 export { VscTextarea } from './components/Textarea';
-export type { VscTextareaProps, VscTextareaResize } from './components/Textarea';
+export type {
+  VscTextareaProps,
+  VscTextareaResize,
+} from './components/Textarea';
 
 // Field
 export { VscField } from './components/Field';

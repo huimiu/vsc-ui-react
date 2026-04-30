@@ -26,7 +26,9 @@ describe('VscButton', () => {
     // Griffel produces dynamic class names; verify the element rendered with classes
     // and the class output differs from a default button
     expect(button.className).toBeTruthy();
-    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const { container: defaultContainer } = render(
+      <VscButton>Default</VscButton>,
+    );
     const defaultButton = defaultContainer.querySelector('button')!;
     expect(button.className).not.toBe(defaultButton.className);
   });
@@ -59,7 +61,9 @@ describe('VscButton', () => {
   });
 
   it('applies secondary appearance by default', () => {
-    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const { container: defaultContainer } = render(
+      <VscButton>Default</VscButton>,
+    );
     const { container: secondaryContainer } = render(
       <VscButton appearance="secondary">Secondary</VscButton>,
     );
@@ -81,8 +85,12 @@ describe('VscButton', () => {
   });
 
   it('produces distinct classes for small vs default size', () => {
-    const { container: smallContainer } = render(<VscButton size="small">Small</VscButton>);
-    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const { container: smallContainer } = render(
+      <VscButton size="small">Small</VscButton>,
+    );
+    const { container: defaultContainer } = render(
+      <VscButton>Default</VscButton>,
+    );
 
     const smallBtn = smallContainer.querySelector('button')!;
     const defaultBtn = defaultContainer.querySelector('button')!;
@@ -90,8 +98,12 @@ describe('VscButton', () => {
   });
 
   it('produces distinct classes for large vs default size', () => {
-    const { container: largeContainer } = render(<VscButton size="large">Large</VscButton>);
-    const { container: defaultContainer } = render(<VscButton>Default</VscButton>);
+    const { container: largeContainer } = render(
+      <VscButton size="large">Large</VscButton>,
+    );
+    const { container: defaultContainer } = render(
+      <VscButton>Default</VscButton>,
+    );
 
     const largeBtn = largeContainer.querySelector('button')!;
     const defaultBtn = defaultContainer.querySelector('button')!;
