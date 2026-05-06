@@ -83,3 +83,7 @@ export type {
 // TabList
 export { VscTabList, VscTab } from './components/TabList';
 export type { VscTabListProps, VscTabProps } from './components/TabList';
+
+// Label
+export { VscLabel } from './components/Label';
+export type { VscLabelProps } from './components/Label';
