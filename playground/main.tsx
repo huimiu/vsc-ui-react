@@ -736,6 +736,66 @@ function MultiSelectListboxPreview({
   );
 }
 
+function TruncateDemo() {
+  const [width, setWidth] = useState(160);
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+        <label style={{ fontSize: 12, whiteSpace: 'nowrap' }}>
+          Width: {width}px
+        </label>
+        <input
+          type="range"
+          min={60}
+          max={400}
+          value={width}
+          onChange={(e) => setWidth(Number(e.target.value))}
+          style={{ flex: 1 }}
+        />
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          gap: 12,
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        <div style={{ width, flexShrink: 0 }}>
+          <p style={{ fontSize: 11, margin: '0 0 4px', opacity: 0.7 }}>
+            truncate (default)
+          </p>
+          <VscDropdown value="A very long option label that should truncate">
+            <VscOption value="long">
+              A very long option label that should truncate
+            </VscOption>
+            <VscOption value="short">Short</VscOption>
+          </VscDropdown>
+        </div>
+        <div
+          style={{
+            width: Math.max(80, Math.floor(width * 0.6)),
+            flexShrink: 0,
+          }}
+        >
+          <p style={{ fontSize: 11, margin: '0 0 4px', opacity: 0.7 }}>
+            narrower
+          </p>
+          <VscDropdown
+            size="small"
+            value="Another long option label that should truncate"
+          >
+            <VscOption value="long">
+              Another long option label that should truncate
+            </VscOption>
+            <VscOption value="short">Short</VscOption>
+          </VscDropdown>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DropdownSection() {
   const listboxRows = [
     { key: 'default', label: 'Default' },
@@ -803,6 +863,13 @@ function DropdownSection() {
           );
         }}
       />
+
+      <h3 style={headerStyle}>Truncate (default: on)</h3>
+      <p style={helperNoteStyle}>
+        Drag the slider to change container width and see how the dropdown text
+        truncates with ellipsis.
+      </p>
+      <TruncateDemo />
 
       <h3 style={headerStyle}>VscListbox / VscOption</h3>
       <Matrix

@@ -84,6 +84,23 @@ describe('VscDropdown', () => {
 
     expect(screen.getByRole('option', { name: 'A' })).toBeInTheDocument();
   });
+
+  it('wraps default trigger text before the expand icon when truncated', () => {
+    const { container } = render(
+      <VscDropdown value="A very long option label that should truncate">
+        <VscOption value="long">
+          A very long option label that should truncate
+        </VscOption>
+      </VscDropdown>,
+      { wrapper },
+    );
+
+    const trigger = container.querySelector('[role="combobox"]')!;
+    expect(trigger.firstElementChild).toHaveTextContent(
+      'A very long option label that should truncate',
+    );
+    expect(trigger.lastElementChild).toHaveClass('fui-Dropdown__expandIcon');
+  });
 });
 
 describe('VscCombobox', () => {

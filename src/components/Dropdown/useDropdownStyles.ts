@@ -24,6 +24,7 @@ const useDropdownBaseStyles = makeStyles({
     fontFamily: vscFontFamily,
     height: '26px',
     minHeight: '26px',
+    minWidth: '0',
     borderRadius: '2px',
     border: '1px solid var(--vscode-dropdown-border)',
     boxShadow: 'none',
@@ -169,6 +170,45 @@ const useDropdownStyles = makeStyles({
       minWidth: '0',
       gap: '0',
     },
+  },
+
+  truncate: {
+    display: 'inline-grid',
+    gridTemplateColumns: 'minmax(0, 1fr)',
+    minWidth: '0',
+    width: '100%',
+    overflow: 'hidden',
+
+    '&.fui-Dropdown .fui-Dropdown__button': {
+      display: 'grid',
+      gridTemplateColumns: 'minmax(0, 1fr) 14px',
+      alignItems: 'center',
+      minWidth: '0',
+      maxWidth: '100%',
+      width: '100%',
+      overflow: 'hidden',
+    },
+
+    '&.fui-Dropdown .fui-Dropdown__expandIcon': {
+      display: 'flex',
+      gridColumn: '2 / 3',
+      flexShrink: 0,
+      justifySelf: 'end',
+      width: '14px',
+      minWidth: '14px',
+    },
+  },
+
+  triggerText: {
+    display: 'block',
+    gridColumn: '1 / 2',
+    justifySelf: 'stretch',
+    minWidth: '0',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap',
   },
 
   error: {
@@ -582,6 +622,7 @@ export interface UseVscDropdownStylesOptions {
   validationState?: VscValidationState;
   readOnly?: boolean;
   withDescription?: boolean;
+  truncate?: boolean;
   selectionIndicator?: VscSelectionIndicator;
   size?: string;
   disabled?: boolean;
@@ -594,6 +635,7 @@ export function useVscDropdownStyles(options: UseVscDropdownStylesOptions) {
     validationState,
     readOnly,
     withDescription,
+    truncate,
     selectionIndicator = 'none',
     size,
     disabled,
@@ -619,6 +661,7 @@ export function useVscDropdownStyles(options: UseVscDropdownStylesOptions) {
       disabled && classes.disabled,
       readOnly && classes.readonly,
       withDescription && classes.withDescription,
+      truncate && classes.truncate,
       className,
     ),
     listboxClassName: mergeClasses(
@@ -626,6 +669,7 @@ export function useVscDropdownStyles(options: UseVscDropdownStylesOptions) {
       selectionIndicator === 'none' && listboxClasses.selectionIndicatorNone,
       listboxClassName,
     ),
+    triggerTextClassName: classes.triggerText,
   };
 }
 

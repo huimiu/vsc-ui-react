@@ -11,7 +11,12 @@ import {
   type OptionGroupProps,
   mergeClasses,
 } from '@fluentui/react-components';
-import { forwardRef, type ReactNode, type HTMLAttributes } from 'react';
+import {
+  forwardRef,
+  isValidElement,
+  type ReactNode,
+  type HTMLAttributes,
+} from 'react';
 
 import type { VscValidationState } from '../../types';
 import {
@@ -32,6 +37,19 @@ function resolveListbox(listbox: unknown): Record<string, unknown> {
   return typeof listbox === 'object' && listbox !== null
     ? (listbox as Record<string, unknown>)
     : {};
+}
+
+/** Normalise Fluent's `button` slot so trigger text can be wrapped safely. */
+function resolveButtonSlot(button: unknown): Record<string, unknown> {
+  if (
+    typeof button === 'object' &&
+    button !== null &&
+    !isValidElement(button)
+  ) {
+    return button as Record<string, unknown>;
+  }
+
+  return button === undefined ? {} : { children: button };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -71,6 +89,12 @@ export type VscDropdownProps = DropdownProps & {
   readOnly?: boolean;
   /** Enable label+description layout in the collapsed trigger. */
   withDescription?: boolean;
+  /**
+   * Use grid-based layout so the trigger text truncates with an ellipsis
+   * when the dropdown is constrained in width.
+   * @default true
+   */
+  truncate?: boolean;
   /** Controls whether options reserve space for a leading selection checkmark. */
   selectionIndicator?: VscSelectionIndicator;
 };
@@ -81,33 +105,58 @@ export const VscDropdown = forwardRef<HTMLButtonElement, VscDropdownProps>(
       validationState,
       readOnly,
       withDescription,
+      truncate = true,
       selectionIndicator = 'none',
       size,
       className,
       disabled,
       listbox,
+      button,
+      value,
+      placeholder,
       ...rest
     },
     ref,
   ) => {
     const listboxObj = resolveListbox(listbox);
+    const buttonObj = resolveButtonSlot(button);
     const styles = useVscDropdownStyles({
       validationState,
       readOnly,
       withDescription,
+      truncate,
       selectionIndicator,
       size,
       disabled,
       className,
       listboxClassName: listboxObj.className as string | undefined,
     });
+    const buttonChildren = buttonObj.children as ReactNode;
+    const triggerText = buttonChildren ?? value ?? placeholder;
+    const canWrapTriggerText =
+      typeof triggerText === 'string' || typeof triggerText === 'number';
+    const buttonSlot =
+      truncate &&
+      !withDescription &&
+      triggerText !== undefined &&
+      canWrapTriggerText
+        ? {
+            ...buttonObj,
+            children: (
+              <span className={styles.triggerTextClassName}>{triggerText}</span>
+            ),
+          }
+        : button;
 
     return (
       <Dropdown
         ref={ref}
         size={size}
         disabled={disabled}
+        value={value}
+        placeholder={placeholder}
         className={styles.rootClassName}
+        button={buttonSlot}
         listbox={{
           ...listboxObj,
           className: styles.listboxClassName,
