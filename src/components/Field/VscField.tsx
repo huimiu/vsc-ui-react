@@ -72,7 +72,7 @@ export const VscField = forwardRef<HTMLDivElement, VscFieldProps>(
     ) : undefined;
 
     const fluentValidationState =
-      validationState === 'info' ? undefined : validationState;
+      validationState === 'info' ? 'none' : validationState;
 
     return (
       <Field
