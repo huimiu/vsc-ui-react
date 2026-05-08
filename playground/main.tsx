@@ -30,6 +30,7 @@ import {
   VscTabList,
   VscTab,
   VscCheckbox,
+  VscLabel,
 } from '../src';
 import type { VscInputValidationState, VscValidationState } from '../src';
 
@@ -1203,6 +1204,74 @@ function MenuSection() {
   );
 }
 
+const LABEL_COLUMNS = [
+  { key: 'regular', label: 'Regular' },
+  { key: 'semibold', label: 'Semibold' },
+  { key: 'required', label: 'Required' },
+  { key: 'required-info', label: 'Required + Info' },
+];
+
+function LabelSection() {
+  return (
+    <section style={sectionStyle}>
+      <h2 style={headerStyle}>VscLabel</h2>
+      <h3 style={headerStyle}>Enabled</h3>
+      <Matrix
+        rows={CONTROL_SIZE_ROWS}
+        columns={LABEL_COLUMNS}
+        columnWidthMode="content"
+        cellRender={(row, col) => {
+          const size = row as 'small' | 'medium' | 'large';
+          const weight =
+            col === 'semibold' || col === 'required-info'
+              ? 'semibold'
+              : 'regular';
+          const required = col === 'required' || col === 'required-info';
+          const tooltipContent =
+            col === 'required-info' ? 'Help text' : undefined;
+          return (
+            <VscLabel
+              size={size}
+              weight={weight}
+              required={required}
+              tooltipContent={tooltipContent}
+            >
+              Label
+            </VscLabel>
+          );
+        }}
+      />
+      <h3 style={headerStyle}>Disabled</h3>
+      <Matrix
+        rows={CONTROL_SIZE_ROWS}
+        columns={LABEL_COLUMNS}
+        columnWidthMode="content"
+        cellRender={(row, col) => {
+          const size = row as 'small' | 'medium' | 'large';
+          const weight =
+            col === 'semibold' || col === 'required-info'
+              ? 'semibold'
+              : 'regular';
+          const required = col === 'required' || col === 'required-info';
+          const tooltipContent =
+            col === 'required-info' ? 'Help text' : undefined;
+          return (
+            <VscLabel
+              size={size}
+              weight={weight}
+              disabled
+              required={required}
+              tooltipContent={tooltipContent}
+            >
+              Label
+            </VscLabel>
+          );
+        }}
+      />
+    </section>
+  );
+}
+
 function TabListSection() {
   return (
     <section style={sectionStyle}>
@@ -1458,6 +1527,7 @@ function Playground() {
           <SearchBoxSection />
           <DropdownSection />
           <FieldSection />
+          <LabelSection />
           <MenuSection />
           <TabListSection />
           <LiveHoverDemo />

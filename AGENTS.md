@@ -227,12 +227,12 @@ This ensures all code committed to the repo is lint-clean, well-formatted, type-
 
 ## Tech Stack Quick Reference
 
-| Concern           | Tool                                                              |
-| ----------------- | ----------------------------------------------------------------- |
-| UI framework      | React 18/19                                                       |
-| Component library | Fluent UI React v9 (`@fluentui/react-components`)                 |
-| CSS-in-JS         | Griffel (via Fluent's `makeStyles`, `mergeClasses`, `shorthands`) |
+| Concern           | Tool                                                                        |
+| ----------------- | --------------------------------------------------------------------------- |
+| UI framework      | React 18/19                                                                 |
+| Component library | Fluent UI React v9 (`@fluentui/react-components`)                           |
+| CSS-in-JS         | Griffel (via Fluent's `makeStyles`, `mergeClasses`, `shorthands`)           |
 | Icons             | Codicon (`@vscode/codicons`) preferred, fallback to `@fluentui/react-icons` |
-| Build             | Vite (library mode) + TypeScript declaration emit                 |
-| Test              | Vitest + happy-dom + @testing-library/react + jest-dom            |
-| Lint              | ESLint 9 flat config + Prettier                                   |
+| Build             | Vite (library mode) + TypeScript declaration emit                           |
+| Test              | Vitest + happy-dom + @testing-library/react + jest-dom                      |
+| Lint              | ESLint 9 flat config + Prettier                                             |
