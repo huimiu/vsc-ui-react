@@ -29,6 +29,7 @@ import {
   VscMenuGroupHeader,
   VscTabList,
   VscTab,
+  VscCheckbox,
 } from '../src';
 import type { VscInputValidationState, VscValidationState } from '../src';
 
@@ -68,12 +69,16 @@ function Matrix({
   columns,
   rowLabelWidth = 140,
   columnWidthMode = 'fill',
+  rowGap,
+  columnGap,
   cellRender,
 }: {
   rows: { key: string; label: string }[];
   columns: { key: string; label: string; className?: string }[];
   rowLabelWidth?: number;
   columnWidthMode?: 'fill' | 'content';
+  rowGap?: number;
+  columnGap?: number;
   cellRender: (rowKey: string, columnKey: string) => React.ReactNode;
 }) {
   const columnTemplate =
@@ -84,7 +89,8 @@ function Matrix({
   const gridStyle: React.CSSProperties = {
     display: 'grid',
     gridTemplateColumns: columnTemplate,
-    gap: 12,
+    columnGap: columnGap ?? 12,
+    rowGap: rowGap ?? 12,
     alignItems: 'center',
   };
   return (
@@ -194,6 +200,25 @@ const FIELD_VALIDATION_ROWS = [
   { key: 'error', label: 'Error' },
   { key: 'warning', label: 'Warning' },
   { key: 'info', label: 'Info' },
+];
+
+const CHECKBOX_STATE_ROWS = [
+  { key: 'unchecked', label: 'Unchecked' },
+  { key: 'checked', label: 'Checked' },
+  { key: 'mixed', label: 'Mixed' },
+];
+
+const CHECKBOX_SIZE_ROWS = [
+  { key: 'large', label: 'Large' },
+  { key: 'medium', label: 'Medium' },
+  { key: 'small', label: 'Small' },
+];
+
+const CHECKBOX_COLUMNS = [
+  { key: 'default', label: 'Default' },
+  { key: 'hover', label: 'Hover', className: 'vsc-force-hover' },
+  { key: 'focus', label: 'Focus', className: 'vsc-force-focus' },
+  { key: 'disabled', label: 'Disabled' },
 ];
 
 const CONTROL_SIZE_ROWS = [
@@ -553,6 +578,48 @@ function SplitButtonSection() {
           return <VscSplitButton {...props} />;
         }}
       />
+    </section>
+  );
+}
+
+function CheckboxSection() {
+  return (
+    <section style={sectionStyle}>
+      <h2 style={headerStyle}>VscCheckbox</h2>
+      {CHECKBOX_SIZE_ROWS.map((sizeRow) => (
+        <React.Fragment key={sizeRow.key}>
+          <h3 style={headerStyle}>{sizeRow.label}</h3>
+          <Matrix
+            rows={CHECKBOX_STATE_ROWS}
+            columns={CHECKBOX_COLUMNS}
+            columnWidthMode="content"
+            rowLabelWidth={100}
+            rowGap={24}
+            columnGap={28}
+            cellRender={(row, col) => {
+              const checked =
+                row === 'checked'
+                  ? true
+                  : row === 'mixed'
+                    ? ('mixed' as const)
+                    : false;
+              const size =
+                sizeRow.key === 'small'
+                  ? 'medium'
+                  : (sizeRow.key as 'medium' | 'large');
+              return (
+                <VscCheckbox
+                  label="Label"
+                  size={size}
+                  checked={checked}
+                  disabled={col === 'disabled'}
+                  onChange={() => {}}
+                />
+              );
+            }}
+          />
+        </React.Fragment>
+      ))}
     </section>
   );
 }
@@ -1385,6 +1452,7 @@ function Playground() {
           <ButtonSection />
           <MenuButtonSection />
           <SplitButtonSection />
+          <CheckboxSection />
           <InputSection />
           <TextareaSection />
           <SearchBoxSection />

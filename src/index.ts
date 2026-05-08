@@ -83,3 +83,7 @@ export type {
 // TabList
 export { VscTabList, VscTab } from './components/TabList';
 export type { VscTabListProps, VscTabProps } from './components/TabList';
+
+// Checkbox
+export { VscCheckbox } from './components/Checkbox';
+export type { VscCheckboxProps } from './components/Checkbox';

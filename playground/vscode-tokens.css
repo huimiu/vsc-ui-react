@@ -110,6 +110,14 @@
   --vscode-scrollbarSlider-background: rgba(121, 121, 121, 0.4);
   --vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
   --vscode-scrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+
+  /* Checkbox */
+  --vscode-checkbox-background: transparent;
+  --vscode-checkbox-foreground: #f0f0f0;
+  --vscode-checkbox-border: #f0f0f0;
+  --vscode-checkbox-selectBackground: #0078d4;
+  --vscode-checkbox-selectBorder: #0078d4;
+  --vscode-checkbox-selectForeground: #242424;
 }
 
 :root.theme-light {
@@ -196,6 +204,14 @@
   --vscode-scrollbarSlider-background: rgba(100, 100, 100, 0.4);
   --vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
   --vscode-scrollbarSlider-activeBackground: rgba(0, 0, 0, 0.6);
+
+  /* Checkbox */
+  --vscode-checkbox-background: #ffffff;
+  --vscode-checkbox-foreground: #3b3b3b;
+  --vscode-checkbox-border: #3b3b3b;
+  --vscode-checkbox-selectBackground: #005fb8;
+  --vscode-checkbox-selectBorder: #005fb8;
+  --vscode-checkbox-selectForeground: #ffffff;
 }
 
 html,
@@ -295,6 +311,12 @@ body {
   border-color: var(--vscode-focusBorder) !important;
   outline: 1px solid var(--vscode-focusBorder) !important;
   outline-offset: -1px !important;
+}
+
+.vsc-force-focus .fui-Checkbox {
+  outline: 1px solid var(--vscode-focusBorder) !important;
+  outline-offset: 6px !important;
+  border-radius: 4px !important;
 }
 
 /*
