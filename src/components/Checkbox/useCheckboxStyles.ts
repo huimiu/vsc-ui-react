@@ -111,6 +111,20 @@ const useStyles = makeStyles({
     pointerEvents: 'none',
   },
 
+  small: {
+    '& .fui-Checkbox__indicator.fui-Checkbox__indicator': {
+      width: '14px',
+      height: '14px',
+      fontSize: '14px',
+      marginInlineEnd: '4px',
+    },
+
+    '& .fui-Checkbox__label': {
+      fontSize: 'var(--fontSizeBase100, 11px)',
+      lineHeight: 'var(--lineHeightBase100, 14px)',
+    },
+  },
+
   large: {
     '& .fui-Checkbox__indicator.fui-Checkbox__indicator': {
       width: '20px',
@@ -126,7 +140,7 @@ const useStyles = makeStyles({
 // ---------------------------------------------------------------------------
 
 export interface UseCheckboxStylesOptions {
-  size?: 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   className?: string;
 }
@@ -138,6 +152,7 @@ export function useCheckboxStyles(options: UseCheckboxStylesOptions) {
 
   const rootClassName = mergeClasses(
     base.root,
+    size === 'small' && classes.small,
     size === 'large' && classes.large,
     disabled && classes.disabled,
     className,

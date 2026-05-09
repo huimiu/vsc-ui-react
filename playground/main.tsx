@@ -604,10 +604,7 @@ function CheckboxSection() {
                   : row === 'mixed'
                     ? ('mixed' as const)
                     : false;
-              const size =
-                sizeRow.key === 'small'
-                  ? 'medium'
-                  : (sizeRow.key as 'medium' | 'large');
+              const size = sizeRow.key as 'small' | 'medium' | 'large';
               return (
                 <VscCheckbox
                   label="Label"
