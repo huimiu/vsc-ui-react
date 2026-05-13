@@ -19,7 +19,7 @@ import {
   VscMenuList,
   VscMenuItem,
 } from '../Menu';
-import { Section, Row, Inline } from '../../stories/helpers';
+import { Section, Row, Inline } from '../../stories/helpers/helpers';
 
 const meta = {
   title: 'Components/Button',

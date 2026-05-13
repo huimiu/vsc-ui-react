@@ -8,7 +8,7 @@ import {
   VscOption,
   VscOptionGroup,
 } from '.';
-import { Section, Row, Inline } from '../../stories/helpers';
+import { Section, Row, Inline } from '../../stories/helpers/helpers';
 
 const meta: Meta<typeof VscDropdown> = {
   title: 'Components/Dropdown',

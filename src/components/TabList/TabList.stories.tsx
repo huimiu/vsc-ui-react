@@ -7,7 +7,7 @@ import {
   PuzzlePieceRegular,
 } from '@fluentui/react-icons';
 import { VscTabList, VscTab } from '.';
-import { Section } from '../../stories/helpers';
+import { Section } from '../../stories/helpers/helpers';
 
 const meta: Meta<typeof VscTabList> = {
   title: 'Components/TabList',

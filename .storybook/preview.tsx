@@ -69,6 +69,7 @@ const preview: Preview = {
           'Design Language',
           ['Typography', 'Colors'],
           'Components',
+          'Examples',
         ],
       },
     },

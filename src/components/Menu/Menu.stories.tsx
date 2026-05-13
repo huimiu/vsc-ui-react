@@ -25,7 +25,7 @@ import {
   VscMenuGroup,
   VscMenuGroupHeader,
 } from '.';
-import { Section } from '../../stories/helpers';
+import { Section } from '../../stories/helpers/helpers';
 
 const meta: Meta = {
   title: 'Components/Menu',

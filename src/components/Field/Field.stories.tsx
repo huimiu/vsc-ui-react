@@ -4,7 +4,7 @@ import { VscField } from '.';
 import { VscInput } from '../Input';
 import { VscTextarea } from '../Textarea';
 import { VscDropdown, VscOption } from '../Dropdown';
-import { Section } from '../../stories/helpers';
+import { Section } from '../../stories/helpers/helpers';
 
 const meta: Meta<typeof VscField> = {
   title: 'Components/Field',

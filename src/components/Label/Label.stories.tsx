@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscLabel } from '.';
-import { Section, Row, Inline } from '../../stories/helpers';
+import { Section, Row, Inline } from '../../stories/helpers/helpers';
 
 const meta: Meta<typeof VscLabel> = {
   title: 'Components/Label',
