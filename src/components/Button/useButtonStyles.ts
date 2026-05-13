@@ -81,10 +81,6 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-hoverBackground)',
       color: 'var(--vscode-button-foreground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-button-foreground)',
-      },
     },
   },
 
@@ -99,10 +95,6 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-button-secondaryForeground)',
-      },
     },
   },
 
@@ -117,10 +109,6 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-button-secondaryForeground)',
-      },
     },
   },
 
@@ -135,19 +123,11 @@ const useAppearanceStyles = makeStyles({
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
       ...shorthands.borderColor('var(--vscode-button-border)'),
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-button-secondaryForeground)',
-      },
     },
 
     ':active': {
       backgroundColor: 'var(--vscode-button-secondaryHoverBackground)',
       color: 'var(--vscode-button-secondaryForeground)',
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-button-secondaryForeground)',
-      },
     },
   },
 
@@ -161,10 +141,6 @@ const useAppearanceStyles = makeStyles({
     ':hover': {
       backgroundColor: 'transparent',
       color: 'var(--vscode-textLink-foreground)',
-
-      '& .fui-Button__icon': {
-        color: 'var(--vscode-textLink-foreground)',
-      },
     },
   },
 });
