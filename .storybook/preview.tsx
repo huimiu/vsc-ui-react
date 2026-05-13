@@ -1,14 +1,12 @@
 import React from 'react';
 import type { Preview, Decorator } from '@storybook/react';
-import { themes } from '@storybook/theming';
 import { FluentProvider } from '@fluentui/react-components';
 
 /* ── Global CSS ─────────────────────────────────────────────────── */
-import '../.storybook-assets/theme-tokens.css';
-import '../.storybook-assets/storybook.css';
+import './theme-tokens.css';
 
 import { darkTheme, lightTheme } from './themes';
-import { DocsPage } from './DocsPage';
+import { DocsContainer } from './DocsContainer';
 import { ThemeEffect } from './ThemeEffect';
 
 /* ── FluentProvider decorator ───────────────────────────────────── */
@@ -57,12 +55,12 @@ const preview: Preview = {
   decorators: [withFluent],
   parameters: {
     layout: 'padded',
-    backgrounds: { disable: true },
-    controls: { disable: true },
+    backgrounds: { disabled: true },
+    controls: { expanded: true },
     docs: {
-      theme: themes.dark,
-      page: DocsPage,
+      container: DocsContainer,
       story: { inline: true, height: 'auto' },
+      source: { dark: true },
     },
     options: {
       storySort: {

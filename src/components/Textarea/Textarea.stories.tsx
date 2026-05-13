@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscTextarea } from '.';
 import { Section, Row, Inline } from '../../stories/helpers';
 
@@ -7,6 +7,14 @@ const meta: Meta<typeof VscTextarea> = {
   title: 'Components/Textarea',
   component: VscTextarea,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A multi-line text input with VS Code styling. Supports validation states, configurable resize behavior (none, vertical, horizontal, both), and read-only mode.',
+      },
+    },
+  },
 };
 
 export default meta;

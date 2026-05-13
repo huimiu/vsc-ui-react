@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscLabel } from '.';
 import { Section, Row, Inline } from '../../stories/helpers';
 
@@ -7,6 +7,14 @@ const meta: Meta<typeof VscLabel> = {
   title: 'Components/Label',
   component: VscLabel,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A standalone label with VS Code styling. Supports sizes, font weights, required indicator, and an optional info tooltip icon. For form fields, prefer `VscField` which includes a label automatically.',
+      },
+    },
+  },
 };
 
 export default meta;

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   CutRegular,
   CopyRegular,
@@ -30,6 +30,14 @@ import { Section } from '../../stories/helpers';
 const meta: Meta = {
   title: 'Components/Menu',
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'Context menu and dropdown menu components styled to match VS Code. Includes `VscMenuItem`, `VscMenuItemCheckbox`, `VscMenuItemRadio`, `VscMenuDivider`, `VscMenuGroup`, and `VscMenuGroupHeader`. Wraps Fluent\'s `Menu` and `MenuTrigger` for positioning.',
+      },
+    },
+  },
 };
 
 export default meta;

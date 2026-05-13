@@ -1,5 +1,6 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { fn } from 'storybook/test';
 import {
   AddRegular,
   ArrowSyncRegular,
@@ -20,30 +21,57 @@ import {
 } from '../Menu';
 import { Section, Row, Inline } from '../../stories/helpers';
 
-const meta: Meta<typeof VscButton> = {
+const meta = {
   title: 'Components/Button',
   component: VscButton,
   tags: ['autodocs'],
-};
+  args: {
+    onClick: fn(),
+  },
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A button styled to match VS Code. Supports five appearances (primary, secondary, outline, subtle, transparent), three sizes, and optional leading icons. Also available as `VscSplitButton` and `VscMenuButton` variants.',
+      },
+    },
+  },
+} satisfies Meta<typeof VscButton>;
 
 export default meta;
-type Story = StoryObj<typeof VscButton>;
+type Story = StoryObj<typeof meta>;
 
-/* ── Standard Buttons ────────────────────────────────────────────── */
+/* ── Default ─────────────────────────────────────────────────────── */
+
+export const Default: Story = {
+  args: {
+    children: 'Default',
+  },
+};
+
+/* ── Primary ─────────────────────────────────────────────────────── */
+
+export const Primary: Story = {
+  args: {
+    children: 'Primary',
+    appearance: 'primary',
+  },
+};
+
+/* ── All Appearances ─────────────────────────────────────────────── */
 
 export const AllAppearances: Story = {
-  name: 'All Appearances',
-  render: () => (
+  render: (args) => (
     <Section
       title="Button Appearances"
       description="All five button appearances at default size."
     >
       <Row>
-        <VscButton appearance="primary">Primary</VscButton>
-        <VscButton appearance="secondary">Secondary</VscButton>
-        <VscButton appearance="outline">Outline</VscButton>
-        <VscButton appearance="subtle">Subtle</VscButton>
-        <VscButton appearance="transparent">Transparent</VscButton>
+        <VscButton {...args} appearance="primary">Primary</VscButton>
+        <VscButton {...args} appearance="secondary">Secondary</VscButton>
+        <VscButton {...args} appearance="outline">Outline</VscButton>
+        <VscButton {...args} appearance="subtle">Subtle</VscButton>
+        <VscButton {...args} appearance="transparent">Transparent</VscButton>
       </Row>
     </Section>
   ),
@@ -52,31 +80,30 @@ export const AllAppearances: Story = {
 /* ── Sizes ───────────────────────────────────────────────────────── */
 
 export const Sizes: Story = {
-  name: 'Sizes',
-  render: () => (
+  render: (args) => (
     <>
       <Section title="Medium (default)">
         <Row>
-          <VscButton appearance="primary">Medium</VscButton>
-          <VscButton appearance="secondary">Medium</VscButton>
+          <VscButton {...args} appearance="primary">Medium</VscButton>
+          <VscButton {...args} appearance="secondary">Medium</VscButton>
         </Row>
       </Section>
       <Section title="Small">
         <Row>
-          <VscButton appearance="primary" size="small">
+          <VscButton {...args} appearance="primary" size="small">
             Small
           </VscButton>
-          <VscButton appearance="secondary" size="small">
+          <VscButton {...args} appearance="secondary" size="small">
             Small
           </VscButton>
         </Row>
       </Section>
       <Section title="Compact">
         <Row>
-          <VscButton appearance="primary" size="compact">
+          <VscButton {...args} appearance="primary" size="compact">
             Compact
           </VscButton>
-          <VscButton appearance="secondary" size="compact">
+          <VscButton {...args} appearance="secondary" size="compact">
             Compact
           </VscButton>
         </Row>
@@ -88,23 +115,22 @@ export const Sizes: Story = {
 /* ── Icon + Text ─────────────────────────────────────────────────── */
 
 export const WithIcons: Story = {
-  name: 'With Icons',
-  render: () => (
+  render: (args) => (
     <Section title="Icon + Text" description="Buttons with leading icons.">
       <Row>
-        <VscButton appearance="primary" icon={<AddRegular />}>
+        <VscButton {...args} appearance="primary" icon={<AddRegular />}>
           New File
         </VscButton>
-        <VscButton appearance="secondary" icon={<FolderOpenRegular />}>
+        <VscButton {...args} appearance="secondary" icon={<FolderOpenRegular />}>
           Open Folder
         </VscButton>
-        <VscButton appearance="outline" icon={<InfoRegular />}>
+        <VscButton {...args} appearance="outline" icon={<InfoRegular />}>
           Info
         </VscButton>
-        <VscButton appearance="subtle" icon={<EditRegular />}>
+        <VscButton {...args} appearance="subtle" icon={<EditRegular />}>
           Edit
         </VscButton>
-        <VscButton appearance="transparent" icon={<ArrowSyncRegular />}>
+        <VscButton {...args} appearance="transparent" icon={<ArrowSyncRegular />}>
           Refresh
         </VscButton>
       </Row>
@@ -115,12 +141,12 @@ export const WithIcons: Story = {
 /* ── Icon Only ───────────────────────────────────────────────────── */
 
 export const IconOnly: Story = {
-  name: 'Icon Only',
-  render: () => (
+  render: (args) => (
     <Section title="Icon-Only Buttons">
       <Row>
         <Inline label="Primary">
           <VscButton
+            {...args}
             appearance="primary"
             icon={<AddRegular />}
             aria-label="Add"
@@ -128,6 +154,7 @@ export const IconOnly: Story = {
         </Inline>
         <Inline label="Secondary">
           <VscButton
+            {...args}
             appearance="secondary"
             icon={<FolderOpenRegular />}
             aria-label="Open folder"
@@ -135,6 +162,7 @@ export const IconOnly: Story = {
         </Inline>
         <Inline label="Subtle">
           <VscButton
+            {...args}
             appearance="subtle"
             icon={<EditRegular />}
             aria-label="Edit"
@@ -142,6 +170,7 @@ export const IconOnly: Story = {
         </Inline>
         <Inline label="Transparent">
           <VscButton
+            {...args}
             appearance="transparent"
             icon={<ArrowSyncRegular />}
             aria-label="Refresh"
@@ -155,23 +184,22 @@ export const IconOnly: Story = {
 /* ── Disabled ────────────────────────────────────────────────────── */
 
 export const Disabled: Story = {
-  name: 'Disabled',
-  render: () => (
+  render: (args) => (
     <Section title="Disabled Buttons">
       <Row>
-        <VscButton appearance="primary" disabled>
+        <VscButton {...args} appearance="primary" disabled>
           Primary
         </VscButton>
-        <VscButton appearance="secondary" disabled>
+        <VscButton {...args} appearance="secondary" disabled>
           Secondary
         </VscButton>
-        <VscButton appearance="outline" disabled>
+        <VscButton {...args} appearance="outline" disabled>
           Outline
         </VscButton>
-        <VscButton appearance="subtle" disabled>
+        <VscButton {...args} appearance="subtle" disabled>
           Subtle
         </VscButton>
-        <VscButton appearance="transparent" disabled>
+        <VscButton {...args} appearance="transparent" disabled>
           Transparent
         </VscButton>
       </Row>

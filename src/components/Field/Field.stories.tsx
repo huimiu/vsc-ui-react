@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscField } from '.';
 import { VscInput } from '../Input';
 import { VscTextarea } from '../Textarea';
@@ -10,6 +10,14 @@ const meta: Meta<typeof VscField> = {
   title: 'Components/Field',
   component: VscField,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A form field wrapper that provides a label, optional info tooltip, required indicator, and validation message for any child input. Pairs with `VscInput`, `VscTextarea`, and `VscDropdown`.',
+      },
+    },
+  },
 };
 
 export default meta;

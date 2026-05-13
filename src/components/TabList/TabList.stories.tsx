@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   SettingsRegular,
   CodeRegular,
@@ -13,6 +13,14 @@ const meta: Meta<typeof VscTabList> = {
   title: 'Components/TabList',
   component: VscTabList,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A tab strip container styled to match VS Code panels and editors. Supports horizontal and vertical orientations, two sizes (default 28px, small 22px), and optional icons. Use with `VscTab`.',
+      },
+    },
+  },
 };
 
 export default meta;

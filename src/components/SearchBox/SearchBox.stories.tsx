@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscSearchBox } from '.';
 import { Section, Row, Inline } from '../../stories/helpers';
 
@@ -7,6 +7,14 @@ const meta: Meta<typeof VscSearchBox> = {
   title: 'Components/SearchBox',
   component: VscSearchBox,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A search-specific input with a built-in search icon and dismiss action, styled to match VS Code. Defaults to `small` size.',
+      },
+    },
+  },
 };
 
 export default meta;

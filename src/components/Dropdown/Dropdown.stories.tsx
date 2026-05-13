@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscField } from '../Field';
 import {
   VscDropdown,
@@ -14,6 +14,14 @@ const meta: Meta<typeof VscDropdown> = {
   title: 'Components/Dropdown',
   component: VscDropdown,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A select-style dropdown with VS Code styling. This family also includes `VscCombobox` (editable with filtering), `VscListbox` (inline list), and supporting primitives like `VscOption`, `VscOptionGroup`, and `VscOptionSeparator`.',
+      },
+    },
+  },
 };
 
 export default meta;

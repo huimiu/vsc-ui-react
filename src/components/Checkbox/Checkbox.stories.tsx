@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { VscCheckbox } from '.';
 import { Section, Row, Inline } from '../../stories/helpers';
 
@@ -7,6 +7,14 @@ const meta: Meta<typeof VscCheckbox> = {
   title: 'Components/Checkbox',
   component: VscCheckbox,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A checkbox with VS Code styling. Supports three sizes, mixed/indeterminate state, and optional label text.',
+      },
+    },
+  },
 };
 
 export default meta;

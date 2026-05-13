@@ -1,13 +1,15 @@
 import React from 'react';
-import { Title, Stories } from '@storybook/blocks';
+import { Title, Description, Primary, Stories, ArgTypes } from '@storybook/addon-docs/blocks';
 
 /**
- * Custom Docs page — shows only title + all stories as an overview.
- * Removes the duplicate "Primary" hero block and the Controls table.
+ * Custom Docs page — shows title, description, primary story, args table, and all stories.
  */
 export const DocsPage = () => (
   <>
     <Title />
-    <Stories includePrimary />
+    <Description />
+    <Primary />
+    <ArgTypes />
+    <Stories />
   </>
 );

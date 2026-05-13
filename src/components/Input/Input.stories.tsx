@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 import { SearchRegular } from '@fluentui/react-icons';
 import { VscInput } from '.';
 import { Section, Row, Inline } from '../../stories/helpers';
@@ -8,6 +8,14 @@ const meta: Meta<typeof VscInput> = {
   title: 'Components/Input',
   component: VscInput,
   tags: ['autodocs'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A single-line text input with VS Code styling. Supports validation states (error, warning), inline validation messages, icon slots via `contentBefore`/`contentAfter`, and three sizes.',
+      },
+    },
+  },
 };
 
 export default meta;

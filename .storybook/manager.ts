@@ -1,6 +1,6 @@
-import { addons } from '@storybook/manager-api';
-import { themes } from '@storybook/theming';
-import { GLOBALS_UPDATED } from '@storybook/core-events';
+import { addons } from 'storybook/manager-api';
+import { themes } from 'storybook/theming';
+import { GLOBALS_UPDATED } from 'storybook/internal/core-events';
 
 /* Default to dark */
 addons.setConfig({ theme: themes.dark });
